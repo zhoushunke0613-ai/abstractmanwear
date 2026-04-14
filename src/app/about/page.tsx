@@ -9,7 +9,7 @@ export default function AboutPage() {
       <PageIntro
         eyebrow="About"
         title="About Our Company"
-        subtitle="[Company positioning statement — who we are and what we stand for]"
+        lede="[Company positioning statement — who we are and what we stand for]"
       />
 
       {/* 2. Company Introduction */}

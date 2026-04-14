@@ -54,7 +54,7 @@ export default function ProductsPage() {
       <PageIntro
         eyebrow="Products"
         title="Products Overview"
-        subtitle="[Product positioning statement — what makes our product range unique, and who we serve]"
+        lede="[Product positioning statement — what makes our product range unique, and who we serve]"
       />
 
       {/* 2. Product Categories */}
@@ -125,7 +125,7 @@ export default function ProductsPage() {
           <SectionHeader
             eyebrow="Materials"
             title="Fabric & Material Options"
-            subtitle="[Brief intro to our fabric sourcing and options]"
+            lede="[Brief intro to our fabric sourcing and options]"
           />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
@@ -152,7 +152,7 @@ export default function ProductsPage() {
           <SectionHeader
             eyebrow="Customization"
             title="What You Can Customize"
-            subtitle="[Overview of customization scope for brands]"
+            lede="[Overview of customization scope for brands]"
           />
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
             {[

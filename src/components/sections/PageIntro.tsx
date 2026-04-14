@@ -1,10 +1,12 @@
 interface PageIntroProps {
-  chapter: string;
+  eyebrow: string;
   title: string;
   lede?: string;
+  subtitle?: string;
 }
 
-export default function PageIntro({ chapter, title, lede }: PageIntroProps) {
+export default function PageIntro({ eyebrow, title, lede, subtitle }: PageIntroProps) {
+  const body = lede ?? subtitle;
   return (
     <section className="pt-48 lg:pt-56 pb-24 lg:pb-32 border-b border-[var(--color-rule)]">
       <div className="max-w-[1440px] mx-auto px-8 lg:px-16">
@@ -14,7 +16,7 @@ export default function PageIntro({ chapter, title, lede }: PageIntroProps) {
               Chapter
             </p>
             <p className="font-display text-5xl text-[var(--color-ink)] mt-1">
-              {chapter}
+              {eyebrow}
             </p>
           </div>
           <div className="col-span-12 lg:col-span-10">
@@ -23,11 +25,11 @@ export default function PageIntro({ chapter, title, lede }: PageIntroProps) {
             </h1>
           </div>
         </div>
-        {lede && (
+        {body && (
           <div className="grid grid-cols-12 gap-8 mt-16">
             <div className="col-span-12 lg:col-span-6 lg:col-start-3">
               <p className="text-[var(--color-ink-soft)] text-lg lg:text-xl font-light leading-[1.5] max-w-[55ch]">
-                {lede}
+                {body}
               </p>
             </div>
           </div>

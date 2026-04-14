@@ -60,7 +60,7 @@ export default function FAQPage() {
       <PageIntro
         eyebrow="Support"
         title="Frequently Asked Questions"
-        subtitle="[Business inquiry support note — we answer your pre-cooperation questions here]"
+        lede="[Business inquiry support note — we answer your pre-cooperation questions here]"
       />
 
       {/* 2-7. FAQ Groups */}

@@ -9,7 +9,7 @@ export default function ServicesPage() {
       <PageIntro
         eyebrow="Services"
         title="Services Overview"
-        subtitle="[Services overview + cooperation models — OEM, ODM, Private Label]"
+        lede="[Services overview + cooperation models — OEM, ODM, Private Label]"
       />
 
       {/* 2. OEM Manufacturing */}

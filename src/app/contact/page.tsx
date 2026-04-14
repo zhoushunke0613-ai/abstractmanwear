@@ -8,7 +8,7 @@ export default function ContactPage() {
       <PageIntro
         eyebrow="Contact"
         title="Start Your OEM/ODM Project"
-        subtitle="[Reach out for product inquiries, quotation requests, or cooperation discussions]"
+        lede="[Reach out for product inquiries, quotation requests, or cooperation discussions]"
       />
 
       {/* 2. Business Contact Information */}
@@ -38,7 +38,7 @@ export default function ContactPage() {
           <SectionHeader
             eyebrow="Inquiry Form"
             title="Send Your Requirements"
-            subtitle="[The more detail you provide, the faster we can respond with a meaningful quotation]"
+            lede="[The more detail you provide, the faster we can respond with a meaningful quotation]"
           />
           <form className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
             {[

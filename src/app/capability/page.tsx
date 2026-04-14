@@ -9,7 +9,7 @@ export default function CapabilityPage() {
       <PageIntro
         eyebrow="Capability"
         title="Manufacturing Capability Overview"
-        subtitle="[Production & supply chain statement — scale, reliability, and expertise]"
+        lede="[Production & supply chain statement — scale, reliability, and expertise]"
       />
 
       {/* 2. Factory Overview */}
