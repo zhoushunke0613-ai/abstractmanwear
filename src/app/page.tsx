@@ -1,298 +1,332 @@
-"use client";
+import Link from "next/link";
+import CTASection from "@/components/sections/CTASection";
 
-import { useState } from "react";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import ProductCard from "@/components/ProductCard";
-import { Locale, t } from "@/lib/i18n";
-import { products, categories } from "@/data/products";
+const capabilities = [
+  { n: "01", title: "Product Development", body: "From reference sample or technical pack. Fit patterns, trims, and fabric sourcing matched to brief." },
+  { n: "02", title: "OEM Manufacturing", body: "Brand-specified production on calibrated lines. Output held to the standard of the tech pack." },
+  { n: "03", title: "ODM Development", body: "Original development from concept to production — our patterns, your brand." },
+  { n: "04", title: "Private Label", body: "Market-ready programs with waistband, label, and packaging branded to your identity." },
+  { n: "05", title: "Custom Packaging", body: "From basic poly bags to retail-ready hangsell and brand-experience boxing." },
+];
+
+const categories = [
+  { n: "01", name: "Boxer Briefs", note: "Modal, cotton, bamboo" },
+  { n: "02", name: "Trunks", note: "Short inseam, tailored fit" },
+  { n: "03", name: "Briefs", note: "Classical — combed cotton" },
+  { n: "04", name: "Seamless", note: "3D knit, no-shadow" },
+  { n: "05", name: "Modal Series", note: "Micro-modal, luxe hand" },
+  { n: "06", name: "Functional", note: "Moisture-wicking, sport" },
+];
+
+const process = [
+  { n: "I", title: "Inquiry", body: "Brief, volume, timing." },
+  { n: "II", title: "Review", body: "Requirements confirmed." },
+  { n: "III", title: "Sampling", body: "Fit and construction." },
+  { n: "IV", title: "Approval", body: "Sign-off on sealed sample." },
+  { n: "V", title: "Production", body: "Calibrated lines, in-line QC." },
+  { n: "VI", title: "Inspection & Ship", body: "Final AQL, needle detection, packing." },
+];
+
+const differentiators = [
+  "Specialised exclusively in men's underwear.",
+  "Stable supply of modal, cotton, and bamboo fabrics.",
+  "OEM, ODM, and private-label programs supported.",
+  "Multi-stage quality control to international norms.",
+  "Sampling room for rapid development iterations.",
+  "Flexible MOQs — from startup brands to wholesalers.",
+];
 
 export default function Home() {
-  const [locale, setLocale] = useState<Locale>("en");
-
-  const featuredProducts = products.filter((p) => p.featured);
-
   return (
     <>
-      <Header locale={locale} onLocaleChange={setLocale} />
+      {/* ———————————————————————————————————————————————— */}
+      {/* I. HERO                                              */}
+      {/* ———————————————————————————————————————————————— */}
+      <section className="relative pt-40 lg:pt-56 pb-24 lg:pb-32">
+        <div className="max-w-[1440px] mx-auto px-8 lg:px-16">
+          {/* Running head */}
+          <div className="flex items-baseline justify-between pb-8 border-b border-[var(--color-rule)] mb-16 lg:mb-24">
+            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-taupe)]">
+              Vol. I — The Manufactory
+            </p>
+            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-taupe)] hidden md:block">
+              Shenzhen&nbsp;·&nbsp;Guangdong
+            </p>
+          </div>
 
-      <main>
-        {/* Hero Section */}
-        <section
-          id="home"
-          className="min-h-screen flex items-center justify-center bg-white pt-20"
-        >
-          <div className="max-w-7xl mx-auto px-6 lg:px-12 w-full">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
-              {/* Text */}
-              <div>
-                <p className="text-xs tracking-[0.3em] uppercase text-[var(--muted)] mb-6">
-                  Abstract Manwear
-                </p>
-                <h1 className="text-4xl lg:text-6xl xl:text-7xl font-extralight leading-tight mb-8 tracking-tight">
-                  {t(locale, "hero.tagline")}
-                </h1>
-                <p className="text-[var(--muted)] text-base lg:text-lg leading-relaxed max-w-md mb-10">
-                  {t(locale, "hero.subtitle")}
-                </p>
-                <a
-                  href="#products"
-                  className="inline-block bg-[var(--foreground)] text-white text-sm tracking-wider px-8 py-4 hover:bg-[var(--foreground)]/90 transition-colors duration-300"
+          {/* Headline composition — asymmetric */}
+          <div className="grid grid-cols-12 gap-8 items-end rise-in" style={{ animationDelay: "50ms" }}>
+            <div className="col-span-12 lg:col-span-8">
+              <h1 className="font-display text-[clamp(3.5rem,12vw,12rem)] leading-[0.92] tracking-[-0.02em] text-[var(--color-ink)]">
+                Considered
+                <br />
+                essentials,
+                <br />
+                <span className="italic text-[var(--color-graphite)]">made to measure.</span>
+              </h1>
+            </div>
+            <div className="col-span-12 lg:col-span-4 flex flex-col gap-6 lg:pb-8">
+              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-taupe)]">
+                § Introducing
+              </p>
+              <p className="text-base lg:text-lg text-[var(--color-ink-soft)] leading-[1.55] max-w-[38ch]">
+                Abstract is a specialist manufactory producing men&apos;s underwear for international brands, wholesalers, and private-label partners — developed, sampled, and inspected under one roof.
+              </p>
+              <div className="flex gap-8 items-center mt-2">
+                <Link
+                  href="/contact"
+                  className="group inline-flex items-center gap-3 bg-[var(--color-ink)] text-[var(--color-paper)] px-8 py-4 text-sm"
                 >
-                  {t(locale, "hero.cta")}
-                </a>
-              </div>
-
-              {/* Hero Image Placeholder */}
-              <div className="aspect-[4/5] img-placeholder flex items-center justify-center">
-                <div className="text-center">
-                  <div className="w-24 h-24 mx-auto mb-4 border border-[var(--border)] rounded-full flex items-center justify-center">
-                    <span className="text-3xl font-extralight text-[var(--muted)]">A</span>
-                  </div>
-                  <p className="text-xs text-[var(--muted)] tracking-wider">Hero Image</p>
-                </div>
+                  <span>Request a quote</span>
+                  <span className="transition-transform duration-500 group-hover:translate-x-1">→</span>
+                </Link>
+                <Link href="/products" className="text-sm text-[var(--color-ink)] link-rule">
+                  View products
+                </Link>
               </div>
             </div>
           </div>
-        </section>
 
-        {/* Featured Products */}
-        <section id="products" className="py-24 lg:py-32 bg-white">
-          <div className="max-w-7xl mx-auto px-6 lg:px-12">
-            {/* Section Header */}
-            <div className="text-center mb-16 lg:mb-24">
-              <p className="text-xs tracking-[0.3em] uppercase text-[var(--muted)] mb-4">
-                Collection
+          {/* Hero figure — archival card instead of generic image */}
+          <div className="grid grid-cols-12 gap-8 mt-20 lg:mt-28 rise-in" style={{ animationDelay: "250ms" }}>
+            <div className="col-span-12 lg:col-span-8 lg:col-start-3">
+              <figure className="placeholder-plate aspect-[16/9] flex items-center justify-center">
+                <figcaption className="absolute top-6 left-6 font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-taupe)] z-10">
+                  Plate&nbsp;I — Atelier
+                </figcaption>
+                <div className="relative z-10 text-center px-8">
+                  <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-taupe)] mb-4">
+                    Image placeholder
+                  </p>
+                  <p className="font-display text-2xl lg:text-3xl text-[var(--color-ink-soft)] italic leading-tight max-w-[40ch] mx-auto">
+                    Wide shot of workroom — operators at the line, natural light, soft focus.
+                  </p>
+                  <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-graphite)]">
+                    Suggested ratio 16:9&nbsp;·&nbsp;≥ 2400 × 1350 px
+                  </p>
+                </div>
+                <p className="absolute bottom-6 right-6 font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-taupe)] z-10">
+                  1.1
+                </p>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ———————————————————————————————————————————————— */}
+      {/* II. TRUST BAR                                        */}
+      {/* ———————————————————————————————————————————————— */}
+      <section className="border-y border-[var(--color-rule)] bg-[var(--color-paper-warm)]">
+        <div className="max-w-[1440px] mx-auto px-8 lg:px-16">
+          <div className="grid grid-cols-2 md:grid-cols-5 divide-x divide-[var(--color-rule)]">
+            {[
+              { k: "ISO · BSCI", label: "Certifications" },
+              { k: "5 M", label: "Monthly capacity (pcs)" },
+              { k: "12,000 m²", label: "Facility area" },
+              { k: "480+", label: "Staff" },
+              { k: "OEM · ODM", label: "Cooperation modes" },
+            ].map((it, i) => (
+              <div key={it.label} className={`py-10 lg:py-14 ${i === 0 ? "pr-6 lg:pr-10" : "px-6 lg:px-10"}`}>
+                <p className="font-display text-2xl lg:text-4xl text-[var(--color-ink)] leading-none">
+                  {it.k}
+                </p>
+                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-taupe)] mt-3">
+                  {it.label}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ———————————————————————————————————————————————— */}
+      {/* III. CAPABILITIES — editorial list                   */}
+      {/* ———————————————————————————————————————————————— */}
+      <section className="py-32 lg:py-48">
+        <div className="max-w-[1440px] mx-auto px-8 lg:px-16">
+          <div className="grid grid-cols-12 gap-8 mb-20 pb-6 border-b border-[var(--color-rule)]">
+            <div className="col-span-12 lg:col-span-2">
+              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-taupe)]">
+                § II — Works
               </p>
-              <h2 className="text-3xl lg:text-5xl font-extralight tracking-tight mb-4">
-                {t(locale, "section.featured")}
+            </div>
+            <div className="col-span-12 lg:col-span-7">
+              <h2 className="font-display text-[clamp(2.5rem,5vw,4.5rem)] leading-[1.02] tracking-tight text-[var(--color-ink)]">
+                Five disciplines,
+                <br />
+                <span className="italic text-[var(--color-graphite)]">one manufactory.</span>
               </h2>
-              <p className="text-[var(--muted)] text-sm">
-                {t(locale, "section.featuredSub")}
+            </div>
+          </div>
+
+          <ol className="divide-y divide-[var(--color-rule)]">
+            {capabilities.map((cap) => (
+              <li key={cap.n} className="group grid grid-cols-12 gap-8 py-10 lg:py-12 items-baseline hover:bg-[var(--color-paper-warm)]/60 transition-colors duration-500 -mx-4 px-4">
+                <div className="col-span-2 lg:col-span-1">
+                  <span className="font-mono text-xs text-[var(--color-taupe)]">
+                    {cap.n}
+                  </span>
+                </div>
+                <div className="col-span-10 lg:col-span-4">
+                  <h3 className="font-display text-2xl lg:text-4xl text-[var(--color-ink)] leading-tight">
+                    {cap.title}
+                  </h3>
+                </div>
+                <div className="col-span-12 lg:col-span-6 lg:col-start-7">
+                  <p className="text-sm lg:text-base text-[var(--color-ink-soft)] leading-[1.6] max-w-[55ch]">
+                    {cap.body}
+                  </p>
+                </div>
+                <div className="col-span-12 lg:col-span-1 lg:col-start-12 text-right">
+                  <span className="inline-block text-[var(--color-taupe)] group-hover:text-[var(--color-terracotta)] group-hover:translate-x-1 transition-all duration-500">
+                    →
+                  </span>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      {/* ———————————————————————————————————————————————— */}
+      {/* IV. PRODUCT INDEX                                    */}
+      {/* ———————————————————————————————————————————————— */}
+      <section className="py-32 lg:py-48 border-t border-[var(--color-rule)]">
+        <div className="max-w-[1440px] mx-auto px-8 lg:px-16">
+          <div className="grid grid-cols-12 gap-8 mb-20 items-end">
+            <div className="col-span-12 lg:col-span-6">
+              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-taupe)] mb-6">
+                § III — Catalogue
+              </p>
+              <h2 className="font-display text-[clamp(2.5rem,6vw,5rem)] leading-[1] tracking-tight text-[var(--color-ink)]">
+                The essential index.
+              </h2>
+            </div>
+            <div className="col-span-12 lg:col-span-4 lg:col-start-9">
+              <p className="text-[var(--color-ink-soft)] text-base leading-[1.6] max-w-[40ch]">
+                Six primary categories, extensible by fabric, construction, and finish. Developed for wholesale programs and premium private-label lines.
               </p>
             </div>
+          </div>
 
-            {/* Category Filter */}
-            <div className="flex flex-wrap justify-center gap-6 mb-16">
-              {categories.map((cat) => (
-                <span
-                  key={cat.id}
-                  className="text-xs tracking-wider text-[var(--muted)] hover:text-[var(--foreground)] transition-colors cursor-pointer pb-1 border-b border-transparent hover:border-[var(--foreground)]"
-                >
-                  {cat.name[locale] || cat.name.en}
-                </span>
-              ))}
-            </div>
-
-            {/* Products Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
-              {featuredProducts.map((product) => (
-                <ProductCard
-                  key={product.id}
-                  product={product}
-                  locale={locale}
-                />
-              ))}
-            </div>
-
-            {/* Inquiry CTA */}
-            <div className="text-center mt-16">
-              <a
-                href="#contact"
-                className="inline-block border border-[var(--foreground)] text-sm tracking-wider px-8 py-4 hover:bg-[var(--foreground)] hover:text-white transition-all duration-300"
+          <div className="grid grid-cols-2 lg:grid-cols-6 gap-px bg-[var(--color-rule)] border border-[var(--color-rule)]">
+            {categories.map((c) => (
+              <Link
+                key={c.name}
+                href="/products"
+                className="group relative placeholder-plate aspect-[3/4] flex flex-col justify-between p-6 lg:p-8 transition-all duration-500 hover:bg-[var(--color-paper-warm)]/80"
               >
-                {t(locale, "products.inquiry")}
-              </a>
-            </div>
+                <span className="relative z-10 font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-taupe)]">
+                  {c.n}
+                </span>
+                <div className="relative z-10">
+                  <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-[var(--color-graphite)] mb-3 opacity-70">
+                    Product plate
+                  </p>
+                  <h3 className="font-display text-xl lg:text-2xl text-[var(--color-ink)] leading-tight">
+                    {c.name}
+                  </h3>
+                  <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.15em] text-[var(--color-taupe)]">
+                    {c.note}
+                  </p>
+                  <span className="mt-4 inline-block text-xs text-[var(--color-ink-soft)] opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    View →
+                  </span>
+                </div>
+              </Link>
+            ))}
           </div>
-        </section>
 
-        {/* Why Us */}
-        <section className="py-24 lg:py-32 bg-[var(--subtle-bg)]">
-          <div className="max-w-7xl mx-auto px-6 lg:px-12">
-            <div className="text-center mb-16 lg:mb-24">
-              <p className="text-xs tracking-[0.3em] uppercase text-[var(--muted)] mb-4">
-                Difference
+          <div className="mt-12 text-right">
+            <Link href="/products" className="text-sm text-[var(--color-ink)] link-rule">
+              Complete index&nbsp;→
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ———————————————————————————————————————————————— */}
+      {/* V. DIFFERENTIATORS — quiet text composition          */}
+      {/* ———————————————————————————————————————————————— */}
+      <section className="py-32 lg:py-48 bg-[var(--color-paper-warm)] border-y border-[var(--color-rule)]">
+        <div className="max-w-[1440px] mx-auto px-8 lg:px-16">
+          <div className="grid grid-cols-12 gap-8">
+            <div className="col-span-12 lg:col-span-3">
+              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-taupe)] mb-6">
+                § IV — Notes on craft
               </p>
-              <h2 className="text-3xl lg:text-5xl font-extralight tracking-tight mb-4">
-                {t(locale, "section.whyUs")}
-              </h2>
-              <p className="text-[var(--muted)] text-sm">
-                {t(locale, "section.whyUsSub")}
+              <p className="font-display text-3xl lg:text-4xl leading-tight text-[var(--color-ink)]">
+                Why Abstract.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16">
-              <div className="text-center">
-                <div className="w-16 h-16 mx-auto mb-6 border border-[var(--border)] rounded-full flex items-center justify-center">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
-                    <path d="M20 7L12 3L4 7M20 7L12 11M20 7V17L12 21M12 11L4 7M12 11V21M4 7V17L12 21" />
-                  </svg>
-                </div>
-                <h3 className="text-sm font-medium tracking-wide mb-3">
-                  {t(locale, "why.fabric")}
-                </h3>
-                <p className="text-xs text-[var(--muted)] leading-relaxed max-w-xs mx-auto">
-                  {t(locale, "why.fabricText")}
-                </p>
-              </div>
-
-              <div className="text-center">
-                <div className="w-16 h-16 mx-auto mb-6 border border-[var(--border)] rounded-full flex items-center justify-center">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
-                    <circle cx="12" cy="12" r="9" />
-                    <path d="M12 3C7 8 7 16 12 21C17 16 17 8 12 3Z" />
-                  </svg>
-                </div>
-                <h3 className="text-sm font-medium tracking-wide mb-3">
-                  {t(locale, "why.fit")}
-                </h3>
-                <p className="text-xs text-[var(--muted)] leading-relaxed max-w-xs mx-auto">
-                  {t(locale, "why.fitText")}
-                </p>
-              </div>
-
-              <div className="text-center">
-                <div className="w-16 h-16 mx-auto mb-6 border border-[var(--border)] rounded-full flex items-center justify-center">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
-                    <path d="M12 2L15 8.5L22 9.5L17 14.5L18 21.5L12 18.5L6 21.5L7 14.5L2 9.5L9 8.5L12 2Z" />
-                  </svg>
-                </div>
-                <h3 className="text-sm font-medium tracking-wide mb-3">
-                  {t(locale, "why.quality")}
-                </h3>
-                <p className="text-xs text-[var(--muted)] leading-relaxed max-w-xs mx-auto">
-                  {t(locale, "why.qualityText")}
-                </p>
-              </div>
-            </div>
+            <ul className="col-span-12 lg:col-span-9 lg:col-start-4 divide-y divide-[var(--color-rule)]">
+              {differentiators.map((line, i) => (
+                <li key={line} className="py-6 lg:py-8 flex items-baseline gap-8">
+                  <span className="font-mono text-[10px] text-[var(--color-taupe)] tabular-nums">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <p className="font-display text-2xl lg:text-[2.25rem] leading-tight text-[var(--color-ink)] max-w-[32ch]">
+                    {line}
+                  </p>
+                </li>
+              ))}
+            </ul>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* About */}
-        <section id="about" className="py-24 lg:py-32 bg-white">
-          <div className="max-w-7xl mx-auto px-6 lg:px-12">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-              <div className="aspect-[4/3] img-placeholder flex items-center justify-center order-2 lg:order-1">
-                <p className="text-xs text-[var(--muted)] tracking-wider">About Image</p>
-              </div>
-
-              <div className="order-1 lg:order-2">
-                <p className="text-xs tracking-[0.3em] uppercase text-[var(--muted)] mb-4">Story</p>
-                <h2 className="text-3xl lg:text-5xl font-extralight tracking-tight mb-8">
-                  {t(locale, "about.subtitle")}
-                </h2>
-                <p className="text-[var(--muted)] text-sm leading-relaxed mb-8">
-                  {t(locale, "about.story")}
-                </p>
-                <p className="text-[var(--muted)] text-sm leading-relaxed">
-                  {t(locale, "about.missionText")}
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Size Guide */}
-        <section id="size-guide" className="py-24 lg:py-32 bg-[var(--subtle-bg)]">
-          <div className="max-w-4xl mx-auto px-6 lg:px-12">
-            <div className="text-center mb-16">
-              <p className="text-xs tracking-[0.3em] uppercase text-[var(--muted)] mb-4">Fit</p>
-              <h2 className="text-3xl lg:text-5xl font-extralight tracking-tight mb-4">
-                {t(locale, "sizeGuide.title")}
+      {/* ———————————————————————————————————————————————— */}
+      {/* VI. PROCESS — roman numerals as design              */}
+      {/* ———————————————————————————————————————————————— */}
+      <section className="py-32 lg:py-48">
+        <div className="max-w-[1440px] mx-auto px-8 lg:px-16">
+          <div className="grid grid-cols-12 gap-8 mb-24">
+            <div className="col-span-12 lg:col-span-6 lg:col-start-4 text-center lg:text-left">
+              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-taupe)] mb-4">
+                § V — The passage from brief to ship
+              </p>
+              <h2 className="font-display text-[clamp(2.5rem,5vw,4.5rem)] leading-[1.05] tracking-tight text-[var(--color-ink)]">
+                <span className="italic text-[var(--color-graphite)]">Six</span> stages,
+                <br />
+                deliberately set.
               </h2>
-              <p className="text-[var(--muted)] text-sm">{t(locale, "sizeGuide.subtitle")}</p>
-            </div>
-
-            <div className="bg-white overflow-hidden">
-              <table className="w-full text-sm">
-                <thead>
-                  <tr className="border-b border-[var(--border)]">
-                    <th className="text-left px-6 py-4 font-medium tracking-wide text-xs uppercase">Size</th>
-                    <th className="text-left px-6 py-4 font-medium tracking-wide text-xs uppercase">{t(locale, "sizeGuide.waist")}</th>
-                    <th className="text-left px-6 py-4 font-medium tracking-wide text-xs uppercase">{t(locale, "sizeGuide.hips")}</th>
-                  </tr>
-                </thead>
-                <tbody className="text-[var(--muted)]">
-                  {[
-                    { size: "S", waist: "68-74", hips: "86-92" },
-                    { size: "M", waist: "74-82", hips: "92-98" },
-                    { size: "L", waist: "82-90", hips: "98-106" },
-                    { size: "XL", waist: "90-98", hips: "106-114" },
-                    { size: "2XL", waist: "98-108", hips: "114-122" },
-                  ].map((row) => (
-                    <tr key={row.size} className="border-b border-[var(--border)] last:border-0">
-                      <td className="px-6 py-4 font-medium text-[var(--foreground)]">{row.size}</td>
-                      <td className="px-6 py-4">{row.waist}</td>
-                      <td className="px-6 py-4">{row.hips}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-
-            <div className="mt-12 text-center">
-              <h3 className="text-sm font-medium tracking-wide mb-3">{t(locale, "sizeGuide.howTo")}</h3>
-              <p className="text-xs text-[var(--muted)] leading-relaxed max-w-md mx-auto">{t(locale, "sizeGuide.howToText")}</p>
             </div>
           </div>
-        </section>
 
-        {/* Contact */}
-        <section id="contact" className="py-24 lg:py-32 bg-white">
-          <div className="max-w-7xl mx-auto px-6 lg:px-12">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
-              <div>
-                <p className="text-xs tracking-[0.3em] uppercase text-[var(--muted)] mb-4">Inquiry</p>
-                <h2 className="text-3xl lg:text-5xl font-extralight tracking-tight mb-4">
-                  {t(locale, "contact.title")}
-                </h2>
-                <p className="text-[var(--muted)] text-sm mb-12">{t(locale, "contact.subtitle")}</p>
-
-                <form className="flex flex-col gap-6">
-                  <div>
-                    <label className="text-xs tracking-wider text-[var(--muted)] mb-2 block">{t(locale, "contact.name")}</label>
-                    <input type="text" className="w-full border-b border-[var(--border)] py-3 text-sm bg-transparent focus:outline-none focus:border-[var(--foreground)] transition-colors" />
-                  </div>
-                  <div>
-                    <label className="text-xs tracking-wider text-[var(--muted)] mb-2 block">{t(locale, "contact.email")}</label>
-                    <input type="email" className="w-full border-b border-[var(--border)] py-3 text-sm bg-transparent focus:outline-none focus:border-[var(--foreground)] transition-colors" />
-                  </div>
-                  <div>
-                    <label className="text-xs tracking-wider text-[var(--muted)] mb-2 block">{t(locale, "contact.company")}</label>
-                    <input type="text" className="w-full border-b border-[var(--border)] py-3 text-sm bg-transparent focus:outline-none focus:border-[var(--foreground)] transition-colors" />
-                  </div>
-                  <div>
-                    <label className="text-xs tracking-wider text-[var(--muted)] mb-2 block">{t(locale, "contact.message")}</label>
-                    <textarea rows={4} className="w-full border-b border-[var(--border)] py-3 text-sm bg-transparent focus:outline-none focus:border-[var(--foreground)] transition-colors resize-none" />
-                  </div>
-                  <button type="submit" className="self-start bg-[var(--foreground)] text-white text-sm tracking-wider px-8 py-4 hover:bg-[var(--foreground)]/90 transition-colors duration-300 mt-4">
-                    {t(locale, "contact.send")}
-                  </button>
-                </form>
-              </div>
-
-              <div className="flex flex-col justify-center">
-                <div className="bg-[var(--subtle-bg)] p-12 lg:p-16">
-                  <h3 className="text-sm font-medium tracking-wide mb-8">{t(locale, "contact.info")}</h3>
-                  <div className="flex flex-col gap-6">
-                    <div>
-                      <p className="text-xs tracking-wider text-[var(--muted)] mb-1">{t(locale, "contact.emailLabel")}</p>
-                      <p className="text-sm">info@abstractmanwear.com</p>
-                    </div>
-                    <div>
-                      <p className="text-xs tracking-wider text-[var(--muted)] mb-1">{t(locale, "contact.locationLabel")}</p>
-                      <p className="text-sm">{t(locale, "contact.location")}</p>
-                    </div>
-                  </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-[var(--color-rule)] border border-[var(--color-rule)]">
+            {process.map((p) => (
+              <div key={p.n} className="bg-[var(--color-paper)] p-10 lg:p-12 min-h-[260px] flex flex-col justify-between">
+                <p className="font-display text-5xl lg:text-7xl text-[var(--color-terracotta)] leading-none">
+                  {p.n}
+                </p>
+                <div>
+                  <h3 className="font-display text-2xl text-[var(--color-ink)]">
+                    {p.title}
+                  </h3>
+                  <p className="mt-2 text-sm text-[var(--color-ink-soft)] leading-[1.5]">
+                    {p.body}
+                  </p>
                 </div>
               </div>
-            </div>
+            ))}
           </div>
-        </section>
-      </main>
+        </div>
+      </section>
 
-      <Footer locale={locale} />
+      {/* ———————————————————————————————————————————————— */}
+      {/* VII. CLOSING — CTA                                   */}
+      {/* ———————————————————————————————————————————————— */}
+      <CTASection
+        eyebrow="§ VI — Correspondence"
+        title={"Begin the conversation."}
+        lede="Send a brief, a sample, or a tech pack. We reply within one business day, in the language of your choosing."
+        ctas={[
+          { label: "Request a quote", href: "/contact", variant: "primary" },
+          { label: "Send a sample or tech pack", href: "/contact", variant: "secondary" },
+        ]}
+      />
     </>
   );
 }

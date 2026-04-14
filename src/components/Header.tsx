@@ -1,85 +1,100 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
-import { Locale, localeNames, locales, t } from "@/lib/i18n";
+import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 
-interface HeaderProps {
-  locale: Locale;
-  onLocaleChange: (locale: Locale) => void;
-}
-
-export default function Header({ locale, onLocaleChange }: HeaderProps) {
+export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const navItems = [
-    { href: "#home", label: t(locale, "nav.home") },
-    { href: "#products", label: t(locale, "nav.products") },
-    { href: "#about", label: t(locale, "nav.about") },
-    { href: "#size-guide", label: t(locale, "nav.sizeGuide") },
-    { href: "#contact", label: t(locale, "nav.contact") },
+    { href: "/products", label: "Products", num: "01" },
+    { href: "/services", label: "Services", num: "02" },
+    { href: "/capability", label: "Capability", num: "03" },
+    { href: "/about", label: "About", num: "04" },
+    { href: "/faq", label: "FAQ", num: "05" },
+    { href: "/contact", label: "Contact", num: "06" },
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-[var(--border)]">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="flex items-center justify-between h-16 lg:h-20">
-          {/* Logo */}
-          <Link href="/" className="text-xl lg:text-2xl font-light tracking-[0.2em] uppercase">
-            Abstract
+    <header
+      className={`fixed top-0 inset-x-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-500 ${
+        scrolled
+          ? "bg-[var(--color-paper)]/85 border-b border-[var(--color-rule)]/60 backdrop-blur-sm"
+          : "bg-transparent border-b border-transparent"
+      }`}
+    >
+      <div className="max-w-[1440px] mx-auto px-8 lg:px-16">
+        <div className="flex items-center justify-between h-20 lg:h-24">
+          {/* Wordmark */}
+          <Link href="/" className="group flex items-baseline gap-3">
+            <span className="font-display text-2xl lg:text-3xl tracking-tight text-[var(--color-ink)]">
+              Abstract
+            </span>
+            <span className="hidden md:inline font-mono text-[10px] text-[var(--color-taupe)] uppercase tracking-[0.2em]">
+              Manwear&nbsp;·&nbsp;Est.&nbsp;MMXXIV
+            </span>
           </Link>
 
-          {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-8">
-            {navItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="text-sm tracking-wider text-[var(--muted)] hover:text-[var(--foreground)] transition-colors duration-300"
-              >
-                {item.label}
-              </a>
-            ))}
+          {/* Desktop nav */}
+          <nav className="hidden lg:flex items-center gap-10">
+            {navItems.map((item) => {
+              const active = pathname === item.href;
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="group flex items-baseline gap-2 text-[var(--color-ink-soft)]"
+                >
+                  <span className="font-mono text-[10px] text-[var(--color-taupe)]">
+                    {item.num}
+                  </span>
+                  <span
+                    className={`text-sm transition-colors duration-300 ${
+                      active
+                        ? "text-[var(--color-ink)] italic font-display text-base"
+                        : "hover:text-[var(--color-ink)]"
+                    }`}
+                  >
+                    {item.label}
+                  </span>
+                </Link>
+              );
+            })}
           </nav>
 
-          {/* Language Switcher + Mobile Menu */}
-          <div className="flex items-center gap-4">
-            {/* Language Switcher */}
-            <div className="flex items-center gap-1">
-              {locales.map((l) => (
-                <button
-                  key={l}
-                  onClick={() => onLocaleChange(l)}
-                  className={`text-xs px-2 py-1 transition-colors duration-300 ${
-                    locale === l
-                      ? "text-[var(--foreground)] font-medium"
-                      : "text-[var(--muted)] hover:text-[var(--foreground)]"
-                  }`}
-                >
-                  {localeNames[l]}
-                </button>
-              ))}
-            </div>
+          {/* CTA + mobile toggle */}
+          <div className="flex items-center gap-6">
+            <Link
+              href="/contact"
+              className="hidden lg:inline-flex items-center gap-2 text-sm text-[var(--color-ink)] link-rule"
+            >
+              <span>Request a quote</span>
+              <span aria-hidden>→</span>
+            </Link>
 
-            {/* Mobile Menu Toggle */}
             <button
               onClick={() => setMenuOpen(!menuOpen)}
-              className="lg:hidden flex flex-col gap-1.5 p-2"
+              className="lg:hidden w-10 h-10 flex flex-col items-center justify-center gap-[6px]"
               aria-label="Toggle menu"
             >
               <span
-                className={`w-5 h-[1px] bg-[var(--foreground)] transition-transform duration-300 ${
-                  menuOpen ? "rotate-45 translate-y-[3.5px]" : ""
+                className={`w-6 h-px bg-[var(--color-ink)] transition-transform duration-500 ${
+                  menuOpen ? "rotate-45 translate-y-[3px]" : ""
                 }`}
               />
               <span
-                className={`w-5 h-[1px] bg-[var(--foreground)] transition-opacity duration-300 ${
-                  menuOpen ? "opacity-0" : ""
-                }`}
-              />
-              <span
-                className={`w-5 h-[1px] bg-[var(--foreground)] transition-transform duration-300 ${
-                  menuOpen ? "-rotate-45 -translate-y-[3.5px]" : ""
+                className={`w-6 h-px bg-[var(--color-ink)] transition-transform duration-500 ${
+                  menuOpen ? "-rotate-45 -translate-y-[4px]" : ""
                 }`}
               />
             </button>
@@ -87,23 +102,38 @@ export default function Header({ locale, onLocaleChange }: HeaderProps) {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile menu */}
       <div
-        className={`lg:hidden overflow-hidden transition-all duration-500 ease-in-out ${
-          menuOpen ? "max-h-80 opacity-100" : "max-h-0 opacity-0"
+        className={`lg:hidden overflow-hidden bg-[var(--color-paper)] transition-[grid-template-rows] duration-500 grid ${
+          menuOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
         }`}
       >
-        <nav className="px-6 pb-6 flex flex-col gap-4 bg-white">
-          {navItems.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
+        <nav className="min-h-0 overflow-hidden">
+          <div className="px-8 py-8 flex flex-col gap-4 border-t border-[var(--color-rule)]">
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={() => setMenuOpen(false)}
+                className="group flex items-baseline gap-4 py-3 border-b border-[var(--color-rule)]/60"
+              >
+                <span className="font-mono text-xs text-[var(--color-taupe)]">
+                  {item.num}
+                </span>
+                <span className="font-display text-2xl text-[var(--color-ink)]">
+                  {item.label}
+                </span>
+              </Link>
+            ))}
+            <Link
+              href="/contact"
               onClick={() => setMenuOpen(false)}
-              className="text-sm tracking-wider text-[var(--muted)] hover:text-[var(--foreground)] transition-colors py-2 border-b border-[var(--border)]"
+              className="mt-4 inline-flex items-center gap-2 text-sm text-[var(--color-ink)] link-rule self-start"
             >
-              {item.label}
-            </a>
-          ))}
+              <span>Request a quote</span>
+              <span>→</span>
+            </Link>
+          </div>
         </nav>
       </div>
     </header>
