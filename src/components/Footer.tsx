@@ -10,18 +10,18 @@ export default function Footer() {
         <div className="grid grid-cols-12 gap-8 pb-20 border-b border-[var(--color-rule)]">
           <div className="col-span-12 lg:col-span-7">
             <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-taupe)] mb-6">
-              Colophon
+              Abstract Manwear
             </p>
             <p className="font-display text-[clamp(2.5rem,5vw,4.5rem)] leading-[1.05] text-[var(--color-ink)]">
-              A manufactory for the considered essential.
-              <span className="text-[var(--color-graphite)]"> Shenzhen, since MMXXIV.</span>
+              Men&apos;s underwear manufacturing.
+              <span className="text-[var(--color-graphite)]"> Zhongshan, since 2010.</span>
             </p>
           </div>
 
           <div className="col-span-12 lg:col-span-4 lg:col-start-9 flex flex-col gap-6 text-sm">
             <div>
               <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-taupe)] mb-3">
-                Correspondence
+                Contact
               </p>
               <Link href="mailto:info@abstractmanwear.com" className="link-rule text-[var(--color-ink)]">
                 info@abstractmanwear.com
@@ -29,10 +29,10 @@ export default function Footer() {
             </div>
             <div>
               <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-taupe)] mb-3">
-                Visit
+                Address
               </p>
-              <p className="text-[var(--color-ink-soft)]">Shenzhen, Guangdong</p>
-              <p className="text-[var(--color-ink-soft)]">People&apos;s Republic of China</p>
+              <p className="text-[var(--color-ink-soft)]">Zhongshan, Guangdong</p>
+              <p className="text-[var(--color-ink-soft)]">China</p>
             </div>
           </div>
         </div>
@@ -40,7 +40,7 @@ export default function Footer() {
         {/* Navigation grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-12 py-16 text-sm">
           <FooterColumn
-            label="Index"
+            label="Sitemap"
             items={[
               { label: "Products", href: "/products", num: "01" },
               { label: "Services", href: "/services", num: "02" },
@@ -66,7 +66,7 @@ export default function Footer() {
             ]}
           />
           <FooterColumn
-            label="Elsewhere"
+            label="Connect"
             items={[
               { label: "WhatsApp", href: "#" },
               { label: "WeChat", href: "#" },
@@ -81,7 +81,7 @@ export default function Footer() {
             ©&nbsp;{year}&nbsp;Abstract&nbsp;Manwear — All rights reserved.
           </p>
           <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-taupe)]">
-            Set in Italiana & Manrope.
+            ISO 9001 · BSCI · OEKO-TEX®
           </p>
         </div>
       </div>

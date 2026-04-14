@@ -1,0 +1,57 @@
+<svg viewBox="0 0 600 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <pattern id="hatch" width="28" height="28" patternUnits="userSpaceOnUse" patternTransform="rotate(135)">
+      <line x1="0" y1="0" x2="0" y2="28" stroke="#C9BEA8" stroke-width="0.6"/>
+    </pattern>
+  </defs>
+
+  <rect width="600" height="800" fill="#EEE4D2"/>
+  <rect width="600" height="800" fill="url(#hatch)" opacity="0.55"/>
+  <rect x="20" y="20" width="560" height="760" fill="none" stroke="#AEA390" stroke-width="0.75"/>
+
+  <g font-family="ui-monospace, monospace" font-size="10" letter-spacing="1.8" fill="#857B6E">
+    <text x="42" y="58">PLATE II · TRUNK</text>
+    <text x="558" y="58" text-anchor="end">02.1</text>
+    <text x="42" y="762">MICRO-MODAL · NO-ROLL</text>
+    <text x="558" y="762" text-anchor="end">S — XL</text>
+  </g>
+
+  <g stroke="#857B6E" stroke-width="0.6" opacity="0.5">
+    <line x1="36" y1="250" x2="46" y2="250"/>
+    <line x1="36" y1="350" x2="46" y2="350"/>
+    <line x1="36" y1="450" x2="46" y2="450"/>
+    <line x1="36" y1="550" x2="46" y2="550"/>
+    <line x1="554" y1="250" x2="564" y2="250"/>
+    <line x1="554" y1="350" x2="564" y2="350"/>
+    <line x1="554" y1="450" x2="564" y2="450"/>
+    <line x1="554" y1="550" x2="564" y2="550"/>
+  </g>
+
+  <g transform="translate(170, 260)" fill="none" stroke="#342920" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="0" y="0" width="260" height="44" fill="#342920" fill-opacity="0.12"/>
+    <rect x="0" y="0" width="260" height="44"/>
+    <line x1="8" y1="14" x2="252" y2="14" stroke-opacity="0.35"/>
+    <line x1="8" y1="30" x2="252" y2="30" stroke-opacity="0.35"/>
+    <rect x="112" y="20" width="36" height="14" fill="#342920" fill-opacity="0.28" stroke-opacity="0.4"/>
+
+    <line x1="0" y1="44" x2="0" y2="200"/>
+    <line x1="260" y1="44" x2="260" y2="200"/>
+    <path d="M 0 200 Q 24 222 62 224 L 102 224 Q 128 222 130 200"/>
+    <path d="M 130 200 Q 132 222 158 224 L 198 224 Q 236 222 260 200"/>
+
+    <path d="M 130 44 Q 113 95 108 155 Q 118 188 130 200" stroke-opacity="0.7"/>
+    <path d="M 130 44 Q 147 95 152 155 Q 142 188 130 200" stroke-opacity="0.7"/>
+
+    <path d="M 4 44 L 256 44" stroke-dasharray="3 3" stroke-opacity="0.45"/>
+    <path d="M 4 196 Q 24 218 62 220 L 102 220 Q 128 218 130 196" stroke-dasharray="2.5 2.5" stroke-opacity="0.35"/>
+    <path d="M 130 196 Q 132 218 158 220 L 198 220 Q 236 218 256 196" stroke-dasharray="2.5 2.5" stroke-opacity="0.35"/>
+
+    <path d="M 36 80 Q 30 130 36 180" stroke-opacity="0.2"/>
+    <path d="M 224 80 Q 230 130 224 180" stroke-opacity="0.2"/>
+  </g>
+
+  <g font-family="ui-monospace, monospace" font-size="8" letter-spacing="1.4" fill="#857B6E" opacity="0.6">
+    <text x="80" y="620">§ FIG. 02</text>
+    <text x="520" y="620" text-anchor="end">REV A</text>
+  </g>
+</svg>

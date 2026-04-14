@@ -1,77 +1,131 @@
 import PageIntro from "@/components/sections/PageIntro";
 import SectionHeader from "@/components/sections/SectionHeader";
 
+const channels = [
+  { label: "Email", value: "hello@abstractmanwear.com", note: "General inquiries · quotations" },
+  { label: "Tech pack", value: "dev@abstractmanwear.com", note: "Routes directly to development team" },
+  { label: "WhatsApp", value: "+86 138 0013 8000", note: "Mon–Fri · 09:00–19:00 CST" },
+  { label: "WeChat", value: "abstract_mw", note: "Scan or add by ID" },
+];
+
+const fields: Array<{ name: string; label: string; type?: string; required?: boolean }> = [
+  { name: "name", label: "Name", required: true },
+  { name: "company", label: "Company", required: true },
+  { name: "email", label: "Email", type: "email", required: true },
+  { name: "country", label: "Country / region" },
+  { name: "productType", label: "Product type" },
+  { name: "quantity", label: "Estimated quantity (pcs)" },
+];
+
+const projectTypes = ["OEM", "ODM", "Private Label", "Wholesale", "Other"];
+
+const guidance = [
+  {
+    title: "The brief",
+    items: ["Style and target fit", "Fabric preference", "Target market", "Target retail tier"],
+  },
+  {
+    title: "The numbers",
+    items: ["Estimated volume", "Size curve", "Timeline", "Target landed cost"],
+  },
+  {
+    title: "The reference",
+    items: ["Tech pack (if any)", "Physical sample", "Competitor references", "Moodboard"],
+  },
+];
+
+const visit = [
+  { label: "Address", value: "Bldg 7, Shaxi Creative Park, Zhongshan 528471" },
+  { label: "Visiting hours", value: "Mon — Fri · 09:00 – 18:00 (GMT+8)" },
+  { label: "Nearest airport", value: "ZUH — Zhuhai Jinwan · 50 min by car" },
+  { label: "Nearest station", value: "Zhongshan Station · Guangzhou–Zhuhai intercity rail" },
+];
+
 export default function ContactPage() {
   return (
     <>
-      {/* 1. Page Intro */}
       <PageIntro
         eyebrow="Contact"
-        title="Start Your OEM/ODM Project"
-        lede="[Reach out for product inquiries, quotation requests, or cooperation discussions]"
+        title="Get in touch."
+        lede="Send us a brief, a sample, or a tech pack. We reply within one business day — in English, Mandarin, or Japanese."
       />
 
-      {/* 2. Business Contact Information */}
-      <section className="py-16 lg:py-24">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <SectionHeader eyebrow="Contact Info" title="Business Contact" />
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-            {[
-              { label: "Email", value: "info@abstractmanwear.com" },
-              { label: "Phone", value: "+86 XXX-XXXX-XXXX" },
-              { label: "WhatsApp", value: "+86 XXX-XXXX-XXXX" },
-              { label: "WeChat", value: "[WeChat ID]" },
-              { label: "Address", value: "[Factory Address]" },
-            ].map((item) => (
-              <div key={item.label} className="glass p-6">
-                <p className="text-xs tracking-wider uppercase text-[#8F7A6A] mb-2">{item.label}</p>
-                <p className="text-sm text-[#2D2621]/80 break-words">{item.value}</p>
-              </div>
+      {/* I — CHANNELS */}
+      <section className="py-24 lg:py-32">
+        <div className="max-w-[1440px] mx-auto px-8 lg:px-16">
+          <SectionHeader
+            eyebrow="Contact channels"
+            title={"Four ways to reach us."}
+            lede="Pick whichever is fastest for you. All replies come directly from our team — not a ticket queue."
+          />
+
+          <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-[var(--color-rule)] border border-[var(--color-rule)]">
+            {channels.map((c, i) => (
+              <li
+                key={c.label}
+                className="bg-[var(--color-paper)] p-8 lg:p-10 min-h-[220px] flex flex-col justify-between"
+              >
+                <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-taupe)] tabular-nums">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <div>
+                  <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-taupe)] mb-3">
+                    {c.label}
+                  </p>
+                  <p className="font-display text-lg lg:text-xl text-[var(--color-ink)] leading-tight break-words">
+                    {c.value}
+                  </p>
+                  <p className="mt-3 text-xs text-[var(--color-ink-soft)]">
+                    {c.note}
+                  </p>
+                </div>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 
-      {/* 3. Inquiry Form */}
-      <section className="py-24 lg:py-32 ">
-        <div className="max-w-5xl mx-auto px-6 lg:px-12">
+      {/* II — INQUIRY FORM */}
+      <section className="py-32 lg:py-48 bg-[var(--color-paper-warm)] border-y border-[var(--color-rule)]">
+        <div className="max-w-[1440px] mx-auto px-8 lg:px-16">
           <SectionHeader
-            eyebrow="Inquiry Form"
-            title="Send Your Requirements"
-            lede="[The more detail you provide, the faster we can respond with a meaningful quotation]"
+            eyebrow="Inquiry form"
+            title={"Send us your requirements."}
+            lede="The more detail you provide, the better our first reply. Optional fields help us skip back-and-forth."
           />
-          <form className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-            {[
-              { name: "name", label: "Name", required: true },
-              { name: "company", label: "Company", required: true },
-              { name: "email", label: "Email", type: "email", required: true },
-              { name: "country", label: "Country / Region", required: false },
-              { name: "productType", label: "Product Type", required: false },
-              { name: "quantity", label: "Estimated Quantity", required: false },
-            ].map((field) => (
+
+          <form className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
+            {fields.map((field) => (
               <div key={field.name} className="flex flex-col">
-                <label className="text-xs tracking-wider uppercase text-[#8F7A6A] mb-3">
-                  {field.label} {field.required && <span className="text-[#2D2621]">*</span>}
+                <label className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-taupe)] mb-3">
+                  {field.label}
+                  {field.required && <span className="text-[var(--color-terracotta)] ml-1">*</span>}
                 </label>
                 <input
                   type={field.type || "text"}
                   required={field.required}
-                  className="bg-white/30 border-b border-[#8F7A6A]/30 pb-3 text-sm text-[#2D2621] focus:outline-none focus:border-white transition-colors"
+                  name={field.name}
+                  className="bg-transparent border-b border-[var(--color-rule)] pb-3 text-base text-[var(--color-ink)] focus:outline-none focus:border-[var(--color-ink)] transition-colors"
                 />
               </div>
             ))}
 
             <div className="md:col-span-2">
-              <label className="text-xs tracking-wider uppercase text-[#8F7A6A] mb-3 block">
-                Project Type
-              </label>
+              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-taupe)] mb-4">
+                Project type
+              </p>
               <div className="flex flex-wrap gap-3">
-                {["OEM", "ODM", "Private Label", "Wholesale", "Other"].map((type) => (
+                {projectTypes.map((type) => (
                   <label
                     key={type}
-                    className="flex items-center gap-2 px-4 py-2 border border-[#8F7A6A]/30 text-sm text-[#4A433C] cursor-pointer hover:glass-strong"
+                    className="flex items-center gap-3 px-5 py-3 border border-[var(--color-rule)] text-sm text-[var(--color-ink)] cursor-pointer hover:bg-[var(--color-paper)] transition-colors"
                   >
-                    <input type="checkbox" className="accent-white" />
+                    <input
+                      type="checkbox"
+                      name="projectType"
+                      value={type}
+                      className="accent-[var(--color-ink)]"
+                    />
                     {type}
                   </label>
                 ))}
@@ -79,147 +133,140 @@ export default function ContactPage() {
             </div>
 
             <div className="md:col-span-2">
-              <label className="text-xs tracking-wider uppercase text-[#8F7A6A] mb-3 block">
+              <label className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-taupe)] mb-3 block">
                 Message
               </label>
               <textarea
-                rows={5}
-                placeholder="[Describe your project, specs, timeline, volume, etc.]"
-                className="w-full bg-white/30 border border-[#8F7A6A]/30 p-4 text-sm text-[#2D2621] placeholder:text-[#B5A99B] focus:outline-none focus:border-white transition-colors resize-none"
+                rows={6}
+                name="message"
+                placeholder="Describe your programme — target market, fit preference, volume, timeline, any references you can share."
+                className="w-full bg-transparent border border-[var(--color-rule)] p-4 text-base text-[var(--color-ink)] placeholder:text-[var(--color-taupe)] focus:outline-none focus:border-[var(--color-ink)] transition-colors resize-none"
               />
             </div>
 
             <div className="md:col-span-2">
-              <label className="text-xs tracking-wider uppercase text-[#8F7A6A] mb-3 block">
-                Attach File (Tech pack / Reference)
+              <label className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-taupe)] mb-3 block">
+                Attach — tech pack · reference sketch · sample photo
               </label>
               <input
                 type="file"
-                className="text-sm text-[#6B635A] file:bg-white/10 file:border-0 file:text-[#2D2621] file:px-4 file:py-2 file:mr-4 file:cursor-pointer hover:file:bg-white/20"
+                name="attachment"
+                className="text-sm text-[var(--color-ink-soft)] file:bg-[var(--color-ink)] file:border-0 file:text-[var(--color-paper)] file:px-6 file:py-3 file:mr-4 file:cursor-pointer hover:file:bg-[var(--color-terracotta)] file:transition-colors"
               />
             </div>
 
             <div className="md:col-span-2 mt-4">
               <button
                 type="submit"
-                className="bg-[#3E3833] text-[#E8DED0] text-sm tracking-wider px-10 py-4 hover:bg-[#2D2621] transition-colors duration-300"
+                className="group inline-flex items-center gap-4 bg-[var(--color-ink)] text-[var(--color-paper)] px-10 py-5 text-sm tracking-wide hover:bg-[var(--color-terracotta)] transition-colors duration-500"
               >
-                Send Inquiry →
+                <span>Send inquiry</span>
+                <span aria-hidden className="transition-transform duration-500 group-hover:translate-x-1">→</span>
               </button>
             </div>
           </form>
         </div>
       </section>
 
-      {/* 4. Inquiry Guidance */}
-      <section className="py-24 lg:py-32">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <SectionHeader eyebrow="Guidance" title="What to Include in Your Inquiry" />
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              {
-                title: "Project Information",
-                items: ["Product type", "Target market", "Estimated volume", "Timeline"],
-              },
-              {
-                title: "Technical Information",
-                items: ["Fabric preference", "Size range", "Fit references", "Special features"],
-              },
-              {
-                title: "Reference Materials",
-                items: ["Tech pack (if available)", "Sample images", "Existing samples", "Competitor references"],
-              },
-            ].map((block) => (
-              <div key={block.title} className="glass p-8">
-                <h3 className="text-lg text-[#2D2621] mb-6">{block.title}</h3>
-                <ul className="space-y-3">
-                  {block.items.map((item) => (
-                    <li key={item} className="text-sm text-[#6B635A]">— {item}</li>
+      {/* III — GUIDANCE */}
+      <section className="py-32 lg:py-48">
+        <div className="max-w-[1440px] mx-auto px-8 lg:px-16">
+          <SectionHeader
+            eyebrow="What to include"
+            title={"Helpful details."}
+            lede="Three categories. Skip any — our first reply will ask for whatever's missing."
+          />
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[var(--color-rule)] border border-[var(--color-rule)]">
+            {guidance.map((g, gi) => (
+              <article
+                key={g.title}
+                className="bg-[var(--color-paper)] p-10 lg:p-12"
+              >
+                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-taupe)] mb-4">
+                  {String(gi + 1).padStart(2, "0")}
+                </p>
+                <h3 className="font-display text-2xl lg:text-3xl text-[var(--color-ink)] leading-tight">
+                  {g.title}
+                </h3>
+                <ul className="mt-8 divide-y divide-[var(--color-rule)]">
+                  {g.items.map((item, i) => (
+                    <li
+                      key={item}
+                      className="py-3 flex items-baseline gap-5 text-sm text-[var(--color-ink-soft)]"
+                    >
+                      <span className="font-mono text-[10px] text-[var(--color-taupe)] tabular-nums">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <span>{item}</span>
+                    </li>
                   ))}
                 </ul>
-              </div>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 5. Response Commitment */}
-      <section className="py-24 lg:py-32 ">
-        <div className="max-w-4xl mx-auto px-6 lg:px-12 text-center">
-          <p className="text-xs tracking-[0.3em] uppercase text-[#8F7A6A] mb-4">Our Commitment</p>
-          <h2 className="text-3xl lg:text-5xl font-extralight text-[#2D2621] mb-6">
-            We Respond Within 24 Hours
-          </h2>
-          <p className="text-[#6B635A] text-base leading-relaxed max-w-2xl mx-auto mb-12">
-            [Response time commitment — business inquiry handling process]
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="glass p-8">
-              <h3 className="text-lg text-[#2D2621] mb-3">Response Time</h3>
-              <p className="text-sm text-[#6B635A]">[Typical response timeframe]</p>
+      {/* IV — LOCATION */}
+      <section className="py-32 lg:py-48 bg-[var(--color-paper-warm)] border-y border-[var(--color-rule)]">
+        <div className="max-w-[1440px] mx-auto px-8 lg:px-16">
+          <div className="grid grid-cols-12 gap-8">
+            <div className="col-span-12 lg:col-span-4">
+              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-taupe)] mb-6">
+                Visit us
+              </p>
+              <h2 className="font-display text-[clamp(2rem,4vw,3.25rem)] leading-[1.05] tracking-tight text-[var(--color-ink)]">
+                Visit our factory.
+              </h2>
+              <p className="mt-8 text-base text-[var(--color-ink-soft)] leading-[1.6] max-w-[42ch]">
+                Buyer visits welcomed Monday through Friday. Schedule two weeks ahead — we&apos;ll arrange airport pickup and a private tour.
+              </p>
+
+              <dl className="mt-12 divide-y divide-[var(--color-rule)] border-y border-[var(--color-rule)]">
+                {visit.map((v) => (
+                  <div key={v.label} className="py-5 grid grid-cols-12 gap-4">
+                    <dt className="col-span-12 md:col-span-4 font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-taupe)]">
+                      {v.label}
+                    </dt>
+                    <dd className="col-span-12 md:col-span-8 text-sm text-[var(--color-ink)] leading-[1.5]">
+                      {v.value}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
             </div>
-            <div className="glass p-8">
-              <h3 className="text-lg text-[#2D2621] mb-3">Business Inquiry Handling</h3>
-              <p className="text-sm text-[#6B635A]">[How we process incoming inquiries]</p>
-            </div>
+
+            <figure className="col-span-12 lg:col-span-8 relative aspect-[16/9] overflow-hidden border border-[var(--color-rule)]">
+              <img
+                src="/images/map.svg"
+                alt="Abstract Manwear · Shaxi, Zhongshan"
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+            </figure>
           </div>
         </div>
       </section>
 
-      {/* 6. Location / Map */}
-      <section className="py-24 lg:py-32">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <SectionHeader eyebrow="Location" title="Visit Our Factory" />
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <div className="lg:col-span-2 aspect-[16/9] glass flex items-center justify-center">
-              <span className="text-[#B5A99B] text-sm">[Map / Satellite Image]</span>
+      {/* V — COMMITMENT */}
+      <section className="py-32 lg:py-48">
+        <div className="max-w-[1440px] mx-auto px-8 lg:px-16">
+          <div className="grid grid-cols-12 gap-8">
+            <div className="col-span-12 lg:col-span-2">
+              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-taupe)]">
+                Our commitment
+              </p>
             </div>
-            <div className="glass p-8">
-              <h3 className="text-lg text-[#2D2621] mb-6">Office / Factory</h3>
-              <div className="space-y-4 text-sm text-[#6B635A]">
-                <div>
-                  <p className="text-[#8F7A6A] uppercase text-xs tracking-wider mb-1">Address</p>
-                  <p>[Full factory address]</p>
-                </div>
-                <div>
-                  <p className="text-[#8F7A6A] uppercase text-xs tracking-wider mb-1">Visiting Hours</p>
-                  <p>Mon - Fri, 9:00 - 18:00 (GMT+8)</p>
-                </div>
-                <div>
-                  <p className="text-[#8F7A6A] uppercase text-xs tracking-wider mb-1">Nearest Airport</p>
-                  <p>[Airport / Station]</p>
-                </div>
-              </div>
+            <div className="col-span-12 lg:col-span-10">
+              <h2 className="font-display text-[clamp(2.5rem,6vw,5.5rem)] leading-[1.02] tracking-tight text-[var(--color-ink)]">
+                A reply within
+                <br />
+                <span className="text-[var(--color-graphite)]">one business day.</span>
+              </h2>
+              <p className="mt-10 max-w-[55ch] text-lg text-[var(--color-ink-soft)] leading-[1.6]">
+                Every inquiry is read by a program lead — not an auto-responder — and receives a first-pass feasibility note within 24 hours. If a quote takes longer, we&apos;ll tell you why.
+              </p>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 7. Final CTA */}
-      <section className="py-24 lg:py-32  border-y border-white/40">
-        <div className="max-w-4xl mx-auto px-6 lg:px-12 text-center">
-          <h2 className="text-3xl lg:text-5xl font-extralight text-[#2D2621] mb-10">
-            Ready to Start?
-          </h2>
-          <div className="flex flex-wrap justify-center gap-4">
-            <a
-              href="#top"
-              className="inline-block bg-[#3E3833] text-[#E8DED0] text-sm tracking-wider px-8 py-4 hover:bg-[#2D2621] transition-colors"
-            >
-              Send Inquiry Now
-            </a>
-            <a
-              href="mailto:info@abstractmanwear.com"
-              className="inline-block border border-[#3E3833]/30 text-[#2D2621] text-sm tracking-wider px-8 py-4 hover:bg-[#3E3833] hover:text-[#E8DED0] transition-all"
-            >
-              Discuss Your Project
-            </a>
-            <a
-              href="#top"
-              className="inline-block border border-[#3E3833]/30 text-[#2D2621] text-sm tracking-wider px-8 py-4 hover:bg-[#3E3833] hover:text-[#E8DED0] transition-all"
-            >
-              Request a Quote
-            </a>
           </div>
         </div>
       </section>

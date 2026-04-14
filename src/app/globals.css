@@ -13,7 +13,7 @@
   --color-terracotta: oklch(56% 0.065 35);       /* single accent — muted warm */
 
   /* Typography */
-  --font-display: var(--font-display), ui-serif, Georgia, serif;
+  --font-display: var(--font-display), ui-sans-serif, system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
   --font-body: var(--font-body), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-mono), ui-monospace, monospace;
 }
@@ -58,7 +58,11 @@ body > * {
 }
 
 /* Display type utilities */
-.font-display { font-family: var(--font-display); }
+.font-display {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
 .font-body { font-family: var(--font-body); }
 .font-mono { font-family: var(--font-mono); }
 

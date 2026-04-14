@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
-import { Vollkorn, Manrope, JetBrains_Mono } from "next/font/google";
+import { Inter, Manrope, JetBrains_Mono } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import "./globals.css";
 
-const vollkorn = Vollkorn({
+const inter = Inter({
   variable: "--font-display",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
@@ -26,13 +26,13 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Abstract Manwear — Men's Underwear Manufactory",
+  title: "Abstract Manwear — Men's Underwear Manufacturer",
   description:
-    "A specialist manufactory producing men's essential underwear for international brands and wholesalers. OEM, ODM, and private label, from Shenzhen.",
+    "A specialist manufacturer producing men's essential underwear for international brands and wholesalers. OEM, ODM, and private label, from Zhongshan.",
   openGraph: {
     title: "Abstract Manwear",
     description:
-      "Men's underwear manufactory. OEM, ODM, Private Label. Shenzhen, China.",
+      "Men's underwear manufacturer. OEM, ODM, Private Label. Zhongshan, China.",
     url: "https://abstractmanwear.com",
     siteName: "Abstract Manwear",
     type: "website",
@@ -47,7 +47,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${vollkorn.variable} ${manrope.variable} ${jetbrainsMono.variable} h-full antialiased`}
+      className={`${inter.variable} ${manrope.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-body">
         <Header />

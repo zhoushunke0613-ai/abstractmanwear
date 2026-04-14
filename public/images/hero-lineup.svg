@@ -1,0 +1,164 @@
+<svg viewBox="0 0 1600 220" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <!-- 01 · Cotton — tight dot knit -->
+    <pattern id="fabCotton" width="6" height="6" patternUnits="userSpaceOnUse">
+      <circle cx="3" cy="3" r="0.75" fill="#342920" fill-opacity="0.55"/>
+    </pattern>
+
+    <!-- 02 · Modal — diagonal drape hatch -->
+    <pattern id="fabModal" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(32)">
+      <path d="M 0 5 Q 2.5 2 5 5 Q 7.5 8 10 5" fill="none" stroke="#342920" stroke-width="0.5" stroke-opacity="0.55"/>
+    </pattern>
+
+    <!-- 03 · Bamboo — vertical twill stripes -->
+    <pattern id="fabBamboo" width="4" height="8" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="0" x2="0" y2="8" stroke="#342920" stroke-width="0.5" stroke-opacity="0.5"/>
+      <line x1="2" y1="0" x2="2" y2="4" stroke="#342920" stroke-width="0.5" stroke-opacity="0.3"/>
+    </pattern>
+
+    <!-- 04 · Ice-silk — fine diagonal satin lines -->
+    <pattern id="fabSilk" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <line x1="0" y1="0" x2="8" y2="0" stroke="#342920" stroke-width="0.3" stroke-opacity="0.4"/>
+      <line x1="0" y1="4" x2="8" y2="4" stroke="#342920" stroke-width="0.3" stroke-opacity="0.2"/>
+    </pattern>
+
+    <!-- 05 · Recycled polyester — plain weave cross-hatch -->
+    <pattern id="fabRec" width="5" height="5" patternUnits="userSpaceOnUse">
+      <rect x="0" y="0" width="2.5" height="2.5" fill="#342920" fill-opacity="0.45"/>
+      <rect x="2.5" y="2.5" width="2.5" height="2.5" fill="#342920" fill-opacity="0.45"/>
+    </pattern>
+
+    <!-- 06 · Performance mesh — hex honeycomb -->
+    <pattern id="fabMesh" width="14" height="12" patternUnits="userSpaceOnUse">
+      <path d="M 7 0 L 14 3.5 L 14 8.5 L 7 12 L 0 8.5 L 0 3.5 Z"
+            fill="none" stroke="#342920" stroke-width="0.45" stroke-opacity="0.5"/>
+    </pattern>
+  </defs>
+
+  <rect width="1600" height="220" fill="transparent"/>
+
+  <!-- Top rule with ornament ticks -->
+  <g stroke="#AEA390" stroke-width="0.6" opacity="0.9">
+    <line x1="0" y1="20" x2="1600" y2="20"/>
+    <line x1="0" y1="20" x2="0" y2="28"/>
+    <line x1="400" y1="20" x2="400" y2="26"/>
+    <line x1="800" y1="20" x2="800" y2="28"/>
+    <line x1="1200" y1="20" x2="1200" y2="26"/>
+    <line x1="1600" y1="20" x2="1600" y2="28"/>
+  </g>
+
+  <!-- 01 · Cotton -->
+  <g transform="translate(110, 50)">
+    <rect x="0" y="0" width="100" height="100" fill="#EEE4D2"/>
+    <rect x="0" y="0" width="100" height="100" fill="url(#fabCotton)"/>
+    <rect x="0" y="0" width="100" height="100" fill="none" stroke="#AEA390" stroke-width="0.8"/>
+    <g stroke="#342920" stroke-width="0.5" stroke-opacity="0.55">
+      <line x1="-4" y1="30" x2="0" y2="30"/>
+      <line x1="-4" y1="60" x2="0" y2="60"/>
+      <line x1="100" y1="30" x2="104" y2="30"/>
+      <line x1="100" y1="60" x2="104" y2="60"/>
+    </g>
+  </g>
+  <text x="160" y="180" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="9" letter-spacing="1.6" fill="#857B6E" text-anchor="middle">COT · 01</text>
+
+  <!-- 02 · Modal -->
+  <g transform="translate(375, 50)">
+    <rect x="0" y="0" width="100" height="100" fill="#EEE4D2"/>
+    <rect x="0" y="0" width="100" height="100" fill="url(#fabModal)"/>
+    <rect x="0" y="0" width="100" height="100" fill="none" stroke="#AEA390" stroke-width="0.8"/>
+    <g stroke="#342920" stroke-width="0.5" stroke-opacity="0.55">
+      <line x1="-4" y1="30" x2="0" y2="30"/>
+      <line x1="-4" y1="60" x2="0" y2="60"/>
+      <line x1="100" y1="30" x2="104" y2="30"/>
+      <line x1="100" y1="60" x2="104" y2="60"/>
+    </g>
+  </g>
+  <text x="425" y="180" font-family="ui-monospace, monospace" font-size="9" letter-spacing="1.6" fill="#857B6E" text-anchor="middle">MOD · 02</text>
+
+  <!-- 03 · Bamboo -->
+  <g transform="translate(640, 50)">
+    <rect x="0" y="0" width="100" height="100" fill="#EEE4D2"/>
+    <rect x="0" y="0" width="100" height="100" fill="url(#fabBamboo)"/>
+    <rect x="0" y="0" width="100" height="100" fill="none" stroke="#AEA390" stroke-width="0.8"/>
+    <g stroke="#342920" stroke-width="0.5" stroke-opacity="0.55">
+      <line x1="-4" y1="30" x2="0" y2="30"/>
+      <line x1="-4" y1="60" x2="0" y2="60"/>
+      <line x1="100" y1="30" x2="104" y2="30"/>
+      <line x1="100" y1="60" x2="104" y2="60"/>
+    </g>
+  </g>
+  <text x="690" y="180" font-family="ui-monospace, monospace" font-size="9" letter-spacing="1.6" fill="#857B6E" text-anchor="middle">BMB · 03</text>
+
+  <!-- 04 · Ice-silk / Nylon -->
+  <g transform="translate(905, 50)">
+    <rect x="0" y="0" width="100" height="100" fill="#EEE4D2"/>
+    <rect x="0" y="0" width="100" height="100" fill="url(#fabSilk)"/>
+    <rect x="0" y="0" width="100" height="100" fill="none" stroke="#AEA390" stroke-width="0.8"/>
+    <g stroke="#342920" stroke-width="0.5" stroke-opacity="0.55">
+      <line x1="-4" y1="30" x2="0" y2="30"/>
+      <line x1="-4" y1="60" x2="0" y2="60"/>
+      <line x1="100" y1="30" x2="104" y2="30"/>
+      <line x1="100" y1="60" x2="104" y2="60"/>
+    </g>
+  </g>
+  <text x="955" y="180" font-family="ui-monospace, monospace" font-size="9" letter-spacing="1.6" fill="#857B6E" text-anchor="middle">SLK · 04</text>
+
+  <!-- 05 · Recycled polyester -->
+  <g transform="translate(1170, 50)">
+    <rect x="0" y="0" width="100" height="100" fill="#EEE4D2"/>
+    <rect x="0" y="0" width="100" height="100" fill="url(#fabRec)"/>
+    <rect x="0" y="0" width="100" height="100" fill="none" stroke="#AEA390" stroke-width="0.8"/>
+    <g stroke="#342920" stroke-width="0.5" stroke-opacity="0.55">
+      <line x1="-4" y1="30" x2="0" y2="30"/>
+      <line x1="-4" y1="60" x2="0" y2="60"/>
+      <line x1="100" y1="30" x2="104" y2="30"/>
+      <line x1="100" y1="60" x2="104" y2="60"/>
+    </g>
+  </g>
+  <text x="1220" y="180" font-family="ui-monospace, monospace" font-size="9" letter-spacing="1.6" fill="#857B6E" text-anchor="middle">REC · 05</text>
+
+  <!-- 06 · Performance mesh -->
+  <g transform="translate(1435, 50)">
+    <rect x="0" y="0" width="100" height="100" fill="#EEE4D2"/>
+    <rect x="0" y="0" width="100" height="100" fill="url(#fabMesh)"/>
+    <rect x="0" y="0" width="100" height="100" fill="none" stroke="#AEA390" stroke-width="0.8"/>
+    <g stroke="#342920" stroke-width="0.5" stroke-opacity="0.55">
+      <line x1="-4" y1="30" x2="0" y2="30"/>
+      <line x1="-4" y1="60" x2="0" y2="60"/>
+      <line x1="100" y1="30" x2="104" y2="30"/>
+      <line x1="100" y1="60" x2="104" y2="60"/>
+    </g>
+  </g>
+  <text x="1485" y="180" font-family="ui-monospace, monospace" font-size="9" letter-spacing="1.6" fill="#857B6E" text-anchor="middle">MSH · 06</text>
+
+  <!-- Bottom ruler baseline with tick marks -->
+  <g stroke="#AEA390" stroke-width="0.5" opacity="0.85">
+    <line x1="0" y1="195" x2="1600" y2="195"/>
+    <line x1="50" y1="195" x2="50" y2="200"/>
+    <line x1="100" y1="195" x2="100" y2="200"/>
+    <line x1="150" y1="195" x2="150" y2="200"/>
+    <line x1="200" y1="195" x2="200" y2="200"/>
+    <line x1="250" y1="195" x2="250" y2="200"/>
+    <line x1="350" y1="195" x2="350" y2="200"/>
+    <line x1="450" y1="195" x2="450" y2="200"/>
+    <line x1="500" y1="195" x2="500" y2="200"/>
+    <line x1="550" y1="195" x2="550" y2="200"/>
+    <line x1="650" y1="195" x2="650" y2="200"/>
+    <line x1="750" y1="195" x2="750" y2="200"/>
+    <line x1="850" y1="195" x2="850" y2="200"/>
+    <line x1="900" y1="195" x2="900" y2="200"/>
+    <line x1="950" y1="195" x2="950" y2="200"/>
+    <line x1="1050" y1="195" x2="1050" y2="200"/>
+    <line x1="1150" y1="195" x2="1150" y2="200"/>
+    <line x1="1250" y1="195" x2="1250" y2="200"/>
+    <line x1="1350" y1="195" x2="1350" y2="200"/>
+    <line x1="1450" y1="195" x2="1450" y2="200"/>
+    <line x1="1550" y1="195" x2="1550" y2="200"/>
+  </g>
+  <g stroke="#342920" stroke-width="0.8" opacity="0.85">
+    <line x1="300" y1="195" x2="300" y2="205"/>
+    <line x1="600" y1="195" x2="600" y2="205"/>
+    <line x1="1000" y1="195" x2="1000" y2="205"/>
+    <line x1="1300" y1="195" x2="1300" y2="205"/>
+  </g>
+</svg>

@@ -41,7 +41,7 @@ export default function Header() {
               Abstract
             </span>
             <span className="hidden md:inline font-mono text-[10px] text-[var(--color-taupe)] uppercase tracking-[0.2em]">
-              Manwear&nbsp;·&nbsp;Est.&nbsp;MMXXIV
+              Manwear&nbsp;·&nbsp;Est.&nbsp;2010
             </span>
           </Link>
 
@@ -61,7 +61,7 @@ export default function Header() {
                   <span
                     className={`text-sm transition-colors duration-300 ${
                       active
-                        ? "text-[var(--color-ink)] italic font-display text-base"
+                        ? "text-[var(--color-ink)] font-medium text-sm"
                         : "hover:text-[var(--color-ink)]"
                     }`}
                   >

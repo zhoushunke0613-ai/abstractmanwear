@@ -10,12 +10,12 @@ const capabilities = [
 ];
 
 const categories = [
-  { n: "01", name: "Boxer Briefs", note: "Modal, cotton, bamboo" },
-  { n: "02", name: "Trunks", note: "Short inseam, tailored fit" },
-  { n: "03", name: "Briefs", note: "Classical — combed cotton" },
-  { n: "04", name: "Seamless", note: "3D knit, no-shadow" },
-  { n: "05", name: "Modal Series", note: "Micro-modal, luxe hand" },
-  { n: "06", name: "Functional", note: "Moisture-wicking, sport" },
+  { n: "01", name: "Boxer Briefs", note: "Modal, cotton, bamboo", plate: "/images/plate-boxer-brief.svg" },
+  { n: "02", name: "Trunks", note: "Short inseam, tailored fit", plate: "/images/plate-trunk.svg" },
+  { n: "03", name: "Briefs", note: "Classical — combed cotton", plate: "/images/plate-brief.svg" },
+  { n: "04", name: "Seamless", note: "3D knit, no-shadow", plate: "/images/plate-seamless.svg" },
+  { n: "05", name: "Modal Series", note: "Micro-modal, luxe hand", plate: "/images/plate-modal.svg" },
+  { n: "06", name: "Functional", note: "Moisture-wicking, sport", plate: "/images/plate-functional.svg" },
 ];
 
 const process = [
@@ -42,40 +42,44 @@ export default function Home() {
       {/* ———————————————————————————————————————————————— */}
       {/* I. HERO                                              */}
       {/* ———————————————————————————————————————————————— */}
-      <section className="relative pt-40 lg:pt-56 pb-24 lg:pb-32">
+      <section className="relative pt-2 lg:pt-3 pb-24 lg:pb-32">
         <div className="max-w-[1440px] mx-auto px-8 lg:px-16">
-          {/* Running head */}
-          <div className="flex items-baseline justify-between pb-8 border-b border-[var(--color-rule)] mb-16 lg:mb-24">
-            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-taupe)]">
-              Vol. I — The Manufactory
+          {/* Decorative product lineup strip */}
+          <div className="mb-6 lg:mb-8 rise-in" aria-hidden>
+            <img
+              src="/images/hero-lineup.svg"
+              alt=""
+              className="w-full h-auto opacity-90"
+            />
+          </div>
+
+          {/* Running head — aligned to 7/5 grid below */}
+          <div className="grid grid-cols-12 gap-8 pb-6 border-b border-[var(--color-rule)] mb-16 lg:mb-20">
+            <p className="col-span-12 lg:col-span-7 font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-taupe)]">
+              Men&apos;s Underwear Manufacturing
             </p>
-            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-taupe)] hidden md:block">
-              Shenzhen&nbsp;·&nbsp;Guangdong
+            <p className="hidden lg:block lg:col-span-5 font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-taupe)]">
+              Zhongshan, China
             </p>
           </div>
 
-          {/* Headline composition — asymmetric */}
-          <div className="grid grid-cols-12 gap-8 items-end rise-in" style={{ animationDelay: "50ms" }}>
-            <div className="col-span-12 lg:col-span-8">
-              <h1 className="font-display text-[clamp(3.5rem,12vw,12rem)] leading-[0.92] tracking-[-0.02em] text-[var(--color-ink)]">
-                Considered
+          {/* Headline + body — aligned 7/5 grid */}
+          <div className="grid grid-cols-12 gap-8 items-start rise-in" style={{ animationDelay: "50ms" }}>
+            <div className="col-span-12 lg:col-span-7">
+              <h1 className="font-display text-[clamp(2rem,4.5vw,3.75rem)] leading-[1.1] tracking-[-0.01em] text-[var(--color-ink)]">
+                Men&apos;s underwear manufacturing
                 <br />
-                essentials,
-                <br />
-                <span className="italic text-[var(--color-graphite)]">made to measure.</span>
+                <span className="text-[var(--color-graphite)]">for international brands.</span>
               </h1>
             </div>
-            <div className="col-span-12 lg:col-span-4 flex flex-col gap-6 lg:pb-8">
-              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-taupe)]">
-                § Introducing
+            <div className="col-span-12 lg:col-span-5 flex flex-col gap-8">
+              <p className="text-base lg:text-lg text-[var(--color-ink-soft)] leading-[1.6] max-w-[44ch]">
+                Abstract is a specialist manufacturer of men&apos;s underwear — OEM, ODM, and private label — producing for brands, wholesalers, and retailers worldwide. Everything developed, sampled, and inspected under one roof in Zhongshan.
               </p>
-              <p className="text-base lg:text-lg text-[var(--color-ink-soft)] leading-[1.55] max-w-[38ch]">
-                Abstract is a specialist manufactory producing men&apos;s underwear for international brands, wholesalers, and private-label partners — developed, sampled, and inspected under one roof.
-              </p>
-              <div className="flex gap-8 items-center mt-2">
+              <div className="flex flex-wrap gap-x-8 gap-y-4 items-center">
                 <Link
                   href="/contact"
-                  className="group inline-flex items-center gap-3 bg-[var(--color-ink)] text-[var(--color-paper)] px-8 py-4 text-sm"
+                  className="group inline-flex items-center gap-3 bg-[var(--color-ink)] text-[var(--color-paper)] px-8 py-4 text-sm hover:bg-[var(--color-terracotta)] transition-colors duration-500"
                 >
                   <span>Request a quote</span>
                   <span className="transition-transform duration-500 group-hover:translate-x-1">→</span>
@@ -87,27 +91,25 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Hero figure — archival card instead of generic image */}
+          {/* Bottom rule — mirror running head, aligned to 7/5 */}
+          <div className="grid grid-cols-12 gap-8 pt-6 mt-16 lg:mt-20 border-t border-[var(--color-rule)]">
+            <p className="col-span-12 lg:col-span-7 font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-taupe)]">
+              OEM · ODM · Private Label
+            </p>
+            <p className="hidden lg:block lg:col-span-5 font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-taupe)]">
+              Est. 2010 · 12,000 m² · 480 Staff
+            </p>
+          </div>
+
+          {/* Hero figure — atelier plate */}
           <div className="grid grid-cols-12 gap-8 mt-20 lg:mt-28 rise-in" style={{ animationDelay: "250ms" }}>
             <div className="col-span-12 lg:col-span-8 lg:col-start-3">
-              <figure className="placeholder-plate aspect-[16/9] flex items-center justify-center">
-                <figcaption className="absolute top-6 left-6 font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-taupe)] z-10">
-                  Plate&nbsp;I — Atelier
-                </figcaption>
-                <div className="relative z-10 text-center px-8">
-                  <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-taupe)] mb-4">
-                    Image placeholder
-                  </p>
-                  <p className="font-display text-2xl lg:text-3xl text-[var(--color-ink-soft)] italic leading-tight max-w-[40ch] mx-auto">
-                    Wide shot of workroom — operators at the line, natural light, soft focus.
-                  </p>
-                  <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-graphite)]">
-                    Suggested ratio 16:9&nbsp;·&nbsp;≥ 2400 × 1350 px
-                  </p>
-                </div>
-                <p className="absolute bottom-6 right-6 font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-taupe)] z-10">
-                  1.1
-                </p>
+              <figure className="relative aspect-[16/9] overflow-hidden border border-[var(--color-rule)]">
+                <img
+                  src="/images/atelier.svg"
+                  alt="Plate I — Atelier · Zhongshan workroom"
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
               </figure>
             </div>
           </div>
@@ -148,14 +150,12 @@ export default function Home() {
           <div className="grid grid-cols-12 gap-8 mb-20 pb-6 border-b border-[var(--color-rule)]">
             <div className="col-span-12 lg:col-span-2">
               <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-taupe)]">
-                § II — Works
+                Services
               </p>
             </div>
             <div className="col-span-12 lg:col-span-7">
               <h2 className="font-display text-[clamp(2.5rem,5vw,4.5rem)] leading-[1.02] tracking-tight text-[var(--color-ink)]">
-                Five disciplines,
-                <br />
-                <span className="italic text-[var(--color-graphite)]">one manufactory.</span>
+                What we offer.
               </h2>
             </div>
           </div>
@@ -197,10 +197,10 @@ export default function Home() {
           <div className="grid grid-cols-12 gap-8 mb-20 items-end">
             <div className="col-span-12 lg:col-span-6">
               <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-taupe)] mb-6">
-                § III — Catalogue
+                Products
               </p>
               <h2 className="font-display text-[clamp(2.5rem,6vw,5rem)] leading-[1] tracking-tight text-[var(--color-ink)]">
-                The essential index.
+                Our product range.
               </h2>
             </div>
             <div className="col-span-12 lg:col-span-4 lg:col-start-9">
@@ -215,14 +215,17 @@ export default function Home() {
               <Link
                 key={c.name}
                 href="/products"
-                className="group relative placeholder-plate aspect-[3/4] flex flex-col justify-between p-6 lg:p-8 transition-all duration-500 hover:bg-[var(--color-paper-warm)]/80"
+                className="group relative aspect-[3/4] overflow-hidden bg-[var(--color-paper)] transition-all duration-500"
               >
-                <span className="relative z-10 font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-taupe)]">
-                  {c.n}
-                </span>
-                <div className="relative z-10">
-                  <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-[var(--color-graphite)] mb-3 opacity-70">
-                    Product plate
+                <img
+                  src={c.plate}
+                  alt={`${c.name} — editorial plate`}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[var(--color-paper)]/95" />
+                <div className="absolute inset-x-0 bottom-0 p-6 lg:p-8">
+                  <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-[var(--color-graphite)] mb-2 opacity-80">
+                    {c.n} · Product plate
                   </p>
                   <h3 className="font-display text-xl lg:text-2xl text-[var(--color-ink)] leading-tight">
                     {c.name}
@@ -240,7 +243,7 @@ export default function Home() {
 
           <div className="mt-12 text-right">
             <Link href="/products" className="text-sm text-[var(--color-ink)] link-rule">
-              Complete index&nbsp;→
+              See all products&nbsp;→
             </Link>
           </div>
         </div>
@@ -254,7 +257,7 @@ export default function Home() {
           <div className="grid grid-cols-12 gap-8">
             <div className="col-span-12 lg:col-span-3">
               <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-taupe)] mb-6">
-                § IV — Notes on craft
+                Why choose us
               </p>
               <p className="font-display text-3xl lg:text-4xl leading-tight text-[var(--color-ink)]">
                 Why Abstract.
@@ -285,12 +288,12 @@ export default function Home() {
           <div className="grid grid-cols-12 gap-8 mb-24">
             <div className="col-span-12 lg:col-span-6 lg:col-start-4 text-center lg:text-left">
               <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-taupe)] mb-4">
-                § V — The passage from brief to ship
+                Our process
               </p>
               <h2 className="font-display text-[clamp(2.5rem,5vw,4.5rem)] leading-[1.05] tracking-tight text-[var(--color-ink)]">
-                <span className="italic text-[var(--color-graphite)]">Six</span> stages,
+                From brief
                 <br />
-                deliberately set.
+                <span className="text-[var(--color-graphite)]">to shipment.</span>
               </h2>
             </div>
           </div>
@@ -319,9 +322,9 @@ export default function Home() {
       {/* VII. CLOSING — CTA                                   */}
       {/* ———————————————————————————————————————————————— */}
       <CTASection
-        eyebrow="§ VI — Correspondence"
-        title={"Begin the conversation."}
-        lede="Send a brief, a sample, or a tech pack. We reply within one business day, in the language of your choosing."
+        eyebrow="Contact"
+        title={"Start your project."}
+        lede="Send us a brief, a sample, or a tech pack. We reply within one business day — in English, Mandarin, or Japanese."
         ctas={[
           { label: "Request a quote", href: "/contact", variant: "primary" },
           { label: "Send a sample or tech pack", href: "/contact", variant: "secondary" },
