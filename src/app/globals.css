@@ -1,16 +1,17 @@
 @import "tailwindcss";
 
 @theme {
-  /* Editorial atelier palette — warm monochrome with single accent */
-  --color-paper: oklch(94.5% 0.018 78);          /* #EEE4D2 linen base */
-  --color-paper-warm: oklch(96% 0.014 80);       /* #F4EDDE soft cream */
-  --color-paper-deep: oklch(90% 0.022 78);       /* deeper linen for accents */
-  --color-ink: oklch(22% 0.018 45);              /* #342920 espresso */
-  --color-ink-soft: oklch(38% 0.015 45);         /* softer ink for body */
-  --color-graphite: oklch(52% 0.012 60);         /* #857B6E for supporting text */
-  --color-taupe: oklch(68% 0.015 65);            /* for labels */
-  --color-rule: oklch(80% 0.014 70);             /* warm beige for hairline rules */
-  --color-terracotta: oklch(56% 0.065 35);       /* single accent — muted warm */
+  /* Brand palette — neutral whites + dark gray + bright yellow accent */
+  --color-paper: oklch(98% 0.005 90);            /* near-white cream */
+  --color-paper-warm: oklch(96% 0.008 90);       /* slightly warmer cream */
+  --color-paper-deep: oklch(94% 0.005 90);       /* deeper neutral for accents */
+  --color-ink: oklch(22% 0 0);                   /* #1F1F1F neutral dark gray */
+  --color-ink-soft: oklch(40% 0 0);              /* softer dark gray for body */
+  --color-graphite: oklch(55% 0 0);              /* mid gray for supporting text */
+  --color-taupe: oklch(68% 0 0);                 /* light gray for labels */
+  --color-rule: oklch(86% 0 0);                  /* very light gray hairline rules */
+  --color-terracotta: oklch(91% 0.169 99);       /* #F4DD2D bright brand yellow */
+  --color-yellow: oklch(91% 0.169 99);           /* alias of brand yellow */
 
   /* Typography */
   --font-display: var(--font-display), ui-sans-serif, system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
@@ -34,7 +35,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Subtle paper texture — archival feel without being busy */
+/* Subtle background texture — gentle warmth without being busy */
 body::before {
   content: "";
   position: fixed;
@@ -42,8 +43,8 @@ body::before {
   pointer-events: none;
   z-index: 0;
   background-image:
-    radial-gradient(circle at 25% 15%, oklch(90% 0.02 78 / 0.4) 0%, transparent 40%),
-    radial-gradient(circle at 85% 70%, oklch(92% 0.018 78 / 0.3) 0%, transparent 50%);
+    radial-gradient(circle at 25% 15%, oklch(94% 0.01 90 / 0.4) 0%, transparent 40%),
+    radial-gradient(circle at 85% 70%, oklch(95% 0.008 90 / 0.3) 0%, transparent 50%);
   mix-blend-mode: multiply;
 }
 
@@ -112,7 +113,7 @@ body > * {
 @layer utilities {
   .placeholder-plate {
     position: relative;
-    background-color: oklch(94% 0.018 78 / 0.5);
+    background-color: oklch(96% 0.005 90 / 0.5);
     -webkit-backdrop-filter: blur(14px) saturate(1.1);
     backdrop-filter: blur(14px) saturate(1.1);
     border: 1px solid var(--color-rule);
@@ -134,7 +135,7 @@ body > * {
       repeating-linear-gradient(
         135deg,
         transparent 0 20px,
-        oklch(85% 0.02 78 / 0.08) 20px 21px
+        oklch(85% 0.005 90 / 0.08) 20px 21px
       );
     pointer-events: none;
   }

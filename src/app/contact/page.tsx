@@ -151,14 +151,14 @@ export default function ContactPage() {
               <input
                 type="file"
                 name="attachment"
-                className="text-sm text-[var(--color-ink-soft)] file:bg-[var(--color-ink)] file:border-0 file:text-[var(--color-paper)] file:px-6 file:py-3 file:mr-4 file:cursor-pointer hover:file:bg-[var(--color-terracotta)] file:transition-colors"
+                className="text-sm text-[var(--color-ink-soft)] file:bg-[var(--color-ink)] file:border-0 file:text-[var(--color-paper)] file:px-6 file:py-3 file:mr-4 file:cursor-pointer hover:file:bg-[var(--color-yellow)] hover:file:text-[var(--color-ink)] file:transition-colors"
               />
             </div>
 
             <div className="md:col-span-2 mt-4">
               <button
                 type="submit"
-                className="group inline-flex items-center gap-4 bg-[var(--color-ink)] text-[var(--color-paper)] px-10 py-5 text-sm tracking-wide hover:bg-[var(--color-terracotta)] transition-colors duration-500"
+                className="group inline-flex items-center gap-4 bg-[var(--color-ink)] text-[var(--color-paper)] px-10 py-5 text-sm tracking-wide hover:bg-[var(--color-yellow)] hover:text-[var(--color-ink)] transition-colors duration-500"
               >
                 <span>Send inquiry</span>
                 <span aria-hidden className="transition-transform duration-500 group-hover:translate-x-1">→</span>

@@ -197,7 +197,7 @@ export default function FAQPage() {
               <div className="mt-16 flex flex-wrap gap-x-10 gap-y-4 items-center">
                 <Link
                   href="/contact"
-                  className="group inline-flex items-center gap-4 bg-[var(--color-ink)] text-[var(--color-paper)] px-10 py-5 text-sm tracking-wide hover:bg-[var(--color-terracotta)] transition-colors duration-500"
+                  className="group inline-flex items-center gap-4 bg-[var(--color-ink)] text-[var(--color-paper)] px-10 py-5 text-sm tracking-wide hover:bg-[var(--color-yellow)] hover:text-[var(--color-ink)] transition-colors duration-500"
                 >
                   <span className="font-mono text-[10px] uppercase tracking-[0.2em] opacity-60">
                     01

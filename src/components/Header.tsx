@@ -76,9 +76,9 @@ export default function Header() {
           <div className="flex items-center gap-6">
             <Link
               href="/contact"
-              className="hidden lg:inline-flex items-center gap-2 text-sm text-[var(--color-ink)] link-rule"
+              className="hidden lg:inline-flex items-center gap-2 bg-[var(--color-yellow)] text-[var(--color-ink)] px-5 py-2.5 text-sm font-medium hover:bg-[var(--color-ink)] hover:text-[var(--color-yellow)] transition-colors duration-300"
             >
-              <span>Request a quote</span>
+              <span>Get a Quote</span>
               <span aria-hidden>→</span>
             </Link>
 

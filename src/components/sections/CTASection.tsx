@@ -11,28 +11,59 @@ interface CTASectionProps {
   title: string;
   lede?: string;
   ctas: CTAItem[];
+  tone?: "light" | "dark";
 }
 
-export default function CTASection({ eyebrow, title, lede, ctas }: CTASectionProps) {
+export default function CTASection({
+  eyebrow,
+  title,
+  lede,
+  ctas,
+  tone = "light",
+}: CTASectionProps) {
+  const isDark = tone === "dark";
+
   return (
-    <section className="py-32 lg:py-48 border-t border-[var(--color-rule)]">
+    <section
+      className={`py-32 lg:py-48 ${
+        isDark
+          ? "bg-[var(--color-ink)]"
+          : "bg-[var(--color-paper)] border-t border-[var(--color-rule)]"
+      }`}
+    >
       <div className="max-w-[1440px] mx-auto px-8 lg:px-16">
         <div className="grid grid-cols-12 gap-8">
           <div className="col-span-12 lg:col-span-2">
             {eyebrow && (
-              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-taupe)]">
+              <p
+                className={`font-mono text-[10px] uppercase tracking-[0.2em] ${
+                  isDark
+                    ? "text-[var(--color-yellow)]"
+                    : "text-[var(--color-taupe)]"
+                }`}
+              >
                 {eyebrow}
               </p>
             )}
           </div>
 
           <div className="col-span-12 lg:col-span-10">
-            <h2 className="font-display text-[clamp(2.5rem,6vw,5.5rem)] leading-[1] tracking-tight text-[var(--color-ink)]">
+            <h2
+              className={`font-display text-[clamp(2.5rem,6vw,5.5rem)] leading-[1] tracking-tight ${
+                isDark
+                  ? "text-[var(--color-paper)]"
+                  : "text-[var(--color-ink)]"
+              }`}
+            >
               {title}
             </h2>
 
             {lede && (
-              <p className="mt-12 max-w-[55ch] text-lg text-[var(--color-ink-soft)] leading-[1.6]">
+              <p
+                className={`mt-12 max-w-[55ch] text-lg leading-[1.6] ${
+                  isDark ? "text-white/70" : "text-[var(--color-ink-soft)]"
+                }`}
+              >
                 {lede}
               </p>
             )}
@@ -43,19 +74,32 @@ export default function CTASection({ eyebrow, title, lede, ctas }: CTASectionPro
                   <Link
                     key={cta.label}
                     href={cta.href}
-                    className="group inline-flex items-center gap-4 bg-[var(--color-ink)] text-[var(--color-paper)] px-10 py-5 text-sm tracking-wide hover:bg-[var(--color-terracotta)] transition-colors duration-500"
+                    className={`group inline-flex items-center gap-4 px-10 py-5 text-sm tracking-wide transition-colors duration-500 ${
+                      isDark
+                        ? "bg-[var(--color-yellow)] text-[var(--color-ink)] hover:bg-[var(--color-paper)]"
+                        : "bg-[var(--color-ink)] text-[var(--color-paper)] hover:bg-[var(--color-yellow)] hover:text-[var(--color-ink)]"
+                    }`}
                   >
                     <span className="font-mono text-[10px] uppercase tracking-[0.2em] opacity-60">
                       0{i + 1}
                     </span>
                     <span>{cta.label}</span>
-                    <span aria-hidden className="transition-transform duration-500 group-hover:translate-x-1">→</span>
+                    <span
+                      aria-hidden
+                      className="transition-transform duration-500 group-hover:translate-x-1"
+                    >
+                      →
+                    </span>
                   </Link>
                 ) : (
                   <Link
                     key={cta.label}
                     href={cta.href}
-                    className="inline-flex items-center gap-2 text-sm text-[var(--color-ink)] link-rule"
+                    className={`inline-flex items-center gap-2 text-sm link-rule ${
+                      isDark
+                        ? "text-[var(--color-paper)]"
+                        : "text-[var(--color-ink)]"
+                    }`}
                   >
                     <span>{cta.label}</span>
                     <span aria-hidden>→</span>

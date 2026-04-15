@@ -67,19 +67,33 @@ export default function Home() {
           <div className="grid grid-cols-12 gap-8 items-start rise-in" style={{ animationDelay: "50ms" }}>
             <div className="col-span-12 lg:col-span-7">
               <h1 className="font-display text-[clamp(2rem,4.5vw,3.75rem)] leading-[1.1] tracking-[-0.01em] text-[var(--color-ink)]">
-                Men&apos;s underwear manufacturing
+                <span className="inline-block bg-[var(--color-yellow)] text-[var(--color-ink)] px-3 py-0.5 mr-2">Abstractman</span>
+                <br className="lg:hidden" />
+                <span className="text-[var(--color-graphite)]">Professional Underwear</span>
                 <br />
-                <span className="text-[var(--color-graphite)]">for international brands.</span>
+                <span>OEM/ODM Manufacturer.</span>
               </h1>
             </div>
             <div className="col-span-12 lg:col-span-5 flex flex-col gap-8">
+              {/* Yellow stat callout block */}
+              <div className="grid grid-cols-2 gap-px bg-[var(--color-ink)]/20 border border-[var(--color-ink)]/20 max-w-[280px]">
+                <div className="bg-[var(--color-yellow)] p-4">
+                  <p className="font-display text-3xl text-[var(--color-ink)] leading-none">15<span className="text-base align-top ml-0.5">yrs</span></p>
+                  <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-[var(--color-ink)]/70 mt-2">In operation</p>
+                </div>
+                <div className="bg-[var(--color-ink)] p-4">
+                  <p className="font-display text-3xl text-[var(--color-yellow)] leading-none">5M<span className="text-base align-top ml-0.5">/mo</span></p>
+                  <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-white/55 mt-2">Capacity</p>
+                </div>
+              </div>
+
               <p className="text-base lg:text-lg text-[var(--color-ink-soft)] leading-[1.6] max-w-[44ch]">
                 Abstract is a specialist manufacturer of men&apos;s underwear — OEM, ODM, and private label — producing for brands, wholesalers, and retailers worldwide. Everything developed, sampled, and inspected under one roof in Zhongshan.
               </p>
               <div className="flex flex-wrap gap-x-8 gap-y-4 items-center">
                 <Link
                   href="/contact"
-                  className="group inline-flex items-center gap-3 bg-[var(--color-ink)] text-[var(--color-paper)] px-8 py-4 text-sm hover:bg-[var(--color-terracotta)] transition-colors duration-500"
+                  className="group inline-flex items-center gap-3 bg-[var(--color-ink)] text-[var(--color-paper)] px-8 py-4 text-sm hover:bg-[var(--color-yellow)] hover:text-[var(--color-ink)] transition-colors duration-500"
                 >
                   <span>Request a quote</span>
                   <span className="transition-transform duration-500 group-hover:translate-x-1">→</span>
@@ -119,9 +133,9 @@ export default function Home() {
       {/* ———————————————————————————————————————————————— */}
       {/* II. TRUST BAR                                        */}
       {/* ———————————————————————————————————————————————— */}
-      <section className="border-y border-[var(--color-rule)] bg-[var(--color-paper-warm)]">
+      <section className="bg-[var(--color-ink)]">
         <div className="max-w-[1440px] mx-auto px-8 lg:px-16">
-          <div className="grid grid-cols-2 md:grid-cols-5 divide-x divide-[var(--color-rule)]">
+          <div className="grid grid-cols-2 md:grid-cols-5 divide-x divide-white/10">
             {[
               { k: "ISO · BSCI", label: "Certifications" },
               { k: "5 M", label: "Monthly capacity (pcs)" },
@@ -130,14 +144,26 @@ export default function Home() {
               { k: "OEM · ODM", label: "Cooperation modes" },
             ].map((it, i) => (
               <div key={it.label} className={`py-10 lg:py-14 ${i === 0 ? "pr-6 lg:pr-10" : "px-6 lg:px-10"}`}>
-                <p className="font-display text-2xl lg:text-4xl text-[var(--color-ink)] leading-none">
+                <p className="font-display text-2xl lg:text-4xl text-[var(--color-yellow)] leading-none">
                   {it.k}
                 </p>
-                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-taupe)] mt-3">
+                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/55 mt-3">
                   {it.label}
                 </p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Yellow ticker strip — high-impact accent band */}
+      <section className="bg-[var(--color-yellow)] py-4 overflow-hidden border-y border-[var(--color-ink)]/15">
+        <div className="max-w-[1440px] mx-auto px-8 lg:px-16">
+          <div className="flex items-center justify-between gap-8 font-mono text-[11px] uppercase tracking-[0.2em] text-[var(--color-ink)]">
+            <span>★ Specialised in men&apos;s underwear since 2010</span>
+            <span className="hidden md:inline">★ Zhongshan · Guangdong</span>
+            <span className="hidden md:inline">★ ISO 9001 · BSCI · OEKO-TEX®</span>
+            <span className="hidden lg:inline">★ Worldwide shipping</span>
           </div>
         </div>
       </section>
@@ -162,9 +188,9 @@ export default function Home() {
 
           <ol className="divide-y divide-[var(--color-rule)]">
             {capabilities.map((cap) => (
-              <li key={cap.n} className="group grid grid-cols-12 gap-8 py-10 lg:py-12 items-baseline hover:bg-[var(--color-paper-warm)]/60 transition-colors duration-500 -mx-4 px-4">
+              <li key={cap.n} className="group grid grid-cols-12 gap-8 py-10 lg:py-12 items-center hover:bg-[var(--color-paper-warm)]/60 transition-colors duration-500 -mx-4 px-4">
                 <div className="col-span-2 lg:col-span-1">
-                  <span className="font-mono text-xs text-[var(--color-taupe)]">
+                  <span className="inline-flex items-center justify-center w-10 h-10 bg-[var(--color-yellow)] font-mono text-xs text-[var(--color-ink)] font-medium group-hover:bg-[var(--color-ink)] group-hover:text-[var(--color-yellow)] transition-colors duration-500">
                     {cap.n}
                   </span>
                 </div>
@@ -252,11 +278,11 @@ export default function Home() {
       {/* ———————————————————————————————————————————————— */}
       {/* V. DIFFERENTIATORS — quiet text composition          */}
       {/* ———————————————————————————————————————————————— */}
-      <section className="py-32 lg:py-48 bg-[var(--color-paper-warm)] border-y border-[var(--color-rule)]">
+      <section className="py-32 lg:py-48 bg-[var(--color-yellow)]">
         <div className="max-w-[1440px] mx-auto px-8 lg:px-16">
           <div className="grid grid-cols-12 gap-8">
             <div className="col-span-12 lg:col-span-3">
-              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-taupe)] mb-6">
+              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-ink)]/65 mb-6">
                 Why choose us
               </p>
               <p className="font-display text-3xl lg:text-4xl leading-tight text-[var(--color-ink)]">
@@ -264,10 +290,10 @@ export default function Home() {
               </p>
             </div>
 
-            <ul className="col-span-12 lg:col-span-9 lg:col-start-4 divide-y divide-[var(--color-rule)]">
+            <ul className="col-span-12 lg:col-span-9 lg:col-start-4 divide-y divide-[var(--color-ink)]/15">
               {differentiators.map((line, i) => (
                 <li key={line} className="py-6 lg:py-8 flex items-baseline gap-8">
-                  <span className="font-mono text-[10px] text-[var(--color-taupe)] tabular-nums">
+                  <span className="font-mono text-[10px] text-[var(--color-ink)]/55 tabular-nums">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <p className="font-display text-2xl lg:text-[2.25rem] leading-tight text-[var(--color-ink)] max-w-[32ch]">
@@ -299,21 +325,30 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-[var(--color-rule)] border border-[var(--color-rule)]">
-            {process.map((p) => (
-              <div key={p.n} className="bg-[var(--color-paper)] p-10 lg:p-12 min-h-[260px] flex flex-col justify-between">
-                <p className="font-display text-5xl lg:text-7xl text-[var(--color-terracotta)] leading-none">
-                  {p.n}
-                </p>
-                <div>
-                  <h3 className="font-display text-2xl text-[var(--color-ink)]">
-                    {p.title}
-                  </h3>
-                  <p className="mt-2 text-sm text-[var(--color-ink-soft)] leading-[1.5]">
-                    {p.body}
+            {process.map((p, i) => {
+              // Tri-color rotation: paper → yellow → ink, repeat
+              const tones = [
+                { bg: "bg-[var(--color-paper)]", numeral: "text-[var(--color-yellow)]", title: "text-[var(--color-ink)]", body: "text-[var(--color-ink-soft)]" },
+                { bg: "bg-[var(--color-yellow)]", numeral: "text-[var(--color-ink)]", title: "text-[var(--color-ink)]", body: "text-[var(--color-ink)]/75" },
+                { bg: "bg-[var(--color-ink)]", numeral: "text-[var(--color-yellow)]", title: "text-[var(--color-paper)]", body: "text-white/65" },
+              ];
+              const t = tones[i % 3];
+              return (
+                <div key={p.n} className={`${t.bg} p-10 lg:p-12 min-h-[260px] flex flex-col justify-between`}>
+                  <p className={`font-display text-5xl lg:text-7xl ${t.numeral} leading-none`}>
+                    {p.n}
                   </p>
+                  <div>
+                    <h3 className={`font-display text-2xl ${t.title}`}>
+                      {p.title}
+                    </h3>
+                    <p className={`mt-2 text-sm ${t.body} leading-[1.5]`}>
+                      {p.body}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -322,6 +357,7 @@ export default function Home() {
       {/* VII. CLOSING — CTA                                   */}
       {/* ———————————————————————————————————————————————— */}
       <CTASection
+        tone="dark"
         eyebrow="Contact"
         title={"Start your project."}
         lede="Send us a brief, a sample, or a tech pack. We reply within one business day — in English, Mandarin, or Japanese."
