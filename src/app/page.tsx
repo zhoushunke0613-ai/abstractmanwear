@@ -189,76 +189,79 @@ export default function Home() {
       {/* ———————————————————————————————————————————————— */}
       <section className="py-16 lg:py-24">
         <div className="max-w-[1440px] mx-auto px-8 lg:px-16">
-          <div className="grid grid-cols-12 gap-8 mb-10 lg:mb-12 pb-6 border-b border-[var(--color-rule)]">
-            <div className="col-span-12 lg:col-span-2">
-              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-taupe)]">
+          <div className="grid grid-cols-12 gap-8 mb-8 lg:mb-10 items-end">
+            <div className="col-span-12 lg:col-span-7">
+              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-taupe)] mb-3">
                 Services
               </p>
-            </div>
-            <div className="col-span-12 lg:col-span-7">
               <h2 className="font-display text-[clamp(2rem,4.5vw,3.5rem)] leading-[1.05] tracking-tight text-[var(--color-ink)]">
                 What we offer.
               </h2>
             </div>
+            <div className="col-span-12 lg:col-span-4 lg:col-start-9">
+              <p className="text-[var(--color-ink-soft)] text-sm lg:text-base leading-[1.55] max-w-[40ch]">
+                Five core disciplines — combined to match any brief, from stock programs to full-custom development.
+              </p>
+            </div>
           </div>
 
-          <ol className="divide-y divide-[var(--color-rule)]">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-px bg-[var(--color-rule)] border border-[var(--color-rule)]">
             {capabilities.map((cap) => (
-              <li key={cap.n} className="group grid grid-cols-12 gap-8 py-6 lg:py-8 items-center hover:bg-[var(--color-paper-warm)]/60 transition-colors duration-500 -mx-4 px-4">
-                <div className="col-span-2 lg:col-span-1">
-                  <span className="inline-flex items-center justify-center w-9 h-9 bg-[var(--color-yellow)] font-mono text-xs text-[var(--color-ink)] font-medium group-hover:bg-[var(--color-ink)] group-hover:text-[var(--color-yellow)] transition-colors duration-500">
-                    {cap.n}
-                  </span>
-                </div>
-                <div className="col-span-10 lg:col-span-4">
-                  <h3 className="font-display text-xl lg:text-2xl text-[var(--color-ink)] leading-tight">
+              <div
+                key={cap.n}
+                className="group bg-[var(--color-paper)] p-6 lg:p-7 min-h-[220px] flex flex-col justify-between hover:bg-[var(--color-paper-warm)] transition-colors duration-500"
+              >
+                <span className="inline-flex items-center justify-center w-9 h-9 bg-[var(--color-yellow)] font-mono text-xs text-[var(--color-ink)] font-medium group-hover:bg-[var(--color-ink)] group-hover:text-[var(--color-yellow)] transition-colors duration-500">
+                  {cap.n}
+                </span>
+                <div>
+                  <h3 className="font-display text-lg lg:text-xl text-[var(--color-ink)] leading-tight">
                     {cap.title}
                   </h3>
-                </div>
-                <div className="col-span-12 lg:col-span-6 lg:col-start-7">
-                  <p className="text-sm text-[var(--color-ink-soft)] leading-[1.55] max-w-[55ch]">
+                  <p className="mt-2 text-xs lg:text-sm text-[var(--color-ink-soft)] leading-[1.5]">
                     {cap.body}
                   </p>
                 </div>
-                <div className="col-span-12 lg:col-span-1 lg:col-start-12 text-right">
-                  <span className="inline-block text-[var(--color-taupe)] group-hover:text-[var(--color-yellow)] group-hover:translate-x-1 transition-all duration-500">
-                    →
-                  </span>
-                </div>
-              </li>
+              </div>
             ))}
-          </ol>
+          </div>
         </div>
       </section>
 
       {/* ———————————————————————————————————————————————— */}
       {/* V. DIFFERENTIATORS — quiet text composition          */}
       {/* ———————————————————————————————————————————————— */}
-      <section className="py-20 lg:py-28 bg-[var(--color-yellow)]">
+      <section className="py-16 lg:py-20 bg-[var(--color-yellow)]">
         <div className="max-w-[1440px] mx-auto px-8 lg:px-16">
-          <div className="grid grid-cols-12 gap-8">
-            <div className="col-span-12 lg:col-span-3">
-              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-ink)]/65 mb-4">
+          <div className="flex items-end justify-between gap-8 mb-8 lg:mb-10 pb-6 border-b border-[var(--color-ink)]/15">
+            <div>
+              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-ink)]/65 mb-2">
                 Why choose us
               </p>
-              <p className="font-display text-2xl lg:text-3xl leading-tight text-[var(--color-ink)]">
+              <h2 className="font-display text-2xl lg:text-4xl leading-tight text-[var(--color-ink)]">
                 Why Abstract.
-              </p>
+              </h2>
             </div>
-
-            <ul className="col-span-12 lg:col-span-9 lg:col-start-4 divide-y divide-[var(--color-ink)]/15">
-              {differentiators.map((line, i) => (
-                <li key={line} className="py-4 lg:py-5 flex items-baseline gap-8">
-                  <span className="font-mono text-[10px] text-[var(--color-ink)]/55 tabular-nums">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <p className="font-display text-lg lg:text-2xl leading-snug text-[var(--color-ink)] max-w-[40ch]">
-                    {line}
-                  </p>
-                </li>
-              ))}
-            </ul>
+            <p className="hidden md:block font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-ink)]/55 max-w-[28ch] text-right">
+              Six principles our clients count on.
+            </p>
           </div>
+
+          <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-[var(--color-ink)]/15">
+            {differentiators.map((line, i) => (
+              <li
+                key={line}
+                className="bg-[var(--color-yellow)] p-6 lg:p-7 min-h-[140px] flex flex-col justify-between"
+              >
+                <span className="font-mono text-xs text-[var(--color-ink)]/65 tabular-nums">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <p className="font-display text-base lg:text-lg leading-snug text-[var(--color-ink)]">
+                  {line}
+                </p>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
