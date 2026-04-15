@@ -1,0 +1,41 @@
+<svg viewBox="0 0 56 76" xmlns="http://www.w3.org/2000/svg" fill="none" stroke-linejoin="round" stroke-linecap="round">
+  <!-- Head silhouette (moai profile facing right) -->
+  <path d="
+    M 18 4
+    L 32 4
+    L 40 10
+    L 42 20
+    L 48 26
+    L 48 30
+    L 43 32
+    L 44 38
+    L 42 44
+    L 36 48
+    L 38 54
+    L 32 58
+    L 20 58
+    L 14 54
+    L 12 42
+    L 12 26
+    L 10 20
+    L 14 12
+    Z
+  " stroke="currentColor" stroke-width="3.5"/>
+
+  <!-- Eye socket detail -->
+  <path d="M 30 24 L 36 28 L 30 32" stroke="currentColor" stroke-width="2.5"/>
+
+  <!-- Body / base -->
+  <path d="
+    M 18 58
+    L 34 58
+    L 42 68
+    L 46 76
+    L 8 76
+    L 12 68
+    Z
+  " stroke="currentColor" stroke-width="3.5"/>
+
+  <!-- Crossed arms detail on body -->
+  <path d="M 18 66 L 28 72 M 28 66 L 18 72" stroke="currentColor" stroke-width="2"/>
+</svg>
