@@ -17,8 +17,8 @@
   <rect x="24" y="24" width="1552" height="852" fill="none" stroke="#AEA390" stroke-width="0.75"/>
 
   <g font-family="ui-monospace, monospace" font-size="12" letter-spacing="2" fill="#857B6E">
-    <text x="48" y="64">PLATE I · ATELIER</text>
-    <text x="1552" y="64" text-anchor="end">ZHONGSHAN · GUANGDONG</text>
+    <text x="48" y="64">WORKSHOP · ZHONGSHAN</text>
+    <text x="1552" y="64" text-anchor="end">ESTABLISHED 2010</text>
     <text x="48" y="862">WORKROOM · MORNING LIGHT</text>
     <text x="1552" y="862" text-anchor="end">1.1</text>
   </g>

@@ -17,7 +17,7 @@
   <rect x="24" y="24" width="1552" height="852" fill="none" stroke="#AEA390" stroke-width="0.75"/>
 
   <g font-family="ui-monospace, monospace" font-size="12" letter-spacing="2" fill="#857B6E">
-    <text x="48" y="64">PLATE III · LOCATION</text>
+    <text x="48" y="64">LOCATION</text>
     <text x="1552" y="64" text-anchor="end">22.457° N · 113.314° E</text>
     <text x="48" y="862">PEARL RIVER DELTA · CHINA</text>
     <text x="1552" y="862" text-anchor="end">SCALE 1 : 400,000</text>

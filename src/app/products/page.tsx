@@ -27,7 +27,7 @@ const productPlates: Record<string, string> = {
   "bamboo-boxer": "/images/plate-functional.svg",
 };
 
-const romanNumerals = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII"];
+const stepNumbers = ["01", "02", "03", "04", "05", "06", "07", "08"];
 
 const materialGroups = [
   {
@@ -135,7 +135,7 @@ export default function ProductsPage() {
                   </div>
                   <div className="absolute inset-x-0 bottom-0 p-6 lg:p-8">
                     <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-[var(--color-graphite)] mb-2 opacity-80">
-                      Category plate
+                      Category
                     </p>
                     <h3 className="font-display text-2xl lg:text-3xl text-[var(--color-ink)] leading-tight">
                       {cat.name.en}
@@ -364,7 +364,7 @@ export default function ProductsPage() {
                 className="bg-[var(--color-paper)] p-10 lg:p-12 min-h-[280px] flex flex-col justify-between"
               >
                 <p className="font-display text-5xl lg:text-7xl text-[var(--color-terracotta)] leading-none">
-                  {romanNumerals[i]}
+                  {stepNumbers[i]}
                 </p>
                 <div>
                   <h3 className="font-display text-2xl text-[var(--color-ink)]">

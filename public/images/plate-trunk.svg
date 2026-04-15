@@ -10,7 +10,7 @@
   <rect x="20" y="20" width="560" height="760" fill="none" stroke="#AEA390" stroke-width="0.75"/>
 
   <g font-family="ui-monospace, monospace" font-size="10" letter-spacing="1.8" fill="#857B6E">
-    <text x="42" y="58">PLATE II · TRUNK</text>
+    <text x="42" y="58">02 · TRUNK</text>
     <text x="558" y="58" text-anchor="end">02.1</text>
     <text x="42" y="762">MICRO-MODAL · NO-ROLL</text>
     <text x="558" y="762" text-anchor="end">S — XL</text>
@@ -51,7 +51,7 @@
   </g>
 
   <g font-family="ui-monospace, monospace" font-size="8" letter-spacing="1.4" fill="#857B6E" opacity="0.6">
-    <text x="80" y="620">§ FIG. 02</text>
+    <text x="80" y="620">FIG 02</text>
     <text x="520" y="620" text-anchor="end">REV A</text>
   </g>
 </svg>

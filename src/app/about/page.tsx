@@ -19,17 +19,17 @@ const pillars = [
 
 const philosophy = [
   {
-    n: "I",
+    n: "01",
     title: "Pattern before price.",
     body: "Fit is solved in development before a quote is honored. A garment that rolls at the waistband or binds at the thigh is not a win — whatever the unit cost looks like.",
   },
   {
-    n: "II",
+    n: "02",
     title: "Material over marketing.",
     body: "We buy from mills we've worked with for a decade. No white-label fabric stories, no mystery blends. Every yardage is traceable to a certificate.",
   },
   {
-    n: "III",
+    n: "03",
     title: "The approved sample is the contract.",
     body: "Once signed off, the sealed sample governs every subsequent shipment. Deviations are investigated, not excused.",
   },
@@ -43,10 +43,10 @@ const teams = [
 ];
 
 const markets = [
-  { n: "I", label: "International brands", note: "EU · UK · US · AU" },
-  { n: "II", label: "Wholesale & distribution", note: "Multi-brand programmes" },
-  { n: "III", label: "Private-label operators", note: "Retail & e-commerce" },
-  { n: "IV", label: "Hospitality & uniforms", note: "Standard-issue volumes" },
+  { n: "01", label: "International brands", note: "EU · UK · US · AU" },
+  { n: "02", label: "Wholesale & distribution", note: "Multi-brand programmes" },
+  { n: "03", label: "Private-label operators", note: "Retail & e-commerce" },
+  { n: "04", label: "Hospitality & uniforms", note: "Standard-issue volumes" },
 ];
 
 const milestones = [

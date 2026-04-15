@@ -19,12 +19,12 @@ const categories = [
 ];
 
 const process = [
-  { n: "I", title: "Inquiry", body: "Brief, volume, timing." },
-  { n: "II", title: "Review", body: "Requirements confirmed." },
-  { n: "III", title: "Sampling", body: "Fit and construction." },
-  { n: "IV", title: "Approval", body: "Sign-off on sealed sample." },
-  { n: "V", title: "Production", body: "Calibrated lines, in-line QC." },
-  { n: "VI", title: "Inspection & Ship", body: "Final AQL, needle detection, packing." },
+  { n: "01", title: "Inquiry", body: "Brief, volume, timing." },
+  { n: "02", title: "Review", body: "Requirements confirmed." },
+  { n: "03", title: "Sampling", body: "Fit and construction." },
+  { n: "04", title: "Approval", body: "Sign-off on sealed sample." },
+  { n: "05", title: "Production", body: "Calibrated lines, in-line QC." },
+  { n: "06", title: "Inspection & Ship", body: "Final AQL, needle detection, packing." },
 ];
 
 const differentiators = [
@@ -121,7 +121,7 @@ export default function Home() {
               <figure className="relative aspect-[16/9] overflow-hidden border border-[var(--color-rule)]">
                 <img
                   src="/images/atelier.svg"
-                  alt="Plate I — Atelier · Zhongshan workroom"
+                  alt="Workshop · Zhongshan"
                   className="absolute inset-0 w-full h-full object-cover"
                 />
               </figure>
@@ -251,7 +251,7 @@ export default function Home() {
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[var(--color-paper)]/95" />
                 <div className="absolute inset-x-0 bottom-0 p-6 lg:p-8">
                   <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-[var(--color-graphite)] mb-2 opacity-80">
-                    {c.n} · Product plate
+                    {c.n} · Category
                   </p>
                   <h3 className="font-display text-xl lg:text-2xl text-[var(--color-ink)] leading-tight">
                     {c.name}

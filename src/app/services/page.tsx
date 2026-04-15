@@ -5,7 +5,7 @@ import CTASection from "@/components/sections/CTASection";
 
 const services = [
   {
-    n: "I",
+    n: "01",
     tag: "OEM",
     title: "OEM Manufacturing",
     body: "Brand-specified production on calibrated lines. We hold the standard of your tech pack from first cut to final bag — bill-of-materials, trim, stitching class, and packaging governed by the sealed sample.",
@@ -13,7 +13,7 @@ const services = [
     plate: "/images/plate-boxer-brief.svg",
   },
   {
-    n: "II",
+    n: "02",
     tag: "ODM",
     title: "ODM Development",
     body: "Original design and development from concept to production. Our patterns, fabric library, and fit blocks — adapted to your palette and market, released under your brand.",
@@ -21,7 +21,7 @@ const services = [
     plate: "/images/plate-trunk.svg",
   },
   {
-    n: "III",
+    n: "03",
     tag: "PL",
     title: "Private Label",
     body: "Market-ready programs. Existing patterns, your label. Waistband, hangtag, and packaging branded to your identity — shipped in weeks, not quarters.",
