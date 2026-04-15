@@ -25,7 +25,7 @@ export default function CTASection({
 
   return (
     <section
-      className={`py-32 lg:py-48 ${
+      className={`py-20 lg:py-28 ${
         isDark
           ? "bg-[var(--color-ink)]"
           : "bg-[var(--color-paper)] border-t border-[var(--color-rule)]"
@@ -49,7 +49,7 @@ export default function CTASection({
 
           <div className="col-span-12 lg:col-span-10">
             <h2
-              className={`font-display text-[clamp(2.5rem,6vw,5.5rem)] leading-[1] tracking-tight ${
+              className={`font-display text-[clamp(2rem,4.5vw,3.75rem)] leading-[1.05] tracking-tight ${
                 isDark
                   ? "text-[var(--color-paper)]"
                   : "text-[var(--color-ink)]"
@@ -60,7 +60,7 @@ export default function CTASection({
 
             {lede && (
               <p
-                className={`mt-12 max-w-[55ch] text-lg leading-[1.6] ${
+                className={`mt-6 lg:mt-8 max-w-[55ch] text-base lg:text-lg leading-[1.55] ${
                   isDark ? "text-white/70" : "text-[var(--color-ink-soft)]"
                 }`}
               >
@@ -68,7 +68,7 @@ export default function CTASection({
               </p>
             )}
 
-            <div className="mt-16 flex flex-wrap gap-x-10 gap-y-4 items-center">
+            <div className="mt-10 lg:mt-12 flex flex-wrap gap-x-8 gap-y-4 items-center">
               {ctas.map((cta, i) =>
                 cta.variant === "primary" || !cta.variant ? (
                   <Link
