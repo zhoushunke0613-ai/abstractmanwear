@@ -19,12 +19,13 @@ const categories = [
 ];
 
 const process = [
-  { n: "01", title: "Inquiry", body: "Brief, volume, timing." },
-  { n: "02", title: "Review", body: "Requirements confirmed." },
-  { n: "03", title: "Sampling", body: "Fit and construction." },
-  { n: "04", title: "Approval", body: "Sign-off on sealed sample." },
-  { n: "05", title: "Production", body: "Calibrated lines, in-line QC." },
-  { n: "06", title: "Inspection & Ship", body: "Final AQL, needle detection, packing." },
+  { n: "01", title: "Inquiry & Requirements", body: "Share product type, fabric, quantity, and custom details (logo, print, waistband, packaging)." },
+  { n: "02", title: "Quotation & Proposal", body: "Detailed quote — unit price, lead time, sample cost, setup fees, and shipping, all clearly laid out." },
+  { n: "03", title: "Sample Development", body: "Mockups for confirmation, factory-built sample delivered for you to evaluate fabric, fit, and workmanship." },
+  { n: "04", title: "Order & Mass Production", body: "Sign agreement, 30–50% deposit, then fabric → cutting → print/embroidery → sewing → inline QC." },
+  { n: "05", title: "Inspection & Packaging", body: "Full inspection of size / color / workmanship. Standard or custom packaging, pre-shipment photos confirmed." },
+  { n: "06", title: "Balance & Shipping", body: "Pay remaining balance, shipment arranged immediately via your preferred logistics method." },
+  { n: "07", title: "Delivery & After-Sales", body: "Inspect on arrival. Full after-sales support for any issues until order completion." },
 ];
 
 const differentiators = [
@@ -266,18 +267,23 @@ export default function Home() {
       {/* ———————————————————————————————————————————————— */}
       <section className="py-16 lg:py-24">
         <div className="max-w-[1440px] mx-auto px-8 lg:px-16">
-          <div className="grid grid-cols-12 gap-8 mb-10 lg:mb-12">
-            <div className="col-span-12 lg:col-span-6 lg:col-start-4 text-center lg:text-left">
+          <div className="grid grid-cols-12 gap-8 mb-10 lg:mb-12 items-end">
+            <div className="col-span-12 lg:col-span-7">
               <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-taupe)] mb-3">
                 Our process
               </p>
               <h2 className="font-display text-[clamp(2rem,4.5vw,3.5rem)] leading-[1.05] tracking-tight text-[var(--color-ink)]">
-                From brief to shipment.
+                Custom underwear order process.
               </h2>
+            </div>
+            <div className="col-span-12 lg:col-span-4 lg:col-start-9">
+              <p className="text-[var(--color-ink-soft)] text-sm lg:text-base leading-[1.55] max-w-[40ch]">
+                Seven steps from first brief to final delivery. Clear milestones, one point of contact throughout.
+              </p>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-[var(--color-rule)] border border-[var(--color-rule)]">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-[var(--color-rule)] border border-[var(--color-rule)]">
             {process.map((p, i) => {
               const tones = [
                 { bg: "bg-[var(--color-paper)]", numeral: "text-[var(--color-yellow)]", title: "text-[var(--color-ink)]", body: "text-[var(--color-ink-soft)]" },
@@ -286,21 +292,40 @@ export default function Home() {
               ];
               const t = tones[i % 3];
               return (
-                <div key={p.n} className={`${t.bg} p-6 lg:p-8 min-h-[180px] flex flex-col justify-between`}>
-                  <p className={`font-display text-4xl lg:text-5xl ${t.numeral} leading-none`}>
+                <div key={p.n} className={`${t.bg} p-6 lg:p-7 min-h-[200px] flex flex-col justify-between`}>
+                  <p className={`font-display text-3xl lg:text-4xl ${t.numeral} leading-none`}>
                     {p.n}
                   </p>
                   <div>
-                    <h3 className={`font-display text-lg lg:text-xl ${t.title}`}>
+                    <h3 className={`font-display text-base lg:text-lg ${t.title} leading-tight`}>
                       {p.title}
                     </h3>
-                    <p className={`mt-1.5 text-xs lg:text-sm ${t.body} leading-[1.45]`}>
+                    <p className={`mt-2 text-xs ${t.body} leading-[1.5]`}>
                       {p.body}
                     </p>
                   </div>
                 </div>
               );
             })}
+
+            {/* 8th slot — inline CTA card closes the 4×2 grid */}
+            <Link
+              href="/contact"
+              className="group bg-[var(--color-yellow)] p-6 lg:p-7 min-h-[200px] flex flex-col justify-between hover:bg-[var(--color-ink)] transition-colors duration-500"
+            >
+              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-ink)]/65 group-hover:text-[var(--color-yellow)]/75 transition-colors duration-500">
+                Ready to start?
+              </p>
+              <div>
+                <h3 className="font-display text-base lg:text-lg text-[var(--color-ink)] group-hover:text-[var(--color-paper)] leading-tight transition-colors duration-500">
+                  Get a quote within 24 hours.
+                </h3>
+                <p className="mt-3 inline-flex items-center gap-2 text-xs text-[var(--color-ink)] group-hover:text-[var(--color-yellow)] transition-colors duration-500">
+                  <span>Contact us</span>
+                  <span className="transition-transform duration-500 group-hover:translate-x-1">→</span>
+                </p>
+              </div>
+            </Link>
           </div>
         </div>
       </section>
