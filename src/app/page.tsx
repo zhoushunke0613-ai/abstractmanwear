@@ -86,14 +86,11 @@ export default function Home() {
           {/* Headline + body — tight 7/5 grid */}
           <div className="grid grid-cols-12 gap-8 items-start rise-in" style={{ animationDelay: "50ms" }}>
             <div className="col-span-12 lg:col-span-7">
-              {/* Prominent brand mark */}
-              <div className="mb-6 lg:mb-8 inline-flex items-center justify-center w-24 h-24 lg:w-32 lg:h-32 bg-[var(--color-ink)] p-3 lg:p-4">
-                <img
-                  src="/images/logo.png"
-                  alt="Abstract Manwear"
-                  className="w-full h-full object-contain"
-                />
-              </div>
+              <img
+                src="/images/logo.png"
+                alt="Abstract Manwear"
+                className="mb-4 lg:mb-6 h-36 lg:h-48 w-auto object-contain"
+              />
               <h1 className="font-display text-[clamp(2rem,4.5vw,3.75rem)] leading-[1.1] tracking-[-0.01em] text-[var(--color-ink)]">
                 <span className="inline-block bg-[var(--color-yellow)] text-[var(--color-ink)] px-3 py-0.5 mr-2">Abstractman</span>
                 <br className="lg:hidden" />
