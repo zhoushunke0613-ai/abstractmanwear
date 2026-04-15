@@ -37,32 +37,11 @@ export default function Header() {
         <div className="flex items-center justify-between h-20 lg:h-24">
           {/* Wordmark */}
           <Link href="/" className="group flex items-center gap-3">
-            <svg
-              viewBox="0 0 56 76"
-              xmlns="http://www.w3.org/2000/svg"
-              aria-hidden
-              className="h-8 lg:h-9 w-auto text-[var(--color-ink)] group-hover:text-[var(--color-yellow)] transition-colors duration-300"
-              fill="none"
-              strokeLinejoin="round"
-              strokeLinecap="round"
-            >
-              <path
-                d="M 18 4 L 32 4 L 40 10 L 42 20 L 48 26 L 48 30 L 43 32 L 44 38 L 42 44 L 36 48 L 38 54 L 32 58 L 20 58 L 14 54 L 12 42 L 12 26 L 10 20 L 14 12 Z"
-                stroke="currentColor"
-                strokeWidth="3.5"
-              />
-              <path d="M 30 24 L 36 28 L 30 32" stroke="currentColor" strokeWidth="2.5" />
-              <path
-                d="M 18 58 L 34 58 L 42 68 L 46 76 L 8 76 L 12 68 Z"
-                stroke="currentColor"
-                strokeWidth="3.5"
-              />
-              <path
-                d="M 18 66 L 28 72 M 28 66 L 18 72"
-                stroke="currentColor"
-                strokeWidth="2"
-              />
-            </svg>
+            <img
+              src="/images/logo.png"
+              alt="Abstract Manwear"
+              className="h-9 lg:h-10 w-auto object-contain"
+            />
             <span className="font-display text-2xl lg:text-3xl tracking-tight text-[var(--color-ink)]">
               Abstract
             </span>
