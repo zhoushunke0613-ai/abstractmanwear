@@ -37,11 +37,13 @@ export default function Header() {
         <div className="flex items-center justify-between h-20 lg:h-24">
           {/* Wordmark */}
           <Link href="/" className="group flex items-center gap-3">
-            <img
-              src="/images/logo.png"
-              alt="Abstract Manwear"
-              className="h-9 lg:h-10 w-auto object-contain"
-            />
+            <span className="inline-flex items-center justify-center h-10 w-10 lg:h-11 lg:w-11 bg-[var(--color-ink)] p-1.5 transition-transform duration-300 group-hover:scale-105">
+              <img
+                src="/images/logo.png"
+                alt="Abstract Manwear"
+                className="h-full w-full object-contain"
+              />
+            </span>
             <span className="font-display text-2xl lg:text-3xl tracking-tight text-[var(--color-ink)]">
               Abstract
             </span>
