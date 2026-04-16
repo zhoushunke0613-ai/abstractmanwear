@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import Header from "@/components/Header";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Abstract Manwear",
-  description: "Men's underwear manufacturer.",
+  title: "Abstract Man — Men's Underwear OEM/ODM Manufacturer",
+  description:
+    "Custom men's underwear manufacturing for international brands. OEM, ODM, and private label. Zhongshan, China.",
 };
 
 export default function RootLayout({
@@ -13,7 +15,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className="min-h-screen flex flex-col text-neutral-900">
+        <Header />
+        <main className="flex-1">{children}</main>
+      </body>
     </html>
   );
 }
