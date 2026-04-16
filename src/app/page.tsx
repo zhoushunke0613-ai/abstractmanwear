@@ -102,7 +102,7 @@ export default function Home() {
                 <img
                   src="/images/logo.png"
                   alt="Abstract Manwear"
-                  className="shrink-0 self-stretch h-auto w-auto max-w-[7rem] object-contain"
+                  className="shrink-0 self-stretch h-auto max-h-36 lg:max-h-44 w-auto object-contain"
                 />
               </div>
               <div className="flex flex-wrap gap-x-8 gap-y-4 items-center">
