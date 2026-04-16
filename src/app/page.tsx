@@ -83,17 +83,8 @@ export default function Home() {
       {/* ———————————————————————————————————————————————— */}
       <section className="relative pt-10 lg:pt-14 pb-16 lg:pb-20">
         <div className="max-w-[1440px] mx-auto px-8 lg:px-16">
-          {/* Brand mark — standalone, above headline/body grid */}
-          <div className="mb-6 lg:mb-8 rise-in">
-            <img
-              src="/images/logo.png"
-              alt="Abstract Manwear"
-              className="h-28 lg:h-36 w-auto object-contain"
-            />
-          </div>
-
-          {/* Headline + body — tight 7/5 grid */}
-          <div className="grid grid-cols-12 gap-8 items-start rise-in" style={{ animationDelay: "50ms" }}>
+          {/* Headline + body — tight 7/5 grid, logo tucked bottom-right */}
+          <div className="grid grid-cols-12 gap-8 items-stretch rise-in" style={{ animationDelay: "50ms" }}>
             <div className="col-span-12 lg:col-span-7">
               <h1 className="font-display text-[clamp(2rem,4.5vw,3.75rem)] leading-[1.1] tracking-[-0.01em] text-[var(--color-ink)]">
                 <span className="inline-block bg-[var(--color-yellow)] text-[var(--color-ink)] px-3 py-0.5 mr-2">Abstractman</span>
@@ -119,6 +110,12 @@ export default function Home() {
                   View products
                 </Link>
               </div>
+              {/* Brand mark pushed to bottom of right column */}
+              <img
+                src="/images/logo.png"
+                alt="Abstract Manwear"
+                className="mt-auto h-20 lg:h-24 w-auto object-contain self-end"
+              />
             </div>
           </div>
 
