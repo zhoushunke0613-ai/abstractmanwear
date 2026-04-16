@@ -95,9 +95,16 @@ export default function Home() {
               </h1>
             </div>
             <div className="col-span-12 lg:col-span-5 flex flex-col gap-6">
-              <p className="text-base lg:text-lg text-[var(--color-ink-soft)] leading-[1.6] max-w-[44ch]">
-                Specialist manufacturer of men&apos;s underwear for international brands, wholesalers, and retailers. Everything developed, sampled, and inspected under one roof in Zhongshan.
-              </p>
+              <div className="flex items-start justify-between gap-6">
+                <p className="text-base lg:text-lg text-[var(--color-ink-soft)] leading-[1.6] max-w-[40ch]">
+                  Specialist manufacturer of men&apos;s underwear for international brands, wholesalers, and retailers. Everything developed, sampled, and inspected under one roof in Zhongshan.
+                </p>
+                <img
+                  src="/images/logo.png"
+                  alt="Abstract Manwear"
+                  className="shrink-0 h-20 lg:h-24 w-auto object-contain"
+                />
+              </div>
               <div className="flex flex-wrap gap-x-8 gap-y-4 items-center">
                 <Link
                   href="/contact"
@@ -110,12 +117,6 @@ export default function Home() {
                   View products
                 </Link>
               </div>
-              {/* Brand mark pushed to bottom of right column */}
-              <img
-                src="/images/logo.png"
-                alt="Abstract Manwear"
-                className="mt-auto h-20 lg:h-24 w-auto object-contain self-end"
-              />
             </div>
           </div>
 
