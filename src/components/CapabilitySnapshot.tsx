@@ -61,13 +61,13 @@ export default function CapabilitySnapshot() {
           </div>
 
           {/* Factory photo */}
-          <div className="relative aspect-[4/3] lg:aspect-auto lg:h-full lg:min-h-[360px] rounded-xl overflow-hidden">
+          <div className="group relative aspect-[4/3] lg:aspect-auto lg:h-full lg:min-h-[360px] rounded-xl overflow-hidden">
             <Image
               src="/images/factory-floor.png"
               alt="Abstract Man factory floor — seamless knitting machines and production lines"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
-              className="object-cover"
+              className="object-cover img-hover-zoom"
             />
           </div>
         </div>

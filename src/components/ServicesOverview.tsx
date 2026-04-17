@@ -58,14 +58,14 @@ export default function ServicesOverview() {
 
         <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((s) => (
-            <div key={s.no}>
+            <div key={s.no} className="group">
               <div className="relative aspect-[4/3] rounded-xl overflow-hidden mb-6">
                 <Image
                   src={s.image}
                   alt={s.imageAlt}
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                  className="object-cover"
+                  className="object-cover img-hover-zoom"
                 />
               </div>
               <p className="text-xs uppercase tracking-[0.2em] text-brand-yellow font-medium">

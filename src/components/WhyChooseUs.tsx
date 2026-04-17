@@ -49,10 +49,13 @@ export default function WhyChooseUs() {
           </p>
         </div>
 
-        <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-neutral-200 border border-neutral-200">
+        <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {advantages.map((a, i) => (
-            <div key={a.title} className="bg-neutral-50 p-8 lg:p-10">
-              <div className="flex h-9 w-9 items-center justify-center rounded-full bg-brand-yellow text-xs font-semibold text-neutral-900">
+            <div
+              key={a.title}
+              className="group rounded-xl border border-neutral-200 bg-white p-8 transition-all duration-300 hover:border-brand-yellow/60 hover:-translate-y-0.5 hover:shadow-md"
+            >
+              <div className="flex h-9 w-9 items-center justify-center rounded-full bg-brand-yellow text-xs font-semibold text-neutral-900 transition-transform duration-300 group-hover:scale-110">
                 {String(i + 1).padStart(2, "0")}
               </div>
               <h3 className="mt-6 text-lg font-semibold tracking-tight text-neutral-900">

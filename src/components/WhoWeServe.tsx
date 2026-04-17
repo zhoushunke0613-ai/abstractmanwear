@@ -43,7 +43,7 @@ export default function WhoWeServe() {
           {clients.map((c) => (
             <div
               key={c.type}
-              className="bg-white border border-neutral-200 rounded-2xl p-6 hover:border-brand-yellow transition-colors"
+              className="group bg-white border border-neutral-200 rounded-2xl p-6 transition-all duration-300 hover:border-brand-yellow hover:-translate-y-0.5 hover:shadow-md"
             >
               <div className="h-1 w-8 bg-brand-yellow" />
               <h3 className="mt-5 text-base font-semibold tracking-tight text-neutral-900">

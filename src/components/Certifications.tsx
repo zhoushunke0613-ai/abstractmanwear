@@ -61,7 +61,7 @@ export default function Certifications() {
           {certs.map((c) => (
             <div
               key={c.badge}
-              className="border border-neutral-200 rounded-2xl overflow-hidden hover:border-brand-yellow transition-colors"
+              className="group border border-neutral-200 rounded-2xl overflow-hidden transition-all duration-300 hover:border-brand-yellow hover:-translate-y-0.5 hover:shadow-md"
             >
               {c.image ? (
                 <div className="relative aspect-[5/3]">

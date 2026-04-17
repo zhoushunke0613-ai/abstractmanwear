@@ -68,41 +68,36 @@ export default function OrderProcess() {
           </p>
         </div>
 
-        <div className="mt-16 relative">
-          {/* Desktop connector rail */}
-          <div
-            className="hidden lg:block absolute top-[18px] left-0 right-0 h-px bg-neutral-200"
-            aria-hidden
-          />
-
-          <ol className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-7 gap-10 lg:gap-5">
-            {steps.map((s) => (
-              <li key={s.no} className="relative">
-                <span className="relative z-10 flex h-9 w-9 items-center justify-center rounded-full bg-brand-yellow text-xs font-semibold text-neutral-900 ring-4 ring-white">
-                  {s.no}
-                </span>
-                <h3 className="mt-6 text-sm font-semibold tracking-tight text-neutral-900">
-                  {s.title}
-                </h3>
-                <p className="mt-2 text-xs text-neutral-600 leading-relaxed">
-                  {s.description}
-                </p>
-                <p className="mt-3 text-[11px] text-neutral-500">
-                  &rarr; {s.deliverable}
-                </p>
-              </li>
-            ))}
-          </ol>
-        </div>
+        <ol className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {steps.map((s) => (
+            <li
+              key={s.no}
+              className="group rounded-xl border border-neutral-200 bg-neutral-50/50 p-6 transition-all duration-300 hover:border-brand-yellow/60 hover:-translate-y-0.5 hover:shadow-md"
+            >
+              <span className="flex h-9 w-9 items-center justify-center rounded-full bg-brand-yellow text-xs font-semibold text-neutral-900 transition-transform duration-300 group-hover:scale-110">
+                {s.no}
+              </span>
+              <h3 className="mt-4 text-base font-semibold tracking-tight text-neutral-900">
+                {s.title}
+              </h3>
+              <p className="mt-2 text-sm text-neutral-600 leading-relaxed">
+                {s.description}
+              </p>
+              <p className="mt-3 text-xs text-neutral-400">
+                &rarr; {s.deliverable}
+              </p>
+            </li>
+          ))}
+        </ol>
 
         {/* Inline CTA */}
-        <div className="mt-16 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 border-t border-neutral-200 pt-10">
+        <div className="mt-14 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 border-t border-neutral-200 pt-10">
           <p className="text-lg font-semibold tracking-tight text-neutral-900">
             Ready to start your custom underwear project?
           </p>
           <Link
             href="/contact"
-            className="rounded-full bg-brand-yellow border border-brand-yellow-light text-neutral-900 font-medium text-sm px-6 py-2.5 shadow-sm transition-all duration-300 ease-out hover:bg-brand-yellow-light hover:shadow-md hover:-translate-y-0.5"
+            className="rounded-full bg-neutral-900 text-white font-medium text-sm px-7 py-2.5 shadow-sm transition-all duration-300 ease-out hover:bg-neutral-800 hover:-translate-y-0.5"
           >
             Get a quote within 24 hours &rarr;
           </Link>

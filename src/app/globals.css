@@ -1,8 +1,48 @@
 @import "tailwindcss";
 
 @theme {
-  /* Brand yellow — matches the LOGO placeholder in the hero image.
-     Pure, saturated safety-yellow, not the mustardy default Tailwind yellow. */
   --color-brand-yellow: #ffd400;
   --color-brand-yellow-light: #ffe04d;
+}
+
+/* ── Hero entrance animation ── */
+@keyframes hero-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-animate {
+  animation: hero-fade-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.hero-delay-1 { animation-delay: 0.1s; }
+.hero-delay-2 { animation-delay: 0.25s; }
+.hero-delay-3 { animation-delay: 0.4s; }
+.hero-delay-4 { animation-delay: 0.6s; }
+
+/* ── Scroll-triggered section animations ── */
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(32px);
+  transition:
+    opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scroll-animate.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Image hover zoom (used inside overflow-hidden containers) ── */
+.img-hover-zoom {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.group:hover .img-hover-zoom {
+  transform: scale(1.05);
 }

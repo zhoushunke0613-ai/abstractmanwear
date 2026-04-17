@@ -32,22 +32,22 @@ export default function Hero() {
 
         <div className="relative max-w-md">
           {/* Eyebrow */}
-          <p className="text-xs uppercase tracking-[0.18em] text-neutral-700">
+          <p className="hero-animate hero-delay-1 text-xs uppercase tracking-[0.18em] text-neutral-700">
             Men&apos;s Underwear · OEM &amp; ODM
           </p>
 
           {/* Headline */}
-          <h1 className="mt-4 text-3xl lg:text-4xl font-semibold tracking-tight text-neutral-900 leading-[1.15]">
+          <h1 className="hero-animate hero-delay-2 mt-4 text-3xl lg:text-4xl font-semibold tracking-tight text-neutral-900 leading-[1.15]">
             Men&apos;s Underwear OEM &amp; ODM for Global Brands
           </h1>
 
           {/* Lede */}
-          <p className="mt-5 text-sm lg:text-base text-neutral-700 leading-relaxed">
+          <p className="hero-animate hero-delay-3 mt-5 text-sm lg:text-base text-neutral-700 leading-relaxed">
             In-house manufacturing from sourcing to shipment.
           </p>
 
           {/* Conversion CTAs — frosted glass pills matching the header */}
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="hero-animate hero-delay-4 mt-8 flex flex-wrap gap-3">
             <Link
               href="/contact"
               className="rounded-full bg-brand-yellow/75 border border-brand-yellow-light/70 backdrop-blur-md text-neutral-900 font-medium text-sm px-6 py-2.5 shadow-sm transition-all duration-300 ease-out hover:bg-brand-yellow/95 hover:border-brand-yellow-light/90 hover:shadow-md hover:-translate-y-0.5"
