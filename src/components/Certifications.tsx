@@ -1,63 +1,58 @@
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import ImagePlaceholder from "./ImagePlaceholder";
 
-const certs = [
-  {
-    badge: "BSCI",
-    title: "BSCI Audit \u00B7 Passed",
-    description:
-      "Third-party verified working conditions, wages, and working hours across all production lines. Reports available on request.",
-    image: null as string | null,
-    imageAlt: "",
-    placeholder: {
-      label: "BSCI Certificate",
-      description: "BSCI audit certificate scan or official BSCI badge image",
-    },
-  },
-  {
-    badge: "SLCP",
-    title: "SLCP Verified",
-    description:
-      "Converged Assessment Framework recognized by major global retailers. Saves you from duplicate audits.",
-    image: null as string | null,
-    imageAlt: "",
-    placeholder: {
-      label: "SLCP Certificate",
-      description:
-        "SLCP verification certificate scan or official SLCP badge image",
-    },
-  },
-  {
-    badge: "AQL",
-    title: "AQL 2.5 Inspection + Full Export Docs",
-    description:
-      "Every shipment inspected before dispatch. Commercial invoice, packing list, certificate of origin, and BL / AWB ready for customs.",
-    image: "/images/qc-inspection.png",
-    imageAlt:
-      "QC inspector examining underwear under magnifying lamp at inspection station",
-    placeholder: null,
-  },
-];
-
 export default function Certifications() {
+  const t = useTranslations("Certifications");
+
+  const certs = [
+    {
+      badge: "BSCI",
+      title: t("bsciTitle"),
+      description: t("bsciDesc"),
+      image: null as string | null,
+      imageAlt: "",
+      placeholder: {
+        label: "BSCI Certificate",
+        description: "BSCI audit certificate scan or official BSCI badge image",
+      },
+    },
+    {
+      badge: "SLCP",
+      title: t("slcpTitle"),
+      description: t("slcpDesc"),
+      image: null as string | null,
+      imageAlt: "",
+      placeholder: {
+        label: "SLCP Certificate",
+        description: "SLCP verification certificate scan or official SLCP badge image",
+      },
+    },
+    {
+      badge: "AQL",
+      title: t("aqlTitle"),
+      description: t("aqlDesc"),
+      image: "/images/qc-inspection.png",
+      imageAlt: "QC inspector examining underwear under magnifying lamp",
+      placeholder: null,
+    },
+  ];
+
   return (
     <section className="border-b border-neutral-200 bg-white">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14 lg:py-28">
         <div className="max-w-2xl">
           <p className="text-xs uppercase tracking-[0.2em] text-neutral-500">
-            Certifications
+            {t("eyebrow")}
           </p>
           <h2 className="mt-4 text-2xl lg:text-4xl font-semibold tracking-tight text-neutral-900">
-            Audited, documented, and export-ready.
+            {t("headline")}
           </h2>
           <p className="mt-4 text-sm lg:text-base text-neutral-600 leading-relaxed">
-            Compliance documentation is part of how we operate &mdash; not a
-            bolt-on. International buyers can onboard us without running a
-            separate vetting cycle.
+            {t("description")}
           </p>
         </div>
 
-        {/* Horizontal scroll on mobile, grid on desktop */}
         <div className="mt-10 lg:mt-14 -mx-6 px-6 lg:mx-0 lg:px-0 flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 lg:pb-0 scrollbar-hide lg:grid lg:grid-cols-3 lg:overflow-visible lg:snap-none">
           {certs.map((c) => (
             <div

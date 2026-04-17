@@ -1,45 +1,28 @@
-const clients = [
-  {
-    type: "Global Brands",
-    description:
-      "Multi-season programs with dedicated development teams.",
-  },
-  {
-    type: "Private Label Businesses",
-    description:
-      "Full white-label with custom packaging and inner-waistband branding.",
-  },
-  {
-    type: "Wholesalers",
-    description:
-      "Stock-ready essentials with fast turnaround.",
-  },
-  {
-    type: "Distributors",
-    description:
-      "Mixed-SKU orders with consolidated shipping.",
-  },
-  {
-    type: "Cross-Border Sellers",
-    description:
-      "DTC-ready packaging and small-batch flexibility.",
-  },
-];
+import { useTranslations } from "next-intl";
 
 export default function WhoWeServe() {
+  const t = useTranslations("WhoWeServe");
+
+  const clients = [
+    { type: t("c1"), description: t("c1Desc") },
+    { type: t("c2"), description: t("c2Desc") },
+    { type: t("c3"), description: t("c3Desc") },
+    { type: t("c4"), description: t("c4Desc") },
+    { type: t("c5"), description: t("c5Desc") },
+  ];
+
   return (
     <section className="border-b border-neutral-200 bg-neutral-50">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14 lg:py-28">
         <div className="max-w-2xl">
           <p className="text-xs uppercase tracking-[0.2em] text-neutral-500">
-            Who We Serve
+            {t("eyebrow")}
           </p>
           <h2 className="mt-4 text-2xl lg:text-4xl font-semibold tracking-tight text-neutral-900">
-            Designed for the way you go to market.
+            {t("headline")}
           </h2>
         </div>
 
-        {/* Horizontal scroll on mobile, grid on desktop */}
         <div className="mt-10 lg:mt-14 -mx-6 px-6 lg:mx-0 lg:px-0 flex overflow-x-auto snap-x snap-mandatory gap-3 pb-4 lg:pb-0 scrollbar-hide lg:grid lg:grid-cols-5 lg:gap-4 lg:overflow-visible lg:snap-none">
           {clients.map((c) => (
             <div

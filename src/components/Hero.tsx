@@ -1,7 +1,10 @@
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 
 export default function Hero() {
+  const t = useTranslations("Hero");
+
   return (
     <section className="relative -mt-16 overflow-hidden border-b border-neutral-200 bg-neutral-100">
       {/* Full-bleed background image — extends up behind the sticky header */}
@@ -21,8 +24,7 @@ export default function Hero() {
 
       {/* Content — kept within the image's empty left panel so it never overlaps the machinery */}
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8 pt-32 pb-20 lg:pt-44 lg:pb-28">
-        {/* Logo watermark — sits above the image but below the text.
-            Scaled up so the lower half clearly overlaps the eyebrow + headline. */}
+        {/* Logo watermark */}
         <Image
           src="/images/logo.png"
           alt=""
@@ -34,34 +36,27 @@ export default function Hero() {
         />
 
         <div className="relative max-w-md">
-          {/* Eyebrow */}
           <p className="hero-animate hero-delay-1 text-xs uppercase tracking-[0.18em] text-neutral-700">
-            Men&apos;s Underwear · OEM &amp; ODM
+            {t("eyebrow")}
           </p>
-
-          {/* Headline */}
           <h1 className="hero-animate hero-delay-2 mt-4 text-3xl lg:text-4xl font-semibold tracking-tight text-neutral-900 leading-[1.15]">
-            Men&apos;s Underwear OEM &amp; ODM for Global Brands
+            {t("headline")}
           </h1>
-
-          {/* Lede */}
           <p className="hero-animate hero-delay-3 mt-5 text-sm lg:text-base text-neutral-700 leading-relaxed">
-            In-house manufacturing from sourcing to shipment.
+            {t("lede")}
           </p>
-
-          {/* Conversion CTAs — frosted glass pills matching the header */}
           <div className="hero-animate hero-delay-4 mt-8 flex flex-wrap gap-3">
             <Link
               href="/contact"
               className="rounded-full bg-brand-yellow/75 border border-brand-yellow-light/70 backdrop-blur-md text-neutral-900 font-medium text-sm px-6 py-2.5 shadow-sm transition-all duration-300 ease-out hover:bg-brand-yellow/95 hover:border-brand-yellow-light/90 hover:shadow-md hover:-translate-y-0.5"
             >
-              Start Your Project
+              {t("startProject")}
             </Link>
             <Link
               href="/catalog"
               className="rounded-full bg-white/50 border border-white/60 backdrop-blur-md text-neutral-800 text-sm px-6 py-2.5 shadow-sm transition-all duration-300 ease-out hover:bg-white/85 hover:border-white/90 hover:shadow-md hover:-translate-y-0.5"
             >
-              Download Catalog
+              {t("downloadCatalog")}
             </Link>
           </div>
         </div>
