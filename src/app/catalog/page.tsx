@@ -13,13 +13,13 @@ const sections = [
     no: "01",
     title: "Silhouette Library",
     description:
-      "Boxer briefs, trunks, briefs, boxers, jockstraps, and long johns \u2014 with pattern codes and fit guides.",
+      "Boxer briefs, trunks, briefs, seamless series, modal series, and performance constructions \u2014 with fit notes and reference directions.",
   },
   {
     no: "02",
-    title: "Fabric & Yarn Catalog",
+    title: "Fabric & Material Options",
     description:
-      "Cotton, modal, bamboo, seamless yarns, and performance blends. Weight, stretch, and composition specs.",
+      "Cotton, modal, bamboo, and performance blends. Weight, stretch, composition specs, and minimum yardage notes.",
   },
   {
     no: "03",
@@ -41,17 +41,28 @@ const sections = [
   },
   {
     no: "06",
-    title: "Case Studies",
+    title: "Project References",
     description:
-      "Past OEM/ODM projects across the US, EU, and APAC \u2014 what was built, at what volume, in what timeline.",
+      "Past OEM/ODM projects across the US, EU, and APAC \u2014 product types, volumes, and timelines.",
   },
 ];
 
 const stats = [
-  { value: "68", label: "Pages" },
-  { value: "140+", label: "SKUs on file" },
-  { value: "22", label: "Fabric options" },
-  { value: "9", label: "Packaging tiers" },
+  { value: "60+", label: "Pages" },
+  { value: "100+", label: "SKU references" },
+  { value: "20+", label: "Fabric options" },
+  { value: "Multiple", label: "Packaging tiers" },
+];
+
+const productInterests = [
+  "Boxer Briefs",
+  "Trunks",
+  "Briefs",
+  "Seamless Series",
+  "Modal Series",
+  "Performance Series",
+  "Private Label Packaging",
+  "Not Sure Yet",
 ];
 
 export default function CatalogPage() {
@@ -69,9 +80,9 @@ export default function CatalogPage() {
                 The full product library, in one PDF.
               </h1>
               <p className="mt-5 text-neutral-600 leading-relaxed text-base lg:text-lg">
-                Silhouettes, fabrics, trim options, production capability, and
-                case studies &mdash; everything your team needs to plan an
-                underwear line with us.
+                Silhouettes, fabric options, trim details, production
+                capabilities, and key sourcing information &mdash; everything
+                your team needs to evaluate a project with us.
               </p>
 
               <div className="mt-10 flex flex-wrap gap-3">
@@ -164,12 +175,11 @@ export default function CatalogPage() {
                 Request the Catalog
               </p>
               <h2 className="mt-4 text-3xl lg:text-4xl font-semibold tracking-tight text-neutral-900 leading-[1.15]">
-                Tell us who you are &mdash; we&apos;ll email the PDF.
+                Tell us where to send the catalog.
               </h2>
               <p className="mt-5 text-neutral-900/80 leading-relaxed">
-                The catalog is confidential and sent individually. We use your
-                email to share the file and nothing else &mdash; no newsletters,
-                no marketing automation.
+                We&apos;ll send the catalog directly to your inbox. No
+                newsletters or automated marketing sequences.
               </p>
             </div>
 
@@ -230,25 +240,25 @@ export default function CatalogPage() {
 
                 <div className="sm:col-span-2">
                   <label
-                    htmlFor="catalog-role"
+                    htmlFor="catalog-interest"
                     className="block text-xs uppercase tracking-[0.18em] text-neutral-600"
                   >
-                    What are you working on?
+                    What are you looking to develop?
                   </label>
                   <select
-                    id="catalog-role"
-                    name="role"
+                    id="catalog-interest"
+                    name="interest"
                     defaultValue=""
                     className="mt-2 block w-full rounded-lg border border-neutral-300 bg-white px-4 py-3 text-sm text-neutral-900 focus:border-neutral-900 focus:outline-none focus:ring-2 focus:ring-brand-yellow/40"
                   >
                     <option value="" disabled>
                       Select one
                     </option>
-                    <option>Launching a new brand</option>
-                    <option>Adding a category to an existing brand</option>
-                    <option>Sourcing for a wholesaler / distributor</option>
-                    <option>Private label / retailer</option>
-                    <option>Evaluating suppliers</option>
+                    {productInterests.map((p) => (
+                      <option key={p} value={p}>
+                        {p}
+                      </option>
+                    ))}
                   </select>
                 </div>
               </div>
@@ -260,7 +270,7 @@ export default function CatalogPage() {
                 Email me the catalog
               </button>
               <p className="mt-4 text-xs text-neutral-500 text-center">
-                We reply within one working day with the PDF attached.
+                We typically reply within one working day with the PDF attached.
               </p>
             </form>
           </div>
