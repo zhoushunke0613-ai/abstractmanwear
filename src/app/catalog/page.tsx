@@ -51,7 +51,6 @@ const stats = [
   { value: "60+", label: "Pages" },
   { value: "100+", label: "SKU references" },
   { value: "20+", label: "Fabric options" },
-  { value: "Multiple", label: "Packaging tiers" },
 ];
 
 const productInterests = [
@@ -68,22 +67,41 @@ const productInterests = [
 export default function CatalogPage() {
   return (
     <>
-      {/* Header */}
+      {/* Hero */}
       <section className="border-b border-neutral-200 bg-neutral-50">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-20 lg:py-28">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
-            <div className="lg:col-span-7">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 lg:py-24">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+            <div className="lg:col-span-6">
               <p className="text-xs uppercase tracking-[0.2em] text-neutral-500">
                 Download Catalog
               </p>
-              <h1 className="mt-4 text-3xl lg:text-5xl font-semibold tracking-tight text-neutral-900 leading-[1.1]">
+              <h1 className="mt-3 text-3xl lg:text-5xl font-semibold tracking-tight text-neutral-900 leading-[1.1]">
                 The full product library, in one PDF.
               </h1>
-              <p className="mt-5 text-neutral-600 leading-relaxed text-base lg:text-lg">
+              <p className="mt-5 text-neutral-600 leading-relaxed">
                 Silhouettes, fabric options, trim details, production
                 capabilities, and key sourcing information &mdash; everything
                 your team needs to evaluate a project with us.
               </p>
+
+              {/* Inline stats */}
+              <div className="mt-8 flex items-center gap-6">
+                {stats.map((s, i) => (
+                  <div key={s.label} className="flex items-center gap-6">
+                    <div>
+                      <p className="text-2xl font-semibold tracking-tight text-neutral-900">
+                        {s.value}
+                      </p>
+                      <p className="text-[10px] uppercase tracking-[0.15em] text-neutral-500">
+                        {s.label}
+                      </p>
+                    </div>
+                    {i < stats.length - 1 && (
+                      <div className="w-px h-8 bg-neutral-200" />
+                    )}
+                  </div>
+                ))}
+              </div>
 
               <div className="mt-10 flex flex-wrap gap-3">
                 <Link
@@ -102,7 +120,7 @@ export default function CatalogPage() {
             </div>
 
             {/* Catalog cover */}
-            <div className="lg:col-span-5">
+            <div className="lg:col-span-5 lg:col-start-8">
               <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-xl">
                 <Image
                   src="/images/catalog-cover.png"
@@ -112,49 +130,36 @@ export default function CatalogPage() {
                   className="object-cover"
                 />
               </div>
-
-              <div className="mt-6 grid grid-cols-4 gap-2">
-                {stats.map((s) => (
-                  <div
-                    key={s.label}
-                    className="rounded-xl bg-white border border-neutral-200 p-3 text-center"
-                  >
-                    <p className="text-lg font-semibold tracking-tight text-neutral-900">
-                      {s.value}
-                    </p>
-                    <p className="mt-1 text-[10px] uppercase tracking-[0.15em] text-neutral-500">
-                      {s.label}
-                    </p>
-                  </div>
-                ))}
-              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Inside the catalog */}
+      {/* Inside the catalog — cards with borders */}
       <section className="border-b border-neutral-200 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-20 lg:py-28">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 lg:py-24">
           <div className="max-w-2xl">
             <p className="text-xs uppercase tracking-[0.2em] text-neutral-500">
               Inside the Catalog
             </p>
-            <h2 className="mt-4 text-3xl lg:text-4xl font-semibold tracking-tight text-neutral-900">
+            <h2 className="mt-3 text-3xl lg:text-4xl font-semibold tracking-tight text-neutral-900">
               Six reference sections, structured for sourcing teams.
             </h2>
           </div>
 
-          <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-10">
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {sections.map((s) => (
-              <div key={s.no}>
-                <p className="text-xs uppercase tracking-[0.2em] text-brand-yellow font-medium">
+              <div
+                key={s.no}
+                className="rounded-xl border border-neutral-200 bg-neutral-50/50 p-6 transition-colors hover:border-brand-yellow/60"
+              >
+                <p className="text-[11px] uppercase tracking-[0.15em] text-brand-yellow font-semibold">
                   {s.no}
                 </p>
-                <h3 className="mt-4 text-lg font-semibold tracking-tight text-neutral-900">
+                <h3 className="mt-3 text-base font-semibold tracking-tight text-neutral-900">
                   {s.title}
                 </h3>
-                <p className="mt-3 text-sm text-neutral-600 leading-relaxed">
+                <p className="mt-2 text-sm text-neutral-500 leading-relaxed">
                   {s.description}
                 </p>
               </div>
@@ -168,47 +173,47 @@ export default function CatalogPage() {
         id="download"
         className="border-b border-neutral-200 bg-brand-yellow scroll-mt-24"
       >
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-20 lg:py-28">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 lg:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
-            <div className="lg:col-span-6">
-              <p className="text-xs uppercase tracking-[0.2em] text-neutral-900/70">
+            <div className="lg:col-span-5">
+              <p className="text-xs uppercase tracking-[0.2em] text-neutral-900/60">
                 Request the Catalog
               </p>
-              <h2 className="mt-4 text-3xl lg:text-4xl font-semibold tracking-tight text-neutral-900 leading-[1.15]">
+              <h2 className="mt-3 text-3xl lg:text-4xl font-semibold tracking-tight text-neutral-900 leading-[1.15]">
                 Tell us where to send the catalog.
               </h2>
-              <p className="mt-5 text-neutral-900/80 leading-relaxed">
+              <p className="mt-4 text-neutral-900/70 leading-relaxed text-sm">
                 We&apos;ll send the catalog directly to your inbox. No
                 newsletters or automated marketing sequences.
               </p>
             </div>
 
             <form
-              className="lg:col-span-6 bg-white rounded-2xl p-8 lg:p-10 shadow-lg"
+              className="lg:col-span-6 lg:col-start-7 bg-white rounded-2xl p-8 lg:p-10 shadow-lg"
               method="post"
               action="/api/catalog"
             >
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
                   <label
                     htmlFor="catalog-name"
-                    className="block text-xs uppercase tracking-[0.18em] text-neutral-600"
+                    className="block text-xs text-neutral-500"
                   >
-                    Your name
+                    Your name *
                   </label>
                   <input
                     id="catalog-name"
                     name="name"
                     type="text"
                     required
-                    className="mt-2 block w-full rounded-lg border border-neutral-300 bg-white px-4 py-3 text-sm text-neutral-900 placeholder-neutral-400 focus:border-neutral-900 focus:outline-none focus:ring-2 focus:ring-brand-yellow/40"
+                    className="mt-2 block w-full rounded-lg border border-neutral-200 bg-white px-4 py-2.5 text-sm text-neutral-900 placeholder-neutral-400 focus:border-neutral-900 focus:outline-none focus:ring-2 focus:ring-brand-yellow/40 transition-colors"
                     placeholder="Jane Doe"
                   />
                 </div>
                 <div>
                   <label
                     htmlFor="catalog-company"
-                    className="block text-xs uppercase tracking-[0.18em] text-neutral-600"
+                    className="block text-xs text-neutral-500"
                   >
                     Company / Brand
                   </label>
@@ -216,7 +221,7 @@ export default function CatalogPage() {
                     id="catalog-company"
                     name="company"
                     type="text"
-                    className="mt-2 block w-full rounded-lg border border-neutral-300 bg-white px-4 py-3 text-sm text-neutral-900 placeholder-neutral-400 focus:border-neutral-900 focus:outline-none focus:ring-2 focus:ring-brand-yellow/40"
+                    className="mt-2 block w-full rounded-lg border border-neutral-200 bg-white px-4 py-2.5 text-sm text-neutral-900 placeholder-neutral-400 focus:border-neutral-900 focus:outline-none focus:ring-2 focus:ring-brand-yellow/40 transition-colors"
                     placeholder="Your brand"
                   />
                 </div>
@@ -224,16 +229,16 @@ export default function CatalogPage() {
                 <div className="sm:col-span-2">
                   <label
                     htmlFor="catalog-email"
-                    className="block text-xs uppercase tracking-[0.18em] text-neutral-600"
+                    className="block text-xs text-neutral-500"
                   >
-                    Business email
+                    Business email *
                   </label>
                   <input
                     id="catalog-email"
                     name="email"
                     type="email"
                     required
-                    className="mt-2 block w-full rounded-lg border border-neutral-300 bg-white px-4 py-3 text-sm text-neutral-900 placeholder-neutral-400 focus:border-neutral-900 focus:outline-none focus:ring-2 focus:ring-brand-yellow/40"
+                    className="mt-2 block w-full rounded-lg border border-neutral-200 bg-white px-4 py-2.5 text-sm text-neutral-900 placeholder-neutral-400 focus:border-neutral-900 focus:outline-none focus:ring-2 focus:ring-brand-yellow/40 transition-colors"
                     placeholder="you@company.com"
                   />
                 </div>
@@ -241,7 +246,7 @@ export default function CatalogPage() {
                 <div className="sm:col-span-2">
                   <label
                     htmlFor="catalog-interest"
-                    className="block text-xs uppercase tracking-[0.18em] text-neutral-600"
+                    className="block text-xs text-neutral-500"
                   >
                     What are you looking to develop?
                   </label>
@@ -249,7 +254,7 @@ export default function CatalogPage() {
                     id="catalog-interest"
                     name="interest"
                     defaultValue=""
-                    className="mt-2 block w-full rounded-lg border border-neutral-300 bg-white px-4 py-3 text-sm text-neutral-900 focus:border-neutral-900 focus:outline-none focus:ring-2 focus:ring-brand-yellow/40"
+                    className="mt-2 block w-full rounded-lg border border-neutral-200 bg-white px-4 py-2.5 text-sm text-neutral-900 focus:border-neutral-900 focus:outline-none focus:ring-2 focus:ring-brand-yellow/40 transition-colors"
                   >
                     <option value="" disabled>
                       Select one
@@ -265,11 +270,11 @@ export default function CatalogPage() {
 
               <button
                 type="submit"
-                className="mt-8 w-full rounded-full bg-neutral-900 text-white font-medium text-sm px-8 py-3.5 shadow-sm transition-all duration-300 ease-out hover:bg-neutral-800 hover:-translate-y-0.5"
+                className="mt-7 w-full rounded-full bg-neutral-900 text-white font-medium text-sm px-8 py-3 shadow-sm transition-all duration-300 ease-out hover:bg-neutral-800 hover:-translate-y-0.5"
               >
                 Email me the catalog
               </button>
-              <p className="mt-4 text-xs text-neutral-500 text-center">
+              <p className="mt-3 text-xs text-neutral-400 text-center">
                 We typically reply within one working day with the PDF attached.
               </p>
             </form>
