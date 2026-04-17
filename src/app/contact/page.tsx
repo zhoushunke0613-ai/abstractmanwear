@@ -1,6 +1,5 @@
 import Image from "next/image";
 import type { Metadata } from "next";
-import ImagePlaceholder from "@/components/ImagePlaceholder";
 
 export const metadata: Metadata = {
   title: "Contact — Abstract Man",
@@ -19,29 +18,55 @@ const contactMethods = [
     label: "WhatsApp",
     value: "+86 138 0000 0000",
     href: "https://wa.me/8613800000000",
-    note: "GMT+8, 09:00\u201318:00",
+    note: "GMT+8, 09:00–18:00",
   },
   {
     label: "WeChat",
     value: "abstractman",
     href: "#wechat",
-    note: "Scan QR or search ID",
+    note: "Search ID to add",
   },
   {
     label: "Phone",
     value: "+86 760 0000 0000",
     href: "tel:+867600000000",
-    note: "Mon\u2013Fri, GMT+8",
+    note: "Mon–Fri, GMT+8",
   },
 ];
 
 const projectTypes = [
-  "OEM (Manufacturing to tech pack)",
-  "ODM (Develop from brief)",
-  "Custom fabric / fit",
-  "Private label packaging",
-  "Sampling only",
-  "Other",
+  "OEM Manufacturing",
+  "ODM Development",
+  "Private Label",
+  "Sampling Only",
+  "Packaging Customization",
+  "Not Sure Yet",
+];
+
+const productCategories = [
+  "Boxer Briefs",
+  "Trunks",
+  "Briefs",
+  "Seamless Series",
+  "Modal Series",
+  "Performance Series",
+  "Not Sure Yet",
+];
+
+const volumeOptions = [
+  "Under 1,000 pcs",
+  "1,000–3,000 pcs",
+  "3,000–10,000 pcs",
+  "10,000+ pcs",
+  "Not sure yet",
+];
+
+const timelineOptions = [
+  "ASAP",
+  "In 1–2 months",
+  "In 3–6 months",
+  "More than 6 months",
+  "Not finalized yet",
 ];
 
 export default function ContactPage() {
@@ -49,18 +74,19 @@ export default function ContactPage() {
     <>
       {/* Header */}
       <section className="border-b border-neutral-200 bg-neutral-50">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-20 lg:py-28">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-20 pb-14 lg:pt-28 lg:pb-16">
           <div className="max-w-3xl">
             <p className="text-xs uppercase tracking-[0.2em] text-neutral-500">
               Contact
             </p>
             <h1 className="mt-4 text-3xl lg:text-5xl font-semibold tracking-tight text-neutral-900 leading-[1.1]">
-              Tell us what you&apos;re building.
+              Tell us about your project.
             </h1>
             <p className="mt-5 text-neutral-600 leading-relaxed text-base lg:text-lg">
-              Share your concept, target volumes, and launch window. We&apos;ll
-              come back with fabric options, pricing, and a realistic production
-              timeline &mdash; usually within one working day.
+              Share your product concept, target volume, and launch timeline.
+              We&apos;ll come back with suitable fabric options, pricing
+              guidance, and a realistic production plan &mdash; usually within
+              one working day.
             </p>
           </div>
         </div>
@@ -82,6 +108,20 @@ export default function ContactPage() {
               <h2 className="mt-4 text-2xl lg:text-3xl font-semibold tracking-tight text-neutral-900">
                 Start your project.
               </h2>
+
+              {/* Trust tags */}
+              <div className="mt-5 flex flex-wrap gap-2">
+                {["OEM / ODM", "MOQ Flexibility", "Reply in 1 Working Day"].map(
+                  (tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-full border border-neutral-200 bg-neutral-50 px-3 py-1 text-[11px] uppercase tracking-[0.12em] text-neutral-500"
+                    >
+                      {tag}
+                    </span>
+                  )
+                )}
+              </div>
 
               <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
@@ -147,7 +187,8 @@ export default function ContactPage() {
                   />
                 </div>
 
-                <div className="sm:col-span-2">
+                {/* Project Type */}
+                <div>
                   <label
                     htmlFor="projectType"
                     className="block text-xs uppercase tracking-[0.18em] text-neutral-600"
@@ -161,7 +202,7 @@ export default function ContactPage() {
                     className="mt-2 block w-full rounded-lg border border-neutral-300 bg-white px-4 py-3 text-sm text-neutral-900 focus:border-neutral-900 focus:outline-none focus:ring-2 focus:ring-brand-yellow/40"
                   >
                     <option value="" disabled>
-                      Select a project type
+                      Select type
                     </option>
                     {projectTypes.map((t) => (
                       <option key={t} value={t}>
@@ -171,37 +212,77 @@ export default function ContactPage() {
                   </select>
                 </div>
 
-                <div className="sm:col-span-2 grid grid-cols-2 gap-6">
-                  <div>
-                    <label
-                      htmlFor="volume"
-                      className="block text-xs uppercase tracking-[0.18em] text-neutral-600"
-                    >
-                      Target volume
-                    </label>
-                    <input
-                      id="volume"
-                      name="volume"
-                      type="text"
-                      className="mt-2 block w-full rounded-lg border border-neutral-300 bg-white px-4 py-3 text-sm text-neutral-900 placeholder-neutral-400 focus:border-neutral-900 focus:outline-none focus:ring-2 focus:ring-brand-yellow/40"
-                      placeholder="e.g. 5,000 pcs"
-                    />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="timeline"
-                      className="block text-xs uppercase tracking-[0.18em] text-neutral-600"
-                    >
-                      Launch timeline
-                    </label>
-                    <input
-                      id="timeline"
-                      name="timeline"
-                      type="text"
-                      className="mt-2 block w-full rounded-lg border border-neutral-300 bg-white px-4 py-3 text-sm text-neutral-900 placeholder-neutral-400 focus:border-neutral-900 focus:outline-none focus:ring-2 focus:ring-brand-yellow/40"
-                      placeholder="e.g. Q3 2026"
-                    />
-                  </div>
+                {/* Product Category — new field */}
+                <div>
+                  <label
+                    htmlFor="productCategory"
+                    className="block text-xs uppercase tracking-[0.18em] text-neutral-600"
+                  >
+                    Product category
+                  </label>
+                  <select
+                    id="productCategory"
+                    name="productCategory"
+                    defaultValue=""
+                    className="mt-2 block w-full rounded-lg border border-neutral-300 bg-white px-4 py-3 text-sm text-neutral-900 focus:border-neutral-900 focus:outline-none focus:ring-2 focus:ring-brand-yellow/40"
+                  >
+                    <option value="" disabled>
+                      Select category
+                    </option>
+                    {productCategories.map((c) => (
+                      <option key={c} value={c}>
+                        {c}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                {/* Target Volume + Launch Timeline — both dropdowns */}
+                <div>
+                  <label
+                    htmlFor="volume"
+                    className="block text-xs uppercase tracking-[0.18em] text-neutral-600"
+                  >
+                    Target volume
+                  </label>
+                  <select
+                    id="volume"
+                    name="volume"
+                    defaultValue=""
+                    className="mt-2 block w-full rounded-lg border border-neutral-300 bg-white px-4 py-3 text-sm text-neutral-900 focus:border-neutral-900 focus:outline-none focus:ring-2 focus:ring-brand-yellow/40"
+                  >
+                    <option value="" disabled>
+                      Select volume
+                    </option>
+                    {volumeOptions.map((v) => (
+                      <option key={v} value={v}>
+                        {v}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                <div>
+                  <label
+                    htmlFor="timeline"
+                    className="block text-xs uppercase tracking-[0.18em] text-neutral-600"
+                  >
+                    Launch timeline
+                  </label>
+                  <select
+                    id="timeline"
+                    name="timeline"
+                    defaultValue=""
+                    className="mt-2 block w-full rounded-lg border border-neutral-300 bg-white px-4 py-3 text-sm text-neutral-900 focus:border-neutral-900 focus:outline-none focus:ring-2 focus:ring-brand-yellow/40"
+                  >
+                    <option value="" disabled>
+                      Select timeline
+                    </option>
+                    {timelineOptions.map((t) => (
+                      <option key={t} value={t}>
+                        {t}
+                      </option>
+                    ))}
+                  </select>
                 </div>
 
                 <div className="sm:col-span-2">
@@ -217,7 +298,7 @@ export default function ContactPage() {
                     rows={6}
                     required
                     className="mt-2 block w-full rounded-lg border border-neutral-300 bg-white px-4 py-3 text-sm text-neutral-900 placeholder-neutral-400 focus:border-neutral-900 focus:outline-none focus:ring-2 focus:ring-brand-yellow/40"
-                    placeholder="Product concept, fabric preferences, existing tech pack, reference links — anything that helps us scope."
+                    placeholder="Tell us what you want to make, your preferred product type, fabric ideas, branding needs, target quantity, and whether you already have a tech pack, sample, or reference images."
                   />
                 </div>
 
@@ -243,7 +324,7 @@ export default function ContactPage() {
                   Send inquiry
                 </button>
                 <p className="text-xs text-neutral-500">
-                  We reply within one working day (GMT+8).
+                  We typically reply within one working day (GMT+8).
                 </p>
               </div>
             </form>
@@ -254,24 +335,26 @@ export default function ContactPage() {
                 Or reach us directly
               </p>
               <h2 className="mt-4 text-2xl lg:text-3xl font-semibold tracking-tight text-neutral-900">
-                Talk to a real person on our team.
+                Talk to our team directly.
               </h2>
 
-              <div className="mt-10 divide-y divide-neutral-200 border-y border-neutral-200">
+              <div className="mt-8 divide-y divide-neutral-200 border-y border-neutral-200">
                 {contactMethods.map((m) => (
                   <a
                     key={m.label}
                     href={m.href}
-                    className="group flex items-start justify-between gap-6 py-5 hover:text-neutral-900 transition-colors"
+                    className="group flex items-start justify-between gap-6 py-4 hover:text-neutral-900 transition-colors"
                   >
                     <div>
                       <p className="text-xs uppercase tracking-[0.18em] text-neutral-500">
                         {m.label}
                       </p>
-                      <p className="mt-2 text-base font-medium text-neutral-900 group-hover:text-brand-yellow transition-colors">
+                      <p className="mt-1.5 text-base font-medium text-neutral-900 group-hover:text-brand-yellow transition-colors">
                         {m.value}
                       </p>
-                      <p className="mt-1 text-xs text-neutral-500">{m.note}</p>
+                      <p className="mt-0.5 text-xs text-neutral-500">
+                        {m.note}
+                      </p>
                     </div>
                     <span
                       aria-hidden
@@ -304,17 +387,10 @@ export default function ContactPage() {
                   Zhongshan, Guangdong, China
                 </p>
                 <p className="mt-4 text-xs text-neutral-500 leading-relaxed">
-                  Factory visits by appointment. We can arrange pickup from
-                  Guangzhou or Shenzhen for scheduled tours.
+                  Factory visits are available by appointment. Pickup can be
+                  arranged from Guangzhou or Shenzhen for scheduled visits.
                 </p>
               </div>
-
-              {/* WeChat QR placeholder */}
-              <ImagePlaceholder
-                label="WeChat QR Code"
-                description="WeChat business account QR code for quick scan-to-add"
-                className="mt-6 aspect-square max-w-[180px]"
-              />
             </aside>
           </div>
         </div>
