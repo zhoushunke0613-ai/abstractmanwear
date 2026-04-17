@@ -1,5 +1,5 @@
+import Image from "next/image";
 import Link from "next/link";
-import ImagePlaceholder from "./ImagePlaceholder";
 
 const stats = [
   { value: "20+ Years", label: "Industry experience" },
@@ -60,13 +60,16 @@ export default function CapabilitySnapshot() {
             </Link>
           </div>
 
-          {/* Factory photo — fills right column */}
-          <ImagePlaceholder
-            dark
-            label="Factory Photo"
-            description="Factory interior — production floor with seamless knitting machines and sewing lines. Wide-angle, well-lit, showing scale."
-            className="aspect-[4/3] lg:aspect-auto lg:h-full lg:min-h-[360px]"
-          />
+          {/* Factory photo */}
+          <div className="relative aspect-[4/3] lg:aspect-auto lg:h-full lg:min-h-[360px] rounded-xl overflow-hidden">
+            <Image
+              src="/images/factory-floor.png"
+              alt="Abstract Man factory floor — seamless knitting machines and production lines"
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover"
+            />
+          </div>
         </div>
 
         {/* Full-width stats bar */}

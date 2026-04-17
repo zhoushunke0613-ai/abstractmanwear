@@ -1,4 +1,4 @@
-import ImagePlaceholder from "./ImagePlaceholder";
+import Image from "next/image";
 
 const services = [
   {
@@ -6,44 +6,35 @@ const services = [
     title: "OEM Manufacturing",
     description:
       "Bring your tech pack. We handle fabric sourcing, pattern grading, and bulk production to your exact specs.",
-    image: {
-      label: "OEM Production",
-      description:
-        "Sewing line operators working on bulk underwear production",
-    },
+    image: "/images/service-oem.png",
+    imageAlt: "Sewing line operators working on bulk underwear production",
   },
   {
     no: "02",
     title: "ODM Development",
     description:
       "Start from our in-house design library \u2014 fabric, waistband, and fit already validated. Development in as few as 4 weeks.",
-    image: {
-      label: "Design & Development",
-      description:
-        "Pattern table with fabric swatches, tech packs, and sample garments",
-    },
+    image: "/images/service-odm.png",
+    imageAlt:
+      "Design table with fabric swatches, tech packs, and sample garments",
   },
   {
     no: "03",
     title: "Fabric & Fit Customization",
     description:
       "Custom waistband jacquard, cotton / modal / bamboo blends, multi-size fit development for regional body standards.",
-    image: {
-      label: "Fabric Swatches",
-      description:
-        "Close-up of fabric rolls or swatch cards — cotton, modal, bamboo, performance blends",
-    },
+    image: "/images/service-fabric.png",
+    imageAlt:
+      "Stacked fabric swatches — organic cotton, premium modal, bamboo performance blend",
   },
   {
     no: "04",
     title: "Sampling & Private Label",
     description:
       "Proto, fit, and PP samples in 10\u201314 days. Hang tags, poly bags, printed inner waistband \u2014 fully white-labeled.",
-    image: {
-      label: "Packaging & Labels",
-      description:
-        "Finished underwear samples with hang tags, woven labels, and branded poly bags",
-    },
+    image: "/images/service-sampling.png",
+    imageAlt:
+      "Finished underwear samples with hang tags, woven labels, and branded packaging",
   },
 ];
 
@@ -68,11 +59,15 @@ export default function ServicesOverview() {
         <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((s) => (
             <div key={s.no}>
-              <ImagePlaceholder
-                label={s.image.label}
-                description={s.image.description}
-                className="aspect-[4/3] mb-6"
-              />
+              <div className="relative aspect-[4/3] rounded-xl overflow-hidden mb-6">
+                <Image
+                  src={s.image}
+                  alt={s.imageAlt}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  className="object-cover"
+                />
+              </div>
               <p className="text-xs uppercase tracking-[0.2em] text-brand-yellow font-medium">
                 {s.no}
               </p>

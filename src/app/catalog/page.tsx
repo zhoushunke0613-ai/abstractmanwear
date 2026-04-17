@@ -1,6 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
-import ImagePlaceholder from "@/components/ImagePlaceholder";
 
 export const metadata: Metadata = {
   title: "Download Catalog — Abstract Man",
@@ -90,13 +90,17 @@ export default function CatalogPage() {
               </div>
             </div>
 
-            {/* Catalog cover placeholder */}
+            {/* Catalog cover */}
             <div className="lg:col-span-5">
-              <ImagePlaceholder
-                label="Catalog Cover"
-                description="Catalog PDF cover image — product photography collage or branded cover design. Aspect ratio 3:4 (portrait)."
-                className="aspect-[3/4] shadow-xl"
-              />
+              <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-xl">
+                <Image
+                  src="/images/catalog-cover.png"
+                  alt="Abstract Man product catalog cover — underwear samples with fabric rolls and tools"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  className="object-cover"
+                />
+              </div>
 
               <div className="mt-6 grid grid-cols-4 gap-2">
                 {stats.map((s) => (

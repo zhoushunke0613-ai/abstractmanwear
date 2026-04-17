@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { Metadata } from "next";
 import ImagePlaceholder from "@/components/ImagePlaceholder";
 
@@ -282,12 +283,16 @@ export default function ContactPage() {
                 ))}
               </div>
 
-              {/* Factory photo placeholder */}
-              <ImagePlaceholder
-                label="Factory / Team Photo"
-                description="Factory exterior, reception, or team photo — adds warmth to the contact page"
-                className="mt-8 aspect-[4/3]"
-              />
+              {/* Factory photo */}
+              <div className="mt-8 relative aspect-[4/3] rounded-2xl overflow-hidden">
+                <Image
+                  src="/images/factory-floor.png"
+                  alt="Abstract Man factory floor — production lines and knitting machines"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  className="object-cover"
+                />
+              </div>
 
               <div className="mt-6 rounded-2xl bg-neutral-50 border border-neutral-200 p-6">
                 <p className="text-xs uppercase tracking-[0.18em] text-neutral-500">

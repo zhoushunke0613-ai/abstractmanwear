@@ -1,3 +1,4 @@
+import Image from "next/image";
 import ImagePlaceholder from "./ImagePlaceholder";
 
 const certs = [
@@ -6,10 +7,11 @@ const certs = [
     title: "BSCI Audit \u00B7 Passed",
     description:
       "Third-party verified working conditions, wages, and working hours across all production lines. Reports available on request.",
-    image: {
+    image: null as string | null,
+    imageAlt: "",
+    placeholder: {
       label: "BSCI Certificate",
-      description:
-        "BSCI audit certificate scan or official BSCI badge image",
+      description: "BSCI audit certificate scan or official BSCI badge image",
     },
   },
   {
@@ -17,7 +19,9 @@ const certs = [
     title: "SLCP Verified",
     description:
       "Converged Assessment Framework recognized by major global retailers. Saves you from duplicate audits.",
-    image: {
+    image: null as string | null,
+    imageAlt: "",
+    placeholder: {
       label: "SLCP Certificate",
       description:
         "SLCP verification certificate scan or official SLCP badge image",
@@ -28,11 +32,10 @@ const certs = [
     title: "AQL 2.5 Inspection + Full Export Docs",
     description:
       "Every shipment inspected before dispatch. Commercial invoice, packing list, certificate of origin, and BL / AWB ready for customs.",
-    image: {
-      label: "QC Inspection Photo",
-      description:
-        "QC inspector checking garments on the inspection table, or a final AQL inspection scene",
-    },
+    image: "/images/qc-inspection.png",
+    imageAlt:
+      "QC inspector examining underwear under magnifying lamp at inspection station",
+    placeholder: null,
   },
 ];
 
@@ -60,11 +63,23 @@ export default function Certifications() {
               key={c.badge}
               className="border border-neutral-200 rounded-2xl overflow-hidden hover:border-brand-yellow transition-colors"
             >
-              <ImagePlaceholder
-                label={c.image.label}
-                description={c.image.description}
-                className="aspect-[5/3] rounded-none border-0 border-b-2"
-              />
+              {c.image ? (
+                <div className="relative aspect-[5/3]">
+                  <Image
+                    src={c.image}
+                    alt={c.imageAlt}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover"
+                  />
+                </div>
+              ) : c.placeholder ? (
+                <ImagePlaceholder
+                  label={c.placeholder.label}
+                  description={c.placeholder.description}
+                  className="aspect-[5/3] rounded-none border-0 border-b-2"
+                />
+              ) : null}
               <div className="p-6 lg:p-8">
                 <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-brand-yellow text-sm font-semibold tracking-tight text-neutral-900">
                   {c.badge}
