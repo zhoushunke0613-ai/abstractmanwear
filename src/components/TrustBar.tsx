@@ -1,9 +1,9 @@
 const facts = [
   { value: "BSCI & SLCP", label: "Certified" },
-  { value: "500,000 pcs", label: "Per month" },
-  { value: "3,000 m²", label: "Facility area" },
-  { value: "25+ Countries", label: "Clients served" },
-  { value: "100+ Staff", label: "On site" },
+  { value: "500,000 pcs", label: "/ month" },
+  { value: "3,000 m²", label: "Facility" },
+  { value: "25+ Countries", label: "Served" },
+  { value: "100+", label: "Skilled staff" },
 ];
 
 export default function TrustBar() {

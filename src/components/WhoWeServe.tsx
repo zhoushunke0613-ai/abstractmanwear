@@ -2,27 +2,27 @@ const clients = [
   {
     type: "Global Brands",
     description:
-      "Private label and OEM production for branded underwear labels across the US, EU, and APAC.",
+      "Multi-season programs with dedicated development teams.",
   },
   {
     type: "Private Label Businesses",
     description:
-      "Full branding support — custom wovens, poly bags, printed boxes, hang tags, and barcode stickers.",
+      "Full white-label with custom packaging and inner-waistband branding.",
   },
   {
     type: "Wholesalers",
     description:
-      "Consistent bulk supply with flexible MOQs and ready-to-ship base styles from our core library.",
+      "Stock-ready essentials with fast turnaround.",
   },
   {
     type: "Distributors",
     description:
-      "Reliable lead times, carton marking to your spec, and FOB/CIF shipping from Nansha or Shenzhen.",
+      "Mixed-SKU orders with consolidated shipping.",
   },
   {
     type: "Cross-Border Sellers",
     description:
-      "Amazon FBA-ready packaging, FNSKU labeling, and small-batch production for e-commerce launches.",
+      "DTC-ready packaging and small-batch flexibility.",
   },
 ];
 
@@ -37,11 +37,6 @@ export default function WhoWeServe() {
           <h2 className="mt-4 text-3xl lg:text-4xl font-semibold tracking-tight text-neutral-900">
             Designed for the way you go to market.
           </h2>
-          <p className="mt-5 text-neutral-600 leading-relaxed">
-            Our production cadence adapts to whoever&apos;s placing the order —
-            from a 300-pc sampling run for a DTC launch to a 100,000-pc
-            distributor contract.
-          </p>
         </div>
 
         <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">

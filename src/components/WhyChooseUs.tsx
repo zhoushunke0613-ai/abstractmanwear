@@ -1,33 +1,33 @@
 const advantages = [
   {
-    title: "Specialized in Men's Underwear",
+    title: "Specialized in Men\u2019s Underwear",
     description:
-      "20 years focused exclusively on men's underwear. We know the fabrics, the fits, and the tolerances that matter on body.",
+      "20 years on a single category. Every pattern, machine, and operator is tuned to men\u2019s underwear \u2014 not a general apparel factory running underwear on the side.",
   },
   {
     title: "Seamless & Cut-and-Sew Expertise",
     description:
-      "Both seamless knitting and traditional cut-and-sew under one roof. Pick the construction that fits your brand position.",
+      "Both construction methods under one roof. Most factories pick one \u2014 we run parallel lines for either, and can combine both in a single SKU.",
   },
   {
     title: "Flexible OEM / ODM Support",
     description:
-      "From your finished tech pack to our in-house pattern library — we adapt to however your product team likes to work.",
+      "Bring your tech pack, or start from our design library. Switch modes between SKUs in the same PO.",
   },
   {
     title: "Strict Quality Control",
     description:
-      "In-house QC at every stage — inbound fabric, sampling, inline, and final AQL inspection before carton closure.",
+      "AQL 2.5 inspection on every shipment, metal detection on every piece, and final measurement checks before packing.",
+  },
+  {
+    title: "Scalable from 500 to 50,000 pcs",
+    description:
+      "Same line, same QC standard \u2014 whether you\u2019re testing a capsule or scaling a bestseller. No downgrade on small runs.",
   },
   {
     title: "End-to-End Service",
     description:
-      "Design input, fabric sourcing, sampling, bulk, trims, packaging, and export logistics — all handled by one team.",
-  },
-  {
-    title: "Scalable Production Capacity",
-    description:
-      "From 300-pc sampling runs to 500,000-pc monthly bulk. Scheduling adapts to your volume without sacrificing lead time.",
+      "Tech pack \u2192 sourcing \u2192 production \u2192 packaging \u2192 export docs. One point of contact from inquiry to shipment.",
   },
 ];
 
@@ -43,8 +43,9 @@ export default function WhyChooseUs() {
             Built for brands who can&apos;t afford to compromise.
           </h2>
           <p className="mt-5 text-neutral-600 leading-relaxed">
-            A vertically integrated men&apos;s underwear manufacturer, not a trading
-            agent. Every step of the chain is owned and accountable to the same team.
+            A vertically integrated men&apos;s underwear manufacturer, not a
+            trading agent. Every step of the chain is owned and accountable to
+            the same team.
           </p>
         </div>
 

@@ -1,21 +1,21 @@
 const certs = [
   {
-    name: "BSCI",
-    full: "Business Social Compliance Initiative",
+    badge: "BSCI",
+    title: "BSCI Audit \u00B7 Passed",
     description:
-      "Audited annually for social and labor compliance. Fair wages, safe workplace, zero tolerance on child or forced labor.",
+      "Third-party verified working conditions, wages, and working hours across all production lines. Reports available on request.",
   },
   {
-    name: "SLCP",
-    full: "Social & Labor Convergence Program",
+    badge: "SLCP",
+    title: "SLCP Verified",
     description:
-      "Converged audit framework trusted by major international buyers. Assessment files available on request.",
+      "Converged Assessment Framework recognized by major global retailers. Saves you from duplicate audits.",
   },
   {
-    name: "QC",
-    full: "In-House Quality Protocols",
+    badge: "AQL",
+    title: "AQL 2.5 Inspection + Full Export Docs",
     description:
-      "AQL 2.5 final inspection, documented inline QC at every stage, and full traceability from inbound fabric to carton.",
+      "Every shipment inspected before dispatch. Commercial invoice, packing list, certificate of origin, and BL / AWB ready for customs.",
   },
 ];
 
@@ -31,25 +31,25 @@ export default function Certifications() {
             Audited, documented, and export-ready.
           </h2>
           <p className="mt-5 text-neutral-600 leading-relaxed">
-            Compliance documentation is part of how we operate — not a bolt-on.
-            International buyers can onboard us without running a separate
-            vetting cycle.
+            Compliance documentation is part of how we operate &mdash; not a
+            bolt-on. International buyers can onboard us without running a
+            separate vetting cycle.
           </p>
         </div>
 
         <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-4">
           {certs.map((c) => (
             <div
-              key={c.name}
+              key={c.badge}
               className="border border-neutral-200 rounded-2xl p-6 lg:p-8 hover:border-brand-yellow transition-colors"
             >
               <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-brand-yellow text-sm font-semibold tracking-tight text-neutral-900">
-                {c.name}
+                {c.badge}
               </div>
-              <p className="mt-6 text-xs uppercase tracking-[0.18em] text-neutral-500">
-                {c.full}
+              <p className="mt-6 text-base font-semibold tracking-tight text-neutral-900">
+                {c.title}
               </p>
-              <p className="mt-3 text-sm text-neutral-700 leading-relaxed">
+              <p className="mt-3 text-sm text-neutral-600 leading-relaxed">
                 {c.description}
               </p>
             </div>

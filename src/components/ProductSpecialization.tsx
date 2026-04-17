@@ -6,43 +6,52 @@ const products = [
     name: "Briefs",
     slug: "briefs",
     meta: "Style 001",
-    description:
-      "Classic high-cut. Smooth knit, seamless waistband, minimal profile under trousers.",
+    tagline: "Compact support for everyday comfort",
+    moq: "300 pcs",
+    leadTime: "25–30 days",
   },
   {
     name: "Boxer Briefs",
     slug: "boxer-briefs",
     meta: "Style 002",
-    description:
-      "Mid-thigh length. Most-requested category — compression, modal, and pima cotton fits.",
+    tagline:
+      "Mid-thigh length with balanced coverage, the bestseller category",
+    moq: "300 pcs",
+    leadTime: "25–30 days",
   },
   {
     name: "Trunks",
     slug: "trunks",
     meta: "Style 003",
-    description:
-      "Short cut, snug fit. Contemporary silhouette for athletic and fashion-led lines.",
+    tagline: "Shorter leg for contemporary lifestyle and fashion-forward lines",
+    moq: "300 pcs",
+    leadTime: "25–30 days",
   },
   {
     name: "Seamless Series",
     slug: "seamless",
     meta: "Style 004",
-    description:
-      "Circular-knit seamless construction. Zero side seams, antibacterial yarns, and compression-capable fits.",
+    tagline: "Bonded and ultrasonic-cut construction, zero visible lines",
+    moq: "500 pcs",
+    leadTime: "30–35 days",
   },
   {
     name: "Modal Series",
     slug: "modal",
     meta: "Style 005",
-    description:
-      "MicroModal™ and TENCEL™ blends. Premium hand-feel and color-fast dye for DTC-grade positioning.",
+    tagline:
+      "MicroModal and TENCEL\u2122 blends for premium hand-feel at outlet-friendly MOQs",
+    moq: "300 pcs",
+    leadTime: "25–30 days",
   },
   {
     name: "Performance Series",
     slug: "performance",
     meta: "Style 006",
-    description:
-      "Moisture-wicking nylon/spandex, mesh panels, and reinforced stitching. Built for active and sportswear labels.",
+    tagline:
+      "Moisture-wicking compression, mesh panels, and reinforced stitching for athletic lines",
+    moq: "500 pcs",
+    leadTime: "30–35 days",
   },
 ];
 
@@ -97,7 +106,10 @@ export default function ProductSpecialization() {
                 </Link>
               </div>
               <p className="mt-2 text-sm text-neutral-600 leading-relaxed">
-                {p.description}
+                {p.tagline}
+              </p>
+              <p className="mt-2 text-xs text-neutral-500">
+                MOQ: {p.moq} · Lead time: {p.leadTime}
               </p>
             </li>
           ))}

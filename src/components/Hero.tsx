@@ -43,9 +43,7 @@ export default function Hero() {
 
           {/* Lede */}
           <p className="mt-5 text-sm lg:text-base text-neutral-700 leading-relaxed">
-            We work with global brands, wholesalers, and private label
-            businesses to deliver reliable manufacturing — from sourcing and
-            development to production and shipment.
+            In-house manufacturing from sourcing to shipment.
           </p>
 
           {/* Conversion CTAs — frosted glass pills matching the header */}

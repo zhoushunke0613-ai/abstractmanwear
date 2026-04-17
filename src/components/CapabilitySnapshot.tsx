@@ -1,17 +1,17 @@
 import Link from "next/link";
 
 const stats = [
-  { value: "2006", label: "Established" },
-  { value: "3,000 m²", label: "Facility area" },
-  { value: "500,000", label: "Pcs / month" },
-  { value: "100+", label: "Staff on site" },
+  { value: "20+ Years", label: "Industry experience" },
+  { value: "3,000 m²", label: "Facility" },
+  { value: "500,000", label: "Pcs / month capacity" },
+  { value: "100+", label: "Skilled staff" },
 ];
 
 const highlights = [
-  "Seamless knitting floor",
+  "Seamless knitting lines",
   "Cut-and-sew production",
-  "In-house printing & trims",
-  "Full packout & export",
+  "In-house sampling room",
+  "Full QC department",
 ];
 
 export default function CapabilitySnapshot() {

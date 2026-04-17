@@ -3,25 +3,25 @@ const services = [
     no: "01",
     title: "OEM Manufacturing",
     description:
-      "Bring your tech pack or finished design. We handle fabric sourcing, pattern grading, and bulk production to your exact spec.",
+      "Bring your tech pack. We handle fabric sourcing, pattern grading, and bulk production to your exact specs.",
   },
   {
     no: "02",
     title: "ODM Development",
     description:
-      "Full development from concept to sample — fit, fabric, waistband, and finishing guided by our in-house team.",
+      "Start from our in-house design library \u2014 fabric, waistband, and fit already validated. Development in as few as 4 weeks.",
   },
   {
     no: "03",
     title: "Fabric & Fit Customization",
     description:
-      "Fabric, waistband, sizing, fit, and color all adjustable. Cotton, modal, seamless, and performance blends in stock.",
+      "Custom waistband jacquard, cotton / modal / bamboo blends, multi-size fit development for regional body standards.",
   },
   {
     no: "04",
     title: "Sampling & Private Label",
     description:
-      "15-day sampling, woven labels, hang tags, poly bags, and printed boxes — launch-ready packaging built around your brand.",
+      "Proto, fit, and PP samples in 10\u201314 days. Hang tags, poly bags, printed inner waistband \u2014 fully white-labeled.",
   },
 ];
 
