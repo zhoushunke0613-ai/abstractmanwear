@@ -8,7 +8,7 @@ const products = [
     meta: "Style 001",
     tagline: "Compact support for everyday comfort",
     moq: "300 pcs",
-    leadTime: "25–30 days",
+    leadTime: "25\u201330 days",
   },
   {
     name: "Boxer Briefs",
@@ -17,7 +17,7 @@ const products = [
     tagline:
       "Mid-thigh length with balanced coverage, the bestseller category",
     moq: "300 pcs",
-    leadTime: "25–30 days",
+    leadTime: "25\u201330 days",
   },
   {
     name: "Trunks",
@@ -25,7 +25,7 @@ const products = [
     meta: "Style 003",
     tagline: "Shorter leg for contemporary lifestyle and fashion-forward lines",
     moq: "300 pcs",
-    leadTime: "25–30 days",
+    leadTime: "25\u201330 days",
   },
   {
     name: "Seamless Series",
@@ -33,7 +33,7 @@ const products = [
     meta: "Style 004",
     tagline: "Bonded and ultrasonic-cut construction, zero visible lines",
     moq: "500 pcs",
-    leadTime: "30–35 days",
+    leadTime: "30\u201335 days",
   },
   {
     name: "Modal Series",
@@ -42,7 +42,7 @@ const products = [
     tagline:
       "MicroModal and TENCEL\u2122 blends for premium hand-feel at outlet-friendly MOQs",
     moq: "300 pcs",
-    leadTime: "25–30 days",
+    leadTime: "25\u201330 days",
   },
   {
     name: "Performance Series",
@@ -51,33 +51,33 @@ const products = [
     tagline:
       "Moisture-wicking compression, mesh panels, and reinforced stitching for athletic lines",
     moq: "500 pcs",
-    leadTime: "30–35 days",
+    leadTime: "30\u201335 days",
   },
 ];
 
 export default function ProductSpecialization() {
   return (
     <section className="border-b border-neutral-200 bg-white">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-20 lg:py-28">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14 lg:py-28">
         {/* Section header */}
         <div className="max-w-2xl">
           <p className="text-xs uppercase tracking-[0.2em] text-neutral-500">
             Product Specialization
           </p>
-          <h2 className="mt-4 text-3xl lg:text-4xl font-semibold tracking-tight text-neutral-900">
+          <h2 className="mt-4 text-2xl lg:text-4xl font-semibold tracking-tight text-neutral-900">
             Six core categories, engineered in-house.
           </h2>
-          <p className="mt-5 text-neutral-600 leading-relaxed">
+          <p className="mt-4 text-sm lg:text-base text-neutral-600 leading-relaxed">
             Three foundational silhouettes and three specialized fabric lines.
             Each category carries its own pattern library, approved fabric
             partners, and tolerance spec.
           </p>
         </div>
 
-        {/* Product grid */}
-        <ul className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12">
+        {/* Horizontal scroll on mobile, grid on desktop */}
+        <ul className="mt-10 lg:mt-14 -mx-6 px-6 lg:mx-0 lg:px-0 flex overflow-x-auto snap-x snap-mandatory gap-5 pb-4 lg:pb-0 scrollbar-hide lg:grid lg:grid-cols-3 lg:gap-x-6 lg:gap-y-12 lg:overflow-visible lg:snap-none">
           {products.map((p) => (
-            <li key={p.slug} className="group">
+            <li key={p.slug} className="group min-w-[240px] flex-shrink-0 snap-start lg:min-w-0 lg:flex-shrink">
               {/* Blueprint card */}
               <div className="relative aspect-square overflow-hidden border border-neutral-200 bg-[#fafaf5]">
                 <Image
@@ -94,13 +94,13 @@ export default function ProductSpecialization() {
               </div>
 
               {/* Card meta */}
-              <div className="mt-5 flex items-baseline justify-between gap-4">
-                <h3 className="text-lg font-semibold tracking-tight text-neutral-900">
+              <div className="mt-4 lg:mt-5 flex items-baseline justify-between gap-4">
+                <h3 className="text-base lg:text-lg font-semibold tracking-tight text-neutral-900">
                   {p.name}
                 </h3>
                 <Link
                   href="/contact"
-                  className="text-xs uppercase tracking-[0.18em] text-neutral-500 hover:text-neutral-900 transition-colors"
+                  className="text-xs uppercase tracking-[0.18em] text-neutral-500 hover:text-neutral-900 transition-colors whitespace-nowrap"
                 >
                   Inquire &rarr;
                 </Link>

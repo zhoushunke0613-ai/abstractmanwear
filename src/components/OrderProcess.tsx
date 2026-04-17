@@ -54,36 +54,37 @@ const steps = [
 export default function OrderProcess() {
   return (
     <section className="border-b border-neutral-200 bg-white">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-20 lg:py-28">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14 lg:py-28">
         <div className="max-w-2xl">
           <p className="text-xs uppercase tracking-[0.2em] text-neutral-500">
             How We Work
           </p>
-          <h2 className="mt-4 text-3xl lg:text-4xl font-semibold tracking-tight text-neutral-900">
+          <h2 className="mt-4 text-2xl lg:text-4xl font-semibold tracking-tight text-neutral-900">
             From inquiry to shipment &mdash; a 7-step process, fully tracked.
           </h2>
-          <p className="mt-5 text-neutral-600 leading-relaxed">
+          <p className="mt-4 text-sm lg:text-base text-neutral-600 leading-relaxed">
             Every order follows the same documented workflow &mdash; no surprises
             on price, timeline, or quality.
           </p>
         </div>
 
-        <ol className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {/* Horizontal scroll on mobile, grid on desktop */}
+        <ol className="mt-10 lg:mt-14 -mx-6 px-6 lg:mx-0 lg:px-0 flex overflow-x-auto snap-x snap-mandatory gap-3 pb-4 lg:pb-0 scrollbar-hide lg:grid lg:grid-cols-4 lg:gap-4 lg:overflow-visible lg:snap-none">
           {steps.map((s) => (
             <li
               key={s.no}
-              className="group rounded-xl border border-neutral-200 bg-neutral-50/50 p-6 transition-all duration-300 hover:border-brand-yellow/60 hover:-translate-y-0.5 hover:shadow-md"
+              className="group min-w-[220px] flex-shrink-0 snap-start lg:min-w-0 lg:flex-shrink rounded-xl border border-neutral-200 bg-neutral-50/50 p-5 lg:p-6 transition-all duration-300 hover:border-brand-yellow/60 hover:-translate-y-0.5 hover:shadow-md"
             >
               <span className="flex h-9 w-9 items-center justify-center rounded-full bg-brand-yellow text-xs font-semibold text-neutral-900 transition-transform duration-300 group-hover:scale-110">
                 {s.no}
               </span>
-              <h3 className="mt-4 text-base font-semibold tracking-tight text-neutral-900">
+              <h3 className="mt-3 lg:mt-4 text-base font-semibold tracking-tight text-neutral-900">
                 {s.title}
               </h3>
               <p className="mt-2 text-sm text-neutral-600 leading-relaxed">
                 {s.description}
               </p>
-              <p className="mt-3 text-xs text-neutral-400">
+              <p className="mt-2 lg:mt-3 text-xs text-neutral-400">
                 &rarr; {s.deliverable}
               </p>
             </li>
@@ -91,8 +92,8 @@ export default function OrderProcess() {
         </ol>
 
         {/* Inline CTA */}
-        <div className="mt-14 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 border-t border-neutral-200 pt-10">
-          <p className="text-lg font-semibold tracking-tight text-neutral-900">
+        <div className="mt-10 lg:mt-14 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 lg:gap-6 border-t border-neutral-200 pt-8 lg:pt-10">
+          <p className="text-base lg:text-lg font-semibold tracking-tight text-neutral-900">
             Ready to start your custom underwear project?
           </p>
           <Link

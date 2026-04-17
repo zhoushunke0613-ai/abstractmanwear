@@ -41,40 +41,41 @@ const services = [
 export default function ServicesOverview() {
   return (
     <section className="border-b border-neutral-200 bg-white">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-20 lg:py-28">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14 lg:py-28">
         <div className="max-w-2xl">
           <p className="text-xs uppercase tracking-[0.2em] text-neutral-500">
             What We Do
           </p>
-          <h2 className="mt-4 text-3xl lg:text-4xl font-semibold tracking-tight text-neutral-900">
+          <h2 className="mt-4 text-2xl lg:text-4xl font-semibold tracking-tight text-neutral-900">
             More than a factory &mdash; a development partner.
           </h2>
-          <p className="mt-5 text-neutral-600 leading-relaxed">
+          <p className="mt-4 text-sm lg:text-base text-neutral-600 leading-relaxed">
             OEM production, ODM development, fabric sourcing, pattern-making,
             and full private-label support. Every step handled in-house at our
             Zhongshan facility.
           </p>
         </div>
 
-        <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Horizontal scroll on mobile, grid on desktop */}
+        <div className="mt-10 lg:mt-14 -mx-6 px-6 lg:mx-0 lg:px-0 flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 lg:pb-0 scrollbar-hide lg:grid lg:grid-cols-4 lg:gap-6 lg:overflow-visible lg:snap-none">
           {services.map((s) => (
-            <div key={s.no} className="group">
-              <div className="relative aspect-[4/3] rounded-xl overflow-hidden mb-6">
+            <div key={s.no} className="group min-w-[260px] flex-shrink-0 snap-start lg:min-w-0 lg:flex-shrink">
+              <div className="relative aspect-[4/3] rounded-xl overflow-hidden mb-4 lg:mb-6">
                 <Image
                   src={s.image}
                   alt={s.imageAlt}
                   fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  sizes="(max-width: 768px) 70vw, (max-width: 1024px) 50vw, 25vw"
                   className="object-cover img-hover-zoom"
                 />
               </div>
               <p className="text-xs uppercase tracking-[0.2em] text-brand-yellow font-medium">
                 {s.no}
               </p>
-              <h3 className="mt-4 text-lg font-semibold tracking-tight text-neutral-900">
+              <h3 className="mt-3 lg:mt-4 text-base lg:text-lg font-semibold tracking-tight text-neutral-900">
                 {s.title}
               </h3>
-              <p className="mt-3 text-sm text-neutral-600 leading-relaxed">
+              <p className="mt-2 lg:mt-3 text-sm text-neutral-600 leading-relaxed">
                 {s.description}
               </p>
             </div>

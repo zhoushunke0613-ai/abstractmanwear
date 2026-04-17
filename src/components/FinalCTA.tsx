@@ -3,15 +3,15 @@ import Link from "next/link";
 export default function FinalCTA() {
   return (
     <section className="border-b border-neutral-200 bg-brand-yellow">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-20 lg:py-28">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14 lg:py-28">
         <div className="max-w-3xl">
           <p className="text-xs uppercase tracking-[0.2em] text-neutral-900/70">
             Let&apos;s Build Together
           </p>
-          <h2 className="mt-4 text-3xl lg:text-5xl font-semibold tracking-tight text-neutral-900 leading-[1.1]">
+          <h2 className="mt-4 text-2xl lg:text-5xl font-semibold tracking-tight text-neutral-900 leading-[1.1]">
             Ready to bring your underwear line to market?
           </h2>
-          <p className="mt-5 text-neutral-900/80 leading-relaxed text-base lg:text-lg">
+          <p className="mt-4 text-sm lg:text-lg text-neutral-900/80 leading-relaxed">
             Tell us what you&apos;re building. We&apos;ll come back with fabric
             options, pricing, and a realistic production timeline &mdash; within
             one working day.
@@ -21,7 +21,7 @@ export default function FinalCTA() {
         {/* Primary CTA card */}
         <Link
           href="/contact"
-          className="group mt-12 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 rounded-2xl bg-neutral-900 text-white p-8 lg:p-10 shadow-xl transition-all duration-500 ease-out hover:bg-neutral-800 hover:-translate-y-1 hover:shadow-2xl"
+          className="group mt-8 lg:mt-12 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 lg:gap-6 rounded-2xl bg-neutral-900 text-white p-6 lg:p-10 shadow-xl transition-all duration-500 ease-out hover:bg-neutral-800 hover:-translate-y-1 hover:shadow-2xl"
         >
           <div>
             <p className="text-2xl lg:text-3xl font-semibold tracking-tight">

@@ -69,16 +69,16 @@ export default function CatalogPage() {
     <>
       {/* Hero */}
       <section className="border-b border-neutral-200 bg-neutral-50">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 lg:py-24">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12 lg:py-24">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
             <div className="lg:col-span-6">
               <p className="text-xs uppercase tracking-[0.2em] text-neutral-500">
                 Download Catalog
               </p>
-              <h1 className="mt-3 text-3xl lg:text-5xl font-semibold tracking-tight text-neutral-900 leading-[1.1]">
+              <h1 className="mt-3 text-2xl lg:text-5xl font-semibold tracking-tight text-neutral-900 leading-[1.1]">
                 The full product library, in one PDF.
               </h1>
-              <p className="mt-5 text-neutral-600 leading-relaxed">
+              <p className="mt-4 text-sm lg:text-base text-neutral-600 leading-relaxed">
                 Silhouettes, fabric options, trim details, production
                 capabilities, and key sourcing information &mdash; everything
                 your team needs to evaluate a project with us.
@@ -137,21 +137,22 @@ export default function CatalogPage() {
 
       {/* Inside the catalog — cards with borders */}
       <section className="border-b border-neutral-200 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 lg:py-24">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12 lg:py-24">
           <div className="max-w-2xl">
             <p className="text-xs uppercase tracking-[0.2em] text-neutral-500">
               Inside the Catalog
             </p>
-            <h2 className="mt-3 text-3xl lg:text-4xl font-semibold tracking-tight text-neutral-900">
+            <h2 className="mt-3 text-2xl lg:text-4xl font-semibold tracking-tight text-neutral-900">
               Six reference sections, structured for sourcing teams.
             </h2>
           </div>
 
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {/* Horizontal scroll on mobile, grid on desktop */}
+          <div className="mt-10 lg:mt-12 -mx-6 px-6 lg:mx-0 lg:px-0 flex overflow-x-auto snap-x snap-mandatory gap-3 pb-4 lg:pb-0 scrollbar-hide lg:grid lg:grid-cols-3 lg:gap-4 lg:overflow-visible lg:snap-none">
             {sections.map((s) => (
               <div
                 key={s.no}
-                className="rounded-xl border border-neutral-200 bg-neutral-50/50 p-6 transition-colors hover:border-brand-yellow/60"
+                className="min-w-[240px] flex-shrink-0 snap-start lg:min-w-0 lg:flex-shrink rounded-xl border border-neutral-200 bg-neutral-50/50 p-5 lg:p-6 transition-colors hover:border-brand-yellow/60"
               >
                 <p className="text-[11px] uppercase tracking-[0.15em] text-brand-yellow font-semibold">
                   {s.no}
@@ -173,13 +174,13 @@ export default function CatalogPage() {
         id="download"
         className="border-b border-neutral-200 bg-brand-yellow scroll-mt-24"
       >
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 lg:py-24">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12 lg:py-24">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
             <div className="lg:col-span-5">
               <p className="text-xs uppercase tracking-[0.2em] text-neutral-900/60">
                 Request the Catalog
               </p>
-              <h2 className="mt-3 text-3xl lg:text-4xl font-semibold tracking-tight text-neutral-900 leading-[1.15]">
+              <h2 className="mt-3 text-2xl lg:text-4xl font-semibold tracking-tight text-neutral-900 leading-[1.15]">
                 Tell us where to send the catalog.
               </h2>
               <p className="mt-4 text-neutral-900/70 leading-relaxed text-sm">

@@ -46,3 +46,25 @@
 .group:hover .img-hover-zoom {
   transform: scale(1.05);
 }
+
+/* ── Mobile: disable all entrance / scroll animations ── */
+@media (max-width: 1023px) {
+  .hero-animate {
+    animation: none !important;
+    opacity: 1 !important;
+  }
+  .scroll-animate {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* ── Hide scrollbar for horizontal scroll carousels ── */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}

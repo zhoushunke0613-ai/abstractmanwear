@@ -36,8 +36,8 @@ const footerNav = [
 export default function Footer() {
   return (
     <footer className="bg-neutral-900 text-neutral-300">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 lg:py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12 lg:py-20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8">
           {/* Brand block */}
           <div className="lg:col-span-6">
             <div className="flex items-baseline gap-2.5">
@@ -71,30 +71,32 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Nav columns */}
-          {footerNav.map((col) => (
-            <div key={col.heading} className="lg:col-span-2">
-              <p className="text-xs uppercase tracking-[0.2em] text-brand-yellow">
-                {col.heading}
-              </p>
-              <ul className="mt-4 space-y-2.5">
-                {col.items.map((item) => (
-                  <li key={`${col.heading}-${item.label}`}>
-                    <Link
-                      href={item.href}
-                      className="text-sm text-neutral-300 hover:text-white transition-colors"
-                    >
-                      {item.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          {/* Nav columns — 3-col on mobile, spread on desktop */}
+          <div className="grid grid-cols-3 gap-6 lg:contents">
+            {footerNav.map((col) => (
+              <div key={col.heading} className="lg:col-span-2">
+                <p className="text-xs uppercase tracking-[0.2em] text-brand-yellow">
+                  {col.heading}
+                </p>
+                <ul className="mt-3 lg:mt-4 space-y-2 lg:space-y-2.5">
+                  {col.items.map((item) => (
+                    <li key={`${col.heading}-${item.label}`}>
+                      <Link
+                        href={item.href}
+                        className="text-xs lg:text-sm text-neutral-300 hover:text-white transition-colors"
+                      >
+                        {item.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Legal bar */}
-        <div className="mt-16 pt-8 border-t border-neutral-800 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-3">
+        <div className="mt-10 lg:mt-16 pt-6 lg:pt-8 border-t border-neutral-800 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-3">
           <p className="text-xs text-neutral-500">
             © 2026 Abstract Man Wear Co., Ltd. All rights reserved.
           </p>
