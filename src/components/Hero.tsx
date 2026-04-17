@@ -16,6 +16,9 @@ export default function Hero() {
         />
       </div>
 
+      {/* Mobile: frosted overlay so text is readable over the busy image */}
+      <div className="absolute inset-0 bg-white/65 backdrop-blur-[2px] lg:hidden" />
+
       {/* Content — kept within the image's empty left panel so it never overlaps the machinery */}
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8 pt-32 pb-20 lg:pt-44 lg:pb-28">
         {/* Logo watermark — sits above the image but below the text.
