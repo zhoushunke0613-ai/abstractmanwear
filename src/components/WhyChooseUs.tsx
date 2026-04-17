@@ -54,7 +54,7 @@ export default function WhyChooseUs() {
           {advantages.map((a, i) => (
             <div
               key={a.title}
-              className="group min-w-[260px] flex-shrink-0 snap-start lg:min-w-0 lg:flex-shrink rounded-xl border border-neutral-200 bg-white p-6 lg:p-8 transition-all duration-300 hover:border-brand-yellow/60 hover:-translate-y-0.5 hover:shadow-md"
+              className="group w-[72vw] max-w-[280px] flex-shrink-0 snap-start lg:w-auto lg:max-w-none lg:flex-shrink rounded-xl border border-neutral-200 bg-white p-6 lg:p-8 transition-all duration-300 hover:border-brand-yellow/60 hover:-translate-y-0.5 hover:shadow-md"
             >
               <div className="flex h-9 w-9 items-center justify-center rounded-full bg-brand-yellow text-xs font-semibold text-neutral-900 transition-transform duration-300 group-hover:scale-110">
                 {String(i + 1).padStart(2, "0")}

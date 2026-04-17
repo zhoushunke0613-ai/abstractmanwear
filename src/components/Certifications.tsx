@@ -62,7 +62,7 @@ export default function Certifications() {
           {certs.map((c) => (
             <div
               key={c.badge}
-              className="group min-w-[280px] flex-shrink-0 snap-start lg:min-w-0 lg:flex-shrink border border-neutral-200 rounded-2xl overflow-hidden transition-all duration-300 hover:border-brand-yellow hover:-translate-y-0.5 hover:shadow-md"
+              className="group w-[75vw] max-w-[300px] flex-shrink-0 snap-start lg:w-auto lg:max-w-none lg:flex-shrink border border-neutral-200 rounded-2xl overflow-hidden transition-all duration-300 hover:border-brand-yellow hover:-translate-y-0.5 hover:shadow-md"
             >
               {c.image ? (
                 <div className="relative aspect-[5/3]">

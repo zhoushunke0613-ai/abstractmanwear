@@ -73,7 +73,7 @@ export default function OrderProcess() {
           {steps.map((s) => (
             <li
               key={s.no}
-              className="group min-w-[220px] flex-shrink-0 snap-start lg:min-w-0 lg:flex-shrink rounded-xl border border-neutral-200 bg-neutral-50/50 p-5 lg:p-6 transition-all duration-300 hover:border-brand-yellow/60 hover:-translate-y-0.5 hover:shadow-md"
+              className="group w-[65vw] max-w-[260px] flex-shrink-0 snap-start lg:w-auto lg:max-w-none lg:flex-shrink rounded-xl border border-neutral-200 bg-neutral-50/50 p-5 lg:p-6 transition-all duration-300 hover:border-brand-yellow/60 hover:-translate-y-0.5 hover:shadow-md"
             >
               <span className="flex h-9 w-9 items-center justify-center rounded-full bg-brand-yellow text-xs font-semibold text-neutral-900 transition-transform duration-300 group-hover:scale-110">
                 {s.no}

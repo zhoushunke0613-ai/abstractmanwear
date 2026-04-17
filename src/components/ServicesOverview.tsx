@@ -59,7 +59,7 @@ export default function ServicesOverview() {
         {/* Horizontal scroll on mobile, grid on desktop */}
         <div className="mt-10 lg:mt-14 -mx-6 px-6 lg:mx-0 lg:px-0 flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 lg:pb-0 scrollbar-hide lg:grid lg:grid-cols-4 lg:gap-6 lg:overflow-visible lg:snap-none">
           {services.map((s) => (
-            <div key={s.no} className="group min-w-[260px] flex-shrink-0 snap-start lg:min-w-0 lg:flex-shrink">
+            <div key={s.no} className="group w-[70vw] max-w-[280px] flex-shrink-0 snap-start lg:w-auto lg:max-w-none lg:flex-shrink">
               <div className="relative aspect-[4/3] rounded-xl overflow-hidden mb-4 lg:mb-6">
                 <Image
                   src={s.image}

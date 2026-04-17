@@ -152,7 +152,7 @@ export default function CatalogPage() {
             {sections.map((s) => (
               <div
                 key={s.no}
-                className="min-w-[240px] flex-shrink-0 snap-start lg:min-w-0 lg:flex-shrink rounded-xl border border-neutral-200 bg-neutral-50/50 p-5 lg:p-6 transition-colors hover:border-brand-yellow/60"
+                className="w-[70vw] max-w-[260px] flex-shrink-0 snap-start lg:w-auto lg:max-w-none lg:flex-shrink rounded-xl border border-neutral-200 bg-neutral-50/50 p-5 lg:p-6 transition-colors hover:border-brand-yellow/60"
               >
                 <p className="text-[11px] uppercase tracking-[0.15em] text-brand-yellow font-semibold">
                   {s.no}

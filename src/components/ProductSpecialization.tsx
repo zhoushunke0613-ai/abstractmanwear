@@ -77,9 +77,9 @@ export default function ProductSpecialization() {
         {/* Horizontal scroll on mobile, grid on desktop */}
         <ul className="mt-10 lg:mt-14 -mx-6 px-6 lg:mx-0 lg:px-0 flex overflow-x-auto snap-x snap-mandatory gap-5 pb-4 lg:pb-0 scrollbar-hide lg:grid lg:grid-cols-3 lg:gap-x-6 lg:gap-y-12 lg:overflow-visible lg:snap-none">
           {products.map((p) => (
-            <li key={p.slug} className="group min-w-[240px] flex-shrink-0 snap-start lg:min-w-0 lg:flex-shrink">
+            <li key={p.slug} className="group w-[65vw] max-w-[260px] flex-shrink-0 snap-start lg:w-auto lg:max-w-none lg:flex-shrink">
               {/* Blueprint card */}
-              <div className="relative aspect-square overflow-hidden border border-neutral-200 bg-[#fafaf5]">
+              <div className="relative aspect-[4/5] lg:aspect-square overflow-hidden border border-neutral-200 bg-[#fafaf5]">
                 <Image
                   src={`/images/product-${p.slug}.svg`}
                   alt={`${p.name} blueprint`}
