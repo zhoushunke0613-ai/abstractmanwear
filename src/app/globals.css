@@ -1,1 +1,8 @@
 @import "tailwindcss";
+
+@theme {
+  /* Brand yellow — matches the LOGO placeholder in the hero image.
+     Pure, saturated safety-yellow, not the mustardy default Tailwind yellow. */
+  --color-brand-yellow: #ffd400;
+  --color-brand-yellow-light: #ffe04d;
+}

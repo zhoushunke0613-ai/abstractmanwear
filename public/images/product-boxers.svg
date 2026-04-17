@@ -1,0 +1,21 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="bx-t">
+  <title id="bx-t">Boxers blueprint</title>
+  <defs>
+    <pattern id="gbx" width="16" height="16" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="0.6" fill="#d4d4d4"/>
+    </pattern>
+  </defs>
+  <rect width="400" height="400" fill="#fafaf5"/>
+  <rect width="400" height="400" fill="url(#gbx)"/>
+
+  <rect x="65" y="115" width="270" height="28" fill="#ffd400"/>
+
+  <!-- looser boxer silhouette -->
+  <path d="M 65,115 L 335,115 L 335,143 L 338,288 Q 333,308 310,305 L 245,295 Q 232,293 222,282 L 210,257 Q 200,250 190,257 L 178,282 Q 168,293 155,295 L 90,305 Q 67,308 62,288 L 65,143 Z"
+        fill="none" stroke="#171717" stroke-width="2.5" stroke-linejoin="round"/>
+
+  <line x1="65" y1="143" x2="335" y2="143" stroke="#171717" stroke-width="1.8"/>
+  <line x1="200" y1="143" x2="200" y2="254" stroke="#171717" stroke-width="1.2" stroke-dasharray="4 3"/>
+
+  <text x="200" y="350" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" letter-spacing="2.5" fill="#737373">BOXERS · 004</text>
+</svg>
