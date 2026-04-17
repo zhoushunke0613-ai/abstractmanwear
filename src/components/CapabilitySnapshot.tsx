@@ -1,4 +1,5 @@
 import Link from "next/link";
+import ImagePlaceholder from "./ImagePlaceholder";
 
 const stats = [
   { value: "20+ Years", label: "Industry experience" },
@@ -24,18 +25,26 @@ export default function CapabilitySnapshot() {
               Capability Snapshot
             </p>
             <h2 className="mt-4 text-3xl lg:text-4xl font-semibold tracking-tight text-white">
-              A Zhongshan-based facility built for men&apos;s underwear manufacturing.
+              A Zhongshan-based facility built for men&apos;s underwear
+              manufacturing.
             </h2>
             <p className="mt-5 text-neutral-400 leading-relaxed">
               Located in Guangdong&apos;s knit-manufacturing cluster, our
               vertically integrated facility covers seamless knitting,
-              cut-and-sew, printing, and full packout — all under one roof.
+              cut-and-sew, printing, and full packout &mdash; all under one
+              roof.
             </p>
 
             <ul className="mt-8 space-y-3">
               {highlights.map((h) => (
-                <li key={h} className="flex items-center gap-3 text-sm text-neutral-300">
-                  <span className="h-1.5 w-1.5 rounded-full bg-brand-yellow" aria-hidden />
+                <li
+                  key={h}
+                  className="flex items-center gap-3 text-sm text-neutral-300"
+                >
+                  <span
+                    className="h-1.5 w-1.5 rounded-full bg-brand-yellow"
+                    aria-hidden
+                  />
                   {h}
                 </li>
               ))}
@@ -46,18 +55,27 @@ export default function CapabilitySnapshot() {
               className="mt-10 inline-flex items-center gap-2 text-sm text-brand-yellow hover:text-brand-yellow-light transition-colors"
             >
               Tour the facility
-              <span aria-hidden>→</span>
+              <span aria-hidden>&rarr;</span>
             </Link>
           </div>
 
-          <div className="lg:col-span-7">
+          <div className="lg:col-span-7 space-y-4">
+            {/* Factory photo placeholder */}
+            <ImagePlaceholder
+              dark
+              label="Factory Photo"
+              description="Factory interior — production floor with seamless knitting machines and sewing lines. Wide-angle, well-lit, showing scale."
+              className="aspect-[16/10]"
+            />
+
+            {/* Stats grid */}
             <div className="grid grid-cols-2 gap-px bg-neutral-800 border border-neutral-800">
               {stats.map((s) => (
-                <div key={s.label} className="bg-neutral-900 p-8 lg:p-12">
-                  <p className="text-3xl lg:text-5xl font-semibold tracking-tight text-white">
+                <div key={s.label} className="bg-neutral-900 p-6 lg:p-8">
+                  <p className="text-2xl lg:text-4xl font-semibold tracking-tight text-white">
                     {s.value}
                   </p>
-                  <p className="mt-3 text-xs uppercase tracking-[0.2em] text-neutral-500">
+                  <p className="mt-2 text-xs uppercase tracking-[0.2em] text-neutral-500">
                     {s.label}
                   </p>
                 </div>

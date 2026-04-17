@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import ImagePlaceholder from "@/components/ImagePlaceholder";
 
 export const metadata: Metadata = {
   title: "Download Catalog — Abstract Man",
@@ -12,7 +13,7 @@ const sections = [
     no: "01",
     title: "Silhouette Library",
     description:
-      "Boxer briefs, trunks, briefs, boxers, jockstraps, and long johns — with pattern codes and fit guides.",
+      "Boxer briefs, trunks, briefs, boxers, jockstraps, and long johns \u2014 with pattern codes and fit guides.",
   },
   {
     no: "02",
@@ -24,7 +25,7 @@ const sections = [
     no: "03",
     title: "Trim & Packaging Options",
     description:
-      "Waistband jacquards, woven labels, hang tags, poly bags, and printed box options — with cost tiers.",
+      "Waistband jacquards, woven labels, hang tags, poly bags, and printed box options \u2014 with cost tiers.",
   },
   {
     no: "04",
@@ -42,7 +43,7 @@ const sections = [
     no: "06",
     title: "Case Studies",
     description:
-      "Past OEM/ODM projects across the US, EU, and APAC — what was built, at what volume, in what timeline.",
+      "Past OEM/ODM projects across the US, EU, and APAC \u2014 what was built, at what volume, in what timeline.",
   },
 ];
 
@@ -69,8 +70,8 @@ export default function CatalogPage() {
               </h1>
               <p className="mt-5 text-neutral-600 leading-relaxed text-base lg:text-lg">
                 Silhouettes, fabrics, trim options, production capability, and
-                case studies — everything your team needs to plan an underwear
-                line with us.
+                case studies &mdash; everything your team needs to plan an
+                underwear line with us.
               </p>
 
               <div className="mt-10 flex flex-wrap gap-3">
@@ -89,47 +90,20 @@ export default function CatalogPage() {
               </div>
             </div>
 
-            {/* Mock PDF preview card */}
+            {/* Catalog cover placeholder */}
             <div className="lg:col-span-5">
-              <div className="relative aspect-[3/4] rounded-2xl bg-neutral-900 overflow-hidden shadow-xl">
-                <div className="absolute inset-0 p-8 flex flex-col justify-between text-white">
-                  <div>
-                    <p className="text-[10px] uppercase tracking-[0.3em] text-brand-yellow">
-                      Catalog · 2026
-                    </p>
-                    <p className="mt-8 text-xl font-semibold tracking-tight leading-tight">
-                      ABSTRACT MAN
-                      <br />
-                      Product &amp; Capability
-                      <br />
-                      Reference
-                    </p>
-                  </div>
-                  <div>
-                    <div className="h-px w-12 bg-brand-yellow" />
-                    <p className="mt-4 text-xs text-neutral-400 leading-relaxed">
-                      Confidential for evaluation use.
-                      <br />
-                      Zhongshan · Guangdong · China
-                    </p>
-                  </div>
-                </div>
-                {/* decorative grid */}
-                <div className="absolute inset-0 opacity-10 pointer-events-none" aria-hidden>
-                  <svg className="w-full h-full">
-                    <defs>
-                      <pattern id="catalog-grid" width="24" height="24" patternUnits="userSpaceOnUse">
-                        <path d="M 24 0 L 0 0 0 24" fill="none" stroke="white" strokeWidth="0.5" />
-                      </pattern>
-                    </defs>
-                    <rect width="100%" height="100%" fill="url(#catalog-grid)" />
-                  </svg>
-                </div>
-              </div>
+              <ImagePlaceholder
+                label="Catalog Cover"
+                description="Catalog PDF cover image — product photography collage or branded cover design. Aspect ratio 3:4 (portrait)."
+                className="aspect-[3/4] shadow-xl"
+              />
 
               <div className="mt-6 grid grid-cols-4 gap-2">
                 {stats.map((s) => (
-                  <div key={s.label} className="rounded-xl bg-white border border-neutral-200 p-3 text-center">
+                  <div
+                    key={s.label}
+                    className="rounded-xl bg-white border border-neutral-200 p-3 text-center"
+                  >
                     <p className="text-lg font-semibold tracking-tight text-neutral-900">
                       {s.value}
                     </p>
@@ -186,12 +160,12 @@ export default function CatalogPage() {
                 Request the Catalog
               </p>
               <h2 className="mt-4 text-3xl lg:text-4xl font-semibold tracking-tight text-neutral-900 leading-[1.15]">
-                Tell us who you are — we&apos;ll email the PDF.
+                Tell us who you are &mdash; we&apos;ll email the PDF.
               </h2>
               <p className="mt-5 text-neutral-900/80 leading-relaxed">
                 The catalog is confidential and sent individually. We use your
-                email to share the file and nothing else — no newsletters, no
-                marketing automation.
+                email to share the file and nothing else &mdash; no newsletters,
+                no marketing automation.
               </p>
             </div>
 

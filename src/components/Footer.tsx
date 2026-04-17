@@ -1,4 +1,5 @@
 import Link from "next/link";
+import ImagePlaceholder from "./ImagePlaceholder";
 
 const footerNav = [
   {
@@ -69,6 +70,14 @@ export default function Footer() {
                 hello@abstractman.com
               </a>
             </div>
+
+            {/* WeChat QR placeholder */}
+            <ImagePlaceholder
+              dark
+              label="WeChat QR"
+              description="WeChat business account QR code"
+              className="mt-8 aspect-square max-w-[120px]"
+            />
           </div>
 
           {/* Nav columns */}

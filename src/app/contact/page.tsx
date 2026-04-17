@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import ImagePlaceholder from "@/components/ImagePlaceholder";
 
 export const metadata: Metadata = {
   title: "Contact — Abstract Man",
@@ -17,7 +18,7 @@ const contactMethods = [
     label: "WhatsApp",
     value: "+86 138 0000 0000",
     href: "https://wa.me/8613800000000",
-    note: "GMT+8, 09:00–18:00",
+    note: "GMT+8, 09:00\u201318:00",
   },
   {
     label: "WeChat",
@@ -29,7 +30,7 @@ const contactMethods = [
     label: "Phone",
     value: "+86 760 0000 0000",
     href: "tel:+867600000000",
-    note: "Mon–Fri, GMT+8",
+    note: "Mon\u2013Fri, GMT+8",
   },
 ];
 
@@ -58,7 +59,7 @@ export default function ContactPage() {
             <p className="mt-5 text-neutral-600 leading-relaxed text-base lg:text-lg">
               Share your concept, target volumes, and launch window. We&apos;ll
               come back with fabric options, pricing, and a realistic production
-              timeline — usually within one working day.
+              timeline &mdash; usually within one working day.
             </p>
           </div>
         </div>
@@ -275,13 +276,20 @@ export default function ContactPage() {
                       aria-hidden
                       className="pt-2 text-neutral-400 transition-transform group-hover:translate-x-1 group-hover:text-neutral-900"
                     >
-                      →
+                      &rarr;
                     </span>
                   </a>
                 ))}
               </div>
 
-              <div className="mt-10 rounded-2xl bg-neutral-50 border border-neutral-200 p-6">
+              {/* Factory photo placeholder */}
+              <ImagePlaceholder
+                label="Factory / Team Photo"
+                description="Factory exterior, reception, or team photo — adds warmth to the contact page"
+                className="mt-8 aspect-[4/3]"
+              />
+
+              <div className="mt-6 rounded-2xl bg-neutral-50 border border-neutral-200 p-6">
                 <p className="text-xs uppercase tracking-[0.18em] text-neutral-500">
                   Factory address
                 </p>
@@ -295,6 +303,13 @@ export default function ContactPage() {
                   Guangzhou or Shenzhen for scheduled tours.
                 </p>
               </div>
+
+              {/* WeChat QR placeholder */}
+              <ImagePlaceholder
+                label="WeChat QR Code"
+                description="WeChat business account QR code for quick scan-to-add"
+                className="mt-6 aspect-square max-w-[180px]"
+              />
             </aside>
           </div>
         </div>

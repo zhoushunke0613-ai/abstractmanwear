@@ -1,27 +1,49 @@
+import ImagePlaceholder from "./ImagePlaceholder";
+
 const services = [
   {
     no: "01",
     title: "OEM Manufacturing",
     description:
       "Bring your tech pack. We handle fabric sourcing, pattern grading, and bulk production to your exact specs.",
+    image: {
+      label: "OEM Production",
+      description:
+        "Sewing line operators working on bulk underwear production",
+    },
   },
   {
     no: "02",
     title: "ODM Development",
     description:
       "Start from our in-house design library \u2014 fabric, waistband, and fit already validated. Development in as few as 4 weeks.",
+    image: {
+      label: "Design & Development",
+      description:
+        "Pattern table with fabric swatches, tech packs, and sample garments",
+    },
   },
   {
     no: "03",
     title: "Fabric & Fit Customization",
     description:
       "Custom waistband jacquard, cotton / modal / bamboo blends, multi-size fit development for regional body standards.",
+    image: {
+      label: "Fabric Swatches",
+      description:
+        "Close-up of fabric rolls or swatch cards — cotton, modal, bamboo, performance blends",
+    },
   },
   {
     no: "04",
     title: "Sampling & Private Label",
     description:
       "Proto, fit, and PP samples in 10\u201314 days. Hang tags, poly bags, printed inner waistband \u2014 fully white-labeled.",
+    image: {
+      label: "Packaging & Labels",
+      description:
+        "Finished underwear samples with hang tags, woven labels, and branded poly bags",
+    },
   },
 ];
 
@@ -34,7 +56,7 @@ export default function ServicesOverview() {
             What We Do
           </p>
           <h2 className="mt-4 text-3xl lg:text-4xl font-semibold tracking-tight text-neutral-900">
-            More than a factory — a development partner.
+            More than a factory &mdash; a development partner.
           </h2>
           <p className="mt-5 text-neutral-600 leading-relaxed">
             OEM production, ODM development, fabric sourcing, pattern-making,
@@ -43,9 +65,14 @@ export default function ServicesOverview() {
           </p>
         </div>
 
-        <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-10 lg:gap-y-0">
+        <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((s) => (
-            <div key={s.no} className="lg:border-l lg:border-neutral-200 lg:pl-6 lg:first:border-l-0 lg:first:pl-0">
+            <div key={s.no}>
+              <ImagePlaceholder
+                label={s.image.label}
+                description={s.image.description}
+                className="aspect-[4/3] mb-6"
+              />
               <p className="text-xs uppercase tracking-[0.2em] text-brand-yellow font-medium">
                 {s.no}
               </p>
