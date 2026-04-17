@@ -1,102 +1,63 @@
 import { Link } from "@/i18n/navigation";
-import type { Metadata } from "next";
+import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
-export const metadata: Metadata = {
-  title: "FAQ — Abstract Man",
-  description:
-    "Common questions about MOQs, sampling, lead times, fabric, packaging, and payment for Abstract Man's men's underwear OEM/ODM service.",
-};
-
-const groups = [
-  {
-    id: "orders",
-    heading: "Orders & MOQs",
-    items: [
-      {
-        q: "What\u2019s your minimum order quantity?",
-        a: "300 pcs per style per color for cut-and-sew, 500 pcs per colorway for seamless. Lower volumes may be possible for sampling or launch test runs depending on the project.",
-      },
-      {
-        q: "Can you handle both small and large volume orders?",
-        a: "Yes \u2014 from 300-pc test runs to 500,000 pcs per month at full capacity. Scheduling adapts to your order size.",
-      },
-      {
-        q: "What are your payment terms?",
-        a: "Standard payment terms are confirmed during quotation and order placement. For repeat customers or established partnerships, flexible arrangements including LC and net terms may be available.",
-      },
-    ],
-  },
-  {
-    id: "sampling",
-    heading: "Sampling & Development",
-    items: [
-      {
-        q: "How long does sampling take?",
-        a: "15 working days from approved tech pack for standard construction. Rush sampling (7\u201310 days) is available at a surcharge.",
-      },
-      {
-        q: "Are sampling fees refundable?",
-        a: "Sampling is charged at cost and typically credited against your first bulk order.",
-      },
-      {
-        q: "Can you develop from scratch without a tech pack?",
-        a: "Yes \u2014 that\u2019s our ODM service. Describe the fit, fabric, and target customer, and we develop from our in-house pattern library. Most ODM projects go from brief to approved sample in 4\u20136 weeks.",
-      },
-    ],
-  },
-  {
-    id: "materials",
-    heading: "Materials & Construction",
-    items: [
-      {
-        q: "What fabrics do you work with?",
-        a: "Cotton, modal (TENCEL\u2122, MicroModal), bamboo, polyester performance blends, nylon/spandex, and seamless-specific yarns. Custom fabric development is available for sufficient-volume orders.",
-      },
-      {
-        q: "Do you offer both seamless and cut-and-sew?",
-        a: "Yes \u2014 both constructions under one roof. Seamless for performance and modern-fit lines; cut-and-sew for classic silhouettes and detailed trims.",
-      },
-    ],
-  },
-  {
-    id: "shipping",
-    heading: "Packaging & Shipping",
-    items: [
-      {
-        q: "Can you do custom packaging?",
-        a: "Yes \u2014 woven labels, hang tags, poly bags, printed boxes, and barcode stickers. Send your artwork and we quote packaging alongside the product.",
-      },
-      {
-        q: "What shipping terms do you support?",
-        a: "FOB Nansha or Shenzhen is standard. CIF and DDP available on request. Sea, air, and express all supported.",
-      },
-      {
-        q: "Can you ship directly to warehouses or fulfillment centers?",
-        a: "Yes \u2014 including Amazon FBA with FNSKU labeling and FBA-compliant cartons. We also ship to third-party warehouses and distribution centers worldwide.",
-      },
-    ],
-  },
-  {
-    id: "compliance",
-    heading: "Quality & Compliance",
-    items: [
-      {
-        q: "What certifications do you hold?",
-        a: "BSCI and SLCP, audited annually. We can also coordinate Sedex, WRAP, or other audits on request.",
-      },
-      {
-        q: "How do you handle quality control?",
-        a: "In-house QC at every stage: inbound fabric, sampling, inline production, and final AQL 2.5 inspection before carton closure. Reports are shared before shipment.",
-      },
-      {
-        q: "Can you share audit or compliance documents during onboarding?",
-        a: "Yes \u2014 BSCI and SLCP documentation is available before you place your first order. We share full audit reports and compliance records as part of standard onboarding.",
-      },
-    ],
-  },
-];
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Metadata.faq" });
+  return { title: t("title"), description: t("description") };
+}
 
 export default function FAQPage() {
+  const t = useTranslations("FAQPage");
+
+  const groups = [
+    {
+      id: "orders",
+      heading: t("g1Heading"),
+      items: [
+        { q: t("g1Q1"), a: t("g1A1") },
+        { q: t("g1Q2"), a: t("g1A2") },
+        { q: t("g1Q3"), a: t("g1A3") },
+      ],
+    },
+    {
+      id: "sampling",
+      heading: t("g2Heading"),
+      items: [
+        { q: t("g2Q1"), a: t("g2A1") },
+        { q: t("g2Q2"), a: t("g2A2") },
+        { q: t("g2Q3"), a: t("g2A3") },
+      ],
+    },
+    {
+      id: "materials",
+      heading: t("g3Heading"),
+      items: [
+        { q: t("g3Q1"), a: t("g3A1") },
+        { q: t("g3Q2"), a: t("g3A2") },
+      ],
+    },
+    {
+      id: "shipping",
+      heading: t("g4Heading"),
+      items: [
+        { q: t("g4Q1"), a: t("g4A1") },
+        { q: t("g4Q2"), a: t("g4A2") },
+        { q: t("g4Q3"), a: t("g4A3") },
+      ],
+    },
+    {
+      id: "compliance",
+      heading: t("g5Heading"),
+      items: [
+        { q: t("g5Q1"), a: t("g5A1") },
+        { q: t("g5Q2"), a: t("g5A2") },
+        { q: t("g5Q3"), a: t("g5A3") },
+      ],
+    },
+  ];
+
   return (
     <>
       {/* Compact header */}
@@ -104,10 +65,10 @@ export default function FAQPage() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-16 pb-10 lg:pt-24 lg:pb-12">
           <div className="max-w-2xl">
             <p className="text-xs uppercase tracking-[0.2em] text-neutral-500">
-              FAQ
+              {t("eyebrow")}
             </p>
             <h1 className="mt-3 text-3xl lg:text-5xl font-semibold tracking-tight text-neutral-900 leading-[1.1]">
-              Questions brands ask before working with us.
+              {t("headline")}
             </h1>
           </div>
         </div>
@@ -121,20 +82,20 @@ export default function FAQPage() {
             <aside className="lg:col-span-3">
               <nav className="lg:sticky lg:top-24 space-y-8">
                 <p className="text-sm text-neutral-500 leading-relaxed">
-                  Don&apos;t see your question?{" "}
+                  {t("sidebarText")}{" "}
                   <a
                     href="mailto:hello@abstractman.com"
                     className="text-neutral-900 underline underline-offset-4 hover:text-brand-yellow transition-colors"
                   >
-                    Email us
+                    {t("emailUs")}
                   </a>{" "}
-                  &mdash; we reply within one working day.
+                  {t("sidebarSuffix")}
                 </p>
 
                 {/* Desktop sidebar nav */}
                 <div className="hidden lg:block">
                   <p className="text-[10px] uppercase tracking-[0.2em] text-neutral-400 font-medium">
-                    Jump to
+                    {t("jumpTo")}
                   </p>
                   <ul className="mt-3 -mx-3 space-y-0.5">
                     {groups.map((g) => (
@@ -210,20 +171,20 @@ export default function FAQPage() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12 lg:py-14">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-5">
             <h2 className="text-2xl lg:text-3xl font-semibold tracking-tight text-neutral-900">
-              Ready to start your project?
+              {t("ctaHeadline")}
             </h2>
             <div className="flex flex-wrap gap-3">
               <Link
                 href="/contact"
                 className="rounded-full bg-neutral-900 text-white font-medium text-sm px-7 py-2.5 shadow-sm transition-all duration-300 ease-out hover:bg-neutral-800 hover:-translate-y-0.5"
               >
-                Get in Touch
+                {t("ctaContact")}
               </Link>
               <Link
                 href="/catalog"
                 className="rounded-full bg-white/70 backdrop-blur-md border border-white/80 text-neutral-900 text-sm px-7 py-2.5 shadow-sm transition-all duration-300 ease-out hover:bg-white hover:-translate-y-0.5"
               >
-                Download Catalog
+                {t("ctaCatalog")}
               </Link>
             </div>
           </div>

@@ -1,158 +1,89 @@
 import { Link } from "@/i18n/navigation";
-import type { Metadata } from "next";
+import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import ImagePlaceholder from "@/components/ImagePlaceholder";
 
-export const metadata: Metadata = {
-  title: "Services — Abstract Man",
-  description:
-    "OEM manufacturing, ODM development, fabric sourcing, sampling, and private-label packaging. Full-service men's underwear production from a single facility.",
-};
-
-const services = [
-  {
-    no: "01",
-    title: "OEM Manufacturing",
-    description:
-      "Bring your tech pack, fabric spec, and branding assets. We handle pattern grading, fabric sourcing, cutting, sewing, QC, and packout — all in-house. Your design, our production line.",
-    details: [
-      "Pattern grading for S–3XL",
-      "Fabric sourcing from vetted mills",
-      "Bulk production with AQL 2.5 inspection",
-      "Full export documentation",
-    ],
-    image: {
-      label: "OEM Production Line",
-      description:
-        "Sewing operators working on bulk underwear production at workstations",
-    },
-  },
-  {
-    no: "02",
-    title: "ODM Development",
-    description:
-      "Start from our in-house design library — fabric, fit, and waistband construction already validated. Choose a base style, customize details, and go to bulk in as few as 4 weeks.",
-    details: [
-      "100+ validated base styles",
-      "Fabric and color customization",
-      "Custom waistband jacquard design",
-      "Tech pack provided if needed",
-    ],
-    image: {
-      label: "ODM Design Table",
-      description:
-        "Design table with fabric swatches, tech packs, and underwear samples laid out",
-    },
-  },
-  {
-    no: "03",
-    title: "Fabric & Material Sourcing",
-    description:
-      "Access our network of qualified fabric mills for cotton, modal, bamboo, and performance blends. We spec, test, and source — you approve swatches before production begins.",
-    details: [
-      "Organic cotton, combed cotton, BCI cotton",
-      "MicroModal, TENCEL\u2122, bamboo viscose",
-      "Moisture-wicking performance blends",
-      "Custom weight and stretch specs",
-    ],
-    image: {
-      label: "Fabric Swatches",
-      description:
-        "Organized fabric swatches showing cotton, modal, bamboo, and performance blends with spec labels",
-    },
-  },
-  {
-    no: "04",
-    title: "Sampling & Prototyping",
-    description:
-      "Proto samples in 7 days. Fit samples with your size chart in 10\u201314 days. PP samples for final sign-off before bulk. Revisions supported at each stage until you're satisfied.",
-    details: [
-      "Proto sample: 5\u20137 days",
-      "Fit sample: 10\u201314 days",
-      "PP sample: 7\u201310 days after approval",
-      "Unlimited revisions on fit and detail",
-    ],
-    image: {
-      label: "Sample Room",
-      description:
-        "Sampling room with finished underwear prototypes, measurement tools, and pattern templates",
-    },
-  },
-  {
-    no: "05",
-    title: "Private Label & Packaging",
-    description:
-      "Full white-label support. We design and produce custom waistband jacquards, woven labels, hang tags, poly bags, and retail-ready boxes — everything your brand needs to ship DTC or wholesale.",
-    details: [
-      "Custom jacquard waistband weaving",
-      "Woven and printed labels",
-      "Hang tags, poly bags, gift boxes",
-      "Inner-waistband branding and heat transfers",
-    ],
-    image: {
-      label: "Private Label Packaging",
-      description:
-        "Branded underwear packaging — hang tags, woven labels, printed boxes, and poly bags arranged on table",
-    },
-  },
-  {
-    no: "06",
-    title: "Quality Control & Compliance",
-    description:
-      "AQL 2.5 pre-shipment inspection on every order. Metal detection on every piece. BSCI and SLCP audited facility. Full export documents — CI, PL, COO, BL/AWB — ready for your customs broker.",
-    details: [
-      "In-line and final QC inspection",
-      "Metal detection on 100% of pieces",
-      "BSCI + SLCP social compliance",
-      "Photo pack and inspection report per shipment",
-    ],
-    image: {
-      label: "QC Inspection",
-      description:
-        "Quality inspector examining finished underwear under magnifying lamp at inspection station",
-    },
-  },
-];
-
-const processSteps = [
-  {
-    no: "01",
-    title: "Inquiry",
-    description:
-      "Share your product type, fabric preference, target quantity, and branding details.",
-  },
-  {
-    no: "02",
-    title: "Quotation",
-    description:
-      "Unit price, lead time, sample cost, and shipping — itemized within 24 hours.",
-  },
-  {
-    no: "03",
-    title: "Sampling",
-    description:
-      "Proto \u2192 fit \u2192 PP sample. Revisions supported at each stage until final sign-off.",
-  },
-  {
-    no: "04",
-    title: "Production",
-    description:
-      "Fabric sourcing \u2192 cutting \u2192 printing/embroidery \u2192 sewing \u2192 in-line QC.",
-  },
-  {
-    no: "05",
-    title: "Inspection",
-    description:
-      "AQL 2.5 pre-shipment check + photo pack before dispatch.",
-  },
-  {
-    no: "06",
-    title: "Shipping",
-    description:
-      "Balance payment, then FOB/CIF via your preferred logistics with full export docs.",
-  },
-];
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Metadata.services" });
+  return { title: t("title"), description: t("description") };
+}
 
 export default function ServicesPage() {
+  const t = useTranslations("ServicesPage");
+
+  const services = [
+    {
+      no: "01",
+      title: t("s1Title"),
+      description: t("s1Desc"),
+      details: [t("s1D1"), t("s1D2"), t("s1D3"), t("s1D4")],
+      image: {
+        label: t("s1ImgLabel"),
+        description: t("s1ImgDesc"),
+      },
+    },
+    {
+      no: "02",
+      title: t("s2Title"),
+      description: t("s2Desc"),
+      details: [t("s2D1"), t("s2D2"), t("s2D3"), t("s2D4")],
+      image: {
+        label: t("s2ImgLabel"),
+        description: t("s2ImgDesc"),
+      },
+    },
+    {
+      no: "03",
+      title: t("s3Title"),
+      description: t("s3Desc"),
+      details: [t("s3D1"), t("s3D2"), t("s3D3"), t("s3D4")],
+      image: {
+        label: t("s3ImgLabel"),
+        description: t("s3ImgDesc"),
+      },
+    },
+    {
+      no: "04",
+      title: t("s4Title"),
+      description: t("s4Desc"),
+      details: [t("s4D1"), t("s4D2"), t("s4D3"), t("s4D4")],
+      image: {
+        label: t("s4ImgLabel"),
+        description: t("s4ImgDesc"),
+      },
+    },
+    {
+      no: "05",
+      title: t("s5Title"),
+      description: t("s5Desc"),
+      details: [t("s5D1"), t("s5D2"), t("s5D3"), t("s5D4")],
+      image: {
+        label: t("s5ImgLabel"),
+        description: t("s5ImgDesc"),
+      },
+    },
+    {
+      no: "06",
+      title: t("s6Title"),
+      description: t("s6Desc"),
+      details: [t("s6D1"), t("s6D2"), t("s6D3"), t("s6D4")],
+      image: {
+        label: t("s6ImgLabel"),
+        description: t("s6ImgDesc"),
+      },
+    },
+  ];
+
+  const processSteps = [
+    { no: "01", title: t("p1Title"), description: t("p1Desc") },
+    { no: "02", title: t("p2Title"), description: t("p2Desc") },
+    { no: "03", title: t("p3Title"), description: t("p3Desc") },
+    { no: "04", title: t("p4Title"), description: t("p4Desc") },
+    { no: "05", title: t("p5Title"), description: t("p5Desc") },
+    { no: "06", title: t("p6Title"), description: t("p6Desc") },
+  ];
+
   return (
     <>
       {/* Header */}
@@ -160,29 +91,26 @@ export default function ServicesPage() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12 lg:py-24">
           <div className="max-w-2xl">
             <p className="text-xs uppercase tracking-[0.2em] text-neutral-500">
-              Our Services
+              {t("eyebrow")}
             </p>
             <h1 className="mt-3 text-2xl lg:text-5xl font-semibold tracking-tight text-neutral-900 leading-[1.1]">
-              End-to-end underwear manufacturing, under one roof.
+              {t("headline")}
             </h1>
             <p className="mt-4 text-sm lg:text-base text-neutral-600 leading-relaxed">
-              From concept to cargo &mdash; OEM production, ODM development,
-              material sourcing, sampling, private-label packaging, and
-              export-ready quality control. One team, one facility, one point of
-              contact.
+              {t("description")}
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 href="/contact"
                 className="rounded-full bg-neutral-900 text-white font-medium text-sm px-8 py-3 shadow-sm transition-all duration-300 ease-out hover:bg-neutral-800 hover:-translate-y-0.5"
               >
-                Start a project
+                {t("startProject")}
               </Link>
               <Link
                 href="/catalog"
                 className="rounded-full bg-white/70 backdrop-blur-md border border-neutral-300 text-neutral-900 text-sm px-8 py-3 shadow-sm transition-all duration-300 ease-out hover:bg-white hover:-translate-y-0.5"
               >
-                Download catalog
+                {t("downloadCatalog")}
               </Link>
             </div>
           </div>
@@ -256,14 +184,13 @@ export default function ServicesPage() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14 lg:py-24">
           <div className="max-w-2xl">
             <p className="text-xs uppercase tracking-[0.2em] text-brand-yellow">
-              How It Works
+              {t("processEyebrow")}
             </p>
             <h2 className="mt-3 text-2xl lg:text-4xl font-semibold tracking-tight text-white">
-              Six steps from inquiry to delivery.
+              {t("processHeadline")}
             </h2>
             <p className="mt-4 text-sm lg:text-base text-neutral-400 leading-relaxed">
-              Every project follows the same documented workflow &mdash; so
-              there are no surprises on price, timeline, or quality.
+              {t("processDesc")}
             </p>
           </div>
 
@@ -294,24 +221,23 @@ export default function ServicesPage() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14 lg:py-24">
           <div className="max-w-2xl mx-auto text-center">
             <h2 className="text-2xl lg:text-4xl font-semibold tracking-tight text-neutral-900">
-              Ready to start your project?
+              {t("ctaHeadline")}
             </h2>
             <p className="mt-4 text-sm lg:text-base text-neutral-900/70 leading-relaxed">
-              Share your concept, tech pack, or reference images. We&apos;ll
-              scope your project and reply with pricing within one working day.
+              {t("ctaDesc")}
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
               <Link
                 href="/contact"
                 className="rounded-full bg-neutral-900 text-white font-medium text-sm px-8 py-3 shadow-sm transition-all duration-300 ease-out hover:bg-neutral-800 hover:-translate-y-0.5"
               >
-                Get a quote &rarr;
+                {t("ctaQuote")}
               </Link>
               <Link
                 href="/catalog"
                 className="rounded-full bg-white/70 backdrop-blur-md border border-white/60 text-neutral-900 text-sm px-8 py-3 shadow-sm transition-all duration-300 ease-out hover:bg-white hover:-translate-y-0.5"
               >
-                Download catalog
+                {t("ctaCatalog")}
               </Link>
             </div>
           </div>

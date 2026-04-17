@@ -1,154 +1,141 @@
 import { Link } from "@/i18n/navigation";
-import type { Metadata } from "next";
+import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import ImagePlaceholder from "@/components/ImagePlaceholder";
 
-export const metadata: Metadata = {
-  title: "Capability — Abstract Man",
-  description:
-    "3,000 m\u00B2 vertically integrated facility in Zhongshan, China. Seamless knitting, cut-and-sew, printing, QC, and packout \u2014 500,000 pcs/month capacity.",
-};
-
-const factoryStats = [
-  { value: "3,000 m\u00B2", label: "Facility area" },
-  { value: "500,000", label: "Pcs / month capacity" },
-  { value: "100+", label: "Skilled staff" },
-  { value: "20+", label: "Years of experience" },
-];
-
-const productionLines = [
-  {
-    title: "Seamless Knitting",
-    description:
-      "Circular knitting machines produce one-piece body construction \u2014 no side seams, reduced stitching, smoother hand-feel. Ideal for premium and performance lines.",
-    specs: [
-      "Santoni and equivalent circular knitting machines",
-      "Full-body and partial seamless construction",
-      "Bonded and ultrasonic-cut finishing",
-      "Capacity: 150,000+ pcs / month",
-    ],
-    image: {
-      label: "Seamless Knitting Line",
-      description:
-        "Row of circular seamless knitting machines producing underwear body tubes",
-    },
-  },
-  {
-    title: "Cut-and-Sew Production",
-    description:
-      "Traditional construction with flatlock, overlock, and coverstitch machines. Full pattern grading from S to 3XL with multi-panel and gusseted constructions.",
-    specs: [
-      "Flatlock, overlock, and coverstitch machines",
-      "Multi-needle chain stitch for waistbands",
-      "S\u20133XL pattern grading",
-      "Capacity: 350,000+ pcs / month",
-    ],
-    image: {
-      label: "Cut-and-Sew Line",
-      description:
-        "Sewing operators at workstations stitching cut fabric panels into finished underwear",
-    },
-  },
-];
-
-const departments = [
-  {
-    title: "Design & Development",
-    description:
-      "In-house pattern making, tech pack creation, and sample development. CAD-based grading with fit validation across size ranges.",
-    image: {
-      label: "Design Room",
-      description:
-        "Design workstation with CAD screens, pattern templates, and fabric swatches",
-    },
-  },
-  {
-    title: "Printing & Embroidery",
-    description:
-      "Screen printing, sublimation, heat transfer, and multi-head embroidery. Custom waistband jacquard weaving done in partnership with local mills.",
-    image: {
-      label: "Printing Department",
-      description:
-        "Printing station with screen printing equipment and printed fabric panels drying",
-    },
-  },
-  {
-    title: "Cutting Room",
-    description:
-      "Automated spreading and cutting tables for consistent panel accuracy. Marker efficiency optimized to minimize fabric waste.",
-    image: {
-      label: "Cutting Room",
-      description:
-        "Automated fabric spreading and cutting table with stacked fabric layers",
-    },
-  },
-  {
-    title: "Quality Control",
-    description:
-      "In-line inspection at every workstation. Final AQL 2.5 pre-shipment check with measurement audits, appearance grading, and metal detection on 100% of pieces.",
-    image: {
-      label: "QC Department",
-      description:
-        "QC inspector examining finished underwear at lighted inspection station with measurement tools",
-    },
-  },
-  {
-    title: "Packaging & Warehouse",
-    description:
-      "OPP bags, printed boxes, gift packaging, and carton packing. Bar code labeling, assortment packing, and container loading supervised on-site.",
-    image: {
-      label: "Packaging Area",
-      description:
-        "Packaging station with folded underwear being packed into branded boxes and poly bags",
-    },
-  },
-  {
-    title: "Sampling Room",
-    description:
-      "Dedicated sample line separate from bulk production. Proto, fit, and PP samples with full measurement reports and photo packs.",
-    image: {
-      label: "Sampling Room",
-      description:
-        "Sampling room with sample sewing machines, finished prototypes, and measurement tools",
-    },
-  },
-];
-
-const equipmentList = [
-  {
-    category: "Knitting",
-    items: [
-      "Santoni circular seamless knitting machines",
-      "Single and double jersey circular looms",
-    ],
-  },
-  {
-    category: "Sewing",
-    items: [
-      "Juki flatlock and overlock machines",
-      "Pegasus coverstitch machines",
-      "Multi-needle chain stitch for waistbands",
-      "Ultrasonic bonding machines",
-    ],
-  },
-  {
-    category: "Printing",
-    items: [
-      "Rotary screen printing machines",
-      "Sublimation heat presses",
-      "Heat transfer presses",
-    ],
-  },
-  {
-    category: "Quality",
-    items: [
-      "Metal detection units (100% inline)",
-      "AQL sampling inspection stations",
-      "Fabric GSM and stretch testers",
-    ],
-  },
-];
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Metadata.capability" });
+  return { title: t("title"), description: t("description") };
+}
 
 export default function CapabilityPage() {
+  const t = useTranslations("CapabilityPage");
+
+  const factoryStats = [
+    { value: t("stat1"), label: t("stat1Label") },
+    { value: t("stat2"), label: t("stat2Label") },
+    { value: t("stat3"), label: t("stat3Label") },
+    { value: t("stat4"), label: t("stat4Label") },
+  ];
+
+  const productionLines = [
+    {
+      title: t("line1Title"),
+      description: t("line1Desc"),
+      specs: [
+        t("line1Spec1"),
+        t("line1Spec2"),
+        t("line1Spec3"),
+        t("line1Spec4"),
+      ],
+      image: {
+        label: t("line1ImgLabel"),
+        description: t("line1ImgDesc"),
+      },
+    },
+    {
+      title: t("line2Title"),
+      description: t("line2Desc"),
+      specs: [
+        t("line2Spec1"),
+        t("line2Spec2"),
+        t("line2Spec3"),
+        t("line2Spec4"),
+      ],
+      image: {
+        label: t("line2ImgLabel"),
+        description: t("line2ImgDesc"),
+      },
+    },
+  ];
+
+  const departments = [
+    {
+      title: t("dept1Title"),
+      description: t("dept1Desc"),
+      image: {
+        label: t("dept1ImgLabel"),
+        description: t("dept1ImgDesc"),
+      },
+    },
+    {
+      title: t("dept2Title"),
+      description: t("dept2Desc"),
+      image: {
+        label: t("dept2ImgLabel"),
+        description: t("dept2ImgDesc"),
+      },
+    },
+    {
+      title: t("dept3Title"),
+      description: t("dept3Desc"),
+      image: {
+        label: t("dept3ImgLabel"),
+        description: t("dept3ImgDesc"),
+      },
+    },
+    {
+      title: t("dept4Title"),
+      description: t("dept4Desc"),
+      image: {
+        label: t("dept4ImgLabel"),
+        description: t("dept4ImgDesc"),
+      },
+    },
+    {
+      title: t("dept5Title"),
+      description: t("dept5Desc"),
+      image: {
+        label: t("dept5ImgLabel"),
+        description: t("dept5ImgDesc"),
+      },
+    },
+    {
+      title: t("dept6Title"),
+      description: t("dept6Desc"),
+      image: {
+        label: t("dept6ImgLabel"),
+        description: t("dept6ImgDesc"),
+      },
+    },
+  ];
+
+  const equipmentList = [
+    {
+      category: t("equipCat1"),
+      items: [
+        t("equipCat1Item1"),
+        t("equipCat1Item2"),
+      ],
+    },
+    {
+      category: t("equipCat2"),
+      items: [
+        t("equipCat2Item1"),
+        t("equipCat2Item2"),
+        t("equipCat2Item3"),
+        t("equipCat2Item4"),
+      ],
+    },
+    {
+      category: t("equipCat3"),
+      items: [
+        t("equipCat3Item1"),
+        t("equipCat3Item2"),
+        t("equipCat3Item3"),
+      ],
+    },
+    {
+      category: t("equipCat4"),
+      items: [
+        t("equipCat4Item1"),
+        t("equipCat4Item2"),
+        t("equipCat4Item3"),
+      ],
+    },
+  ];
+
   return (
     <>
       {/* Header */}
@@ -157,28 +144,26 @@ export default function CapabilityPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
             <div className="lg:col-span-6">
               <p className="text-xs uppercase tracking-[0.2em] text-neutral-500">
-                Capability
+                {t("eyebrow")}
               </p>
               <h1 className="mt-3 text-2xl lg:text-5xl font-semibold tracking-tight text-neutral-900 leading-[1.1]">
-                A vertically integrated facility built for underwear.
+                {t("headline")}
               </h1>
               <p className="mt-4 text-sm lg:text-base text-neutral-600 leading-relaxed">
-                3,000 m&sup2; in Zhongshan, Guangdong &mdash; covering seamless
-                knitting, cut-and-sew, printing, sampling, QC, and full packout.
-                Every step under one roof, managed by one team.
+                {t("description")}
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
                   href="/contact"
                   className="rounded-full bg-neutral-900 text-white font-medium text-sm px-8 py-3 shadow-sm transition-all duration-300 ease-out hover:bg-neutral-800 hover:-translate-y-0.5"
                 >
-                  Schedule a factory tour
+                  {t("scheduleTour")}
                 </Link>
                 <Link
                   href="/catalog"
                   className="rounded-full bg-white/70 backdrop-blur-md border border-neutral-300 text-neutral-900 text-sm px-8 py-3 shadow-sm transition-all duration-300 ease-out hover:bg-white hover:-translate-y-0.5"
                 >
-                  Download catalog
+                  {t("downloadCatalog")}
                 </Link>
               </div>
             </div>
@@ -186,8 +171,8 @@ export default function CapabilityPage() {
             {/* Factory exterior photo */}
             <div className="lg:col-span-5 lg:col-start-8">
               <ImagePlaceholder
-                label="Factory Exterior"
-                description="Abstract Man factory building exterior — front entrance with signage, Zhongshan industrial district"
+                label={t("factoryImgLabel")}
+                description={t("factoryImgDesc")}
                 className="aspect-[4/3] lg:aspect-[3/4]"
               />
             </div>
@@ -236,7 +221,7 @@ export default function CapabilityPage() {
                 }`}
               >
                 <p className="text-xs uppercase tracking-[0.2em] text-brand-yellow font-semibold">
-                  Production Line
+                  {t("productionLineLabel")}
                 </p>
                 <h2 className="mt-3 text-xl lg:text-3xl font-semibold tracking-tight text-neutral-900">
                   {line.title}
@@ -276,19 +261,18 @@ export default function CapabilityPage() {
         </section>
       ))}
 
-      {/* Factory departments — card grid */}
+      {/* Factory departments -- card grid */}
       <section className="border-b border-neutral-200 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14 lg:py-24">
           <div className="max-w-2xl">
             <p className="text-xs uppercase tracking-[0.2em] text-neutral-500">
-              Factory Departments
+              {t("deptEyebrow")}
             </p>
             <h2 className="mt-3 text-2xl lg:text-4xl font-semibold tracking-tight text-neutral-900">
-              Six departments, one integrated workflow.
+              {t("deptHeadline")}
             </h2>
             <p className="mt-4 text-sm lg:text-base text-neutral-600 leading-relaxed">
-              Every department operates under the same roof with direct
-              handoffs &mdash; no outsourcing, no delays between stages.
+              {t("deptDesc")}
             </p>
           </div>
 
@@ -323,10 +307,10 @@ export default function CapabilityPage() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14 lg:py-24">
           <div className="max-w-2xl">
             <p className="text-xs uppercase tracking-[0.2em] text-neutral-500">
-              Equipment & Technology
+              {t("equipEyebrow")}
             </p>
             <h2 className="mt-3 text-2xl lg:text-4xl font-semibold tracking-tight text-neutral-900">
-              Purpose-built for men&apos;s underwear production.
+              {t("equipHeadline")}
             </h2>
           </div>
 
@@ -365,50 +349,49 @@ export default function CapabilityPage() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14 lg:py-24">
           <div className="max-w-2xl">
             <p className="text-xs uppercase tracking-[0.2em] text-neutral-500">
-              Factory Tour
+              {t("galleryEyebrow")}
             </p>
             <h2 className="mt-3 text-2xl lg:text-4xl font-semibold tracking-tight text-neutral-900">
-              See the facility.
+              {t("galleryHeadline")}
             </h2>
             <p className="mt-4 text-sm lg:text-base text-neutral-600 leading-relaxed">
-              A look inside our Zhongshan production base &mdash; from knitting
-              lines to the finished-goods warehouse.
+              {t("galleryDesc")}
             </p>
           </div>
 
           <div className="mt-10 lg:mt-14 grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4">
             {[
               {
-                label: "Factory Floor Overview",
-                desc: "Wide-angle view of the main production floor with workers at stations",
+                label: t("gallery1Label"),
+                desc: t("gallery1Desc"),
               },
               {
-                label: "Knitting Machines",
-                desc: "Close-up of circular knitting machines producing seamless tubes",
+                label: t("gallery2Label"),
+                desc: t("gallery2Desc"),
               },
               {
-                label: "Sewing Line",
-                desc: "Row of sewing operators at workstations with overhead lighting",
+                label: t("gallery3Label"),
+                desc: t("gallery3Desc"),
               },
               {
-                label: "QC Station",
-                desc: "Quality inspector at lighted table with measurement tools",
+                label: t("gallery4Label"),
+                desc: t("gallery4Desc"),
               },
               {
-                label: "Fabric Warehouse",
-                desc: "Organized fabric rolls stored on metal shelving racks",
+                label: t("gallery5Label"),
+                desc: t("gallery5Desc"),
               },
               {
-                label: "Printing Area",
-                desc: "Screen printing station with freshly printed fabric panels",
+                label: t("gallery6Label"),
+                desc: t("gallery6Desc"),
               },
               {
-                label: "Packaging Line",
-                desc: "Workers folding and packing underwear into branded packaging",
+                label: t("gallery7Label"),
+                desc: t("gallery7Desc"),
               },
               {
-                label: "Finished Goods",
-                desc: "Palletized cartons in warehouse ready for container loading",
+                label: t("gallery8Label"),
+                desc: t("gallery8Desc"),
               },
             ].map((photo) => (
               <ImagePlaceholder
@@ -427,24 +410,23 @@ export default function CapabilityPage() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14 lg:py-24">
           <div className="max-w-2xl mx-auto text-center">
             <h2 className="text-2xl lg:text-4xl font-semibold tracking-tight text-neutral-900">
-              Want to visit the factory?
+              {t("ctaHeadline")}
             </h2>
             <p className="mt-4 text-sm lg:text-base text-neutral-900/70 leading-relaxed">
-              We welcome on-site visits by appointment. Pickup from Guangzhou or
-              Shenzhen airports available.
+              {t("ctaDesc")}
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
               <Link
                 href="/contact"
                 className="rounded-full bg-neutral-900 text-white font-medium text-sm px-8 py-3 shadow-sm transition-all duration-300 ease-out hover:bg-neutral-800 hover:-translate-y-0.5"
               >
-                Schedule a visit &rarr;
+                {t("ctaVisit")}
               </Link>
               <Link
                 href="/catalog"
                 className="rounded-full bg-white/70 backdrop-blur-md border border-white/60 text-neutral-900 text-sm px-8 py-3 shadow-sm transition-all duration-300 ease-out hover:bg-white hover:-translate-y-0.5"
               >
-                Download catalog
+                {t("ctaCatalog")}
               </Link>
             </div>
           </div>

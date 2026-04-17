@@ -1,70 +1,43 @@
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
-import type { Metadata } from "next";
+import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
-export const metadata: Metadata = {
-  title: "Download Catalog — Abstract Man",
-  description:
-    "Download the Abstract Man product catalog. Full men's underwear OEM/ODM portfolio with fabrics, silhouettes, and MOQs.",
-};
-
-const sections = [
-  {
-    no: "01",
-    title: "Silhouette Library",
-    description:
-      "Boxer briefs, trunks, briefs, seamless series, modal series, and performance constructions \u2014 with fit notes and reference directions.",
-  },
-  {
-    no: "02",
-    title: "Fabric & Material Options",
-    description:
-      "Cotton, modal, bamboo, and performance blends. Weight, stretch, composition specs, and minimum yardage notes.",
-  },
-  {
-    no: "03",
-    title: "Trim & Packaging Options",
-    description:
-      "Waistband jacquards, woven labels, hang tags, poly bags, and printed box options \u2014 with cost tiers.",
-  },
-  {
-    no: "04",
-    title: "Production Capability",
-    description:
-      "Machine list, monthly capacity, lead time breakdowns, and quality inspection flow.",
-  },
-  {
-    no: "05",
-    title: "Certifications & Compliance",
-    description:
-      "BSCI and SLCP assessment summaries. Social and labor compliance documentation.",
-  },
-  {
-    no: "06",
-    title: "Project References",
-    description:
-      "Past OEM/ODM projects across the US, EU, and APAC \u2014 product types, volumes, and timelines.",
-  },
-];
-
-const stats = [
-  { value: "60+", label: "Pages" },
-  { value: "100+", label: "SKU references" },
-  { value: "20+", label: "Fabric options" },
-];
-
-const productInterests = [
-  "Boxer Briefs",
-  "Trunks",
-  "Briefs",
-  "Seamless Series",
-  "Modal Series",
-  "Performance Series",
-  "Private Label Packaging",
-  "Not Sure Yet",
-];
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Metadata.catalog" });
+  return { title: t("title"), description: t("description") };
+}
 
 export default function CatalogPage() {
+  const t = useTranslations("CatalogPage");
+
+  const sections = [
+    { no: "01", title: t("sec1Title"), description: t("sec1Desc") },
+    { no: "02", title: t("sec2Title"), description: t("sec2Desc") },
+    { no: "03", title: t("sec3Title"), description: t("sec3Desc") },
+    { no: "04", title: t("sec4Title"), description: t("sec4Desc") },
+    { no: "05", title: t("sec5Title"), description: t("sec5Desc") },
+    { no: "06", title: t("sec6Title"), description: t("sec6Desc") },
+  ];
+
+  const stats = [
+    { value: t("stat1"), label: t("stat1Label") },
+    { value: t("stat2"), label: t("stat2Label") },
+    { value: t("stat3"), label: t("stat3Label") },
+  ];
+
+  const productInterests = [
+    { value: "Boxer Briefs", label: t("interest1") },
+    { value: "Trunks", label: t("interest2") },
+    { value: "Briefs", label: t("interest3") },
+    { value: "Seamless Series", label: t("interest4") },
+    { value: "Modal Series", label: t("interest5") },
+    { value: "Performance Series", label: t("interest6") },
+    { value: "Private Label Packaging", label: t("interest7") },
+    { value: "Not Sure Yet", label: t("interest8") },
+  ];
+
   return (
     <>
       {/* Hero */}
@@ -73,15 +46,13 @@ export default function CatalogPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
             <div className="lg:col-span-6">
               <p className="text-xs uppercase tracking-[0.2em] text-neutral-500">
-                Download Catalog
+                {t("eyebrow")}
               </p>
               <h1 className="mt-3 text-2xl lg:text-5xl font-semibold tracking-tight text-neutral-900 leading-[1.1]">
-                The full product library, in one PDF.
+                {t("headline")}
               </h1>
               <p className="mt-4 text-sm lg:text-base text-neutral-600 leading-relaxed">
-                Silhouettes, fabric options, trim details, production
-                capabilities, and key sourcing information &mdash; everything
-                your team needs to evaluate a project with us.
+                {t("description")}
               </p>
 
               {/* Inline stats */}
@@ -108,13 +79,13 @@ export default function CatalogPage() {
                   href="#download"
                   className="rounded-full bg-neutral-900 text-white font-medium text-sm px-8 py-3 shadow-sm transition-all duration-300 ease-out hover:bg-neutral-800 hover:-translate-y-0.5"
                 >
-                  Request the PDF
+                  {t("requestPdf")}
                 </Link>
                 <Link
                   href="/contact"
                   className="rounded-full bg-white/70 backdrop-blur-md border border-neutral-300 text-neutral-900 text-sm px-8 py-3 shadow-sm transition-all duration-300 ease-out hover:bg-white hover:-translate-y-0.5"
                 >
-                  Talk to our team
+                  {t("talkToTeam")}
                 </Link>
               </div>
             </div>
@@ -140,10 +111,10 @@ export default function CatalogPage() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12 lg:py-24">
           <div className="max-w-2xl">
             <p className="text-xs uppercase tracking-[0.2em] text-neutral-500">
-              Inside the Catalog
+              {t("insideEyebrow")}
             </p>
             <h2 className="mt-3 text-2xl lg:text-4xl font-semibold tracking-tight text-neutral-900">
-              Six reference sections, structured for sourcing teams.
+              {t("insideHeadline")}
             </h2>
           </div>
 
@@ -178,14 +149,13 @@ export default function CatalogPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
             <div className="lg:col-span-5">
               <p className="text-xs uppercase tracking-[0.2em] text-neutral-900/60">
-                Request the Catalog
+                {t("formEyebrow")}
               </p>
               <h2 className="mt-3 text-2xl lg:text-4xl font-semibold tracking-tight text-neutral-900 leading-[1.15]">
-                Tell us where to send the catalog.
+                {t("formHeadline")}
               </h2>
               <p className="mt-4 text-neutral-900/70 leading-relaxed text-sm">
-                We&apos;ll send the catalog directly to your inbox. No
-                newsletters or automated marketing sequences.
+                {t("formDesc")}
               </p>
             </div>
 
@@ -200,7 +170,7 @@ export default function CatalogPage() {
                     htmlFor="catalog-name"
                     className="block text-xs text-neutral-500"
                   >
-                    Your name *
+                    {t("labelName")}
                   </label>
                   <input
                     id="catalog-name"
@@ -208,7 +178,7 @@ export default function CatalogPage() {
                     type="text"
                     required
                     className="mt-2 block w-full rounded-lg border border-neutral-200 bg-white px-4 py-2.5 text-sm text-neutral-900 placeholder-neutral-400 focus:border-neutral-900 focus:outline-none focus:ring-2 focus:ring-brand-yellow/40 transition-colors"
-                    placeholder="Jane Doe"
+                    placeholder={t("placeholderName")}
                   />
                 </div>
                 <div>
@@ -216,14 +186,14 @@ export default function CatalogPage() {
                     htmlFor="catalog-company"
                     className="block text-xs text-neutral-500"
                   >
-                    Company / Brand
+                    {t("labelCompany")}
                   </label>
                   <input
                     id="catalog-company"
                     name="company"
                     type="text"
                     className="mt-2 block w-full rounded-lg border border-neutral-200 bg-white px-4 py-2.5 text-sm text-neutral-900 placeholder-neutral-400 focus:border-neutral-900 focus:outline-none focus:ring-2 focus:ring-brand-yellow/40 transition-colors"
-                    placeholder="Your brand"
+                    placeholder={t("placeholderCompany")}
                   />
                 </div>
 
@@ -232,7 +202,7 @@ export default function CatalogPage() {
                     htmlFor="catalog-email"
                     className="block text-xs text-neutral-500"
                   >
-                    Business email *
+                    {t("labelEmail")}
                   </label>
                   <input
                     id="catalog-email"
@@ -240,7 +210,7 @@ export default function CatalogPage() {
                     type="email"
                     required
                     className="mt-2 block w-full rounded-lg border border-neutral-200 bg-white px-4 py-2.5 text-sm text-neutral-900 placeholder-neutral-400 focus:border-neutral-900 focus:outline-none focus:ring-2 focus:ring-brand-yellow/40 transition-colors"
-                    placeholder="you@company.com"
+                    placeholder={t("placeholderEmail")}
                   />
                 </div>
 
@@ -249,7 +219,7 @@ export default function CatalogPage() {
                     htmlFor="catalog-interest"
                     className="block text-xs text-neutral-500"
                   >
-                    What are you looking to develop?
+                    {t("labelInterest")}
                   </label>
                   <select
                     id="catalog-interest"
@@ -258,11 +228,11 @@ export default function CatalogPage() {
                     className="mt-2 block w-full rounded-lg border border-neutral-200 bg-white px-4 py-2.5 text-sm text-neutral-900 focus:border-neutral-900 focus:outline-none focus:ring-2 focus:ring-brand-yellow/40 transition-colors"
                   >
                     <option value="" disabled>
-                      Select one
+                      {t("selectOne")}
                     </option>
                     {productInterests.map((p) => (
-                      <option key={p} value={p}>
-                        {p}
+                      <option key={p.value} value={p.value}>
+                        {p.label}
                       </option>
                     ))}
                   </select>
@@ -273,10 +243,10 @@ export default function CatalogPage() {
                 type="submit"
                 className="mt-7 w-full rounded-full bg-neutral-900 text-white font-medium text-sm px-8 py-3 shadow-sm transition-all duration-300 ease-out hover:bg-neutral-800 hover:-translate-y-0.5"
               >
-                Email me the catalog
+                {t("submitButton")}
               </button>
               <p className="mt-3 text-xs text-neutral-400 text-center">
-                We typically reply within one working day with the PDF attached.
+                {t("formNote")}
               </p>
             </form>
           </div>

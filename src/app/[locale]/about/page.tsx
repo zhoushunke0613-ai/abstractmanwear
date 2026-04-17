@@ -1,133 +1,91 @@
 import { Link } from "@/i18n/navigation";
-import type { Metadata } from "next";
+import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import ImagePlaceholder from "@/components/ImagePlaceholder";
 
-export const metadata: Metadata = {
-  title: "About — Abstract Man",
-  description:
-    "Abstract Man: 20 years of men's underwear manufacturing in Zhongshan, China. BSCI & SLCP certified, serving global brands across 25+ countries.",
-};
-
-const milestones = [
-  { year: "2006", event: "Founded in Zhongshan, Guangdong, China" },
-  {
-    year: "2010",
-    event: "Expanded to 1,500 m\u00B2 with cut-and-sew lines",
-  },
-  {
-    year: "2014",
-    event: "Added seamless knitting production capability",
-  },
-  {
-    year: "2017",
-    event: "Moved to current 3,000 m\u00B2 facility, 100+ staff",
-  },
-  { year: "2019", event: "BSCI audit passed, SLCP verified" },
-  {
-    year: "2022",
-    event: "Serving 25+ countries, 500,000 pcs/month capacity",
-  },
-  {
-    year: "2024",
-    event: "ODM design library expanded to 100+ validated styles",
-  },
-];
-
-const values = [
-  {
-    title: "Quality First",
-    description:
-      "AQL 2.5 on every shipment. Metal detection on every piece. No shortcuts on materials, stitching, or inspection \u2014 regardless of order size.",
-  },
-  {
-    title: "Transparency",
-    description:
-      "Itemized quotes within 24 hours. Production schedules shared in advance. Photo packs and inspection reports before dispatch. No hidden costs.",
-  },
-  {
-    title: "Flexibility",
-    description:
-      "500 pieces or 50,000 \u2014 same line, same QC standard. OEM and ODM in the same PO. We adapt to how you work, not the other way around.",
-  },
-  {
-    title: "Reliability",
-    description:
-      "20 years of on-time delivery. Documented workflows at every stage. When we commit to a date, we deliver on that date.",
-  },
-  {
-    title: "Partnership",
-    description:
-      "We don\u2019t just fill orders \u2014 we develop products. Fabric recommendations, fit improvements, cost engineering. Your success is our repeat business.",
-  },
-  {
-    title: "Compliance",
-    description:
-      "BSCI and SLCP verified. Fair wages, safe conditions, documented hours. International buyers can onboard us without running a separate audit cycle.",
-  },
-];
-
-const markets = [
-  {
-    region: "North America",
-    countries: "United States, Canada",
-    note: "Private label and DTC brands",
-  },
-  {
-    region: "Europe",
-    countries: "UK, Germany, France, Netherlands, Nordics",
-    note: "Multi-season programs for established brands",
-  },
-  {
-    region: "Asia-Pacific",
-    countries: "Japan, Australia, South Korea",
-    note: "Premium positioning with local fit adaptation",
-  },
-  {
-    region: "Middle East & Africa",
-    countries: "UAE, Saudi Arabia, South Africa",
-    note: "Wholesale and distribution partnerships",
-  },
-  {
-    region: "Latin America",
-    countries: "Brazil, Mexico, Chile",
-    note: "Growing DTC and marketplace channels",
-  },
-];
-
-const teamRoles = [
-  {
-    role: "Sales & Account Management",
-    description:
-      "Your single point of contact from inquiry to shipment. Fluent in English and Mandarin.",
-    image: {
-      label: "Sales Team",
-      description:
-        "Sales and account management team at desks with samples and laptops",
-    },
-  },
-  {
-    role: "Design & Development",
-    description:
-      "Pattern makers, graders, and sample sewers. CAD-based design with physical prototype validation.",
-    image: {
-      label: "Design Team",
-      description:
-        "Designers working on patterns and tech packs at workstations with fabric samples",
-    },
-  },
-  {
-    role: "Production & QC",
-    description:
-      "Line supervisors, machine operators, and QC inspectors. Every piece passes through trained hands.",
-    image: {
-      label: "Production Team",
-      description:
-        "Production floor workers and line supervisors coordinating at sewing stations",
-    },
-  },
-];
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Metadata.about" });
+  return { title: t("title"), description: t("description") };
+}
 
 export default function AboutPage() {
+  const t = useTranslations("AboutPage");
+
+  const milestones = [
+    { year: t("m1Year"), event: t("m1Event") },
+    { year: t("m2Year"), event: t("m2Event") },
+    { year: t("m3Year"), event: t("m3Event") },
+    { year: t("m4Year"), event: t("m4Event") },
+    { year: t("m5Year"), event: t("m5Event") },
+    { year: t("m6Year"), event: t("m6Event") },
+    { year: t("m7Year"), event: t("m7Event") },
+  ];
+
+  const values = [
+    { title: t("v1Title"), description: t("v1Desc") },
+    { title: t("v2Title"), description: t("v2Desc") },
+    { title: t("v3Title"), description: t("v3Desc") },
+    { title: t("v4Title"), description: t("v4Desc") },
+    { title: t("v5Title"), description: t("v5Desc") },
+    { title: t("v6Title"), description: t("v6Desc") },
+  ];
+
+  const markets = [
+    {
+      region: t("market1Region"),
+      countries: t("market1Countries"),
+      note: t("market1Note"),
+    },
+    {
+      region: t("market2Region"),
+      countries: t("market2Countries"),
+      note: t("market2Note"),
+    },
+    {
+      region: t("market3Region"),
+      countries: t("market3Countries"),
+      note: t("market3Note"),
+    },
+    {
+      region: t("market4Region"),
+      countries: t("market4Countries"),
+      note: t("market4Note"),
+    },
+    {
+      region: t("market5Region"),
+      countries: t("market5Countries"),
+      note: t("market5Note"),
+    },
+  ];
+
+  const teamRoles = [
+    {
+      role: t("team1Role"),
+      description: t("team1Desc"),
+      image: {
+        label: t("team1ImgLabel"),
+        description: t("team1ImgDesc"),
+      },
+    },
+    {
+      role: t("team2Role"),
+      description: t("team2Desc"),
+      image: {
+        label: t("team2ImgLabel"),
+        description: t("team2ImgDesc"),
+      },
+    },
+    {
+      role: t("team3Role"),
+      description: t("team3Desc"),
+      image: {
+        label: t("team3ImgLabel"),
+        description: t("team3ImgDesc"),
+      },
+    },
+  ];
+
   return (
     <>
       {/* Header */}
@@ -136,29 +94,26 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
             <div className="lg:col-span-6">
               <p className="text-xs uppercase tracking-[0.2em] text-neutral-500">
-                About Us
+                {t("eyebrow")}
               </p>
               <h1 className="mt-3 text-2xl lg:text-5xl font-semibold tracking-tight text-neutral-900 leading-[1.1]">
-                20 years making one thing well.
+                {t("headline")}
               </h1>
               <p className="mt-4 text-sm lg:text-base text-neutral-600 leading-relaxed">
-                Abstract Man is a men&apos;s underwear manufacturer based in
-                Zhongshan, Guangdong, China. We design, develop, and produce
-                men&apos;s underwear &mdash; and only men&apos;s underwear
-                &mdash; for brands, retailers, and distributors worldwide.
+                {t("description")}
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
                   href="/contact"
                   className="rounded-full bg-neutral-900 text-white font-medium text-sm px-8 py-3 shadow-sm transition-all duration-300 ease-out hover:bg-neutral-800 hover:-translate-y-0.5"
                 >
-                  Work with us
+                  {t("workWithUs")}
                 </Link>
                 <Link
                   href="/capability"
                   className="rounded-full bg-white/70 backdrop-blur-md border border-neutral-300 text-neutral-900 text-sm px-8 py-3 shadow-sm transition-all duration-300 ease-out hover:bg-white hover:-translate-y-0.5"
                 >
-                  Tour the facility
+                  {t("tourFacility")}
                 </Link>
               </div>
             </div>
@@ -166,8 +121,8 @@ export default function AboutPage() {
             {/* Team / factory photo */}
             <div className="lg:col-span-5 lg:col-start-8">
               <ImagePlaceholder
-                label="Team Photo"
-                description="Abstract Man team photo — founders and key staff standing in front of the factory entrance"
+                label={t("teamImgLabel")}
+                description={t("teamImgDesc")}
                 className="aspect-[4/3]"
               />
             </div>
@@ -181,24 +136,16 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
             <div className="lg:col-span-5">
               <p className="text-xs uppercase tracking-[0.2em] text-neutral-500">
-                Our Story
+                {t("storyEyebrow")}
               </p>
               <h2 className="mt-3 text-2xl lg:text-4xl font-semibold tracking-tight text-neutral-900">
-                From a small workshop to a full-scale facility.
+                {t("storyHeadline")}
               </h2>
               <p className="mt-4 text-sm lg:text-base text-neutral-600 leading-relaxed">
-                We started in 2006 with a small cut-and-sew operation and a
-                clear focus: men&apos;s underwear only. That focus has never
-                changed. Over 20 years we&apos;ve invested in seamless knitting
-                lines, expanded to a 3,000 m&sup2; integrated facility, built a
-                team of 100+ specialists, and earned BSCI and SLCP
-                certifications.
+                {t("storyP1")}
               </p>
               <p className="mt-4 text-sm lg:text-base text-neutral-600 leading-relaxed">
-                Today we serve brands across 25+ countries &mdash; from
-                first-time DTC startups testing 500-piece capsules to global
-                retailers running multi-season programs at 50,000 pieces per
-                order.
+                {t("storyP2")}
               </p>
             </div>
 
@@ -228,10 +175,10 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14 lg:py-24">
           <div className="max-w-2xl">
             <p className="text-xs uppercase tracking-[0.2em] text-neutral-500">
-              Our Values
+              {t("valuesEyebrow")}
             </p>
             <h2 className="mt-3 text-2xl lg:text-4xl font-semibold tracking-tight text-neutral-900">
-              What we stand behind on every order.
+              {t("valuesHeadline")}
             </h2>
           </div>
 
@@ -262,35 +209,33 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14 lg:py-24">
           <div className="max-w-2xl">
             <p className="text-xs uppercase tracking-[0.2em] text-neutral-500">
-              Our Team
+              {t("teamEyebrow")}
             </p>
             <h2 className="mt-3 text-2xl lg:text-4xl font-semibold tracking-tight text-neutral-900">
-              100+ people, one product focus.
+              {t("teamHeadline")}
             </h2>
             <p className="mt-4 text-sm lg:text-base text-neutral-600 leading-relaxed">
-              From sales to sewing, every team member is trained on men&apos;s
-              underwear construction. No rotating factory lines, no shared
-              capacity with unrelated products.
+              {t("teamDesc")}
             </p>
           </div>
 
           <div className="mt-10 lg:mt-14 grid grid-cols-1 lg:grid-cols-3 gap-5">
-            {teamRoles.map((t) => (
+            {teamRoles.map((t_role) => (
               <div
-                key={t.role}
+                key={t_role.role}
                 className="border border-neutral-200 rounded-2xl overflow-hidden"
               >
                 <ImagePlaceholder
-                  label={t.image.label}
-                  description={t.image.description}
+                  label={t_role.image.label}
+                  description={t_role.image.description}
                   className="aspect-[5/3] rounded-none border-0 border-b"
                 />
                 <div className="p-6 lg:p-8">
                   <h3 className="text-base font-semibold tracking-tight text-neutral-900">
-                    {t.role}
+                    {t_role.role}
                   </h3>
                   <p className="mt-2 text-sm text-neutral-600 leading-relaxed">
-                    {t.description}
+                    {t_role.description}
                   </p>
                 </div>
               </div>
@@ -304,10 +249,10 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14 lg:py-24">
           <div className="max-w-2xl">
             <p className="text-xs uppercase tracking-[0.2em] text-neutral-500">
-              Global Reach
+              {t("marketsEyebrow")}
             </p>
             <h2 className="mt-3 text-2xl lg:text-4xl font-semibold tracking-tight text-neutral-900">
-              Shipping to 25+ countries across five regions.
+              {t("marketsHeadline")}
             </h2>
           </div>
 
@@ -338,24 +283,21 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
             <div className="lg:col-span-6">
               <p className="text-xs uppercase tracking-[0.2em] text-neutral-500">
-                Certifications
+                {t("certsEyebrow")}
               </p>
               <h2 className="mt-3 text-xl lg:text-3xl font-semibold tracking-tight text-neutral-900">
-                Audited, documented, and ready to onboard.
+                {t("certsHeadline")}
               </h2>
               <p className="mt-4 text-sm lg:text-base text-neutral-600 leading-relaxed">
-                BSCI and SLCP verified. Our social compliance documentation
-                meets the requirements of major global retailers and
-                import/sourcing platforms &mdash; saving you from running a
-                separate vendor audit.
+                {t("certsDesc")}
               </p>
               <ul className="mt-6 space-y-2.5">
                 {[
-                  "BSCI audit passed \u2014 third-party verified",
-                  "SLCP Converged Assessment Framework verified",
-                  "AQL 2.5 pre-shipment inspection standard",
-                  "Metal detection on 100% of production",
-                  "Full export documentation (CI, PL, COO, BL/AWB)",
+                  t("cert1"),
+                  t("cert2"),
+                  t("cert3"),
+                  t("cert4"),
+                  t("cert5"),
                 ].map((item) => (
                   <li
                     key={item}
@@ -373,13 +315,13 @@ export default function AboutPage() {
 
             <div className="lg:col-span-5 lg:col-start-8 space-y-4">
               <ImagePlaceholder
-                label="BSCI Certificate"
-                description="Scanned BSCI audit certificate or official BSCI badge"
+                label={t("bsciImgLabel")}
+                description={t("bsciImgDesc")}
                 className="aspect-[3/2]"
               />
               <ImagePlaceholder
-                label="SLCP Certificate"
-                description="Scanned SLCP verification certificate or official SLCP badge"
+                label={t("slcpImgLabel")}
+                description={t("slcpImgDesc")}
                 className="aspect-[3/2]"
               />
             </div>
@@ -392,25 +334,23 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14 lg:py-24">
           <div className="max-w-2xl mx-auto text-center">
             <h2 className="text-2xl lg:text-4xl font-semibold tracking-tight text-neutral-900">
-              Let&apos;s build something together.
+              {t("ctaHeadline")}
             </h2>
             <p className="mt-4 text-sm lg:text-base text-neutral-900/70 leading-relaxed">
-              Whether you&apos;re launching your first line or scaling an
-              existing bestseller &mdash; we&apos;re ready to be your production
-              partner.
+              {t("ctaDesc")}
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
               <Link
                 href="/contact"
                 className="rounded-full bg-neutral-900 text-white font-medium text-sm px-8 py-3 shadow-sm transition-all duration-300 ease-out hover:bg-neutral-800 hover:-translate-y-0.5"
               >
-                Start your project &rarr;
+                {t("ctaStart")}
               </Link>
               <Link
                 href="/catalog"
                 className="rounded-full bg-white/70 backdrop-blur-md border border-white/60 text-neutral-900 text-sm px-8 py-3 shadow-sm transition-all duration-300 ease-out hover:bg-white hover:-translate-y-0.5"
               >
-                Download catalog
+                {t("ctaCatalog")}
               </Link>
             </div>
           </div>

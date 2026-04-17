@@ -1,78 +1,81 @@
 import Image from "next/image";
-import type { Metadata } from "next";
+import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
-export const metadata: Metadata = {
-  title: "Contact — Abstract Man",
-  description:
-    "Start your project with Abstract Man. Men's underwear OEM/ODM manufacturer in Zhongshan, China. Reply within one working day.",
-};
-
-const contactMethods = [
-  {
-    label: "Email",
-    value: "hello@abstractman.com",
-    href: "mailto:hello@abstractman.com",
-    note: "Replies within 1 working day",
-  },
-  {
-    label: "WhatsApp",
-    value: "+86 138 0000 0000",
-    href: "https://wa.me/8613800000000",
-    note: "GMT+8, 09:00\u201318:00",
-  },
-  {
-    label: "WeChat",
-    value: "abstractman",
-    href: "#wechat",
-    note: "Search ID to add",
-  },
-  {
-    label: "Phone",
-    value: "+86 760 0000 0000",
-    href: "tel:+867600000000",
-    note: "Mon\u2013Fri, GMT+8",
-  },
-];
-
-const projectTypes = [
-  "OEM Manufacturing",
-  "ODM Development",
-  "Private Label",
-  "Sampling Only",
-  "Packaging Customization",
-  "Not Sure Yet",
-];
-
-const productCategories = [
-  "Boxer Briefs",
-  "Trunks",
-  "Briefs",
-  "Seamless Series",
-  "Modal Series",
-  "Performance Series",
-  "Not Sure Yet",
-];
-
-const volumeOptions = [
-  "Under 1,000 pcs",
-  "1,000\u20133,000 pcs",
-  "3,000\u201310,000 pcs",
-  "10,000+ pcs",
-  "Not sure yet",
-];
-
-const timelineOptions = [
-  "ASAP",
-  "In 1\u20132 months",
-  "In 3\u20136 months",
-  "More than 6 months",
-  "Not finalized yet",
-];
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Metadata.contact" });
+  return { title: t("title"), description: t("description") };
+}
 
 const inputStyles =
   "mt-2 block w-full rounded-lg border border-neutral-200 bg-white px-4 py-2.5 text-sm text-neutral-900 placeholder-neutral-400 focus:border-neutral-900 focus:outline-none focus:ring-2 focus:ring-brand-yellow/40 transition-colors";
 
 export default function ContactPage() {
+  const t = useTranslations("ContactPage");
+
+  const contactMethods = [
+    {
+      label: t("contactEmail"),
+      value: t("contactEmailValue"),
+      href: "mailto:hello@abstractman.com",
+      note: t("contactEmailNote"),
+    },
+    {
+      label: t("contactWhatsApp"),
+      value: t("contactWhatsAppValue"),
+      href: "https://wa.me/8613800000000",
+      note: t("contactWhatsAppNote"),
+    },
+    {
+      label: t("contactWeChat"),
+      value: t("contactWeChatValue"),
+      href: "#wechat",
+      note: t("contactWeChatNote"),
+    },
+    {
+      label: t("contactPhone"),
+      value: t("contactPhoneValue"),
+      href: "tel:+867600000000",
+      note: t("contactPhoneNote"),
+    },
+  ];
+
+  const projectTypes = [
+    { value: "OEM Manufacturing", label: t("pt1") },
+    { value: "ODM Development", label: t("pt2") },
+    { value: "Private Label", label: t("pt3") },
+    { value: "Sampling Only", label: t("pt4") },
+    { value: "Packaging Customization", label: t("pt5") },
+    { value: "Not Sure Yet", label: t("pt6") },
+  ];
+
+  const productCategories = [
+    { value: "Boxer Briefs", label: t("pc1") },
+    { value: "Trunks", label: t("pc2") },
+    { value: "Briefs", label: t("pc3") },
+    { value: "Seamless Series", label: t("pc4") },
+    { value: "Modal Series", label: t("pc5") },
+    { value: "Performance Series", label: t("pc6") },
+    { value: "Not Sure Yet", label: t("pc7") },
+  ];
+
+  const volumeOptions = [
+    { value: "Under 1,000 pcs", label: t("vol1") },
+    { value: "1,000–3,000 pcs", label: t("vol2") },
+    { value: "3,000–10,000 pcs", label: t("vol3") },
+    { value: "10,000+ pcs", label: t("vol4") },
+    { value: "Not sure yet", label: t("vol5") },
+  ];
+
+  const timelineOptions = [
+    { value: "ASAP", label: t("tl1") },
+    { value: "In 1–2 months", label: t("tl2") },
+    { value: "In 3–6 months", label: t("tl3") },
+    { value: "More than 6 months", label: t("tl4") },
+    { value: "Not finalized yet", label: t("tl5") },
+  ];
+
   return (
     <>
       {/* Header — compact, flows into form section */}
@@ -80,15 +83,13 @@ export default function ContactPage() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-16 pb-10 lg:pt-24 lg:pb-12">
           <div className="max-w-2xl">
             <p className="text-xs uppercase tracking-[0.2em] text-neutral-500">
-              Contact
+              {t("eyebrow")}
             </p>
             <h1 className="mt-3 text-3xl lg:text-5xl font-semibold tracking-tight text-neutral-900 leading-[1.1]">
-              Tell us about your project.
+              {t("headline")}
             </h1>
             <p className="mt-4 text-neutral-600 leading-relaxed">
-              Share your product concept, target volume, and launch timeline.
-              We&apos;ll come back with fabric options, pricing guidance, and a
-              realistic production plan &mdash; usually within one working day.
+              {t("description")}
             </p>
           </div>
         </div>
@@ -107,7 +108,7 @@ export default function ContactPage() {
               {/* Your details */}
               <fieldset>
                 <legend className="text-xs uppercase tracking-[0.18em] text-brand-yellow font-medium">
-                  Your details
+                  {t("yourDetails")}
                 </legend>
                 <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-x-5 gap-y-4">
                   <div>
@@ -115,7 +116,7 @@ export default function ContactPage() {
                       htmlFor="name"
                       className="block text-xs text-neutral-500"
                     >
-                      Name *
+                      {t("labelName")}
                     </label>
                     <input
                       id="name"
@@ -123,7 +124,7 @@ export default function ContactPage() {
                       type="text"
                       required
                       className={inputStyles}
-                      placeholder="Jane Doe"
+                      placeholder={t("placeholderName")}
                     />
                   </div>
                   <div>
@@ -131,14 +132,14 @@ export default function ContactPage() {
                       htmlFor="company"
                       className="block text-xs text-neutral-500"
                     >
-                      Company / Brand
+                      {t("labelCompany")}
                     </label>
                     <input
                       id="company"
                       name="company"
                       type="text"
                       className={inputStyles}
-                      placeholder="Your brand"
+                      placeholder={t("placeholderCompany")}
                     />
                   </div>
                   <div>
@@ -146,7 +147,7 @@ export default function ContactPage() {
                       htmlFor="email"
                       className="block text-xs text-neutral-500"
                     >
-                      Email *
+                      {t("labelEmail")}
                     </label>
                     <input
                       id="email"
@@ -154,7 +155,7 @@ export default function ContactPage() {
                       type="email"
                       required
                       className={inputStyles}
-                      placeholder="you@company.com"
+                      placeholder={t("placeholderEmail")}
                     />
                   </div>
                   <div>
@@ -162,14 +163,14 @@ export default function ContactPage() {
                       htmlFor="country"
                       className="block text-xs text-neutral-500"
                     >
-                      Country
+                      {t("labelCountry")}
                     </label>
                     <input
                       id="country"
                       name="country"
                       type="text"
                       className={inputStyles}
-                      placeholder="United States"
+                      placeholder={t("placeholderCountry")}
                     />
                   </div>
                 </div>
@@ -181,7 +182,7 @@ export default function ContactPage() {
               {/* Project details */}
               <fieldset>
                 <legend className="text-xs uppercase tracking-[0.18em] text-brand-yellow font-medium">
-                  Project details
+                  {t("projectDetails")}
                 </legend>
                 <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-x-5 gap-y-4">
                   <div>
@@ -189,7 +190,7 @@ export default function ContactPage() {
                       htmlFor="projectType"
                       className="block text-xs text-neutral-500"
                     >
-                      Project type
+                      {t("labelProjectType")}
                     </label>
                     <select
                       id="projectType"
@@ -198,11 +199,11 @@ export default function ContactPage() {
                       className={inputStyles}
                     >
                       <option value="" disabled>
-                        Select type
+                        {t("selectType")}
                       </option>
-                      {projectTypes.map((t) => (
-                        <option key={t} value={t}>
-                          {t}
+                      {projectTypes.map((pt) => (
+                        <option key={pt.value} value={pt.value}>
+                          {pt.label}
                         </option>
                       ))}
                     </select>
@@ -212,7 +213,7 @@ export default function ContactPage() {
                       htmlFor="productCategory"
                       className="block text-xs text-neutral-500"
                     >
-                      Product category
+                      {t("labelProductCategory")}
                     </label>
                     <select
                       id="productCategory"
@@ -221,11 +222,11 @@ export default function ContactPage() {
                       className={inputStyles}
                     >
                       <option value="" disabled>
-                        Select category
+                        {t("selectCategory")}
                       </option>
-                      {productCategories.map((c) => (
-                        <option key={c} value={c}>
-                          {c}
+                      {productCategories.map((pc) => (
+                        <option key={pc.value} value={pc.value}>
+                          {pc.label}
                         </option>
                       ))}
                     </select>
@@ -235,7 +236,7 @@ export default function ContactPage() {
                       htmlFor="volume"
                       className="block text-xs text-neutral-500"
                     >
-                      Target volume
+                      {t("labelVolume")}
                     </label>
                     <select
                       id="volume"
@@ -244,11 +245,11 @@ export default function ContactPage() {
                       className={inputStyles}
                     >
                       <option value="" disabled>
-                        Select volume
+                        {t("selectVolume")}
                       </option>
                       {volumeOptions.map((v) => (
-                        <option key={v} value={v}>
-                          {v}
+                        <option key={v.value} value={v.value}>
+                          {v.label}
                         </option>
                       ))}
                     </select>
@@ -258,7 +259,7 @@ export default function ContactPage() {
                       htmlFor="timeline"
                       className="block text-xs text-neutral-500"
                     >
-                      Launch timeline
+                      {t("labelTimeline")}
                     </label>
                     <select
                       id="timeline"
@@ -267,11 +268,11 @@ export default function ContactPage() {
                       className={inputStyles}
                     >
                       <option value="" disabled>
-                        Select timeline
+                        {t("selectTimeline")}
                       </option>
-                      {timelineOptions.map((t) => (
-                        <option key={t} value={t}>
-                          {t}
+                      {timelineOptions.map((tl) => (
+                        <option key={tl.value} value={tl.value}>
+                          {tl.label}
                         </option>
                       ))}
                     </select>
@@ -285,7 +286,7 @@ export default function ContactPage() {
               {/* Message */}
               <fieldset>
                 <legend className="text-xs uppercase tracking-[0.18em] text-brand-yellow font-medium">
-                  Your message
+                  {t("yourMessage")}
                 </legend>
                 <div className="mt-5">
                   <textarea
@@ -294,7 +295,7 @@ export default function ContactPage() {
                     rows={5}
                     required
                     className={inputStyles}
-                    placeholder="Product concept, fabric preferences, tech pack details, reference links &mdash; anything that helps us scope your project."
+                    placeholder={t("messagePlaceholder")}
                   />
                 </div>
 
@@ -305,7 +306,7 @@ export default function ContactPage() {
                     className="mt-0.5 h-4 w-4 rounded border-neutral-300 text-brand-yellow focus:ring-brand-yellow"
                   />
                   <span className="text-sm text-neutral-500 leading-relaxed">
-                    I&apos;d like an NDA before sharing detailed files.
+                    {t("ndaLabel")}
                   </span>
                 </label>
               </fieldset>
@@ -315,10 +316,10 @@ export default function ContactPage() {
                   type="submit"
                   className="rounded-full bg-neutral-900 text-white font-medium text-sm px-8 py-3 shadow-sm transition-all duration-300 ease-out hover:bg-neutral-800 hover:-translate-y-0.5"
                 >
-                  Send inquiry
+                  {t("submitButton")}
                 </button>
                 <p className="text-xs text-neutral-400">
-                  We typically reply within one working day (GMT+8).
+                  {t("submitNote")}
                 </p>
               </div>
             </form>
@@ -328,7 +329,7 @@ export default function ContactPage() {
               {/* Contact methods card */}
               <div className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm">
                 <p className="text-xs uppercase tracking-[0.18em] text-neutral-400 font-medium">
-                  Reach us directly
+                  {t("reachUs")}
                 </p>
                 <div className="mt-4 divide-y divide-neutral-100">
                   {contactMethods.map((m) => (
@@ -370,17 +371,16 @@ export default function ContactPage() {
               {/* Address card */}
               <div className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm">
                 <p className="text-[11px] uppercase tracking-[0.15em] text-neutral-400">
-                  Factory address
+                  {t("factoryAddress")}
                 </p>
                 <p className="mt-2.5 text-sm text-neutral-900 font-medium leading-relaxed">
-                  Abstract Man Wear Co., Ltd.
+                  {t("companyName")}
                 </p>
                 <p className="text-sm text-neutral-600">
-                  Zhongshan, Guangdong, China
+                  {t("companyLocation")}
                 </p>
                 <p className="mt-3 text-xs text-neutral-400 leading-relaxed">
-                  Factory visits by appointment. Pickup available from Guangzhou
-                  or Shenzhen.
+                  {t("visitNote")}
                 </p>
               </div>
             </aside>
