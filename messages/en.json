@@ -1,0 +1,217 @@
+{
+  "Header": {
+    "products": "Products",
+    "services": "Services",
+    "capability": "Capability",
+    "about": "About",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "downloadCatalog": "Download Catalog",
+    "startProject": "Start Your Project",
+    "switchLang": "中文"
+  },
+  "Footer": {
+    "description": "Men's underwear OEM & ODM manufacturer serving global brands, wholesalers, and private label businesses. From sourcing and development to production and shipment, every step is managed in-house at our Zhongshan facility.",
+    "location": "Zhongshan, Guangdong, China",
+    "copyright": "\u00a9 2026 Abstract Man Wear Co., Ltd. All rights reserved.",
+    "tagline": "Men's Underwear OEM & ODM",
+    "col1Heading": "Products",
+    "col1_boxerBriefs": "Boxer Briefs",
+    "col1_trunks": "Trunks",
+    "col1_briefs": "Briefs",
+    "col1_seamless": "Seamless Series",
+    "col1_modal": "Modal Series",
+    "col1_performance": "Performance Series",
+    "col1_custom": "Custom Development",
+    "col2Heading": "Capability",
+    "col2_production": "Production Capability",
+    "col2_quality": "Quality Control",
+    "col2_certs": "Certifications",
+    "col2_services": "OEM / ODM Services",
+    "col3Heading": "Company",
+    "col3_about": "About",
+    "col3_contact": "Contact",
+    "col3_catalog": "Download Catalog",
+    "col3_start": "Start Your Project"
+  },
+  "Hero": {
+    "eyebrow": "Men's Underwear \u00b7 OEM & ODM",
+    "headline": "Men's Underwear OEM & ODM for Global Brands",
+    "lede": "In-house manufacturing from sourcing to shipment.",
+    "startProject": "Start Your Project",
+    "downloadCatalog": "Download Catalog"
+  },
+  "TrustBar": {
+    "bsci": "BSCI & SLCP",
+    "bsciLabel": "Certified",
+    "capacity": "500,000 pcs",
+    "capacityLabel": "/ Month",
+    "facility": "3,000 m\u00b2",
+    "facilityLabel": "Facility",
+    "countries": "25+ Countries",
+    "countriesLabel": "Served",
+    "staff": "100+",
+    "staffLabel": "Skilled Staff"
+  },
+  "ServicesOverview": {
+    "eyebrow": "What We Do",
+    "headline": "More than a factory \u2014 a development partner.",
+    "description": "OEM production, ODM development, fabric sourcing, pattern-making, and full private-label support. Every step handled in-house at our Zhongshan facility.",
+    "s1Title": "OEM Manufacturing",
+    "s1Desc": "Bring your tech pack. We handle fabric sourcing, pattern grading, and bulk production to your exact specs.",
+    "s2Title": "ODM Development",
+    "s2Desc": "Start from our in-house design library \u2014 fabric, waistband, and fit already validated. Development in as few as 4 weeks.",
+    "s3Title": "Fabric & Fit Customization",
+    "s3Desc": "Custom waistband jacquard, cotton / modal / bamboo blends, multi-size fit development for regional body standards.",
+    "s4Title": "Sampling & Private Label",
+    "s4Desc": "Proto, fit, and PP samples in 10\u201314 days. Hang tags, poly bags, printed inner waistband \u2014 fully white-labeled."
+  },
+  "ProductSpecialization": {
+    "eyebrow": "Product Specialization",
+    "headline": "Six core categories, engineered in-house.",
+    "description": "Three foundational silhouettes and three specialized fabric lines. Each category carries its own pattern library, approved fabric partners, and tolerance spec.",
+    "briefs": "Briefs",
+    "briefsTag": "Compact support for everyday comfort",
+    "boxerBriefs": "Boxer Briefs",
+    "boxerBriefsTag": "Mid-thigh length with balanced coverage, the bestseller category",
+    "trunks": "Trunks",
+    "trunksTag": "Shorter leg for contemporary lifestyle and fashion-forward lines",
+    "seamless": "Seamless Series",
+    "seamlessTag": "Bonded and ultrasonic-cut construction, zero visible lines",
+    "modal": "Modal Series",
+    "modalTag": "MicroModal and TENCEL\u2122 blends for premium hand-feel at outlet-friendly MOQs",
+    "performance": "Performance Series",
+    "performanceTag": "Moisture-wicking compression, mesh panels, and reinforced stitching for athletic lines",
+    "inquire": "Inquire",
+    "moq": "MOQ",
+    "leadTime": "Lead time"
+  },
+  "WhyChooseUs": {
+    "eyebrow": "Why Choose Us",
+    "headline": "Built for brands who can't afford to compromise.",
+    "description": "A vertically integrated men's underwear manufacturer, not a trading agent. Every step of the chain is owned and accountable to the same team.",
+    "a1Title": "Specialized in Men's Underwear",
+    "a1Desc": "20 years on a single category. Every pattern, machine, and operator is tuned to men's underwear \u2014 not a general apparel factory running underwear on the side.",
+    "a2Title": "Seamless & Cut-and-Sew Expertise",
+    "a2Desc": "Both construction methods under one roof. Most factories pick one \u2014 we run parallel lines for either, and can combine both in a single SKU.",
+    "a3Title": "Flexible OEM / ODM Support",
+    "a3Desc": "Bring your tech pack, or start from our design library. Switch modes between SKUs in the same PO.",
+    "a4Title": "Strict Quality Control",
+    "a4Desc": "AQL 2.5 inspection on every shipment, metal detection on every piece, and final measurement checks before packing.",
+    "a5Title": "Scalable from 500 to 50,000 pcs",
+    "a5Desc": "Same line, same QC standard \u2014 whether you're testing a capsule or scaling a bestseller. No downgrade on small runs.",
+    "a6Title": "End-to-End Service",
+    "a6Desc": "Tech pack \u2192 sourcing \u2192 production \u2192 packaging \u2192 export docs. One point of contact from inquiry to shipment."
+  },
+  "OrderProcess": {
+    "eyebrow": "How We Work",
+    "headline": "From inquiry to shipment \u2014 a 7-step process, fully tracked.",
+    "description": "Every order follows the same documented workflow \u2014 no surprises on price, timeline, or quality.",
+    "s1Title": "Inquiry",
+    "s1Desc": "Share product type, fabric, quantity, and custom details.",
+    "s1Del": "Requirement sheet",
+    "s2Title": "Quotation",
+    "s2Desc": "Unit price, lead time, sample cost, setup fees, and shipping \u2014 all itemized within 24 hours.",
+    "s2Del": "Written quote",
+    "s3Title": "Sampling",
+    "s3Desc": "Mockup \u2192 sample production \u2192 your evaluation \u2192 final approval. Revisions supported.",
+    "s3Del": "Approved PP sample",
+    "s4Title": "Order & Production",
+    "s4Desc": "30\u201350% deposit. Fabric sourcing \u2192 cutting \u2192 printing / embroidery \u2192 sewing \u2192 in-line QC.",
+    "s4Del": "Signed PO + production schedule",
+    "s5Title": "Inspection & Packaging",
+    "s5Desc": "Full pre-shipment inspection + OPP bags / gift boxes / cartons + photo confirmation before dispatch.",
+    "s5Del": "Inspection report + photo pack",
+    "s6Title": "Balance & Shipping",
+    "s6Desc": "Balance payment, then shipment via your preferred logistics method with full export documents.",
+    "s6Del": "BL / AWB, CI, PL, COO",
+    "s7Title": "Delivery & After-Sales",
+    "s7Desc": "Arrival inspection + resolution for any issues. Order closed on your confirmation.",
+    "s7Del": "Project sign-off",
+    "ctaText": "Ready to start your custom underwear project?",
+    "ctaButton": "Get a quote within 24 hours"
+  },
+  "CapabilitySnapshot": {
+    "eyebrow": "Capability Snapshot",
+    "headline": "A Zhongshan-based facility built for men's underwear manufacturing.",
+    "description": "Located in Guangdong's knit-manufacturing cluster, our vertically integrated facility covers seamless knitting, cut-and-sew, printing, and full packout \u2014 all under one roof.",
+    "h1": "Seamless knitting lines",
+    "h2": "Cut-and-sew production",
+    "h3": "In-house sampling room",
+    "h4": "Full QC department",
+    "tourCta": "Tour the facility",
+    "stat1": "20+ Years",
+    "stat1Label": "Industry experience",
+    "stat2": "3,000 m\u00b2",
+    "stat2Label": "Facility",
+    "stat3": "500,000",
+    "stat3Label": "Pcs / month capacity",
+    "stat4": "100+",
+    "stat4Label": "Skilled staff"
+  },
+  "Certifications": {
+    "eyebrow": "Certifications",
+    "headline": "Audited, documented, and export-ready.",
+    "description": "Compliance documentation is part of how we operate \u2014 not a bolt-on. International buyers can onboard us without running a separate vetting cycle.",
+    "bsciTitle": "BSCI Audit \u00b7 Passed",
+    "bsciDesc": "Third-party verified working conditions, wages, and working hours across all production lines. Reports available on request.",
+    "slcpTitle": "SLCP Verified",
+    "slcpDesc": "Converged Assessment Framework recognized by major global retailers. Saves you from duplicate audits.",
+    "aqlTitle": "AQL 2.5 Inspection + Full Export Docs",
+    "aqlDesc": "Every shipment inspected before dispatch. Commercial invoice, packing list, certificate of origin, and BL / AWB ready for customs."
+  },
+  "WhoWeServe": {
+    "eyebrow": "Who We Serve",
+    "headline": "Designed for the way you go to market.",
+    "c1": "Global Brands",
+    "c1Desc": "Multi-season programs with dedicated development teams.",
+    "c2": "Private Label Businesses",
+    "c2Desc": "Full white-label with custom packaging and inner-waistband branding.",
+    "c3": "Wholesalers",
+    "c3Desc": "Stock-ready essentials with fast turnaround.",
+    "c4": "Distributors",
+    "c4Desc": "Mixed-SKU orders with consolidated shipping.",
+    "c5": "Cross-Border Sellers",
+    "c5Desc": "DTC-ready packaging and small-batch flexibility."
+  },
+  "FinalCTA": {
+    "eyebrow": "Let's Build Together",
+    "headline": "Ready to bring your underwear line to market?",
+    "description": "Tell us what you're building. We'll come back with fabric options, pricing, and a realistic production timeline \u2014 within one working day.",
+    "cardTitle": "Start Your Project",
+    "cardDesc": "Share your concept, tech pack, or existing samples. We'll scope fabric, pricing, and timelines over one call.",
+    "cardButton": "Get in touch",
+    "downloadCatalog": "Download Catalog (PDF)",
+    "requestQuote": "Request a Quote"
+  },
+  "Metadata": {
+    "home": {
+      "title": "Abstract Man \u2014 Men's Underwear OEM/ODM Manufacturer",
+      "description": "Custom men's underwear manufacturing for international brands. OEM, ODM, and private label. Zhongshan, China."
+    },
+    "services": {
+      "title": "Services \u2014 Abstract Man",
+      "description": "OEM manufacturing, ODM development, fabric sourcing, sampling, and private-label packaging. Full-service men's underwear production."
+    },
+    "capability": {
+      "title": "Capability \u2014 Abstract Man",
+      "description": "3,000 m\u00b2 vertically integrated facility in Zhongshan, China. Seamless knitting, cut-and-sew, printing, QC, and packout."
+    },
+    "about": {
+      "title": "About \u2014 Abstract Man",
+      "description": "Abstract Man: 20 years of men's underwear manufacturing. BSCI & SLCP certified, serving global brands across 25+ countries."
+    },
+    "catalog": {
+      "title": "Download Catalog \u2014 Abstract Man",
+      "description": "Download the Abstract Man product catalog. Full men's underwear OEM/ODM portfolio with fabrics, silhouettes, and MOQs."
+    },
+    "contact": {
+      "title": "Contact \u2014 Abstract Man",
+      "description": "Start your project with Abstract Man. Men's underwear OEM/ODM manufacturer. Reply within one working day."
+    },
+    "faq": {
+      "title": "FAQ \u2014 Abstract Man",
+      "description": "Common questions about MOQs, sampling, lead times, fabric, packaging, and payment for Abstract Man's men's underwear OEM/ODM service."
+    }
+  }
+}

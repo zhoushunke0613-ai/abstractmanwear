@@ -1,17 +1,9 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-
-const navItems = [
-  { href: "/products", label: "Products" },
-  { href: "/services", label: "Services" },
-  { href: "/capability", label: "Capability" },
-  { href: "/about", label: "About" },
-  { href: "/faq", label: "FAQ" },
-  { href: "/contact", label: "Contact" },
-];
+import { useTranslations } from "next-intl";
+import { Link, usePathname, useRouter } from "@/i18n/navigation";
+import { useParams } from "next/navigation";
 
 // Frosted glass pill — shared base
 const pillBase =
@@ -26,6 +18,25 @@ const pillYellow =
 export default function Header() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  const router = useRouter();
+  const params = useParams();
+  const t = useTranslations("Header");
+
+  const currentLocale = (params.locale as string) || "en";
+
+  const navItems = [
+    { href: "/products" as const, label: t("products") },
+    { href: "/services" as const, label: t("services") },
+    { href: "/capability" as const, label: t("capability") },
+    { href: "/about" as const, label: t("about") },
+    { href: "/faq" as const, label: t("faq") },
+    { href: "/contact" as const, label: t("contact") },
+  ];
+
+  const handleLocaleSwitch = () => {
+    const newLocale = currentLocale === "en" ? "zh" : "en";
+    router.replace(pathname, { locale: newLocale });
+  };
 
   // Close mobile menu on route change
   useEffect(() => {
@@ -72,13 +83,19 @@ export default function Header() {
           </ul>
         </nav>
 
-        {/* Conversion CTAs — frosted glass pills (desktop only) */}
+        {/* Conversion CTAs + language switch (desktop only) */}
         <div className="hidden lg:flex items-center gap-2">
+          <button
+            onClick={handleLocaleSwitch}
+            className={`${pillBase} bg-white/50 border-white/60 text-neutral-800 hover:bg-white/85 hover:border-white/90 hover:shadow-md hover:-translate-y-0.5 cursor-pointer`}
+          >
+            {t("switchLang")}
+          </button>
           <Link href="/catalog" className={pillLight}>
-            Download Catalog
+            {t("downloadCatalog")}
           </Link>
           <Link href="/contact" className={pillYellow}>
-            Start Your Project
+            {t("startProject")}
           </Link>
         </div>
 
@@ -155,6 +172,17 @@ export default function Header() {
             {/* Divider */}
             <div className="my-6 border-t border-neutral-200" />
 
+            {/* Language switch (mobile) */}
+            <button
+              onClick={() => {
+                handleLocaleSwitch();
+                setOpen(false);
+              }}
+              className="w-full flex items-center justify-center rounded-full border border-neutral-200 bg-neutral-50 px-6 py-3 text-sm font-medium text-neutral-800 transition-colors hover:bg-neutral-100 cursor-pointer mb-3"
+            >
+              {t("switchLang")}
+            </button>
+
             {/* CTAs */}
             <div className="space-y-3">
               <Link
@@ -162,14 +190,14 @@ export default function Header() {
                 onClick={() => setOpen(false)}
                 className="flex items-center justify-center w-full rounded-full border border-neutral-200 bg-neutral-50 px-6 py-3 text-sm font-medium text-neutral-800 transition-colors hover:bg-neutral-100"
               >
-                Download Catalog
+                {t("downloadCatalog")}
               </Link>
               <Link
                 href="/contact"
                 onClick={() => setOpen(false)}
                 className="flex items-center justify-center w-full rounded-full bg-brand-yellow px-6 py-3 text-sm font-medium text-neutral-900 transition-colors hover:bg-brand-yellow-light"
               >
-                Start Your Project
+                {t("startProject")}
               </Link>
             </div>
           </div>

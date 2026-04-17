@@ -1,0 +1,217 @@
+{
+  "Header": {
+    "products": "产品",
+    "services": "服务",
+    "capability": "生产能力",
+    "about": "关于我们",
+    "faq": "常见问题",
+    "contact": "联系我们",
+    "downloadCatalog": "下载目录",
+    "startProject": "开始项目",
+    "switchLang": "EN"
+  },
+  "Footer": {
+    "description": "男士内衣OEM和ODM制造商，服务全球品牌、批发商和自有品牌企业。从原料采购、产品开发到生产发货，每一步都在我们中山工厂内部完成。",
+    "location": "中国广东省中山市",
+    "copyright": "\u00a9 2026 中山市华之男内衣有限公司 版权所有",
+    "tagline": "男士内衣 OEM & ODM",
+    "col1Heading": "产品",
+    "col1_boxerBriefs": "平角内裤",
+    "col1_trunks": "短款内裤",
+    "col1_briefs": "三角内裤",
+    "col1_seamless": "无缝系列",
+    "col1_modal": "莫代尔系列",
+    "col1_performance": "运动系列",
+    "col1_custom": "定制开发",
+    "col2Heading": "生产能力",
+    "col2_production": "生产实力",
+    "col2_quality": "质量控制",
+    "col2_certs": "资质认证",
+    "col2_services": "OEM / ODM 服务",
+    "col3Heading": "公司",
+    "col3_about": "关于我们",
+    "col3_contact": "联系我们",
+    "col3_catalog": "下载目录",
+    "col3_start": "开始项目"
+  },
+  "Hero": {
+    "eyebrow": "男士内衣 \u00b7 OEM & ODM",
+    "headline": "面向全球品牌的男士内衣OEM & ODM",
+    "lede": "从原材料采购到成品发货，全程自主生产。",
+    "startProject": "开始您的项目",
+    "downloadCatalog": "下载目录"
+  },
+  "TrustBar": {
+    "bsci": "BSCI & SLCP",
+    "bsciLabel": "认证通过",
+    "capacity": "50万件",
+    "capacityLabel": "月产能",
+    "facility": "3,000 m\u00b2",
+    "facilityLabel": "厂房面积",
+    "countries": "25+国家",
+    "countriesLabel": "服务区域",
+    "staff": "100+",
+    "staffLabel": "技术员工"
+  },
+  "ServicesOverview": {
+    "eyebrow": "我们的服务",
+    "headline": "不只是工厂，更是开发伙伴。",
+    "description": "OEM生产、ODM开发、面料采购、版型制作和全套私标服务。所有环节在中山工厂内部完成。",
+    "s1Title": "OEM 代工生产",
+    "s1Desc": "提供您的技术包，我们负责面料采购、版型推码和批量生产，严格按照您的规格执行。",
+    "s2Title": "ODM 设计开发",
+    "s2Desc": "从我们的设计库选择款式，面料、腰带和版型已经过验证。最快4周进入量产。",
+    "s3Title": "面料与版型定制",
+    "s3Desc": "定制腰带提花、棉/莫代尔/竹纤维混纺、多尺码版型开发，适配不同区域体型标准。",
+    "s4Title": "打样与私标包装",
+    "s4Desc": "初样、版师样和产前样10-14天完成。吊牌、包装袋、印花内腰带一站式私标服务。"
+  },
+  "ProductSpecialization": {
+    "eyebrow": "产品专长",
+    "headline": "六大核心品类，自主研发。",
+    "description": "三种基础版型和三个专业面料系列。每个品类都有独立的版型库、认可面料供应商和公差标准。",
+    "briefs": "三角内裤",
+    "briefsTag": "紧凑贴合，日常舒适之选",
+    "boxerBriefs": "平角内裤",
+    "boxerBriefsTag": "中长款覆盖适中，最畅销品类",
+    "trunks": "短款内裤",
+    "trunksTag": "短腿设计，时尚潮流之选",
+    "seamless": "无缝系列",
+    "seamlessTag": "粘合超声波裁切工艺，零痕迹",
+    "modal": "莫代尔系列",
+    "modalTag": "MicroModal和TENCEL\u2122混纺，优质触感，起订量友好",
+    "performance": "运动系列",
+    "performanceTag": "吸湿排汗压缩面料，网眼透气，加固缝制，专为运动线设计",
+    "inquire": "咨询",
+    "moq": "起订量",
+    "leadTime": "交期"
+  },
+  "WhyChooseUs": {
+    "eyebrow": "为什么选择我们",
+    "headline": "为追求品质的品牌而生。",
+    "description": "垂直整合的男士内衣制造商，不是贸易商。供应链每一个环节都由同一团队负责。",
+    "a1Title": "专注男士内衣",
+    "a1Desc": "20年只做一个品类。每一个版型、每一台机器、每一位操作工都专门服务于男士内衣生产。",
+    "a2Title": "无缝与裁剪缝制双线并行",
+    "a2Desc": "两种工艺同一屋檐下。大多数工厂只做其中一种，我们两条线并行运作，还可在同一SKU中组合使用。",
+    "a3Title": "灵活OEM / ODM支持",
+    "a3Desc": "带技术包来代工，或从我们的设计库起步开发。同一订单中可在不同SKU间切换模式。",
+    "a4Title": "严格质量控制",
+    "a4Desc": "每批货AQL 2.5抽检，每件产品过检针机，装箱前全尺寸复核。",
+    "a5Title": "500到50,000件灵活量产",
+    "a5Desc": "同一产线、同一QC标准，无论试产胶囊系列还是爆款放量，小单不降标准。",
+    "a6Title": "端到端全程服务",
+    "a6Desc": "技术包 → 采购 → 生产 → 包装 → 出口单据。一个对接人，从询价到发货全程跟进。"
+  },
+  "OrderProcess": {
+    "eyebrow": "合作流程",
+    "headline": "从询价到发货，7步流程全程追踪。",
+    "description": "每个订单遵循相同的标准化流程，价格、交期、品质不会有意外。",
+    "s1Title": "询价",
+    "s1Desc": "提供产品类型、面料、数量和定制需求。",
+    "s1Del": "需求表",
+    "s2Title": "报价",
+    "s2Desc": "单价、交期、样品费、模具费和运费，24小时内逐项报价。",
+    "s2Del": "书面报价",
+    "s3Title": "打样",
+    "s3Desc": "原型样 → 样品生产 → 客户评估 → 最终确认。支持多次修改。",
+    "s3Del": "确认产前样",
+    "s4Title": "下单与生产",
+    "s4Desc": "30-50%定金。面料采购 → 裁剪 → 印花/绣花 → 缝制 → 在线QC。",
+    "s4Del": "签署PO + 生产排期",
+    "s5Title": "验货与包装",
+    "s5Desc": "出货前全检 + OPP袋/礼盒/纸箱 + 发货前拍照确认。",
+    "s5Del": "验货报告 + 照片包",
+    "s6Title": "尾款与发货",
+    "s6Desc": "支付尾款后按您指定的物流方式发货，提供全套出口单据。",
+    "s6Del": "提单/运单、发票、装箱单、原产地证",
+    "s7Title": "收货与售后",
+    "s7Desc": "到货验收 + 问题处理。客户确认后订单结案。",
+    "s7Del": "项目签收",
+    "ctaText": "准备好开始您的定制内衣项目了吗？",
+    "ctaButton": "24小时内获取报价"
+  },
+  "CapabilitySnapshot": {
+    "eyebrow": "生产能力概览",
+    "headline": "位于中山的男士内衣专业制造基地。",
+    "description": "坐落于广东针织制造产业集群，我们的垂直整合工厂涵盖无缝针织、裁剪缝制、印花和全套包装，所有工序在同一屋檐下完成。",
+    "h1": "无缝针织产线",
+    "h2": "裁剪缝制产线",
+    "h3": "独立打样间",
+    "h4": "专业质检部门",
+    "tourCta": "参观工厂",
+    "stat1": "20+年",
+    "stat1Label": "行业经验",
+    "stat2": "3,000 m\u00b2",
+    "stat2Label": "厂房面积",
+    "stat3": "50万件",
+    "stat3Label": "月产能",
+    "stat4": "100+",
+    "stat4Label": "技术员工"
+  },
+  "Certifications": {
+    "eyebrow": "资质认证",
+    "headline": "审核通过、文件齐全、出口就绪。",
+    "description": "合规文件是我们运营方式的一部分，不是临时附加的。国际买家可以直接接入我们的体系，无需另行验厂。",
+    "bsciTitle": "BSCI审核 \u00b7 通过",
+    "bsciDesc": "第三方验证的工作条件、薪资和工时。报告可应要求提供。",
+    "slcpTitle": "SLCP认证",
+    "slcpDesc": "全球主要零售商认可的融合评估框架，为您节省重复审核成本。",
+    "aqlTitle": "AQL 2.5验货 + 全套出口单据",
+    "aqlDesc": "每批货出货前全检。商业发票、装箱单、原产地证和提单/运单齐备。"
+  },
+  "WhoWeServe": {
+    "eyebrow": "服务对象",
+    "headline": "适配您的市场策略。",
+    "c1": "国际品牌",
+    "c1Desc": "多季度合作项目，配备专属开发团队。",
+    "c2": "自有品牌商",
+    "c2Desc": "全套贴牌服务，定制包装和内腰带品牌标识。",
+    "c3": "批发商",
+    "c3Desc": "现货基础款，快速交货。",
+    "c4": "分销商",
+    "c4Desc": "混合SKU订单，统一物流发货。",
+    "c5": "跨境电商",
+    "c5Desc": "DTC包装方案，灵活小批量起订。"
+  },
+  "FinalCTA": {
+    "eyebrow": "携手共创",
+    "headline": "准备好将您的内衣产品推向市场了吗？",
+    "description": "告诉我们您在开发什么产品。我们将在一个工作日内回复面料选项、报价和切实的生产计划。",
+    "cardTitle": "开始您的项目",
+    "cardDesc": "分享您的概念、技术包或现有样品，我们来评估面料、报价和交期。",
+    "cardButton": "联系我们",
+    "downloadCatalog": "下载产品目录 (PDF)",
+    "requestQuote": "索取报价"
+  },
+  "Metadata": {
+    "home": {
+      "title": "华之男 \u2014 男士内衣OEM/ODM制造商",
+      "description": "为国际品牌定制男士内衣。OEM代工、ODM开发和私标服务。中国广东中山。"
+    },
+    "services": {
+      "title": "服务 \u2014 华之男",
+      "description": "OEM代工、ODM开发、面料采购、打样和私标包装。一站式男士内衣生产服务。"
+    },
+    "capability": {
+      "title": "生产能力 \u2014 华之男",
+      "description": "3,000平方米中山工厂。无缝针织、裁剪缝制、印花、质检和包装一体化。"
+    },
+    "about": {
+      "title": "关于我们 \u2014 华之男",
+      "description": "华之男：20年男士内衣制造经验。BSCI和SLCP认证，服务25+国家。"
+    },
+    "catalog": {
+      "title": "下载目录 \u2014 华之男",
+      "description": "下载华之男产品目录。完整的男士内衣OEM/ODM产品组合，含面料、款式和起订量信息。"
+    },
+    "contact": {
+      "title": "联系我们 \u2014 华之男",
+      "description": "开始您与华之男的合作项目。男士内衣OEM/ODM制造商。一个工作日内回复。"
+    },
+    "faq": {
+      "title": "常见问题 \u2014 华之男",
+      "description": "关于起订量、打样、交期、面料、包装和付款方式的常见问题解答。"
+    }
+  }
+}

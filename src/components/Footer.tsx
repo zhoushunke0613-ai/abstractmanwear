@@ -1,39 +1,42 @@
-import Link from "next/link";
-
-const footerNav = [
-  {
-    heading: "Products",
-    items: [
-      { href: "/products/boxer-briefs", label: "Boxer Briefs" },
-      { href: "/products/trunks", label: "Trunks" },
-      { href: "/products/briefs", label: "Briefs" },
-      { href: "/products/seamless", label: "Seamless Series" },
-      { href: "/products/modal", label: "Modal Series" },
-      { href: "/products/performance", label: "Performance Series" },
-      { href: "/contact?type=custom", label: "Custom Development" },
-    ],
-  },
-  {
-    heading: "Capability",
-    items: [
-      { href: "/capability", label: "Production Capability" },
-      { href: "/capability/quality", label: "Quality Control" },
-      { href: "/capability/certifications", label: "Certifications" },
-      { href: "/services", label: "OEM / ODM Services" },
-    ],
-  },
-  {
-    heading: "Company",
-    items: [
-      { href: "/about", label: "About" },
-      { href: "/contact", label: "Contact" },
-      { href: "/catalog", label: "Download Catalog" },
-      { href: "/contact", label: "Start Your Project" },
-    ],
-  },
-];
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 export default function Footer() {
+  const t = useTranslations("Footer");
+
+  const footerNav = [
+    {
+      heading: t("col1Heading"),
+      items: [
+        { href: "/products/boxer-briefs", label: t("col1_boxerBriefs") },
+        { href: "/products/trunks", label: t("col1_trunks") },
+        { href: "/products/briefs", label: t("col1_briefs") },
+        { href: "/products/seamless", label: t("col1_seamless") },
+        { href: "/products/modal", label: t("col1_modal") },
+        { href: "/products/performance", label: t("col1_performance") },
+        { href: "/contact?type=custom", label: t("col1_custom") },
+      ],
+    },
+    {
+      heading: t("col2Heading"),
+      items: [
+        { href: "/capability", label: t("col2_production") },
+        { href: "/capability/quality", label: t("col2_quality") },
+        { href: "/capability/certifications", label: t("col2_certs") },
+        { href: "/services", label: t("col2_services") },
+      ],
+    },
+    {
+      heading: t("col3Heading"),
+      items: [
+        { href: "/about", label: t("col3_about") },
+        { href: "/contact", label: t("col3_contact") },
+        { href: "/catalog", label: t("col3_catalog") },
+        { href: "/contact", label: t("col3_start") },
+      ],
+    },
+  ];
+
   return (
     <footer className="bg-neutral-900 text-neutral-300">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12 lg:py-20">
@@ -52,16 +55,11 @@ export default function Footer() {
               </span>
             </div>
             <p className="mt-5 max-w-md text-sm text-neutral-400 leading-relaxed">
-              Men&apos;s underwear OEM &amp; ODM manufacturer serving global
-              brands, wholesalers, and private label businesses. From sourcing
-              and development to production and shipment, every step is managed
-              in-house at our Zhongshan facility.
+              {t("description")}
             </p>
 
             <div className="mt-8 space-y-2 text-sm">
-              <p className="text-neutral-400">
-                Zhongshan, Guangdong, China
-              </p>
+              <p className="text-neutral-400">{t("location")}</p>
               <a
                 href="mailto:hello@abstractman.com"
                 className="inline-block text-neutral-200 hover:text-brand-yellow transition-colors"
@@ -97,11 +95,9 @@ export default function Footer() {
 
         {/* Legal bar */}
         <div className="mt-10 lg:mt-16 pt-6 lg:pt-8 border-t border-neutral-800 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-3">
-          <p className="text-xs text-neutral-500">
-            © 2026 Abstract Man Wear Co., Ltd. All rights reserved.
-          </p>
+          <p className="text-xs text-neutral-500">{t("copyright")}</p>
           <p className="text-xs text-neutral-500 uppercase tracking-[0.18em]">
-            Men&apos;s Underwear OEM &amp; ODM
+            {t("tagline")}
           </p>
         </div>
       </div>
