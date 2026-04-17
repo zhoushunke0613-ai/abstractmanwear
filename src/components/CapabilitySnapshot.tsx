@@ -19,8 +19,9 @@ export default function CapabilitySnapshot() {
   return (
     <section className="border-b border-neutral-800 bg-neutral-900 text-neutral-100">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-20 lg:py-28">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
-          <div className="lg:col-span-5">
+        {/* Two-column: text + photo */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+          <div>
             <p className="text-xs uppercase tracking-[0.2em] text-brand-yellow">
               Capability Snapshot
             </p>
@@ -42,7 +43,7 @@ export default function CapabilitySnapshot() {
                   className="flex items-center gap-3 text-sm text-neutral-300"
                 >
                   <span
-                    className="h-1.5 w-1.5 rounded-full bg-brand-yellow"
+                    className="h-1.5 w-1.5 rounded-full bg-brand-yellow flex-none"
                     aria-hidden
                   />
                   {h}
@@ -59,29 +60,27 @@ export default function CapabilitySnapshot() {
             </Link>
           </div>
 
-          <div className="lg:col-span-7 space-y-4">
-            {/* Factory photo placeholder */}
-            <ImagePlaceholder
-              dark
-              label="Factory Photo"
-              description="Factory interior — production floor with seamless knitting machines and sewing lines. Wide-angle, well-lit, showing scale."
-              className="aspect-[16/10]"
-            />
+          {/* Factory photo — fills right column */}
+          <ImagePlaceholder
+            dark
+            label="Factory Photo"
+            description="Factory interior — production floor with seamless knitting machines and sewing lines. Wide-angle, well-lit, showing scale."
+            className="aspect-[4/3] lg:aspect-auto lg:h-full lg:min-h-[360px]"
+          />
+        </div>
 
-            {/* Stats grid */}
-            <div className="grid grid-cols-2 gap-px bg-neutral-800 border border-neutral-800">
-              {stats.map((s) => (
-                <div key={s.label} className="bg-neutral-900 p-6 lg:p-8">
-                  <p className="text-2xl lg:text-4xl font-semibold tracking-tight text-white">
-                    {s.value}
-                  </p>
-                  <p className="mt-2 text-xs uppercase tracking-[0.2em] text-neutral-500">
-                    {s.label}
-                  </p>
-                </div>
-              ))}
+        {/* Full-width stats bar */}
+        <div className="mt-14 grid grid-cols-2 lg:grid-cols-4 gap-px bg-neutral-800 border border-neutral-800">
+          {stats.map((s) => (
+            <div key={s.label} className="bg-neutral-900 p-6 lg:p-8">
+              <p className="text-2xl lg:text-4xl font-semibold tracking-tight text-white">
+                {s.value}
+              </p>
+              <p className="mt-2 text-xs uppercase tracking-[0.2em] text-neutral-500">
+                {s.label}
+              </p>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
