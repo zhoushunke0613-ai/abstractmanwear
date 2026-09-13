@@ -1,6 +1,7 @@
 import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
+import Image from "next/image";
 import ImagePlaceholder from "@/components/ImagePlaceholder";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
@@ -298,6 +299,7 @@ export default function AboutPage() {
                   t("cert3"),
                   t("cert4"),
                   t("cert5"),
+                  t("cert6"),
                 ].map((item) => (
                   <li
                     key={item}
@@ -319,11 +321,25 @@ export default function AboutPage() {
                 description={t("bsciImgDesc")}
                 className="aspect-[3/2]"
               />
-              <ImagePlaceholder
-                label={t("slcpImgLabel")}
-                description={t("slcpImgDesc")}
-                className="aspect-[3/2]"
-              />
+              <a
+                href="/certificates/higg-fslm-2026.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block"
+              >
+                <div className="relative aspect-[3/2] overflow-hidden rounded-xl border border-neutral-200 bg-neutral-50 transition-colors group-hover:border-brand-yellow">
+                  <Image
+                    src="/images/cert-higg-fslm-2026.png"
+                    alt={t("higgImgAlt")}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 40vw"
+                    className="object-contain p-3"
+                  />
+                </div>
+                <p className="mt-2 text-xs text-neutral-500 underline-offset-4 group-hover:text-neutral-900 group-hover:underline">
+                  {t("higgView")} ↗
+                </p>
+              </a>
             </div>
           </div>
         </div>

@@ -24,9 +24,20 @@ export default function Certifications() {
       image: null as string | null,
       imageAlt: "",
       placeholder: {
-        label: "SLCP Certificate",
-        description: "SLCP verification certificate scan or official SLCP badge image",
+        label: "SLCP Verified Assessment",
+        description: "SLCP Gateway verification summary or official SLCP badge image",
       },
+    },
+    {
+      badge: "Higg",
+      title: t("higgTitle"),
+      description: t("higgDesc"),
+      image: "/images/cert-higg-fslm-2026.png",
+      imageAlt: "Cascale Higg FSLM self-assessment certificate of completion, 2026",
+      imageFit: "contain" as const,
+      placeholder: null,
+      href: "/certificates/higg-fslm-2026.pdf",
+      hrefLabel: t("higgView"),
     },
     {
       badge: "AQL",
@@ -36,7 +47,17 @@ export default function Certifications() {
       imageAlt: "QC inspector examining underwear under magnifying lamp",
       placeholder: null,
     },
-  ];
+  ] as {
+    badge: string;
+    title: string;
+    description: string;
+    image: string | null;
+    imageAlt: string;
+    imageFit?: "contain";
+    placeholder: { label: string; description: string } | null;
+    href?: string;
+    hrefLabel?: string;
+  }[];
 
   return (
     <section className="border-b border-neutral-200 bg-white">
@@ -53,20 +74,24 @@ export default function Certifications() {
           </p>
         </div>
 
-        <div className="mt-10 lg:mt-14 -mx-6 px-6 lg:mx-0 lg:px-0 flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 lg:pb-0 scrollbar-hide lg:grid lg:grid-cols-3 lg:overflow-visible lg:snap-none">
+        <div className="mt-10 lg:mt-14 -mx-6 px-6 lg:mx-0 lg:px-0 flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 lg:pb-0 scrollbar-hide lg:grid lg:grid-cols-2 xl:grid-cols-4 lg:overflow-visible lg:snap-none">
           {certs.map((c) => (
             <div
               key={c.badge}
               className="group w-[75vw] max-w-[300px] flex-shrink-0 snap-start lg:w-auto lg:max-w-none lg:flex-shrink border border-neutral-200 rounded-2xl overflow-hidden transition-all duration-300 hover:border-brand-yellow hover:-translate-y-0.5 hover:shadow-md"
             >
               {c.image ? (
-                <div className="relative aspect-[5/3]">
+                <div
+                  className={`relative aspect-[5/3] ${
+                    c.imageFit === "contain" ? "bg-neutral-50 border-b border-neutral-200" : ""
+                  }`}
+                >
                   <Image
                     src={c.image}
                     alt={c.imageAlt}
                     fill
-                    sizes="(max-width: 768px) 75vw, 33vw"
-                    className="object-cover"
+                    sizes="(max-width: 768px) 75vw, (max-width: 1280px) 50vw, 25vw"
+                    className={c.imageFit === "contain" ? "object-contain p-3" : "object-cover"}
                   />
                 </div>
               ) : c.placeholder ? (
@@ -86,6 +111,16 @@ export default function Certifications() {
                 <p className="mt-2 lg:mt-3 text-sm text-neutral-600 leading-relaxed">
                   {c.description}
                 </p>
+                {c.href ? (
+                  <a
+                    href={c.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-4 inline-block text-sm font-medium text-neutral-900 underline underline-offset-4 decoration-neutral-300 hover:decoration-brand-yellow"
+                  >
+                    {c.hrefLabel} ↗
+                  </a>
+                ) : null}
               </div>
             </div>
           ))}
