@@ -35,8 +35,8 @@ export default function Hero() {
 
         <div className="relative min-h-[52svh] border-t border-neutral-200 lg:col-span-6 lg:min-h-full lg:border-l lg:border-t-0">
           <Image
-            src="/images/hero.png"
-            alt=""
+            src="/images/brand/reception.jpg"
+            alt={t("heroImageAlt")}
             fill
             priority
             sizes="(max-width: 1024px) 100vw, 50vw"
