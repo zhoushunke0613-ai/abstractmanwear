@@ -7,9 +7,19 @@ export default function Hero() {
 
   return (
     <section className="relative isolate overflow-hidden border-b border-neutral-900 bg-neutral-900 text-white md:min-h-[calc(100svh-4.5rem)] lg:min-h-[720px]">
-      <div className="relative aspect-[4/3] w-full md:absolute md:inset-0 md:aspect-auto">
+      <div className="relative aspect-[4/3] w-full md:hidden">
         <Image
           src="/images/brand/reception.jpg"
+          alt={t("heroImageAlt")}
+          fill
+          priority
+          sizes="(max-width: 767px) 100vw, 0px"
+          className="object-cover object-center"
+        />
+      </div>
+      <div className="absolute inset-0 hidden md:block">
+        <Image
+          src="/images/brand/reception-hero.webp"
           alt={t("heroImageAlt")}
           fill
           priority
@@ -23,7 +33,7 @@ export default function Hero() {
         aria-hidden
       />
       <div
-        className="absolute inset-0 bg-[linear-gradient(0deg,rgba(20,16,13,0.98)_0%,rgba(20,16,13,0.9)_30%,rgba(20,16,13,0.12)_68%,rgba(20,16,13,0.04)_100%)]"
+        className="absolute inset-0 bg-[linear-gradient(0deg,rgba(20,16,13,0.86)_0%,rgba(20,16,13,0.52)_28%,rgba(20,16,13,0.12)_55%,rgba(20,16,13,0)_78%)]"
         aria-hidden
       />
 
