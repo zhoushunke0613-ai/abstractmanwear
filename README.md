@@ -34,3 +34,13 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Form delivery
+
+The contact and catalog forms send email through the Resend API. Configure these variables in Vercel for Production and Preview:
+
+- `RESEND_API_KEY`: a Resend API key with permission to send from this website's domain.
+- `FORM_FROM_EMAIL`: the verified sender, including an optional display name (for example, `Abstract Man Website <website@forms.example.com>`).
+- `FORM_TO_EMAIL`: the inbox that receives contact and catalog requests.
+
+The handlers validate required fields, reject cross-origin submissions, cap request size, and include a hidden bot-trap field. Do not commit API keys or mailbox credentials.

@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
-import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
@@ -9,8 +8,16 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return { title: t("title"), description: t("description") };
 }
 
-export default function CatalogPage() {
-  const t = useTranslations("CatalogPage");
+export default async function CatalogPage({
+  params,
+  searchParams,
+}: {
+  params: Promise<{ locale: string }>;
+  searchParams: Promise<{ form?: string }>;
+}) {
+  const { locale } = await params;
+  const { form } = await searchParams;
+  const t = await getTranslations({ locale, namespace: "CatalogPage" });
 
   const sections = [
     { title: t("sec1Title"), description: t("sec1Desc") },
@@ -162,6 +169,27 @@ export default function CatalogPage() {
               method="post"
               action="/api/catalog"
             >
+              <input type="hidden" name="locale" value={locale} />
+              <div className="absolute -left-[9999px]" aria-hidden="true">
+                <label htmlFor="catalog-website">Website</label>
+                <input id="catalog-website" name="website" type="text" tabIndex={-1} autoComplete="off" />
+              </div>
+              {form && (
+                <p
+                  role="status"
+                  className={`mb-7 border px-4 py-3 text-sm leading-relaxed ${
+                    form === "success"
+                      ? "border-emerald-700/30 bg-emerald-50 text-emerald-900"
+                      : "border-red-700/30 bg-red-50 text-red-900"
+                  }`}
+                >
+                  {form === "success"
+                    ? t("formSuccess")
+                    : form === "invalid"
+                      ? t("formInvalid")
+                      : t("formError")}
+                </p>
+              )}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
                   <label
