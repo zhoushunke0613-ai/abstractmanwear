@@ -1,140 +1,198 @@
 "use client";
 
-import Link from "next/link";
-import { useState, useEffect } from "react";
-import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
+import { useParams } from "next/navigation";
+import { Link, usePathname, useRouter } from "@/i18n/navigation";
+import { PRODUCTS, PRODUCT_EXTRAS } from "@/lib/products";
+
+type NavGroup = {
+  href: string;
+  label: string;
+  items: { href: string; label: string }[];
+};
 
 export default function Header() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  const router = useRouter();
+  const params = useParams();
+  const t = useTranslations("Header");
+  const tp = useTranslations("ProductSpecialization");
+  const currentLocale = (params.locale as string) || "en";
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  const navItems = [
-    { href: "/products", label: "Products", num: "01" },
-    { href: "/services", label: "Services", num: "02" },
-    { href: "/capability", label: "Capability", num: "03" },
-    { href: "/about", label: "About", num: "04" },
-    { href: "/faq", label: "FAQ", num: "05" },
-    { href: "/contact", label: "Contact", num: "06" },
+  const navGroups: NavGroup[] = [
+    {
+      href: "/products",
+      label: t("products"),
+      items: [
+        ...PRODUCTS.map((p) => ({ href: `/products#${p.slug}`, label: tp(p.key) })),
+        ...PRODUCT_EXTRAS.map((x) => ({ href: `/products#${x.slug}`, label: t(x.labelKey) })),
+      ],
+    },
+    {
+      href: "/services",
+      label: t("services"),
+      items: [
+        { href: "/services#oem", label: t("oem") },
+        { href: "/services#odm", label: t("odm") },
+        { href: "/services#sampling", label: t("sampling") },
+        { href: "/services#process", label: t("process") },
+      ],
+    },
+    {
+      href: "/capability",
+      label: t("factory"),
+      items: [
+        { href: "/capability", label: t("production") },
+        { href: "/capability#quality", label: t("quality") },
+        { href: "/capability#certifications", label: t("certifications") },
+      ],
+    },
+    {
+      href: "/about",
+      label: t("about"),
+      items: [
+        { href: "/about", label: t("company") },
+        { href: "/faq", label: t("faq") },
+      ],
+    },
   ];
 
+  const isActive = (group: NavGroup) =>
+    pathname === group.href || group.items.some((item) => item.href === pathname);
+
+  const handleLocaleSwitch = () => {
+    router.replace(pathname, { locale: currentLocale === "en" ? "zh" : "en" });
+  };
+
+  const [lastPathname, setLastPathname] = useState(pathname);
+  if (pathname !== lastPathname) {
+    setLastPathname(pathname);
+    setOpen(false);
+  }
+
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
   return (
-    <header
-      className={`fixed top-0 inset-x-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-500 ${
-        scrolled
-          ? "bg-[var(--color-paper)]/85 border-b border-[var(--color-rule)]/60 backdrop-blur-sm"
-          : "bg-transparent border-b border-transparent"
-      }`}
-    >
-      <div className="max-w-[1440px] mx-auto px-8 lg:px-16">
-        <div className="flex items-center justify-between h-20 lg:h-24">
-          {/* Wordmark */}
-          <Link href="/" className="group flex items-baseline gap-3">
-            <span className="font-display text-2xl lg:text-3xl tracking-tight text-[var(--color-ink)]">
-              Abstract
-            </span>
-            <span className="hidden md:inline font-mono text-[10px] text-[var(--color-taupe)] uppercase tracking-[0.2em]">
-              Manwear&nbsp;·&nbsp;Est.&nbsp;2010
-            </span>
-          </Link>
+    <header className="sticky top-0 z-50 border-b border-neutral-200 bg-[#fcfaf6]/95">
+      <div className="mx-auto flex h-[4.5rem] max-w-7xl items-center justify-between gap-8 px-6 lg:h-20 lg:px-8">
+        <Link href="/" className="group flex items-baseline gap-3">
+          <span className="font-display text-[1.05rem] font-semibold tracking-[-0.035em] text-neutral-900 lg:text-xl">
+            ABSTRACT MAN
+          </span>
+          <span className="hidden text-[10px] uppercase tracking-[0.22em] text-neutral-500 sm:inline">
+            Est. 2006
+          </span>
+        </Link>
 
-          {/* Desktop nav */}
-          <nav className="hidden lg:flex items-center gap-10">
-            {navItems.map((item) => {
-              const active = pathname === item.href;
-              return (
+        <nav className="hidden lg:block" aria-label="Primary navigation">
+          <ul className="flex items-center gap-8">
+            {navGroups.map((group) => (
+              <li key={group.href} className="group relative">
                 <Link
-                  key={item.href}
-                  href={item.href}
-                  className="group flex items-baseline gap-2 text-[var(--color-ink-soft)]"
+                  href={group.href}
+                  className={`flex items-center gap-2 border-b py-2 text-[11px] font-semibold uppercase tracking-[0.15em] transition-colors ${
+                    isActive(group)
+                      ? "border-neutral-900 text-neutral-900"
+                      : "border-transparent text-neutral-600 hover:border-neutral-400 hover:text-neutral-900"
+                  }`}
                 >
-                  <span className="font-mono text-[10px] text-[var(--color-taupe)]">
-                    {item.num}
-                  </span>
-                  <span
-                    className={`text-sm transition-colors duration-300 ${
-                      active
-                        ? "text-[var(--color-ink)] font-medium text-sm"
-                        : "hover:text-[var(--color-ink)]"
-                    }`}
-                  >
-                    {item.label}
-                  </span>
+                  {group.label}
                 </Link>
-              );
-            })}
-          </nav>
+                <div className="invisible absolute left-0 top-full z-50 pt-3 opacity-0 transition-opacity duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+                  <ul className="min-w-[230px] border border-neutral-200 bg-[#fcfaf6] px-5 py-4">
+                    {group.items.map((item) => (
+                      <li key={item.href} className="border-b border-neutral-200 last:border-b-0">
+                        <Link
+                          href={item.href}
+                          onClick={(event) => event.currentTarget.blur()}
+                          className="block py-2.5 text-sm text-neutral-600 transition-colors hover:text-brand-yellow"
+                        >
+                          {item.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </nav>
 
-          {/* CTA + mobile toggle */}
-          <div className="flex items-center gap-6">
-            <Link
-              href="/contact"
-              className="hidden lg:inline-flex items-center gap-2 bg-[var(--color-yellow)] text-[var(--color-ink)] px-5 py-2.5 text-sm font-medium hover:bg-[var(--color-ink)] hover:text-[var(--color-yellow)] transition-colors duration-300"
-            >
-              <span>Get a Quote</span>
-              <span aria-hidden>→</span>
-            </Link>
-
-            <button
-              onClick={() => setMenuOpen(!menuOpen)}
-              className="lg:hidden w-10 h-10 flex flex-col items-center justify-center gap-[6px]"
-              aria-label="Toggle menu"
-            >
-              <span
-                className={`w-6 h-px bg-[var(--color-ink)] transition-transform duration-500 ${
-                  menuOpen ? "rotate-45 translate-y-[3px]" : ""
-                }`}
-              />
-              <span
-                className={`w-6 h-px bg-[var(--color-ink)] transition-transform duration-500 ${
-                  menuOpen ? "-rotate-45 -translate-y-[4px]" : ""
-                }`}
-              />
-            </button>
-          </div>
+        <div className="hidden items-center gap-5 lg:flex">
+          <button
+            type="button"
+            onClick={handleLocaleSwitch}
+            className="border-b border-neutral-300 py-1 text-[11px] font-semibold uppercase tracking-[0.15em] text-neutral-600 transition-colors hover:border-neutral-900 hover:text-neutral-900"
+          >
+            {t("switchLang")}
+          </button>
+          <Link href="/catalog" className="text-[11px] font-semibold uppercase tracking-[0.13em] text-neutral-700 hover:text-brand-yellow">
+            {t("downloadCatalog")}
+          </Link>
+          <Link href="/contact" className="btn-primary">
+            {t("startProject")}
+          </Link>
         </div>
+
+        <button
+          type="button"
+          onClick={() => setOpen((value) => !value)}
+          className="relative z-50 flex h-10 w-10 items-center justify-center border border-neutral-300 bg-transparent lg:hidden"
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
+        >
+          <div className="flex h-3.5 w-5 flex-col justify-between">
+            <span className={`block h-px w-full bg-neutral-900 transition-transform ${open ? "translate-y-[6.5px] rotate-45" : ""}`} />
+            <span className={`block h-px w-full bg-neutral-900 transition-opacity ${open ? "opacity-0" : ""}`} />
+            <span className={`block h-px w-full bg-neutral-900 transition-transform ${open ? "-translate-y-[6.5px] -rotate-45" : ""}`} />
+          </div>
+        </button>
       </div>
 
-      {/* Mobile menu */}
-      <div
-        className={`lg:hidden overflow-hidden bg-[var(--color-paper)] transition-[grid-template-rows] duration-500 grid ${
-          menuOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
-        }`}
-      >
-        <nav className="min-h-0 overflow-hidden">
-          <div className="px-8 py-8 flex flex-col gap-4 border-t border-[var(--color-rule)]">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setMenuOpen(false)}
-                className="group flex items-baseline gap-4 py-3 border-b border-[var(--color-rule)]/60"
-              >
-                <span className="font-mono text-xs text-[var(--color-taupe)]">
-                  {item.num}
-                </span>
-                <span className="font-display text-2xl text-[var(--color-ink)]">
-                  {item.label}
-                </span>
-              </Link>
-            ))}
-            <Link
-              href="/contact"
-              onClick={() => setMenuOpen(false)}
-              className="mt-4 inline-flex items-center gap-2 text-sm text-[var(--color-ink)] link-rule self-start"
-            >
-              <span>Request a quote</span>
-              <span>→</span>
+      <div className={`fixed inset-0 z-40 bg-[#f7f3ec] transition-opacity duration-200 lg:hidden ${open ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"}`}>
+        <div className="h-full overflow-y-auto px-6 pb-10 pt-24">
+          <nav aria-label="Mobile navigation">
+            <ul className="border-t border-neutral-300">
+              {navGroups.map((group) => (
+                <li key={group.href} className="border-b border-neutral-300 py-6">
+                  <div>
+                    <Link href={group.href} onClick={() => setOpen(false)} className="font-display text-3xl leading-none text-neutral-900">
+                      {group.label}
+                    </Link>
+                    <ul className="mt-4 grid grid-cols-2 gap-x-4 gap-y-2">
+                      {group.items.map((item) => (
+                        <li key={item.href}>
+                          <Link href={item.href} onClick={() => setOpen(false)} className="text-sm text-neutral-600">
+                            {item.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <div className="mt-8 grid grid-cols-2 gap-3">
+            <button type="button" onClick={() => { handleLocaleSwitch(); setOpen(false); }} className="btn-secondary">
+              {t("switchLang")}
+            </button>
+            <Link href="/catalog" onClick={() => setOpen(false)} className="btn-secondary">
+              {t("downloadCatalog")}
+            </Link>
+            <Link href="/contact" onClick={() => setOpen(false)} className="btn-primary col-span-2">
+              {t("startProject")}
             </Link>
           </div>
-        </nav>
+        </div>
       </div>
     </header>
   );

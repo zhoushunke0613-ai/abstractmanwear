@@ -1,0 +1,21 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="tr-t">
+  <title id="tr-t">Trunks blueprint</title>
+  <defs>
+    <pattern id="gtr" width="16" height="16" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="0.6" fill="#d4d4d4"/>
+    </pattern>
+  </defs>
+  <rect width="400" height="400" fill="#fafaf5"/>
+  <rect width="400" height="400" fill="url(#gtr)"/>
+
+  <rect x="90" y="125" width="220" height="28" fill="#ffd400"/>
+
+  <!-- shorter version of boxer briefs -->
+  <path d="M 90,125 L 310,125 L 310,153 L 310,240 Q 308,262 285,265 L 245,268 Q 230,267 225,258 L 215,238 Q 208,230 200,230 Q 192,230 185,238 L 175,258 Q 170,267 155,268 L 115,265 Q 92,262 90,240 L 90,153 Z"
+        fill="none" stroke="#171717" stroke-width="2.5" stroke-linejoin="round"/>
+
+  <line x1="90" y1="153" x2="310" y2="153" stroke="#171717" stroke-width="1.8"/>
+  <line x1="200" y1="153" x2="200" y2="230" stroke="#171717" stroke-width="1.2" stroke-dasharray="4 3"/>
+
+  <text x="200" y="350" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" letter-spacing="2.5" fill="#737373">TRUNKS · 003</text>
+</svg>

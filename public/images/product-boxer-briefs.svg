@@ -1,0 +1,22 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="bb-t">
+  <title id="bb-t">Boxer briefs blueprint</title>
+  <defs>
+    <pattern id="gbb" width="16" height="16" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="0.6" fill="#d4d4d4"/>
+    </pattern>
+  </defs>
+  <rect width="400" height="400" fill="#fafaf5"/>
+  <rect width="400" height="400" fill="url(#gbb)"/>
+
+  <!-- yellow waistband -->
+  <rect x="80" y="115" width="240" height="28" fill="#ffd400"/>
+
+  <!-- silhouette: waistband + elongated body + two leg openings -->
+  <path d="M 80,115 L 320,115 L 320,143 L 320,275 Q 318,298 295,300 L 240,302 Q 225,302 220,292 L 210,262 Q 205,252 200,252 Q 195,252 190,262 L 180,292 Q 175,302 160,302 L 105,300 Q 82,298 80,275 L 80,143 Z"
+        fill="none" stroke="#171717" stroke-width="2.5" stroke-linejoin="round"/>
+
+  <line x1="80" y1="143" x2="320" y2="143" stroke="#171717" stroke-width="1.8"/>
+  <line x1="200" y1="143" x2="200" y2="252" stroke="#171717" stroke-width="1.2" stroke-dasharray="4 3"/>
+
+  <text x="200" y="350" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" letter-spacing="2.5" fill="#737373">BOXER BRIEFS · 002</text>
+</svg>

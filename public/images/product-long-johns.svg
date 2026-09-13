@@ -1,0 +1,22 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="lj-t">
+  <title id="lj-t">Long johns blueprint</title>
+  <defs>
+    <pattern id="glj" width="16" height="16" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="0.6" fill="#d4d4d4"/>
+    </pattern>
+  </defs>
+  <rect width="400" height="400" fill="#fafaf5"/>
+  <rect width="400" height="400" fill="url(#glj)"/>
+
+  <!-- yellow waistband -->
+  <rect x="130" y="70" width="140" height="28" fill="#ffd400"/>
+
+  <!-- full-length thermal pants -->
+  <path d="M 130,70 L 270,70 L 270,98 L 265,180 L 260,340 Q 258,350 245,350 L 215,350 L 210,200 Q 205,195 200,195 Q 195,195 190,200 L 185,350 L 155,350 Q 142,350 140,340 L 135,180 L 130,98 Z"
+        fill="none" stroke="#171717" stroke-width="2.5" stroke-linejoin="round"/>
+
+  <line x1="130" y1="98" x2="270" y2="98" stroke="#171717" stroke-width="1.8"/>
+  <line x1="200" y1="98" x2="200" y2="198" stroke="#171717" stroke-width="1.2" stroke-dasharray="4 3"/>
+
+  <text x="200" y="380" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" letter-spacing="2.5" fill="#737373">LONG JOHNS · 006</text>
+</svg>
