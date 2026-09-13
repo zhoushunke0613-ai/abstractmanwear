@@ -156,6 +156,7 @@
     "fabricsEyebrow": "Fabrics",
     "fabricsHeadline": "The four fabric families behind most export orders.",
     "fabricsDesc": "Every composition and weight listed comes from a bulk order we have produced; any of them can be adjusted to your hand-feel, weight, and stretch requirements.",
+    "fabricCustom": "Composition, weight, hand-feel, and stretch can be matched to the program and confirmed during sampling.",
     "modalGroupName": "Modal",
     "modalGroupDesc": "Silky, soft, and breathable — our main fabric for men’s and women’s boxers, available as Lenzing modal, silk blends, and mesh constructions.",
     "cottonGroupName": "Cotton",
@@ -180,6 +181,8 @@
     "case3P1Spec": "50S 92% TENCEL™ modal / 8% spandex, 185 g; one-piece cut with no side seams, seamless waistband, tagless print",
     "case3P2Title": "Silk modal women’s boyshorts, 4-pack",
     "case3P2Spec": "84.5% modal / 8.6% spandex / 6% silk, 165 g; AAA-grade antibacterial, cut-out gusset, tagless print",
+    "caseClientLabel": "Client profile",
+    "caseProgramsCount": "{count} production programs",
     "displayAlt": "Underwear styles and boxed products on the black and yellow Abstract Man retail display",
     "displayCaption": "Abstract Man product display — solid colors, prints, and retail packaging."
   },

@@ -251,79 +251,113 @@ export default function ProductsPage() {
       {/* Fabrics */}
       <section id="fabrics" className="scroll-mt-20 border-b border-neutral-200 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14 lg:py-24">
-          <div className="max-w-2xl">
-            <p className="eyebrow">
-              {t("fabricsEyebrow")}
-            </p>
-            <h2 className="section-title text-neutral-900">
-              {t("fabricsHeadline")}
-            </h2>
-            <p className="mt-4 text-sm lg:text-base text-neutral-600 leading-relaxed">
-              {t("fabricsDesc")}
-            </p>
+          <div className="grid items-end gap-8 border-b border-neutral-300 pb-8 lg:grid-cols-12 lg:gap-16 lg:pb-12">
+            <div className="lg:col-span-7">
+              <p className="eyebrow">{t("fabricsEyebrow")}</p>
+              <h2 className="section-title max-w-3xl text-neutral-900">
+                {t("fabricsHeadline")}
+              </h2>
+            </div>
+            <div className="lg:col-span-4 lg:col-start-9">
+              <div className="flex items-end gap-5 border-l border-neutral-300 pl-5 lg:pl-7">
+                <span className="font-display text-6xl leading-none text-brand-yellow lg:text-7xl">
+                  {String(FABRIC_GROUPS.length).padStart(2, "0")}
+                </span>
+                <p className="pb-1 text-base leading-relaxed text-neutral-600">
+                  {t("fabricsDesc")}
+                </p>
+              </div>
+            </div>
           </div>
 
-          {/* Four everyday fabric families */}
-          <div className="mt-10 lg:mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-10">
+          {/* Four everyday fabric families, grouped for comparison */}
+          <div className="mt-6 grid grid-cols-1 gap-4 lg:mt-8 lg:grid-cols-12">
             {FABRIC_GROUPS.map((group, i) => (
-              <div key={group.id} className="border-t-2 border-neutral-900 pt-6">
-                <p className="text-xs uppercase tracking-[0.2em] text-brand-yellow font-semibold">
-                  {String(i + 1).padStart(2, "0")}
-                </p>
-                <h3 className="mt-3 text-xl lg:text-2xl font-semibold tracking-tight text-neutral-900">
-                  {t(`${group.id}Name`)}
-                </h3>
-                <p className="mt-3 text-sm text-neutral-600 leading-relaxed">
-                  {t(`${group.id}Desc`)}
-                </p>
-                {group.specs.length > 0 ? (
-                  <>
-                    <p className="mt-5 text-[11px] uppercase tracking-[0.18em] text-neutral-400">
+              <article
+                key={group.id}
+                className={`flex min-h-full flex-col border border-neutral-300 bg-neutral-50 ${
+                  i === 0 || i === 3 ? "lg:col-span-7" : "lg:col-span-5"
+                }`}
+              >
+                <div className="grid grid-cols-[auto_1fr] gap-5 p-6 lg:gap-7 lg:p-8">
+                  <span className="font-display text-5xl leading-none text-brand-yellow/35 lg:text-6xl">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <div>
+                    <h3 className="text-2xl font-semibold tracking-tight text-neutral-900 lg:text-3xl">
+                      {t(`${group.id}Name`)}
+                    </h3>
+                    <p className="mt-3 text-base leading-relaxed text-neutral-600">
+                      {t(`${group.id}Desc`)}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="mt-auto border-t border-neutral-300 bg-white p-6 lg:p-8">
+                  <div className="flex items-baseline justify-between gap-4">
+                    <p className="text-xs uppercase tracking-[0.18em] text-neutral-500">
                       {t("fabricLabel")}
                     </p>
-                    <ul className="mt-2 space-y-2">
+                    <p className="text-xs tabular-nums text-neutral-400">
+                      {String(group.specs.length).padStart(2, "0")}
+                    </p>
+                  </div>
+                  {group.specs.length > 0 ? (
+                    <ol className="mt-4 border-t border-neutral-200">
                       {group.specs.map((f) => (
-                        <li key={f} className="flex items-start gap-3 text-sm text-neutral-700">
-                          {bullet}
-                          {t(`fabric_${f}`)}
+                        <li
+                          key={f}
+                          className="grid grid-cols-[1.75rem_1fr] gap-3 border-b border-neutral-200 py-3 text-sm leading-relaxed text-neutral-700 last:border-b-0"
+                        >
+                          <span className="text-xs tabular-nums text-brand-yellow">
+                            {String(group.specs.indexOf(f) + 1).padStart(2, "0")}
+                          </span>
+                          <span>{t(`fabric_${f}`)}</span>
                         </li>
                       ))}
-                    </ul>
-                  </>
-                ) : null}
-              </div>
+                    </ol>
+                  ) : (
+                    <p className="mt-4 border-t border-neutral-200 pt-4 text-sm leading-relaxed text-neutral-600">
+                      {t("fabricCustom")}
+                    </p>
+                  )}
+                </div>
+              </article>
             ))}
           </div>
 
           {/* Functional fabrics and loungewear */}
-          <div className="mt-12 lg:mt-16 grid grid-cols-1 border-y border-neutral-300 lg:grid-cols-2">
-            <div className="border-b border-neutral-300 py-7 lg:border-b-0 lg:border-r lg:p-8 lg:pl-0">
-              <p className="text-xs uppercase tracking-[0.2em] text-neutral-500">
+          <div className="mt-4 grid grid-cols-1 gap-px bg-neutral-700 lg:grid-cols-[1.2fr_0.8fr]">
+            <div className="bg-neutral-900 p-6 lg:p-8">
+              <p className="text-xs uppercase tracking-[0.2em] text-brand-yellow">
                 {t("functionalLabel")}
               </p>
-              <ul className="mt-4 flex flex-wrap gap-2">
-                {FUNCTIONAL.map((f) => (
+              <ul className="mt-6 grid grid-cols-2 gap-px border border-neutral-700 bg-neutral-700 sm:grid-cols-4">
+                {FUNCTIONAL.map((f, i) => (
                   <li
                     key={f}
-                    className="border-b border-neutral-400 py-1 text-sm font-medium text-neutral-900"
+                    className="bg-neutral-900 p-4 text-base font-medium text-white"
                   >
-                    {t(f)}
+                    <span className="mb-3 block text-xs tabular-nums text-neutral-500">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <span>{t(f)}</span>
                   </li>
                 ))}
               </ul>
-              <p className="mt-5 text-sm text-neutral-600 leading-relaxed">
+              <p className="mt-5 max-w-2xl text-sm leading-relaxed text-neutral-400">
                 {t("functionalDesc")}
               </p>
             </div>
 
-            <div className="bg-neutral-900 p-7 lg:p-8">
+            <div className="flex flex-col justify-between bg-[#eee7dd] p-6 lg:p-8">
               <p className="text-xs uppercase tracking-[0.2em] text-brand-yellow">
                 {t("loungeLabel")}
               </p>
-              <p className="mt-4 text-xl lg:text-2xl font-semibold tracking-tight text-white">
+              <p className="mt-12 max-w-sm text-2xl font-semibold tracking-tight text-neutral-900 lg:text-3xl">
                 {t("loungeTitle")}
               </p>
-              <p className="mt-3 text-sm text-neutral-400 leading-relaxed">
+              <p className="mt-3 max-w-md text-sm leading-relaxed text-neutral-600">
                 {t("loungeDesc")}
               </p>
             </div>
@@ -334,65 +368,90 @@ export default function ProductsPage() {
       {/* Anonymized case studies */}
       <section id="cases" className="scroll-mt-20 border-b border-neutral-200 bg-neutral-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14 lg:py-24">
-          <div className="max-w-2xl">
-            <p className="eyebrow">
-              {t("casesEyebrow")}
-            </p>
-            <h2 className="section-title text-neutral-900">
-              {t("casesHeadline")}
-            </h2>
-            <p className="mt-4 text-sm lg:text-base text-neutral-600 leading-relaxed">
-              {t("casesDesc")}
-            </p>
+          <div className="grid items-end gap-8 border-b border-neutral-300 pb-8 lg:grid-cols-12 lg:gap-16 lg:pb-12">
+            <div className="lg:col-span-7">
+              <p className="eyebrow">{t("casesEyebrow")}</p>
+              <h2 className="section-title max-w-3xl text-neutral-900">
+                {t("casesHeadline")}
+              </h2>
+            </div>
+            <div className="lg:col-span-4 lg:col-start-9">
+              <div className="flex items-end gap-5 border-l border-neutral-300 pl-5 lg:pl-7">
+                <span className="font-display text-6xl leading-none text-brand-yellow lg:text-7xl">
+                  {String(CASES.length).padStart(2, "0")}
+                </span>
+                <p className="pb-1 text-base leading-relaxed text-neutral-600">
+                  {t("casesDesc")}
+                </p>
+              </div>
+            </div>
           </div>
 
-          <ol className="mt-10 lg:mt-14 border-t border-neutral-200">
+          <ol className="mt-6 space-y-4 lg:mt-8">
             {CASES.map((c, i) => (
               <li
                 key={c.client}
-                className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-16 border-b border-neutral-200 py-8 lg:py-10"
+                className="grid overflow-hidden border border-neutral-300 bg-white lg:grid-cols-12"
               >
-                <div className="lg:col-span-4">
-                  <p className="text-xs uppercase tracking-[0.2em] text-brand-yellow font-semibold">
+                <div className="flex min-h-52 flex-col justify-between bg-neutral-900 p-6 text-white lg:col-span-4 lg:min-h-full lg:p-8">
+                  <p className="font-display text-6xl leading-none text-brand-yellow/80 lg:text-7xl">
                     {String(i + 1).padStart(2, "0")}
                   </p>
-                  <h3 className="mt-2 text-lg lg:text-xl font-semibold tracking-tight text-neutral-900">
-                    {t(c.client)}
-                  </h3>
+                  <div>
+                    <p className="mb-3 text-xs uppercase tracking-[0.18em] text-neutral-500">
+                      {t("caseClientLabel")}
+                    </p>
+                    <h3 className="max-w-sm text-xl font-semibold leading-snug tracking-tight text-white lg:text-2xl">
+                      {t(c.client)}
+                    </h3>
+                    <p className="mt-4 text-xs uppercase tracking-[0.16em] text-neutral-400">
+                      {t("caseProgramsCount", { count: c.programs.length })}
+                    </p>
+                  </div>
                 </div>
-                <ul className="lg:col-span-8 space-y-5">
-                  {c.programs.map((program) => (
-                    <li key={program} className="flex items-start gap-3">
-                      {bullet}
-                      <div>
-                        <p className="text-sm lg:text-base font-medium text-neutral-900">
-                          {t(`${program}Title`)}
-                        </p>
-                        <p className="mt-1 text-sm text-neutral-600 leading-relaxed">
-                          {t(`${program}Spec`)}
-                        </p>
-                      </div>
+
+                <ol
+                  className={`grid gap-px bg-neutral-200 lg:col-span-8 ${
+                    c.programs.length > 1 ? "md:grid-cols-2" : "grid-cols-1"
+                  }`}
+                >
+                  {c.programs.map((program, programIndex) => (
+                    <li key={program} className="bg-white p-6 lg:p-8">
+                      <p className="text-xs font-semibold tracking-[0.16em] text-brand-yellow tabular-nums">
+                        {String(i + 1).padStart(2, "0")} — {String(programIndex + 1).padStart(2, "0")}
+                      </p>
+                      <p className="mt-5 text-base font-semibold leading-snug text-neutral-900 lg:text-lg">
+                        {t(`${program}Title`)}
+                      </p>
+                      <p className="mt-3 text-sm leading-relaxed text-neutral-600">
+                        {t(`${program}Spec`)}
+                      </p>
                     </li>
                   ))}
-                </ul>
+                </ol>
               </li>
             ))}
           </ol>
 
-          <div className="mt-10 lg:mt-12">
-            <p className="text-xs uppercase tracking-[0.2em] text-neutral-500">
-              {t("originsLabel")}
-            </p>
-            <ul className="mt-4 flex flex-wrap gap-2">
-              {BRAND_ORIGINS.map((o) => (
-                <li
-                  key={o}
-                  className="border-b border-neutral-400 py-1 text-sm text-neutral-700"
-                >
-                  {t(o)}
+          <div className="mt-4 grid gap-px border border-neutral-300 bg-neutral-300 lg:grid-cols-[16rem_1fr]">
+            <div className="bg-[#eee7dd] p-6 lg:p-8">
+              <p className="text-xs uppercase tracking-[0.2em] text-brand-yellow">
+                {t("originsLabel")}
+              </p>
+              <p className="mt-6 font-display text-5xl leading-none text-neutral-900">
+                {String(BRAND_ORIGINS.length).padStart(2, "0")}
+              </p>
+            </div>
+            <ol className="grid gap-px bg-neutral-300 sm:grid-cols-2 lg:grid-cols-3">
+              {BRAND_ORIGINS.map((o, i) => (
+                <li key={o} className="flex gap-3 bg-white p-4 text-sm leading-relaxed text-neutral-700 last:sm:col-span-2 lg:p-5">
+                  <span className="text-xs tabular-nums text-neutral-400">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span>{t(o)}</span>
                 </li>
               ))}
-            </ul>
+            </ol>
           </div>
         </div>
       </section>

@@ -156,6 +156,7 @@
     "fabricsEyebrow": "面料",
     "fabricsHeadline": "外贸订单常用的四类面料。",
     "fabricsDesc": "下面列出的成分和克重都来自实际量产的订单；同类面料可以按您要求的手感、克重和弹性调整。",
+    "fabricCustom": "可按项目需求匹配成分、克重、手感与弹性，并在打样阶段确认。",
     "modalGroupName": "莫代尔",
     "modalGroupDesc": "柔滑亲肤、吸湿透气，是男女平角裤的主力面料，可做兰精莫代尔、蚕丝混纺和网眼结构。",
     "cottonGroupName": "纯棉",
@@ -180,6 +181,8 @@
     "case3P1Spec": "50S 92% TENCEL™ 莫代尔 / 8%氨纶，185g；一片式裁剪、侧缝无接缝，无痕腰头，无感印标",
     "case3P2Title": "蚕丝莫代尔女士平角裤，4条装",
     "case3P2Spec": "84.5%莫代尔 / 8.6%氨纶 / 6%蚕丝，165g；AAA级抗菌，镂空裆部，无感印标",
+    "caseClientLabel": "客户类型",
+    "caseProgramsCount": "{count} 个量产项目",
     "displayAlt": "抽象男黑黄配色陈列柜上的内裤款式与盒装产品",
     "displayCaption": "抽象男产品陈列：纯色款、印花款与零售包装。"
   },
