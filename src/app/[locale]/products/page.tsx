@@ -123,9 +123,6 @@ export default function ProductsPage() {
                       sizes="(max-width: 1024px) 100vw, 40vw"
                       className="object-contain"
                     />
-                    <span className="absolute top-3 right-3 text-[10px] uppercase tracking-[0.18em] text-neutral-500 bg-white/70 backdrop-blur-sm px-2 py-1">
-                      {p.style}
-                    </span>
                   </div>
                 </div>
 
@@ -135,10 +132,7 @@ export default function ProductsPage() {
                     i % 2 !== 0 ? "lg:order-1" : "lg:col-start-7"
                   }`}
                 >
-                  <p className="eyebrow">
-                    {String(i + 1).padStart(2, "0")}
-                  </p>
-                  <h2 className="mt-4 text-3xl leading-tight text-neutral-900 lg:text-5xl">
+                  <h2 className="text-3xl leading-tight text-neutral-900 lg:text-5xl">
                     {tn(p.key)}
                   </h2>
                   <p className="mt-4 text-sm lg:text-base text-neutral-600 leading-relaxed">
@@ -259,11 +253,8 @@ export default function ProductsPage() {
               </h2>
             </div>
             <div className="lg:col-span-4 lg:col-start-9">
-              <div className="flex items-end gap-5 border-l border-neutral-300 pl-5 lg:pl-7">
-                <span className="font-display text-6xl leading-none text-brand-yellow lg:text-7xl">
-                  {String(FABRIC_GROUPS.length).padStart(2, "0")}
-                </span>
-                <p className="pb-1 text-base leading-relaxed text-neutral-600">
+              <div className="border-l border-neutral-300 pl-5 lg:pl-7">
+                <p className="text-base leading-relaxed text-neutral-600">
                   {t("fabricsDesc")}
                 </p>
               </div>
@@ -279,10 +270,7 @@ export default function ProductsPage() {
                   i === 0 || i === 3 ? "lg:col-span-7" : "lg:col-span-5"
                 }`}
               >
-                <div className="grid grid-cols-[auto_1fr] gap-5 p-6 lg:gap-7 lg:p-8">
-                  <span className="font-display text-5xl leading-none text-brand-yellow/35 lg:text-6xl">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
+                <div className="p-6 lg:p-8">
                   <div>
                     <h3 className="text-2xl font-semibold tracking-tight text-neutral-900 lg:text-3xl">
                       {t(`${group.id}Name`)}
@@ -294,28 +282,21 @@ export default function ProductsPage() {
                 </div>
 
                 <div className="mt-auto border-t border-neutral-300 bg-white p-6 lg:p-8">
-                  <div className="flex items-baseline justify-between gap-4">
-                    <p className="text-xs uppercase tracking-[0.18em] text-neutral-500">
-                      {t("fabricLabel")}
-                    </p>
-                    <p className="text-xs tabular-nums text-neutral-400">
-                      {String(group.specs.length).padStart(2, "0")}
-                    </p>
-                  </div>
+                  <p className="text-xs uppercase tracking-[0.18em] text-neutral-500">
+                    {t("fabricLabel")}
+                  </p>
                   {group.specs.length > 0 ? (
-                    <ol className="mt-4 border-t border-neutral-200">
+                    <ul className="mt-4 border-t border-neutral-200">
                       {group.specs.map((f) => (
                         <li
                           key={f}
-                          className="grid grid-cols-[1.75rem_1fr] gap-3 border-b border-neutral-200 py-3 text-sm leading-relaxed text-neutral-700 last:border-b-0"
+                          className="flex gap-3 border-b border-neutral-200 py-3 text-sm leading-relaxed text-neutral-700 last:border-b-0"
                         >
-                          <span className="text-xs tabular-nums text-brand-yellow">
-                            {String(group.specs.indexOf(f) + 1).padStart(2, "0")}
-                          </span>
+                          <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-brand-yellow" aria-hidden />
                           <span>{t(`fabric_${f}`)}</span>
                         </li>
                       ))}
-                    </ol>
+                    </ul>
                   ) : (
                     <p className="mt-4 border-t border-neutral-200 pt-4 text-sm leading-relaxed text-neutral-600">
                       {t("fabricCustom")}
@@ -333,14 +314,12 @@ export default function ProductsPage() {
                 {t("functionalLabel")}
               </p>
               <ul className="mt-6 grid grid-cols-2 gap-px border border-neutral-700 bg-neutral-700 sm:grid-cols-4">
-                {FUNCTIONAL.map((f, i) => (
+                {FUNCTIONAL.map((f) => (
                   <li
                     key={f}
                     className="bg-neutral-900 p-4 text-base font-medium text-white"
                   >
-                    <span className="mb-3 block text-xs tabular-nums text-neutral-500">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
+                    <span className="mb-4 block h-px w-6 bg-brand-yellow/70" aria-hidden />
                     <span>{t(f)}</span>
                   </li>
                 ))}
@@ -376,27 +355,21 @@ export default function ProductsPage() {
               </h2>
             </div>
             <div className="lg:col-span-4 lg:col-start-9">
-              <div className="flex items-end gap-5 border-l border-neutral-300 pl-5 lg:pl-7">
-                <span className="font-display text-6xl leading-none text-brand-yellow lg:text-7xl">
-                  {String(CASES.length).padStart(2, "0")}
-                </span>
-                <p className="pb-1 text-base leading-relaxed text-neutral-600">
+              <div className="border-l border-neutral-300 pl-5 lg:pl-7">
+                <p className="text-base leading-relaxed text-neutral-600">
                   {t("casesDesc")}
                 </p>
               </div>
             </div>
           </div>
 
-          <ol className="mt-6 space-y-4 lg:mt-8">
-            {CASES.map((c, i) => (
+          <ul className="mt-6 space-y-4 lg:mt-8">
+            {CASES.map((c) => (
               <li
                 key={c.client}
                 className="grid overflow-hidden border border-neutral-300 bg-white lg:grid-cols-12"
               >
-                <div className="flex min-h-52 flex-col justify-between bg-neutral-900 p-6 text-white lg:col-span-4 lg:min-h-full lg:p-8">
-                  <p className="font-display text-6xl leading-none text-brand-yellow/80 lg:text-7xl">
-                    {String(i + 1).padStart(2, "0")}
-                  </p>
+                <div className="flex min-h-52 flex-col justify-center bg-neutral-900 p-6 text-white lg:col-span-4 lg:min-h-full lg:p-8">
                   <div>
                     <p className="mb-3 text-xs uppercase tracking-[0.18em] text-neutral-500">
                       {t("caseClientLabel")}
@@ -410,17 +383,14 @@ export default function ProductsPage() {
                   </div>
                 </div>
 
-                <ol
+                <ul
                   className={`grid gap-px bg-neutral-200 lg:col-span-8 ${
                     c.programs.length > 1 ? "md:grid-cols-2" : "grid-cols-1"
                   }`}
                 >
-                  {c.programs.map((program, programIndex) => (
+                  {c.programs.map((program) => (
                     <li key={program} className="bg-white p-6 lg:p-8">
-                      <p className="text-xs font-semibold tracking-[0.16em] text-brand-yellow tabular-nums">
-                        {String(i + 1).padStart(2, "0")} — {String(programIndex + 1).padStart(2, "0")}
-                      </p>
-                      <p className="mt-5 text-base font-semibold leading-snug text-neutral-900 lg:text-lg">
+                      <p className="text-base font-semibold leading-snug text-neutral-900 lg:text-lg">
                         {t(`${program}Title`)}
                       </p>
                       <p className="mt-3 text-sm leading-relaxed text-neutral-600">
@@ -428,30 +398,26 @@ export default function ProductsPage() {
                       </p>
                     </li>
                   ))}
-                </ol>
+                </ul>
               </li>
             ))}
-          </ol>
+          </ul>
 
           <div className="mt-4 grid gap-px border border-neutral-300 bg-neutral-300 lg:grid-cols-[16rem_1fr]">
             <div className="bg-[#eee7dd] p-6 lg:p-8">
               <p className="text-xs uppercase tracking-[0.2em] text-brand-yellow">
                 {t("originsLabel")}
               </p>
-              <p className="mt-6 font-display text-5xl leading-none text-neutral-900">
-                {String(BRAND_ORIGINS.length).padStart(2, "0")}
-              </p>
+              <div className="mt-6 h-px w-12 bg-brand-yellow" aria-hidden />
             </div>
-            <ol className="grid gap-px bg-neutral-300 sm:grid-cols-2 lg:grid-cols-3">
-              {BRAND_ORIGINS.map((o, i) => (
+            <ul className="grid gap-px bg-neutral-300 sm:grid-cols-2 lg:grid-cols-3">
+              {BRAND_ORIGINS.map((o) => (
                 <li key={o} className="flex gap-3 bg-white p-4 text-sm leading-relaxed text-neutral-700 last:sm:col-span-2 lg:p-5">
-                  <span className="text-xs tabular-nums text-neutral-400">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
+                  <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-brand-yellow" aria-hidden />
                   <span>{t(o)}</span>
                 </li>
               ))}
-            </ol>
+            </ul>
           </div>
         </div>
       </section>

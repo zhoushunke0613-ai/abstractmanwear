@@ -93,7 +93,7 @@ export default function Header() {
 
         <nav className="hidden lg:block" aria-label="Primary navigation">
           <ul className="flex items-center gap-8">
-            {navGroups.map((group, index) => (
+            {navGroups.map((group) => (
               <li key={group.href} className="group relative">
                 <Link
                   href={group.href}
@@ -103,7 +103,6 @@ export default function Header() {
                       : "border-transparent text-neutral-600 hover:border-neutral-400 hover:text-neutral-900"
                   }`}
                 >
-                  <span className="text-[9px] font-normal text-neutral-400">0{index + 1}</span>
                   {group.label}
                 </Link>
                 <div className="invisible absolute left-0 top-full z-50 pt-3 opacity-0 transition-opacity duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
@@ -160,10 +159,9 @@ export default function Header() {
       <div className={`fixed inset-0 z-40 bg-[#f7f3ec] transition-opacity duration-200 lg:hidden ${open ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"}`}>
         <div className="h-full overflow-y-auto px-6 pb-10 pt-24">
           <nav aria-label="Mobile navigation">
-            <ol className="border-t border-neutral-300">
-              {navGroups.map((group, index) => (
-                <li key={group.href} className="grid grid-cols-[2rem_1fr] border-b border-neutral-300 py-6">
-                  <span className="pt-1 text-[10px] tracking-[0.18em] text-brand-yellow">0{index + 1}</span>
+            <ul className="border-t border-neutral-300">
+              {navGroups.map((group) => (
+                <li key={group.href} className="border-b border-neutral-300 py-6">
                   <div>
                     <Link href={group.href} onClick={() => setOpen(false)} className="font-display text-3xl leading-none text-neutral-900">
                       {group.label}
@@ -180,7 +178,7 @@ export default function Header() {
                   </div>
                 </li>
               ))}
-            </ol>
+            </ul>
           </nav>
 
           <div className="mt-8 grid grid-cols-2 gap-3">

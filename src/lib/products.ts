@@ -14,7 +14,6 @@ type Product = {
   slug: string;
   /** Name and tagline live in the ProductSpecialization translations under `key` and `${key}Tag`. */
   key: string;
-  style: string;
   leadDays: string;
   fabrics: readonly FabricKey[];
 };
@@ -24,12 +23,12 @@ type Product = {
  * footer, homepage, and products page.
  */
 export const PRODUCTS: readonly Product[] = [
-  { slug: "boxer-briefs", key: "boxerBriefs", style: "Style 002", leadDays: "25–30", fabrics: ["modal92", "modalMesh", "cottonModal"] },
-  { slug: "trunks", key: "trunks", style: "Style 003", leadDays: "25–30", fabrics: [] },
-  { slug: "briefs", key: "briefs", style: "Style 001", leadDays: "25–30", fabrics: ["coolmax"] },
-  { slug: "seamless", key: "seamless", style: "Style 004", leadDays: "30–35", fabrics: [] },
-  { slug: "modal", key: "modal", style: "Style 005", leadDays: "25–30", fabrics: ["modalMesh", "silkModal", "modal50s"] },
-  { slug: "performance", key: "performance", style: "Style 006", leadDays: "30–35", fabrics: ["coolmax", "nylon"] },
+  { slug: "boxer-briefs", key: "boxerBriefs", leadDays: "25–30", fabrics: ["modal92", "modalMesh", "cottonModal"] },
+  { slug: "trunks", key: "trunks", leadDays: "25–30", fabrics: [] },
+  { slug: "briefs", key: "briefs", leadDays: "25–30", fabrics: ["coolmax"] },
+  { slug: "seamless", key: "seamless", leadDays: "30–35", fabrics: [] },
+  { slug: "modal", key: "modal", leadDays: "25–30", fabrics: ["modalMesh", "silkModal", "modal50s"] },
+  { slug: "performance", key: "performance", leadDays: "30–35", fabrics: ["coolmax", "nylon"] },
 ];
 
 /** The four fabric families most export orders use, with the specs produced in each. */

@@ -7,28 +7,24 @@ export default function ServicesOverview() {
 
   const services = [
     {
-      no: "01",
       title: t("s1Title"),
       description: t("s1Desc"),
       image: "/images/brand/packing-floor.jpg",
       imageAlt: "Finished garments sorted into crates on the Abstract Man production floor",
     },
     {
-      no: "02",
       title: t("s2Title"),
       description: t("s2Desc"),
       image: "/images/brand/design-studio.jpg",
       imageAlt: "Designer developing underwear colorways and prints on screen",
     },
     {
-      no: "03",
       title: t("s3Title"),
       description: t("s3Desc"),
       image: "/images/brand/fabric-review.jpg",
       imageAlt: "Reviewing fabric and finished samples with the development team",
     },
     {
-      no: "04",
       title: t("s4Title"),
       description: t("s4Desc"),
       image: "/images/brand/sample-review-showroom.jpg",
@@ -55,7 +51,7 @@ export default function ServicesOverview() {
 
         <div className="mt-10 lg:mt-14 -mx-6 px-6 lg:mx-0 lg:px-0 flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 lg:pb-0 scrollbar-hide lg:grid lg:grid-cols-4 lg:gap-6 lg:overflow-visible lg:snap-none">
           {services.map((s) => (
-            <div key={s.no} className="group w-[70vw] max-w-[280px] flex-shrink-0 snap-start lg:w-auto lg:max-w-none lg:flex-shrink">
+            <div key={s.title} className="group w-[70vw] max-w-[280px] flex-shrink-0 snap-start lg:w-auto lg:max-w-none lg:flex-shrink">
               <div className="relative aspect-[4/3] overflow-hidden mb-5 lg:mb-7">
                 <Image
                   src={s.image}
@@ -65,10 +61,7 @@ export default function ServicesOverview() {
                   className="object-cover img-hover-zoom"
                 />
               </div>
-              <p className="border-t border-neutral-300 pt-4 text-[10px] uppercase tracking-[0.2em] text-brand-yellow font-semibold">
-                {s.no}
-              </p>
-              <h3 className="font-display mt-3 text-xl lg:text-2xl tracking-[-0.025em] text-neutral-900">
+              <h3 className="font-display border-t border-neutral-300 pt-5 text-xl lg:text-2xl tracking-[-0.025em] text-neutral-900">
                 {s.title}
               </h3>
               <p className="mt-2 lg:mt-3 text-sm text-neutral-600 leading-relaxed">

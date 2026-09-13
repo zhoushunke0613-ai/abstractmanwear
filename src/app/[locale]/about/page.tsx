@@ -193,14 +193,12 @@ export default function AboutPage() {
 
           {/* Horizontal scroll on mobile, grid on desktop */}
           <div className="mt-10 lg:mt-14 -mx-6 px-6 lg:mx-0 lg:px-0 flex overflow-x-auto snap-x snap-mandatory pb-4 lg:pb-0 scrollbar-hide border-y border-neutral-300 lg:grid lg:grid-cols-3 lg:overflow-visible lg:snap-none">
-            {values.map((v, i) => (
+            {values.map((v) => (
               <div
                 key={v.title}
                 className="w-[75vw] max-w-[300px] flex-shrink-0 snap-start border-r border-neutral-300 p-6 last:border-r-0 lg:w-auto lg:max-w-none lg:flex-shrink lg:p-8"
               >
-                <div className="font-display text-3xl text-brand-yellow">
-                  {String(i + 1).padStart(2, "0")}
-                </div>
+                <div className="h-px w-10 bg-brand-yellow" aria-hidden />
                 <h3 className="mt-5 text-base lg:text-lg font-semibold tracking-tight text-neutral-900">
                   {v.title}
                 </h3>

@@ -24,13 +24,12 @@ export default function WhoWeServe() {
         </div>
 
         <div className="mt-10 lg:mt-14 -mx-6 px-6 lg:mx-0 lg:px-0 flex overflow-x-auto snap-x snap-mandatory pb-4 lg:pb-0 scrollbar-hide border-y border-neutral-300 lg:grid lg:grid-cols-5 lg:overflow-visible lg:snap-none">
-          {clients.map((c, index) => (
+          {clients.map((c) => (
             <div
               key={c.type}
               className="w-[68vw] max-w-[250px] flex-shrink-0 snap-start border-r border-neutral-300 p-5 last:border-r-0 lg:w-auto lg:max-w-none lg:flex-shrink lg:p-7"
             >
-              <span className="text-[10px] tracking-[0.2em] text-brand-yellow">0{index + 1}</span>
-              <h3 className="font-display mt-5 text-xl tracking-[-0.025em] text-neutral-900">
+              <h3 className="font-display text-xl tracking-[-0.025em] text-neutral-900">
                 {c.type}
               </h3>
               <p className="mt-2 lg:mt-3 text-sm text-neutral-600 leading-relaxed">

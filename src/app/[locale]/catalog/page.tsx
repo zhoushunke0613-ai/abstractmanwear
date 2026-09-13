@@ -13,12 +13,12 @@ export default function CatalogPage() {
   const t = useTranslations("CatalogPage");
 
   const sections = [
-    { no: "01", title: t("sec1Title"), description: t("sec1Desc") },
-    { no: "02", title: t("sec2Title"), description: t("sec2Desc") },
-    { no: "03", title: t("sec3Title"), description: t("sec3Desc") },
-    { no: "04", title: t("sec4Title"), description: t("sec4Desc") },
-    { no: "05", title: t("sec5Title"), description: t("sec5Desc") },
-    { no: "06", title: t("sec6Title"), description: t("sec6Desc") },
+    { title: t("sec1Title"), description: t("sec1Desc") },
+    { title: t("sec2Title"), description: t("sec2Desc") },
+    { title: t("sec3Title"), description: t("sec3Desc") },
+    { title: t("sec4Title"), description: t("sec4Desc") },
+    { title: t("sec5Title"), description: t("sec5Desc") },
+    { title: t("sec6Title"), description: t("sec6Desc") },
   ];
 
   const stats = [
@@ -123,13 +123,10 @@ export default function CatalogPage() {
           <div className="mt-10 lg:mt-12 -mx-6 px-6 lg:mx-0 lg:px-0 flex overflow-x-auto snap-x snap-mandatory pb-4 lg:pb-0 scrollbar-hide border-y border-neutral-300 lg:grid lg:grid-cols-3 lg:overflow-visible lg:snap-none">
             {sections.map((s) => (
               <div
-                key={s.no}
+                key={s.title}
                 className="w-[72vw] max-w-[280px] flex-shrink-0 snap-start border-r border-neutral-300 p-5 last:border-r-0 lg:w-auto lg:max-w-none lg:flex-shrink lg:p-7"
               >
-                <p className="text-[11px] uppercase tracking-[0.15em] text-brand-yellow font-semibold">
-                  {s.no}
-                </p>
-                <h3 className="mt-3 text-base font-semibold tracking-tight text-neutral-900">
+                <h3 className="text-base font-semibold tracking-tight text-neutral-900">
                   {s.title}
                 </h3>
                 <p className="mt-2 text-sm text-neutral-500 leading-relaxed">

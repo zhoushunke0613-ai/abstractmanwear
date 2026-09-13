@@ -34,9 +34,6 @@ export default function ProductSpecialization() {
                     height={400}
                     className="h-full w-full object-contain transition-transform duration-700 ease-out group-hover:scale-[1.02]"
                   />
-                  <span className="absolute top-3 right-3 border-b border-neutral-400 bg-neutral-50 px-2 py-1 text-[10px] uppercase tracking-[0.18em] text-neutral-500">
-                    {p.style}
-                  </span>
                 </div>
               </Link>
               <div className="mt-4 lg:mt-5 flex items-baseline justify-between gap-4">

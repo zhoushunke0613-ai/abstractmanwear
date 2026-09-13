@@ -18,7 +18,6 @@ export default function ServicesPage() {
   const services = [
     {
       id: "oem",
-      no: "01",
       title: t("s1Title"),
       description: t("s1Desc"),
       details: [t("s1D1"), t("s1D2"), t("s1D3"), t("s1D4")],
@@ -27,7 +26,6 @@ export default function ServicesPage() {
     },
     {
       id: "odm",
-      no: "02",
       title: t("s2Title"),
       description: t("s2Desc"),
       details: [t("s2D1"), t("s2D2"), t("s2D3"), t("s2D4")],
@@ -36,7 +34,6 @@ export default function ServicesPage() {
     },
     {
       id: "fabric",
-      no: "03",
       title: t("s3Title"),
       description: t("s3Desc"),
       details: [t("s3D1"), t("s3D2"), t("s3D3"), t("s3D4")],
@@ -45,7 +42,6 @@ export default function ServicesPage() {
     },
     {
       id: "sampling",
-      no: "04",
       title: t("s4Title"),
       description: t("s4Desc"),
       details: [t("s4D1"), t("s4D2"), t("s4D3"), t("s4D4")],
@@ -54,7 +50,6 @@ export default function ServicesPage() {
     },
     {
       id: "private-label",
-      no: "05",
       title: t("s5Title"),
       description: t("s5Desc"),
       details: [t("s5D1"), t("s5D2"), t("s5D3"), t("s5D4")],
@@ -99,7 +94,7 @@ export default function ServicesPage() {
       {/* Service detail sections — alternating layout */}
       {services.map((s, i) => (
         <section
-          key={s.no}
+          key={s.id}
           id={s.id}
           className={`scroll-mt-20 border-b border-neutral-200 ${
             i % 2 === 0 ? "bg-white" : "bg-neutral-50"
@@ -117,10 +112,7 @@ export default function ServicesPage() {
                   i % 2 !== 0 ? "lg:[direction:ltr]" : ""
                 }`}
               >
-                <p className="eyebrow">
-                  {s.no}
-                </p>
-                <h2 className="mt-4 text-3xl leading-tight text-neutral-900 lg:text-5xl">
+                <h2 className="text-3xl leading-tight text-neutral-900 lg:text-5xl">
                   {s.title}
                 </h2>
                 <p className="mt-4 text-sm lg:text-base text-neutral-600 leading-relaxed">

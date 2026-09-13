@@ -208,7 +208,7 @@ export default function CapabilityPage() {
                           className="flex items-baseline gap-4 border-t border-neutral-700 py-3 first:border-t-0"
                         >
                           <span className="text-sm font-semibold text-brand-yellow tabular-nums">
-                            {String(n + 1).padStart(2, "0")}
+                            {n + 1}
                           </span>
                           <span className="text-base lg:text-lg text-white">{step}</span>
                         </li>
@@ -239,7 +239,7 @@ export default function CapabilityPage() {
 
           {/* Horizontal scroll on mobile, grid on desktop */}
           <div className="mt-10 lg:mt-14 -mx-6 px-6 lg:mx-0 lg:px-0 flex overflow-x-auto snap-x snap-mandatory pb-4 lg:pb-0 scrollbar-hide border-y border-neutral-300 lg:grid lg:grid-cols-3 lg:overflow-visible lg:snap-none">
-            {departments.map((dept, idx) => (
+            {departments.map((dept) => (
               <div
                 key={dept.title}
                 className="w-[75vw] max-w-[300px] flex-shrink-0 snap-start border-r border-neutral-300 last:border-r-0 lg:w-auto lg:max-w-none lg:flex-shrink overflow-hidden"
@@ -252,11 +252,9 @@ export default function CapabilityPage() {
                     sizes="(max-width: 1024px) 72vw, 33vw"
                   />
                 ) : (
-                  /* Department number and techniques in place of a photo */
+                  /* Department techniques in place of a photo */
                   <div className="aspect-[5/3] flex flex-col justify-between bg-neutral-900 p-5 lg:p-6">
-                    <span className="text-4xl lg:text-5xl font-semibold tracking-tight text-brand-yellow tabular-nums">
-                      {String(idx + 1).padStart(2, "0")}
-                    </span>
+                    <span className="h-px w-10 bg-brand-yellow" aria-hidden />
                     <p className="text-xs uppercase tracking-[0.15em] text-neutral-300 leading-relaxed">
                       {dept.tags}
                     </p>

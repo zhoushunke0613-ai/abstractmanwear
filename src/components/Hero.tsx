@@ -44,7 +44,7 @@ export default function Hero() {
 
           <div className="relative z-10 flex h-full flex-col px-5 sm:px-8 lg:px-12 xl:px-20">
             <div className="flex items-center justify-between border-b border-white/25 py-5 text-[9px] uppercase tracking-[0.24em] text-white/65 sm:text-[10px]">
-              <span>Abstract Man / 01</span>
+              <span>Abstract Man</span>
               <span className="hidden sm:inline">{t("studioLabel")}</span>
               <span>2006 — Zhongshan</span>
             </div>
