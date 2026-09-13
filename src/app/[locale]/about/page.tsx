@@ -1,7 +1,6 @@
 import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
-import Image from "next/image";
 import ImagePlaceholder from "@/components/ImagePlaceholder";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
@@ -274,77 +273,6 @@ export default function AboutPage() {
                 <p className="mt-2 text-xs text-neutral-400">{m.note}</p>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Certifications */}
-      <section className="border-b border-neutral-200 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14 lg:py-24">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
-            <div className="lg:col-span-6">
-              <p className="text-xs uppercase tracking-[0.2em] text-neutral-500">
-                {t("certsEyebrow")}
-              </p>
-              <h2 className="mt-3 text-xl lg:text-3xl font-semibold tracking-tight text-neutral-900">
-                {t("certsHeadline")}
-              </h2>
-              <p className="mt-4 text-sm lg:text-base text-neutral-600 leading-relaxed">
-                {t("certsDesc")}
-              </p>
-              <ul className="mt-6 space-y-2.5">
-                {[
-                  t("cert1"),
-                  t("cert2"),
-                  t("cert3"),
-                  t("cert4"),
-                  t("cert5"),
-                  t("cert6"),
-                ].map((item) => (
-                  <li
-                    key={item}
-                    className="flex items-start gap-3 text-sm text-neutral-700"
-                  >
-                    <span
-                      className="mt-1.5 h-1.5 w-1.5 rounded-full bg-brand-yellow flex-none"
-                      aria-hidden
-                    />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="lg:col-span-5 lg:col-start-8 space-y-4">
-              <div className="relative aspect-[3/2] overflow-hidden rounded-xl border border-neutral-200 bg-white">
-                <Image
-                  src="/images/cert-bsci-cover.jpg"
-                  alt={t("bsciImgAlt")}
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 40vw"
-                  className="object-contain p-3"
-                />
-              </div>
-              <a
-                href="/certificates/higg-fslm-2026.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group block"
-              >
-                <div className="relative aspect-[3/2] overflow-hidden rounded-xl border border-neutral-200 bg-neutral-50 transition-colors group-hover:border-brand-yellow">
-                  <Image
-                    src="/images/cert-higg-fslm-2026.png"
-                    alt={t("higgImgAlt")}
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 40vw"
-                    className="object-contain p-3"
-                  />
-                </div>
-                <p className="mt-2 text-xs text-neutral-500 underline-offset-4 group-hover:text-neutral-900 group-hover:underline">
-                  {t("higgView")} ↗
-                </p>
-              </a>
-            </div>
           </div>
         </div>
       </section>

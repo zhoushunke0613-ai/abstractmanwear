@@ -1,38 +1,37 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import { PRODUCTS } from "@/lib/products";
 
 export default function Footer() {
   const t = useTranslations("Footer");
+  const tp = useTranslations("ProductSpecialization");
 
+  // Mirrors the header groups so every destination has one address.
   const footerNav = [
     {
       heading: t("col1Heading"),
       items: [
-        { href: "/products/boxer-briefs", label: t("col1_boxerBriefs") },
-        { href: "/products/trunks", label: t("col1_trunks") },
-        { href: "/products/briefs", label: t("col1_briefs") },
-        { href: "/products/seamless", label: t("col1_seamless") },
-        { href: "/products/modal", label: t("col1_modal") },
-        { href: "/products/performance", label: t("col1_performance") },
-        { href: "/contact?type=custom", label: t("col1_custom") },
+        ...PRODUCTS.map((p) => ({ href: `/products#${p.slug}`, label: tp(p.key) })),
+        { href: "/services#odm", label: t("col1_custom") },
       ],
     },
     {
       heading: t("col2Heading"),
       items: [
-        { href: "/capability", label: t("col2_production") },
-        { href: "/capability/quality", label: t("col2_quality") },
-        { href: "/capability/certifications", label: t("col2_certs") },
         { href: "/services", label: t("col2_services") },
+        { href: "/services#process", label: t("col2_process") },
+        { href: "/capability", label: t("col2_production") },
+        { href: "/capability#quality", label: t("col2_quality") },
+        { href: "/capability#certifications", label: t("col2_certs") },
       ],
     },
     {
       heading: t("col3Heading"),
       items: [
         { href: "/about", label: t("col3_about") },
-        { href: "/contact", label: t("col3_contact") },
+        { href: "/faq", label: t("col3_faq") },
         { href: "/catalog", label: t("col3_catalog") },
-        { href: "/contact", label: t("col3_start") },
+        { href: "/contact", label: t("col3_contact") },
       ],
     },
   ];
@@ -78,7 +77,7 @@ export default function Footer() {
                 </p>
                 <ul className="mt-3 lg:mt-4 space-y-2 lg:space-y-2.5">
                   {col.items.map((item) => (
-                    <li key={`${col.heading}-${item.label}`}>
+                    <li key={`${col.heading}-${item.href}`}>
                       <Link
                         href={item.href}
                         className="text-xs lg:text-sm text-neutral-300 hover:text-white transition-colors"

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 export default function ServicesOverview() {
   const t = useTranslations("ServicesOverview");
@@ -34,6 +35,9 @@ export default function ServicesOverview() {
       imageAlt: "Finished underwear samples with hang tags, woven labels, and branded packaging",
     },
   ];
+
+  const linkClass =
+    "inline-flex items-center gap-2 text-sm font-medium text-neutral-900 underline underline-offset-4 decoration-neutral-300 hover:decoration-brand-yellow";
 
   return (
     <section className="border-b border-neutral-200 bg-white">
@@ -73,6 +77,15 @@ export default function ServicesOverview() {
               </p>
             </div>
           ))}
+        </div>
+
+        <div className="mt-10 lg:mt-14 flex flex-wrap items-center gap-x-8 gap-y-3 border-t border-neutral-200 pt-8">
+          <Link href="/services" className={linkClass}>
+            {t("viewServices")} <span aria-hidden>&rarr;</span>
+          </Link>
+          <Link href="/services#process" className={linkClass}>
+            {t("processLink")} <span aria-hidden>&rarr;</span>
+          </Link>
         </div>
       </div>
     </section>

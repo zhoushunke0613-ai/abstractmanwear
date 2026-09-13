@@ -5,13 +5,8 @@ import { Link } from "@/i18n/navigation";
 export default function CapabilitySnapshot() {
   const t = useTranslations("CapabilitySnapshot");
 
-  const stats = [
-    { value: t("stat1"), label: t("stat1Label") },
-    { value: t("stat2"), label: t("stat2Label") },
-    { value: t("stat3"), label: t("stat3Label") },
-    { value: t("stat4"), label: t("stat4Label") },
-  ];
-
+  // Headline figures already sit in the TrustBar under the hero; this
+  // section carries what the facility does rather than repeating them.
   const highlights = [t("h1"), t("h2"), t("h3"), t("h4")];
 
   return (
@@ -62,19 +57,6 @@ export default function CapabilitySnapshot() {
               className="object-cover img-hover-zoom"
             />
           </div>
-        </div>
-
-        <div className="mt-10 lg:mt-14 -mx-6 px-6 lg:mx-0 lg:px-0 flex overflow-x-auto snap-x snap-mandatory gap-px lg:gap-px scrollbar-hide lg:grid lg:grid-cols-4 lg:overflow-visible lg:snap-none bg-neutral-800 border border-neutral-800">
-          {stats.map((s) => (
-            <div key={s.label} className="min-w-[160px] flex-shrink-0 snap-start lg:min-w-0 lg:flex-shrink bg-neutral-900 p-5 lg:p-8">
-              <p className="text-xl lg:text-4xl font-semibold tracking-tight text-white whitespace-nowrap">
-                {s.value}
-              </p>
-              <p className="mt-1 lg:mt-2 text-xs uppercase tracking-[0.2em] text-neutral-500">
-                {s.label}
-              </p>
-            </div>
-          ))}
         </div>
       </div>
     </section>

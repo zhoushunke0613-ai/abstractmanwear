@@ -19,7 +19,7 @@ type Cert = {
   hrefInternal?: boolean;
 };
 
-export default function Certifications() {
+export default function Certifications({ id }: { id?: string }) {
   const t = useTranslations("Certifications");
 
   const certs: Cert[] = [
@@ -78,7 +78,7 @@ export default function Certifications() {
     "mt-4 inline-block text-sm font-medium text-neutral-900 underline underline-offset-4 decoration-neutral-300 hover:decoration-brand-yellow";
 
   return (
-    <section className="border-b border-neutral-200 bg-white">
+    <section id={id} className="scroll-mt-20 border-b border-neutral-200 bg-white">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14 lg:py-28">
         <div className="max-w-2xl">
           <p className="text-xs uppercase tracking-[0.2em] text-neutral-500">

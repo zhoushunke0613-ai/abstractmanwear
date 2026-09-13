@@ -2,8 +2,6 @@ import Hero from "@/components/Hero";
 import TrustBar from "@/components/TrustBar";
 import ServicesOverview from "@/components/ServicesOverview";
 import ProductSpecialization from "@/components/ProductSpecialization";
-import WhyChooseUs from "@/components/WhyChooseUs";
-import OrderProcess from "@/components/OrderProcess";
 import CapabilitySnapshot from "@/components/CapabilitySnapshot";
 import Certifications from "@/components/Certifications";
 import WhoWeServe from "@/components/WhoWeServe";
@@ -17,18 +15,14 @@ export default function Home() {
       <Hero />
       <TrustBar />
 
-      {/* Each section fades up on scroll */}
-      <AnimateOnScroll>
-        <ServicesOverview />
-      </AnimateOnScroll>
+      {/* Each section fades up on scroll. Order follows the nav: what we make,
+          how we work with you, why the factory can be trusted. The full
+          process lives on /services#process. */}
       <AnimateOnScroll>
         <ProductSpecialization />
       </AnimateOnScroll>
       <AnimateOnScroll>
-        <WhyChooseUs />
-      </AnimateOnScroll>
-      <AnimateOnScroll>
-        <OrderProcess />
+        <ServicesOverview />
       </AnimateOnScroll>
       <AnimateOnScroll>
         <CapabilitySnapshot />

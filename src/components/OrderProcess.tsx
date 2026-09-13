@@ -1,7 +1,14 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 
-export default function OrderProcess() {
+interface Props {
+  /** Anchor target, e.g. "process" for /services#process */
+  id?: string;
+  /** Hide the inline CTA when the host page already ends with its own */
+  showCta?: boolean;
+}
+
+export default function OrderProcess({ id, showCta = true }: Props) {
   const t = useTranslations("OrderProcess");
 
   const steps = [
@@ -15,7 +22,7 @@ export default function OrderProcess() {
   ];
 
   return (
-    <section className="border-b border-neutral-200 bg-white">
+    <section id={id} className="scroll-mt-20 border-b border-neutral-200 bg-white">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14 lg:py-28">
         <div className="max-w-2xl">
           <p className="text-xs uppercase tracking-[0.2em] text-neutral-500">
@@ -51,17 +58,19 @@ export default function OrderProcess() {
           ))}
         </ol>
 
-        <div className="mt-10 lg:mt-14 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 lg:gap-6 border-t border-neutral-200 pt-8 lg:pt-10">
-          <p className="text-base lg:text-lg font-semibold tracking-tight text-neutral-900">
-            {t("ctaText")}
-          </p>
-          <Link
-            href="/contact"
-            className="rounded-full bg-neutral-900 text-white font-medium text-sm px-7 py-2.5 shadow-sm transition-all duration-300 ease-out hover:bg-neutral-800 hover:-translate-y-0.5"
-          >
-            {t("ctaButton")} &rarr;
-          </Link>
-        </div>
+        {showCta ? (
+          <div className="mt-10 lg:mt-14 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 lg:gap-6 border-t border-neutral-200 pt-8 lg:pt-10">
+            <p className="text-base lg:text-lg font-semibold tracking-tight text-neutral-900">
+              {t("ctaText")}
+            </p>
+            <Link
+              href="/contact"
+              className="rounded-full bg-neutral-900 text-white font-medium text-sm px-7 py-2.5 shadow-sm transition-all duration-300 ease-out hover:bg-neutral-800 hover:-translate-y-0.5"
+            >
+              {t("ctaButton")} &rarr;
+            </Link>
+          </div>
+        ) : null}
       </div>
     </section>
   );

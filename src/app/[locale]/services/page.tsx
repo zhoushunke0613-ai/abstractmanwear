@@ -2,6 +2,7 @@ import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import ImagePlaceholder from "@/components/ImagePlaceholder";
+import OrderProcess from "@/components/OrderProcess";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -12,8 +13,11 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 export default function ServicesPage() {
   const t = useTranslations("ServicesPage");
 
+  // Quality control lives under Factory (/capability#quality); the ids here
+  // are the anchors the header's Custom Services menu points at.
   const services = [
     {
+      id: "oem",
       no: "01",
       title: t("s1Title"),
       description: t("s1Desc"),
@@ -24,6 +28,7 @@ export default function ServicesPage() {
       },
     },
     {
+      id: "odm",
       no: "02",
       title: t("s2Title"),
       description: t("s2Desc"),
@@ -34,6 +39,7 @@ export default function ServicesPage() {
       },
     },
     {
+      id: "fabric",
       no: "03",
       title: t("s3Title"),
       description: t("s3Desc"),
@@ -44,6 +50,7 @@ export default function ServicesPage() {
       },
     },
     {
+      id: "sampling",
       no: "04",
       title: t("s4Title"),
       description: t("s4Desc"),
@@ -54,6 +61,7 @@ export default function ServicesPage() {
       },
     },
     {
+      id: "private-label",
       no: "05",
       title: t("s5Title"),
       description: t("s5Desc"),
@@ -63,25 +71,6 @@ export default function ServicesPage() {
         description: t("s5ImgDesc"),
       },
     },
-    {
-      no: "06",
-      title: t("s6Title"),
-      description: t("s6Desc"),
-      details: [t("s6D1"), t("s6D2"), t("s6D3"), t("s6D4")],
-      image: {
-        label: t("s6ImgLabel"),
-        description: t("s6ImgDesc"),
-      },
-    },
-  ];
-
-  const processSteps = [
-    { no: "01", title: t("p1Title"), description: t("p1Desc") },
-    { no: "02", title: t("p2Title"), description: t("p2Desc") },
-    { no: "03", title: t("p3Title"), description: t("p3Desc") },
-    { no: "04", title: t("p4Title"), description: t("p4Desc") },
-    { no: "05", title: t("p5Title"), description: t("p5Desc") },
-    { no: "06", title: t("p6Title"), description: t("p6Desc") },
   ];
 
   return (
@@ -121,7 +110,8 @@ export default function ServicesPage() {
       {services.map((s, i) => (
         <section
           key={s.no}
-          className={`border-b border-neutral-200 ${
+          id={s.id}
+          className={`scroll-mt-20 border-b border-neutral-200 ${
             i % 2 === 0 ? "bg-white" : "bg-neutral-50"
           }`}
         >
@@ -179,42 +169,8 @@ export default function ServicesPage() {
         </section>
       ))}
 
-      {/* Process overview */}
-      <section className="border-b border-neutral-200 bg-neutral-900 text-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14 lg:py-24">
-          <div className="max-w-2xl">
-            <p className="text-xs uppercase tracking-[0.2em] text-brand-yellow">
-              {t("processEyebrow")}
-            </p>
-            <h2 className="mt-3 text-2xl lg:text-4xl font-semibold tracking-tight text-white">
-              {t("processHeadline")}
-            </h2>
-            <p className="mt-4 text-sm lg:text-base text-neutral-400 leading-relaxed">
-              {t("processDesc")}
-            </p>
-          </div>
-
-          {/* Horizontal scroll on mobile, grid on desktop */}
-          <ol className="mt-10 lg:mt-14 -mx-6 px-6 lg:mx-0 lg:px-0 flex overflow-x-auto snap-x snap-mandatory gap-3 pb-4 lg:pb-0 scrollbar-hide lg:grid lg:grid-cols-3 lg:gap-4 lg:overflow-visible lg:snap-none">
-            {processSteps.map((step) => (
-              <li
-                key={step.no}
-                className="w-[65vw] max-w-[260px] flex-shrink-0 snap-start lg:w-auto lg:max-w-none lg:flex-shrink rounded-xl border border-neutral-700 bg-neutral-800/50 p-5 lg:p-6"
-              >
-                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-brand-yellow text-xs font-semibold text-neutral-900">
-                  {step.no}
-                </span>
-                <h3 className="mt-4 text-base font-semibold tracking-tight text-white">
-                  {step.title}
-                </h3>
-                <p className="mt-2 text-sm text-neutral-400 leading-relaxed">
-                  {step.description}
-                </p>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
+      {/* The one full process — the homepage links here instead of repeating it */}
+      <OrderProcess id="process" showCta={false} />
 
       {/* CTA */}
       <section className="bg-brand-yellow">

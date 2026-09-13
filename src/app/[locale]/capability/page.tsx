@@ -2,6 +2,7 @@ import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import ImagePlaceholder from "@/components/ImagePlaceholder";
+import Certifications from "@/components/Certifications";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -27,7 +28,6 @@ export default function CapabilityPage() {
         t("line1Spec1"),
         t("line1Spec2"),
         t("line1Spec3"),
-        t("line1Spec4"),
       ],
       image: {
         label: t("line1ImgLabel"),
@@ -41,7 +41,6 @@ export default function CapabilityPage() {
         t("line2Spec1"),
         t("line2Spec2"),
         t("line2Spec3"),
-        t("line2Spec4"),
       ],
       image: {
         label: t("line2ImgLabel"),
@@ -301,6 +300,58 @@ export default function CapabilityPage() {
           </div>
         </div>
       </section>
+
+      {/* Quality control */}
+      <section
+        id="quality"
+        className="scroll-mt-20 border-b border-neutral-200 bg-neutral-50"
+      >
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14 lg:py-24">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
+            <div className="lg:col-span-6">
+              <p className="text-xs uppercase tracking-[0.2em] text-brand-yellow font-semibold">
+                {t("qualityEyebrow")}
+              </p>
+              <h2 className="mt-3 text-xl lg:text-3xl font-semibold tracking-tight text-neutral-900">
+                {t("qualityTitle")}
+              </h2>
+              <p className="mt-4 text-sm lg:text-base text-neutral-600 leading-relaxed">
+                {t("qualityDesc")}
+              </p>
+              <ul className="mt-6 space-y-2.5">
+                {[
+                  t("qualityD1"),
+                  t("qualityD2"),
+                  t("qualityD3"),
+                  t("qualityD4"),
+                ].map((point) => (
+                  <li
+                    key={point}
+                    className="flex items-start gap-3 text-sm text-neutral-700"
+                  >
+                    <span
+                      className="mt-1.5 h-1.5 w-1.5 rounded-full bg-brand-yellow flex-none"
+                      aria-hidden
+                    />
+                    {point}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="lg:col-span-5 lg:col-start-8">
+              <ImagePlaceholder
+                label={t("qualityImgLabel")}
+                description={t("qualityImgDesc")}
+                className="aspect-[4/3]"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Certifications — the one place compliance documents are shown */}
+      <Certifications id="certifications" />
 
       {/* Equipment list */}
       <section className="border-b border-neutral-200 bg-neutral-50">
