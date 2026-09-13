@@ -20,9 +20,8 @@ export default function CapabilityPage() {
     { value: t("stat4"), label: t("stat4Label") },
   ];
 
-  // Where no real photograph exists, the slot carries information instead of
-  // a stand-in image: the seamless line shows its process, departments their
-  // number and techniques.
+  // Where no real photograph exists, the slot carries process information
+  // instead of a stand-in image.
   const productionLines = [
     {
       title: t("line1Title"),
@@ -46,8 +45,8 @@ export default function CapabilityPage() {
 
   const departments = [
     { title: t("dept1Title"), description: t("dept1Desc"), alt: t("dept1ImgDesc"), photo: "/images/brand/design-colorways.jpg" as string | null, tags: "" },
-    { title: t("dept2Title"), description: t("dept2Desc"), alt: "", photo: null as string | null, tags: t("dept2Tags") },
-    { title: t("dept3Title"), description: t("dept3Desc"), alt: "", photo: null as string | null, tags: t("dept3Tags") },
+    { title: t("dept2Title"), description: t("dept2Desc"), alt: t("dept2ImgDesc"), photo: "/images/brand/retail-display.webp" as string | null, tags: t("dept2Tags") },
+    { title: t("dept3Title"), description: t("dept3Desc"), alt: t("dept3ImgDesc"), photo: "/images/service-odm.png" as string | null, tags: t("dept3Tags") },
     { title: t("dept4Title"), description: t("dept4Desc"), alt: t("dept4ImgDesc"), photo: "/images/brand/qc-station.webp" as string | null, tags: "" },
     { title: t("dept5Title"), description: t("dept5Desc"), alt: t("dept5ImgDesc"), photo: "/images/brand/packing-station.webp" as string | null, tags: "" },
     { title: t("dept6Title"), description: t("dept6Desc"), alt: t("dept6ImgDesc"), photo: "/images/brand/sample-review-showroom.jpg" as string | null, tags: "" },
@@ -224,7 +223,7 @@ export default function CapabilityPage() {
       ))}
 
       {/* Factory departments -- card grid */}
-      <section className="border-b border-neutral-200 bg-white">
+      <section id="departments" className="scroll-mt-20 border-b border-neutral-200 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14 lg:py-24">
           <div className="max-w-2xl">
             <p className="eyebrow">
