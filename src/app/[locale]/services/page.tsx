@@ -60,20 +60,25 @@ export default function ServicesPage() {
 
   return (
     <>
-      {/* Header */}
-      <section className="page-hero">
-        <div className="page-hero-inner">
-          <div className="max-w-2xl">
+      {/* Lead with the buyer journey so visitors understand the engagement model immediately. */}
+      <OrderProcess id="process" showCta={false} />
+
+      {/* Compact service introduction */}
+      <section className="border-b border-neutral-200 bg-neutral-50">
+        <div className="mx-auto grid max-w-7xl gap-8 px-6 py-14 lg:grid-cols-12 lg:items-end lg:gap-16 lg:px-8 lg:py-20">
+          <div className="lg:col-span-7">
             <p className="eyebrow">
               {t("eyebrow")}
             </p>
-            <h1 className="page-title text-neutral-900">
+            <h2 className="mt-4 max-w-[17ch] text-4xl leading-[1.02] text-neutral-900 lg:text-6xl">
               {t("headline")}
-            </h1>
-            <p className="body-copy mt-6">
+            </h2>
+          </div>
+          <div className="lg:col-span-4 lg:col-start-9">
+            <p className="text-base leading-relaxed text-neutral-600">
               {t("description")}
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-6 flex flex-wrap gap-3">
               <Link
                 href="/contact"
                 className="btn-primary"
@@ -151,9 +156,6 @@ export default function ServicesPage() {
           </div>
         </section>
       ))}
-
-      {/* The one full process — the homepage links here instead of repeating it */}
-      <OrderProcess id="process" showCta={false} />
 
       {/* CTA */}
       <section className="bg-neutral-900 text-white">
