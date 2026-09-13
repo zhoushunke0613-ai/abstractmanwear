@@ -1,8 +1,11 @@
+"use client";
+
 import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/navigation";
+import { Link, usePathname } from "@/i18n/navigation";
 import { PRODUCTS, PRODUCT_EXTRAS } from "@/lib/products";
 
 export default function Footer() {
+  const pathname = usePathname();
   const t = useTranslations("Footer");
   const tp = useTranslations("ProductSpecialization");
 
@@ -36,6 +39,10 @@ export default function Footer() {
       ],
     },
   ];
+
+  if (pathname.startsWith("/concepts/")) {
+    return null;
+  }
 
   return (
     <footer className="bg-neutral-900 text-neutral-300">
