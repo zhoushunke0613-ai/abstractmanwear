@@ -151,7 +151,10 @@ export default function Certifications({ id }: { id?: string }) {
                 </p>
                 {c.href && c.hrefInternal ? (
                   <Link href={c.href} className={linkClass}>
-                    {c.hrefLabel} →
+                    {c.hrefLabel}
+                    <svg aria-hidden="true" viewBox="0 0 16 16" className="ml-1 inline-block h-3.5 w-3.5" fill="none">
+                      <path d="M3 8h9M9 5l3 3-3 3" stroke="currentColor" strokeWidth="1.4" />
+                    </svg>
                   </Link>
                 ) : c.href ? (
                   <a
@@ -160,7 +163,10 @@ export default function Certifications({ id }: { id?: string }) {
                     rel="noopener noreferrer"
                     className={linkClass}
                   >
-                    {c.hrefLabel} ↗
+                    {c.hrefLabel}
+                    <svg aria-hidden="true" viewBox="0 0 16 16" className="ml-1 inline-block h-3.5 w-3.5" fill="none">
+                      <path d="M4 12 12 4M6 4h6v6" stroke="currentColor" strokeWidth="1.4" />
+                    </svg>
                   </a>
                 ) : null}
               </div>

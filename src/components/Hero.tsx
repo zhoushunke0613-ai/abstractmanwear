@@ -68,7 +68,15 @@ export default function Hero() {
                     {t("startProject")}
                   </Link>
                   <Link href="/catalog" className="text-link text-link-inverse border-white/50 hover:text-[#efc400]">
-                    {t("downloadCatalog")} <span aria-hidden>↗</span>
+                    {t("downloadCatalog")}
+                    <svg
+                      aria-hidden="true"
+                      viewBox="0 0 16 16"
+                      className="ml-1 inline-block h-3.5 w-3.5"
+                      fill="none"
+                    >
+                      <path d="M4 12 12 4M6 4h6v6" stroke="currentColor" strokeWidth="1.4" />
+                    </svg>
                   </Link>
                 </div>
               </div>
