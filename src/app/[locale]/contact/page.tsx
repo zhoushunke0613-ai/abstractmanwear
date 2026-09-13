@@ -17,26 +17,8 @@ export default function ContactPage() {
     {
       label: t("contactEmail"),
       value: t("contactEmailValue"),
-      href: "mailto:hello@abstractman.com",
+      href: "mailto:lei@abstractmanwear.com",
       note: t("contactEmailNote"),
-    },
-    {
-      label: t("contactWhatsApp"),
-      value: t("contactWhatsAppValue"),
-      href: "https://wa.me/8613800000000",
-      note: t("contactWhatsAppNote"),
-    },
-    {
-      label: t("contactWeChat"),
-      value: t("contactWeChatValue"),
-      href: "#wechat",
-      note: t("contactWeChatNote"),
-    },
-    {
-      label: t("contactPhone"),
-      value: t("contactPhoneValue"),
-      href: "tel:+867600000000",
-      note: t("contactPhoneNote"),
     },
   ];
 

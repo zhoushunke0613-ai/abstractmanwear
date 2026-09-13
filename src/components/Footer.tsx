@@ -58,10 +58,10 @@ export default function Footer() {
             <div className="mt-8 space-y-2 text-sm">
               <p className="text-neutral-400">{t("location")}</p>
               <a
-                href="mailto:hello@abstractman.com"
+                href="mailto:lei@abstractmanwear.com"
                 className="inline-block text-neutral-200 hover:text-brand-yellow transition-colors"
               >
-                hello@abstractman.com
+                lei@abstractmanwear.com
               </a>
             </div>
           </div>

@@ -84,7 +84,7 @@ export default function FAQPage() {
                 <p className="text-sm text-neutral-500 leading-relaxed">
                   {t("sidebarText")}{" "}
                   <a
-                    href="mailto:hello@abstractman.com"
+                    href="mailto:lei@abstractmanwear.com"
                     className="text-neutral-900 underline underline-offset-4 hover:text-brand-yellow transition-colors"
                   >
                     {t("emailUs")}
