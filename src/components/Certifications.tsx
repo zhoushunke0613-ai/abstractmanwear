@@ -1,16 +1,33 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import ImagePlaceholder from "./ImagePlaceholder";
+
+type Cert = {
+  badge: string;
+  title: string;
+  description: string;
+  image: string | null;
+  imageAlt: string;
+  imageFit?: "contain";
+  placeholder: { label: string; description: string } | null;
+  /** Typographic record shown in place of an image, for documents without a certificate */
+  facts?: { eyebrow: string; rows: { label: string; value: string }[] };
+  href?: string;
+  hrefLabel?: string;
+  /** Localized site route rather than a static file */
+  hrefInternal?: boolean;
+};
 
 export default function Certifications() {
   const t = useTranslations("Certifications");
 
-  const certs = [
+  const certs: Cert[] = [
     {
       badge: "BSCI",
       title: t("bsciTitle"),
       description: t("bsciDesc"),
-      image: null as string | null,
+      image: null,
       imageAlt: "",
       placeholder: {
         label: "BSCI Certificate",
@@ -21,12 +38,22 @@ export default function Certifications() {
       badge: "SLCP",
       title: t("slcpTitle"),
       description: t("slcpDesc"),
-      image: null as string | null,
+      image: null,
       imageAlt: "",
-      placeholder: {
-        label: "SLCP Verified Assessment",
-        description: "SLCP Gateway verification summary or official SLCP badge image",
+      placeholder: null,
+      facts: {
+        eyebrow: t("slcpFactsEyebrow"),
+        rows: [
+          { label: t("slcpFactId"), value: "PRJ839999" },
+          { label: t("slcpFactStatus"), value: t("slcpFactStatusValue") },
+          { label: t("slcpFactVerifier"), value: "Madeown International" },
+          { label: t("slcpFactCompleted"), value: t("slcpFactCompletedValue") },
+          { label: t("slcpFactPlatform"), value: "Worldly" },
+        ],
       },
+      href: "/contact",
+      hrefLabel: t("slcpRequest"),
+      hrefInternal: true,
     },
     {
       badge: "Higg",
@@ -34,7 +61,7 @@ export default function Certifications() {
       description: t("higgDesc"),
       image: "/images/cert-higg-fslm-2026.png",
       imageAlt: "Cascale Higg FSLM self-assessment certificate of completion, 2026",
-      imageFit: "contain" as const,
+      imageFit: "contain",
       placeholder: null,
       href: "/certificates/higg-fslm-2026.pdf",
       hrefLabel: t("higgView"),
@@ -47,17 +74,10 @@ export default function Certifications() {
       imageAlt: "QC inspector examining underwear under magnifying lamp",
       placeholder: null,
     },
-  ] as {
-    badge: string;
-    title: string;
-    description: string;
-    image: string | null;
-    imageAlt: string;
-    imageFit?: "contain";
-    placeholder: { label: string; description: string } | null;
-    href?: string;
-    hrefLabel?: string;
-  }[];
+  ];
+
+  const linkClass =
+    "mt-4 inline-block text-sm font-medium text-neutral-900 underline underline-offset-4 decoration-neutral-300 hover:decoration-brand-yellow";
 
   return (
     <section className="border-b border-neutral-200 bg-white">
@@ -94,6 +114,27 @@ export default function Certifications() {
                     className={c.imageFit === "contain" ? "object-contain p-3" : "object-cover"}
                   />
                 </div>
+              ) : c.facts ? (
+                <div className="aspect-[5/3] flex flex-col justify-center bg-neutral-50 border-b border-neutral-200 px-5 lg:px-6">
+                  <p className="text-[10px] uppercase tracking-[0.2em] text-neutral-500">
+                    {c.facts.eyebrow}
+                  </p>
+                  <dl className="mt-2.5">
+                    {c.facts.rows.map((row) => (
+                      <div
+                        key={row.label}
+                        className="flex items-baseline justify-between gap-4 border-t border-neutral-200 py-1 first:border-t-0"
+                      >
+                        <dt className="text-[11px] text-neutral-500 whitespace-nowrap">
+                          {row.label}
+                        </dt>
+                        <dd className="text-xs font-medium text-neutral-900 text-right tabular-nums">
+                          {row.value}
+                        </dd>
+                      </div>
+                    ))}
+                  </dl>
+                </div>
               ) : c.placeholder ? (
                 <ImagePlaceholder
                   label={c.placeholder.label}
@@ -111,12 +152,16 @@ export default function Certifications() {
                 <p className="mt-2 lg:mt-3 text-sm text-neutral-600 leading-relaxed">
                   {c.description}
                 </p>
-                {c.href ? (
+                {c.href && c.hrefInternal ? (
+                  <Link href={c.href} className={linkClass}>
+                    {c.hrefLabel} →
+                  </Link>
+                ) : c.href ? (
                   <a
                     href={c.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-4 inline-block text-sm font-medium text-neutral-900 underline underline-offset-4 decoration-neutral-300 hover:decoration-brand-yellow"
+                    className={linkClass}
                   >
                     {c.hrefLabel} ↗
                   </a>
