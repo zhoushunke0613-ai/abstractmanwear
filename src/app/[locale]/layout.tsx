@@ -37,7 +37,7 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   return (
     <html lang={locale}>
-      <body className="min-h-screen flex flex-col text-neutral-900">
+      <body className="min-h-screen flex flex-col bg-[#fcfaf6] text-neutral-900">
         <NextIntlClientProvider messages={messages}>
           <Header />
           <main className="flex-1">{children}</main>

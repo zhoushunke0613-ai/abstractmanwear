@@ -58,7 +58,7 @@ export default function ServicesPage() {
       title: t("s5Title"),
       description: t("s5Desc"),
       details: [t("s5D1"), t("s5D2"), t("s5D3"), t("s5D4")],
-      photo: "/images/brand/design-colorways.jpg",
+      photo: "/images/brand/packing-station.webp",
       alt: t("s5ImgDesc"),
     },
   ];
@@ -66,28 +66,28 @@ export default function ServicesPage() {
   return (
     <>
       {/* Header */}
-      <section className="border-b border-neutral-200 bg-neutral-50">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12 lg:py-24">
+      <section className="page-hero">
+        <div className="page-hero-inner">
           <div className="max-w-2xl">
-            <p className="text-xs uppercase tracking-[0.2em] text-neutral-500">
+            <p className="eyebrow">
               {t("eyebrow")}
             </p>
-            <h1 className="mt-3 text-2xl lg:text-5xl font-semibold tracking-tight text-neutral-900 leading-[1.1]">
+            <h1 className="page-title text-neutral-900">
               {t("headline")}
             </h1>
-            <p className="mt-4 text-sm lg:text-base text-neutral-600 leading-relaxed">
+            <p className="body-copy mt-6">
               {t("description")}
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 href="/contact"
-                className="rounded-full bg-neutral-900 text-white font-medium text-sm px-8 py-3 shadow-sm transition-all duration-300 ease-out hover:bg-neutral-800 hover:-translate-y-0.5"
+                className="btn-primary"
               >
                 {t("startProject")}
               </Link>
               <Link
                 href="/catalog"
-                className="rounded-full bg-white/70 backdrop-blur-md border border-neutral-300 text-neutral-900 text-sm px-8 py-3 shadow-sm transition-all duration-300 ease-out hover:bg-white hover:-translate-y-0.5"
+                className="btn-secondary"
               >
                 {t("downloadCatalog")}
               </Link>
@@ -117,10 +117,10 @@ export default function ServicesPage() {
                   i % 2 !== 0 ? "lg:[direction:ltr]" : ""
                 }`}
               >
-                <p className="text-xs uppercase tracking-[0.2em] text-brand-yellow font-semibold">
+                <p className="eyebrow">
                   {s.no}
                 </p>
-                <h2 className="mt-3 text-xl lg:text-3xl font-semibold tracking-tight text-neutral-900">
+                <h2 className="mt-4 text-3xl leading-tight text-neutral-900 lg:text-5xl">
                   {s.title}
                 </h2>
                 <p className="mt-4 text-sm lg:text-base text-neutral-600 leading-relaxed">
@@ -148,7 +148,12 @@ export default function ServicesPage() {
                   i % 2 === 0 ? "lg:col-start-8" : "lg:[direction:ltr]"
                 }`}
               >
-                <Photo src={s.photo} alt={s.alt} className="aspect-[4/3] lg:aspect-[3/2]" />
+                <Photo
+                  src={s.photo}
+                  alt={s.alt}
+                  className="aspect-[4/3] lg:aspect-[3/2]"
+                  priority={i === 0}
+                />
               </div>
             </div>
           </div>
@@ -159,25 +164,25 @@ export default function ServicesPage() {
       <OrderProcess id="process" showCta={false} />
 
       {/* CTA */}
-      <section className="bg-brand-yellow">
+      <section className="bg-neutral-900 text-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14 lg:py-24">
-          <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-2xl lg:text-4xl font-semibold tracking-tight text-neutral-900">
+          <div className="max-w-3xl">
+            <h2 className="text-4xl leading-tight text-white lg:text-6xl">
               {t("ctaHeadline")}
             </h2>
-            <p className="mt-4 text-sm lg:text-base text-neutral-900/70 leading-relaxed">
+            <p className="mt-5 max-w-2xl text-sm lg:text-base text-neutral-400 leading-relaxed">
               {t("ctaDesc")}
             </p>
-            <div className="mt-8 flex flex-wrap justify-center gap-3">
+            <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 href="/contact"
-                className="rounded-full bg-neutral-900 text-white font-medium text-sm px-8 py-3 shadow-sm transition-all duration-300 ease-out hover:bg-neutral-800 hover:-translate-y-0.5"
+                className="btn-primary btn-primary-inverse"
               >
                 {t("ctaQuote")}
               </Link>
               <Link
                 href="/catalog"
-                className="rounded-full bg-white/70 backdrop-blur-md border border-white/60 text-neutral-900 text-sm px-8 py-3 shadow-sm transition-all duration-300 ease-out hover:bg-white hover:-translate-y-0.5"
+                className="btn-secondary btn-secondary-inverse"
               >
                 {t("ctaCatalog")}
               </Link>

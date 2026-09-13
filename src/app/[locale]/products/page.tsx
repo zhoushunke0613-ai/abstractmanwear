@@ -3,6 +3,7 @@ import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import { FABRIC_GROUPS, PRODUCTS, type FabricKey } from "@/lib/products";
+import Photo from "@/components/Photo";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -46,27 +47,41 @@ export default function ProductsPage() {
   return (
     <>
       {/* Header */}
-      <section className="border-b border-neutral-200 bg-neutral-50">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12 lg:py-24">
-          <div className="max-w-2xl">
-            <p className="text-xs uppercase tracking-[0.2em] text-neutral-500">
-              {t("eyebrow")}
-            </p>
-            <h1 className="mt-3 text-2xl lg:text-5xl font-semibold tracking-tight text-neutral-900 leading-[1.1]">
-              {t("headline")}
-            </h1>
-            <p className="mt-4 text-sm lg:text-base text-neutral-600 leading-relaxed">
-              {t("description")}
-            </p>
+      <section className="page-hero">
+        <div className="page-hero-inner">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+            <div className="max-w-2xl">
+              <p className="eyebrow">
+                {t("eyebrow")}
+              </p>
+              <h1 className="page-title text-neutral-900">
+                {t("headline")}
+              </h1>
+              <p className="body-copy mt-6">
+                {t("description")}
+              </p>
+            </div>
+            <figure>
+              <Photo
+                src="/images/brand/retail-display.webp"
+                alt={t("displayAlt")}
+                className="aspect-[3/2]"
+                priority
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+              <figcaption className="mt-3 text-xs text-neutral-500">
+                {t("displayCaption")}
+              </figcaption>
+            </figure>
           </div>
 
           {/* Page index */}
-          <ul className="mt-8 flex flex-wrap gap-2">
+          <ul className="mt-10 grid grid-cols-2 border-y border-neutral-300 sm:grid-cols-3">
             {index.map((item) => (
               <li key={item.href}>
                 <a
                   href={item.href}
-                  className="inline-flex rounded-full border border-neutral-300 bg-white px-4 py-1.5 text-sm text-neutral-700 transition-colors hover:border-neutral-900 hover:text-neutral-900"
+                  className="flex min-h-12 items-center border-b border-r border-neutral-300 px-3 py-2 text-xs text-neutral-600 transition-colors hover:bg-neutral-900 hover:text-white"
                 >
                   {item.label}
                 </a>
@@ -120,10 +135,10 @@ export default function ProductsPage() {
                     i % 2 !== 0 ? "lg:order-1" : "lg:col-start-7"
                   }`}
                 >
-                  <p className="text-xs uppercase tracking-[0.2em] text-brand-yellow font-semibold">
+                  <p className="eyebrow">
                     {String(i + 1).padStart(2, "0")}
                   </p>
-                  <h2 className="mt-3 text-xl lg:text-3xl font-semibold tracking-tight text-neutral-900">
+                  <h2 className="mt-4 text-3xl leading-tight text-neutral-900 lg:text-5xl">
                     {tn(p.key)}
                   </h2>
                   <p className="mt-4 text-sm lg:text-base text-neutral-600 leading-relaxed">
@@ -163,13 +178,13 @@ export default function ProductsPage() {
                   <div className="mt-8 flex flex-wrap gap-3">
                     <Link
                       href="/contact"
-                      className="rounded-full bg-neutral-900 text-white font-medium text-sm px-8 py-3 shadow-sm transition-all duration-300 ease-out hover:bg-neutral-800 hover:-translate-y-0.5"
+                      className="btn-primary"
                     >
                       {t("inquire")}
                     </Link>
                     <Link
                       href="/catalog"
-                      className="rounded-full bg-white/70 backdrop-blur-md border border-neutral-300 text-neutral-900 text-sm px-8 py-3 shadow-sm transition-all duration-300 ease-out hover:bg-white hover:-translate-y-0.5"
+                      className="btn-secondary"
                     >
                       {t("catalog")}
                     </Link>
@@ -188,10 +203,10 @@ export default function ProductsPage() {
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14 lg:py-24">
           <div className="max-w-2xl">
-            <p className="text-xs uppercase tracking-[0.2em] text-neutral-500">
+            <p className="eyebrow">
               {t("moreEyebrow")}
             </p>
-            <h2 className="mt-3 text-2xl lg:text-4xl font-semibold tracking-tight text-neutral-900">
+            <h2 className="section-title text-neutral-900">
               {t("moreHeadline")}
             </h2>
             <p className="mt-4 text-sm lg:text-base text-neutral-600 leading-relaxed">
@@ -203,7 +218,7 @@ export default function ProductsPage() {
             {MORE_LINES.map((line) => (
               <div
                 key={line.id}
-                className="rounded-2xl border border-neutral-200 bg-white p-6 lg:p-8"
+                className="border-t border-neutral-300 py-6 lg:py-8"
               >
                 <h3 className="text-lg lg:text-xl font-semibold tracking-tight text-neutral-900">
                   {t(`${line.id}Title`)}
@@ -237,10 +252,10 @@ export default function ProductsPage() {
       <section id="fabrics" className="scroll-mt-20 border-b border-neutral-200 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14 lg:py-24">
           <div className="max-w-2xl">
-            <p className="text-xs uppercase tracking-[0.2em] text-neutral-500">
+            <p className="eyebrow">
               {t("fabricsEyebrow")}
             </p>
-            <h2 className="mt-3 text-2xl lg:text-4xl font-semibold tracking-tight text-neutral-900">
+            <h2 className="section-title text-neutral-900">
               {t("fabricsHeadline")}
             </h2>
             <p className="mt-4 text-sm lg:text-base text-neutral-600 leading-relaxed">
@@ -281,8 +296,8 @@ export default function ProductsPage() {
           </div>
 
           {/* Functional fabrics and loungewear */}
-          <div className="mt-12 lg:mt-16 grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
-            <div className="rounded-2xl border border-neutral-200 bg-neutral-50 p-6 lg:p-8">
+          <div className="mt-12 lg:mt-16 grid grid-cols-1 border-y border-neutral-300 lg:grid-cols-2">
+            <div className="border-b border-neutral-300 py-7 lg:border-b-0 lg:border-r lg:p-8 lg:pl-0">
               <p className="text-xs uppercase tracking-[0.2em] text-neutral-500">
                 {t("functionalLabel")}
               </p>
@@ -290,7 +305,7 @@ export default function ProductsPage() {
                 {FUNCTIONAL.map((f) => (
                   <li
                     key={f}
-                    className="rounded-full border border-neutral-900 px-4 py-1.5 text-sm font-medium text-neutral-900"
+                    className="border-b border-neutral-400 py-1 text-sm font-medium text-neutral-900"
                   >
                     {t(f)}
                   </li>
@@ -301,7 +316,7 @@ export default function ProductsPage() {
               </p>
             </div>
 
-            <div className="rounded-2xl bg-neutral-900 p-6 lg:p-8">
+            <div className="bg-neutral-900 p-7 lg:p-8">
               <p className="text-xs uppercase tracking-[0.2em] text-brand-yellow">
                 {t("loungeLabel")}
               </p>
@@ -320,10 +335,10 @@ export default function ProductsPage() {
       <section id="cases" className="scroll-mt-20 border-b border-neutral-200 bg-neutral-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14 lg:py-24">
           <div className="max-w-2xl">
-            <p className="text-xs uppercase tracking-[0.2em] text-neutral-500">
+            <p className="eyebrow">
               {t("casesEyebrow")}
             </p>
-            <h2 className="mt-3 text-2xl lg:text-4xl font-semibold tracking-tight text-neutral-900">
+            <h2 className="section-title text-neutral-900">
               {t("casesHeadline")}
             </h2>
             <p className="mt-4 text-sm lg:text-base text-neutral-600 leading-relaxed">
@@ -372,7 +387,7 @@ export default function ProductsPage() {
               {BRAND_ORIGINS.map((o) => (
                 <li
                   key={o}
-                  className="rounded-full border border-neutral-300 bg-white px-4 py-1.5 text-sm text-neutral-700"
+                  className="border-b border-neutral-400 py-1 text-sm text-neutral-700"
                 >
                   {t(o)}
                 </li>
@@ -383,25 +398,25 @@ export default function ProductsPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-brand-yellow">
+      <section className="bg-neutral-900 text-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14 lg:py-24">
-          <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-2xl lg:text-4xl font-semibold tracking-tight text-neutral-900">
+          <div className="max-w-3xl">
+            <h2 className="text-4xl leading-tight text-white lg:text-6xl">
               {t("ctaHeadline")}
             </h2>
-            <p className="mt-4 text-sm lg:text-base text-neutral-900/70 leading-relaxed">
+            <p className="mt-5 max-w-2xl text-sm lg:text-base text-neutral-400 leading-relaxed">
               {t("ctaDesc")}
             </p>
-            <div className="mt-8 flex flex-wrap justify-center gap-3">
+            <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 href="/contact"
-                className="rounded-full bg-neutral-900 text-white font-medium text-sm px-8 py-3 shadow-sm transition-all duration-300 ease-out hover:bg-neutral-800 hover:-translate-y-0.5"
+                className="btn-primary btn-primary-inverse"
               >
                 {t("ctaQuote")}
               </Link>
               <Link
                 href="/services#odm"
-                className="rounded-full bg-white/70 backdrop-blur-md border border-white/60 text-neutral-900 text-sm px-8 py-3 shadow-sm transition-all duration-300 ease-out hover:bg-white hover:-translate-y-0.5"
+                className="btn-secondary btn-secondary-inverse"
               >
                 {t("ctaOdm")}
               </Link>

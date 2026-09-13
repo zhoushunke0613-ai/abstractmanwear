@@ -179,7 +179,9 @@
     "case3P1Title": "莫代尔男士平角裤，4条装",
     "case3P1Spec": "50S 92% TENCEL™ 莫代尔 / 8%氨纶，185g；一片式裁剪、侧缝无接缝，无痕腰头，无感印标",
     "case3P2Title": "蚕丝莫代尔女士平角裤，4条装",
-    "case3P2Spec": "84.5%莫代尔 / 8.6%氨纶 / 6%蚕丝，165g；AAA级抗菌，镂空裆部，无感印标"
+    "case3P2Spec": "84.5%莫代尔 / 8.6%氨纶 / 6%蚕丝，165g；AAA级抗菌，镂空裆部，无感印标",
+    "displayAlt": "抽象男黑黄配色陈列柜上的内裤款式与盒装产品",
+    "displayCaption": "抽象男产品陈列：纯色款、印花款与零售包装。"
   },
   "OrderProcess": {
     "eyebrow": "合作流程",
@@ -240,7 +242,8 @@
     "higgDesc": "已在 Cascale（原可持续服装联盟）Higg Index 平台完成设施社会与劳工模块自评，有效期至2027年4月。",
     "higgView": "查看证书（PDF）",
     "aqlTitle": "AQL 2.5验货 + 全套出口单据",
-    "aqlDesc": "每批货出货前全检。商业发票、装箱单、原产地证和提单/运单齐备。"
+    "aqlDesc": "每批货出货前全检。商业发票、装箱单、原产地证和提单/运单齐备。",
+    "aqlImageAlt": "质检人员在尾查工位检查成品内衣"
   },
   "WhoWeServe": {
     "eyebrow": "服务对象",
@@ -345,7 +348,7 @@
     "s5D3": "吊牌、包装袋、礼盒",
     "s5D4": "内腰带品牌标识和热转印",
     "s5ImgLabel": "私标包装",
-    "s5ImgDesc": "屏幕上的内裤配色方案与桌上的面料色卡",
+    "s5ImgDesc": "工作人员折叠内衣并装入独立包装",
     "ctaHeadline": "准备好开始您的项目了吗？",
     "ctaDesc": "分享您的概念、技术包或参考图片。我们将在24小时内回复报价。",
     "ctaQuote": "获取报价",
@@ -448,11 +451,11 @@
     "dept4Title": "质量控制",
     "dept4Desc": "每个工位在线检验。出货前AQL 2.5终检，包含尺寸审核、外观评级和100%检针。",
     "dept4ImgLabel": "质检部门",
-    "dept4ImgDesc": "与开发团队检视面料和样衣",
+    "dept4ImgDesc": "两位质检人员在尾查工位检查并整理成品内衣",
     "dept5Title": "包装与仓储",
     "dept5Desc": "OPP袋、印刷盒、礼盒包装和纸箱装箱。条码贴标、配码装箱和装柜均在厂内监督完成。",
     "dept5ImgLabel": "包装区",
-    "dept5ImgDesc": "包装区按颜色分拣、装箱的成品",
+    "dept5ImgDesc": "工作人员在包装工位折叠并包装内衣",
     "dept6Title": "样品间",
     "dept6Desc": "独立于大货的专用样品线。提供原型样、版师样和产前样，附完整测量报告和照片包。",
     "dept6ImgLabel": "样品间",
@@ -506,14 +509,21 @@
     "qualityD3": "BSCI审核 + SLCP验证评估",
     "qualityD4": "每批货提供照片包和验货报告",
     "qualityImgLabel": "质量检验",
-    "qualityImgDesc": "创始人在车间逐件检查成品",
+    "qualityImgDesc": "质检人员在尾查工位检查成品内衣",
     "line1FlowEyebrow": "无缝工艺",
     "line1Flow1": "圆机针织成型",
     "line1Flow2": "全身或半身无缝结构",
     "line1Flow3": "粘合与超声波裁切收口",
     "line1Flow4": "在线质检",
     "dept2Tags": "丝网印花 · 热转印 · 数码印花 · 多头刺绣",
-    "dept3Tags": "自动铺布 · 裁床 · 排版优化"
+    "dept3Tags": "自动铺布 · 裁床 · 排版优化",
+    "storageEyebrow": "包装与仓储",
+    "storageHeadline": "从物料存放，到成品装箱。",
+    "storageDesc": "货架上存放面料卷与包装物料，成品装箱后集中存放于仓库。这些现场照片展示了与质检、包装工位相衔接的仓储区域。",
+    "storageShelvesAlt": "仓储货架上存放的包膜面料卷、折叠纸箱与包装物料",
+    "storageShelvesCaption": "物料货架：面料卷、纸箱与包装用品。",
+    "warehouseAlt": "成品仓内沿黄色通道线两侧整齐堆放的装箱货物",
+    "warehouseCaption": "成品仓通道与两侧的装箱货物。"
   },
   "AboutPage": {
     "eyebrow": "关于我们",
@@ -590,7 +600,14 @@
     "ctaHeadline": "一起创造点什么。",
     "ctaDesc": "无论您是首次推出产品线还是放量爆款\u2014\u2014我们准备好成为您的生产伙伴。",
     "ctaStart": "开始您的项目",
-    "ctaCatalog": "下载目录"
+    "ctaCatalog": "下载目录",
+    "exhibitionsEyebrow": "展会现场",
+    "exhibitionsHeadline": "带着产品，与客户面对面。",
+    "exhibitionsDesc": "从展台陈列到团队合影，看看我们在展会现场展示的内衣款式与产品包装。",
+    "boothAlt": "带有SUPA与抽象男标识的展台，陈列内衣及包装产品",
+    "boothCaption": "品牌展台：内衣款式与包装产品陈列。",
+    "exhibitionTeamAlt": "五位团队成员在展台前手持包装产品合影",
+    "exhibitionTeamCaption": "展会团队合影，手中展示的是包装产品。"
   },
   "ContactPage": {
     "eyebrow": "联系我们",

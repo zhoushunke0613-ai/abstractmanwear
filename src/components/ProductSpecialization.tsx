@@ -8,16 +8,16 @@ export default function ProductSpecialization() {
   const tp = useTranslations("ProductsPage");
 
   return (
-    <section className="border-b border-neutral-200 bg-white">
+    <section className="border-b border-neutral-200 bg-[#fcfaf6]">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14 lg:py-28">
         <div className="max-w-2xl">
-          <p className="text-xs uppercase tracking-[0.2em] text-neutral-500">
+          <p className="eyebrow">
             {t("eyebrow")}
           </p>
-          <h2 className="mt-4 text-2xl lg:text-4xl font-semibold tracking-tight text-neutral-900">
+          <h2 className="section-title text-neutral-900">
             {t("headline")}
           </h2>
-          <p className="mt-4 text-sm lg:text-base text-neutral-600 leading-relaxed">
+          <p className="body-copy mt-5">
             {t("description")}
           </p>
         </div>
@@ -26,21 +26,21 @@ export default function ProductSpecialization() {
           {PRODUCTS.map((p) => (
             <li key={p.slug} className="group w-[65vw] max-w-[260px] flex-shrink-0 snap-start lg:w-auto lg:max-w-none lg:flex-shrink">
               <Link href={`/products#${p.slug}`} className="block">
-                <div className="relative aspect-[4/5] lg:aspect-square overflow-hidden border border-neutral-200 bg-[#fafaf5]">
+                <div className="relative aspect-[4/5] lg:aspect-square overflow-hidden border-y border-neutral-300 bg-neutral-50">
                   <Image
                     src={`/images/product-${p.slug}.svg`}
                     alt={`${t(p.key)} blueprint`}
                     width={400}
                     height={400}
-                    className="h-full w-full object-contain transition-transform duration-500 ease-out group-hover:scale-[1.03]"
+                    className="h-full w-full object-contain transition-transform duration-700 ease-out group-hover:scale-[1.02]"
                   />
-                  <span className="absolute top-3 right-3 text-[10px] uppercase tracking-[0.18em] text-neutral-500 bg-white/70 backdrop-blur-sm px-2 py-1">
+                  <span className="absolute top-3 right-3 border-b border-neutral-400 bg-neutral-50 px-2 py-1 text-[10px] uppercase tracking-[0.18em] text-neutral-500">
                     {p.style}
                   </span>
                 </div>
               </Link>
               <div className="mt-4 lg:mt-5 flex items-baseline justify-between gap-4">
-                <h3 className="text-base lg:text-lg font-semibold tracking-tight text-neutral-900">
+                <h3 className="font-display text-xl lg:text-2xl tracking-[-0.025em] text-neutral-900">
                   <Link
                     href={`/products#${p.slug}`}
                     className="underline-offset-4 decoration-neutral-300 hover:underline"
@@ -50,7 +50,7 @@ export default function ProductSpecialization() {
                 </h3>
                 <Link
                   href="/contact"
-                  className="text-xs uppercase tracking-[0.18em] text-neutral-500 hover:text-neutral-900 transition-colors whitespace-nowrap"
+                  className="text-[10px] uppercase tracking-[0.18em] text-neutral-500 hover:text-brand-yellow transition-colors whitespace-nowrap"
                 >
                   {t("inquire")} &rarr;
                 </Link>
@@ -66,10 +66,10 @@ export default function ProductSpecialization() {
           ))}
         </ul>
 
-        <div className="mt-10 lg:mt-14 border-t border-neutral-200 pt-8">
+        <div className="mt-10 lg:mt-14 border-t border-neutral-300 pt-8">
           <Link
             href="/products"
-            className="inline-flex items-center gap-2 text-sm font-medium text-neutral-900 underline underline-offset-4 decoration-neutral-300 hover:decoration-brand-yellow"
+            className="text-link"
           >
             {t("viewAll")} <span aria-hidden>&rarr;</span>
           </Link>

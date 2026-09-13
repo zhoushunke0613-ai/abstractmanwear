@@ -48,8 +48,8 @@ export default function CapabilityPage() {
     { title: t("dept1Title"), description: t("dept1Desc"), alt: t("dept1ImgDesc"), photo: "/images/brand/design-colorways.jpg" as string | null, tags: "" },
     { title: t("dept2Title"), description: t("dept2Desc"), alt: "", photo: null as string | null, tags: t("dept2Tags") },
     { title: t("dept3Title"), description: t("dept3Desc"), alt: "", photo: null as string | null, tags: t("dept3Tags") },
-    { title: t("dept4Title"), description: t("dept4Desc"), alt: t("dept4ImgDesc"), photo: "/images/brand/fabric-review.jpg" as string | null, tags: "" },
-    { title: t("dept5Title"), description: t("dept5Desc"), alt: t("dept5ImgDesc"), photo: "/images/brand/packing-floor-wide.jpg" as string | null, tags: "" },
+    { title: t("dept4Title"), description: t("dept4Desc"), alt: t("dept4ImgDesc"), photo: "/images/brand/qc-station.webp" as string | null, tags: "" },
+    { title: t("dept5Title"), description: t("dept5Desc"), alt: t("dept5ImgDesc"), photo: "/images/brand/packing-station.webp" as string | null, tags: "" },
     { title: t("dept6Title"), description: t("dept6Desc"), alt: t("dept6ImgDesc"), photo: "/images/brand/sample-review-showroom.jpg" as string | null, tags: "" },
   ];
 
@@ -75,29 +75,29 @@ export default function CapabilityPage() {
   return (
     <>
       {/* Header */}
-      <section className="border-b border-neutral-200 bg-neutral-50">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12 lg:py-24">
+      <section className="page-hero">
+        <div className="page-hero-inner">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
             <div className="lg:col-span-6">
-              <p className="text-xs uppercase tracking-[0.2em] text-neutral-500">
+              <p className="eyebrow">
                 {t("eyebrow")}
               </p>
-              <h1 className="mt-3 text-2xl lg:text-5xl font-semibold tracking-tight text-neutral-900 leading-[1.1]">
+              <h1 className="page-title text-neutral-900">
                 {t("headline")}
               </h1>
-              <p className="mt-4 text-sm lg:text-base text-neutral-600 leading-relaxed">
+              <p className="body-copy mt-6">
                 {t("description")}
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
                   href="/contact"
-                  className="rounded-full bg-neutral-900 text-white font-medium text-sm px-8 py-3 shadow-sm transition-all duration-300 ease-out hover:bg-neutral-800 hover:-translate-y-0.5"
+                  className="btn-primary"
                 >
                   {t("scheduleTour")}
                 </Link>
                 <Link
                   href="/catalog"
-                  className="rounded-full bg-white/70 backdrop-blur-md border border-neutral-300 text-neutral-900 text-sm px-8 py-3 shadow-sm transition-all duration-300 ease-out hover:bg-white hover:-translate-y-0.5"
+                  className="btn-secondary"
                 >
                   {t("downloadCatalog")}
                 </Link>
@@ -112,6 +112,7 @@ export default function CapabilityPage() {
                 className="aspect-[4/3] lg:aspect-[3/4]"
                 position="center 30%"
                 sizes="(max-width: 1024px) 100vw, 40vw"
+                priority
               />
             </div>
           </div>
@@ -158,10 +159,10 @@ export default function CapabilityPage() {
                   i % 2 !== 0 ? "lg:[direction:ltr]" : ""
                 }`}
               >
-                <p className="text-xs uppercase tracking-[0.2em] text-brand-yellow font-semibold">
+                <p className="eyebrow">
                   {t("productionLineLabel")}
                 </p>
-                <h2 className="mt-3 text-xl lg:text-3xl font-semibold tracking-tight text-neutral-900">
+                <h2 className="mt-4 text-3xl leading-tight text-neutral-900 lg:text-5xl">
                   {line.title}
                 </h2>
                 <p className="mt-4 text-sm lg:text-base text-neutral-600 leading-relaxed">
@@ -197,7 +198,7 @@ export default function CapabilityPage() {
                   />
                 ) : (
                   /* Process panel in place of a photo */
-                  <div className="aspect-[4/3] rounded-xl bg-neutral-900 p-6 lg:p-10 flex flex-col justify-center">
+              <div className="aspect-[4/3] bg-neutral-900 p-6 lg:p-10 flex flex-col justify-center">
                     <p className="text-xs uppercase tracking-[0.2em] text-brand-yellow">
                       {line.flowEyebrow}
                     </p>
@@ -226,10 +227,10 @@ export default function CapabilityPage() {
       <section className="border-b border-neutral-200 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14 lg:py-24">
           <div className="max-w-2xl">
-            <p className="text-xs uppercase tracking-[0.2em] text-neutral-500">
+            <p className="eyebrow">
               {t("deptEyebrow")}
             </p>
-            <h2 className="mt-3 text-2xl lg:text-4xl font-semibold tracking-tight text-neutral-900">
+            <h2 className="section-title text-neutral-900">
               {t("deptHeadline")}
             </h2>
             <p className="mt-4 text-sm lg:text-base text-neutral-600 leading-relaxed">
@@ -238,11 +239,11 @@ export default function CapabilityPage() {
           </div>
 
           {/* Horizontal scroll on mobile, grid on desktop */}
-          <div className="mt-10 lg:mt-14 -mx-6 px-6 lg:mx-0 lg:px-0 flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 lg:pb-0 scrollbar-hide lg:grid lg:grid-cols-3 lg:gap-5 lg:overflow-visible lg:snap-none">
+          <div className="mt-10 lg:mt-14 -mx-6 px-6 lg:mx-0 lg:px-0 flex overflow-x-auto snap-x snap-mandatory pb-4 lg:pb-0 scrollbar-hide border-y border-neutral-300 lg:grid lg:grid-cols-3 lg:overflow-visible lg:snap-none">
             {departments.map((dept, idx) => (
               <div
                 key={dept.title}
-                className="w-[72vw] max-w-[280px] flex-shrink-0 snap-start lg:w-auto lg:max-w-none lg:flex-shrink border border-neutral-200 rounded-2xl overflow-hidden transition-all duration-300 hover:border-brand-yellow/60 hover:-translate-y-0.5 hover:shadow-md"
+                className="w-[75vw] max-w-[300px] flex-shrink-0 snap-start border-r border-neutral-300 last:border-r-0 lg:w-auto lg:max-w-none lg:flex-shrink overflow-hidden"
               >
                 {dept.photo ? (
                   <Photo
@@ -284,10 +285,10 @@ export default function CapabilityPage() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14 lg:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
             <div className="lg:col-span-6">
-              <p className="text-xs uppercase tracking-[0.2em] text-brand-yellow font-semibold">
+                <p className="eyebrow">
                 {t("qualityEyebrow")}
               </p>
-              <h2 className="mt-3 text-xl lg:text-3xl font-semibold tracking-tight text-neutral-900">
+                <h2 className="mt-4 text-3xl leading-tight text-neutral-900 lg:text-5xl">
                 {t("qualityTitle")}
               </h2>
               <p className="mt-4 text-sm lg:text-base text-neutral-600 leading-relaxed">
@@ -316,12 +317,52 @@ export default function CapabilityPage() {
 
             <div className="lg:col-span-5 lg:col-start-8">
               <Photo
-                src="/images/brand/quality-inspection.jpg"
+                src="/images/brand/qc-station.webp"
                 alt={t("qualityImgDesc")}
-                className="aspect-[4/3] lg:aspect-[4/5]"
-                position="center 30%"
+                className="aspect-[4/3]"
               />
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Materials and finished goods, shown in their actual storage areas */}
+      <section id="packing-storage" className="scroll-mt-20 border-b border-neutral-200 bg-white">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14 lg:py-24">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
+            <div>
+              <p className="eyebrow">
+                {t("storageEyebrow")}
+              </p>
+              <h2 className="section-title text-neutral-900">
+                {t("storageHeadline")}
+              </h2>
+              <p className="mt-4 text-sm lg:text-base text-neutral-600 leading-relaxed">
+                {t("storageDesc")}
+              </p>
+              <figure className="mt-8">
+                <Photo
+                  src="/images/brand/storage-shelves.webp"
+                  alt={t("storageShelvesAlt")}
+                  className="aspect-[4/3]"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+                <figcaption className="mt-3 text-sm text-neutral-600">
+                  {t("storageShelvesCaption")}
+                </figcaption>
+              </figure>
+            </div>
+            <figure>
+              <Photo
+                src="/images/brand/finished-goods-aisle.webp"
+                alt={t("warehouseAlt")}
+                className="aspect-[3/4]"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+              <figcaption className="mt-3 text-sm text-neutral-600">
+                {t("warehouseCaption")}
+              </figcaption>
+            </figure>
           </div>
         </div>
       </section>
@@ -333,10 +374,10 @@ export default function CapabilityPage() {
       <section className="border-b border-neutral-200 bg-neutral-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14 lg:py-24">
           <div className="max-w-2xl">
-            <p className="text-xs uppercase tracking-[0.2em] text-neutral-500">
+            <p className="eyebrow">
               {t("equipEyebrow")}
             </p>
-            <h2 className="mt-3 text-2xl lg:text-4xl font-semibold tracking-tight text-neutral-900">
+            <h2 className="section-title text-neutral-900">
               {t("equipHeadline")}
             </h2>
           </div>
@@ -345,7 +386,7 @@ export default function CapabilityPage() {
             {equipmentList.map((group) => (
               <div
                 key={group.category}
-                className="rounded-xl border border-neutral-200 bg-white p-6"
+                className="border-t border-neutral-300 bg-transparent py-6"
               >
                 <div className="h-1 w-8 bg-brand-yellow" />
                 <h3 className="mt-4 text-base font-semibold tracking-tight text-neutral-900">
@@ -375,10 +416,10 @@ export default function CapabilityPage() {
       <section className="border-b border-neutral-200 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14 lg:py-24">
           <div className="max-w-2xl">
-            <p className="text-xs uppercase tracking-[0.2em] text-neutral-500">
+            <p className="eyebrow">
               {t("galleryEyebrow")}
             </p>
-            <h2 className="mt-3 text-2xl lg:text-4xl font-semibold tracking-tight text-neutral-900">
+            <h2 className="section-title text-neutral-900">
               {t("galleryHeadline")}
             </h2>
             <p className="mt-4 text-sm lg:text-base text-neutral-600 leading-relaxed">
@@ -403,25 +444,25 @@ export default function CapabilityPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-brand-yellow">
+      <section className="bg-neutral-900 text-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14 lg:py-24">
-          <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-2xl lg:text-4xl font-semibold tracking-tight text-neutral-900">
+          <div className="max-w-3xl">
+            <h2 className="text-4xl leading-tight text-white lg:text-6xl">
               {t("ctaHeadline")}
             </h2>
-            <p className="mt-4 text-sm lg:text-base text-neutral-900/70 leading-relaxed">
+            <p className="mt-5 max-w-2xl text-sm lg:text-base text-neutral-400 leading-relaxed">
               {t("ctaDesc")}
             </p>
-            <div className="mt-8 flex flex-wrap justify-center gap-3">
+            <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 href="/contact"
-                className="rounded-full bg-neutral-900 text-white font-medium text-sm px-8 py-3 shadow-sm transition-all duration-300 ease-out hover:bg-neutral-800 hover:-translate-y-0.5"
+                className="btn-primary btn-primary-inverse"
               >
                 {t("ctaVisit")}
               </Link>
               <Link
                 href="/catalog"
-                className="rounded-full bg-white/70 backdrop-blur-md border border-white/60 text-neutral-900 text-sm px-8 py-3 shadow-sm transition-all duration-300 ease-out hover:bg-white hover:-translate-y-0.5"
+                className="btn-secondary btn-secondary-inverse"
               >
                 {t("ctaCatalog")}
               </Link>

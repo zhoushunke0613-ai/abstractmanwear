@@ -25,27 +25,27 @@ export default function OrderProcess({ id, showCta = true }: Props) {
     <section id={id} className="scroll-mt-20 border-b border-neutral-200 bg-white">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14 lg:py-28">
         <div className="max-w-2xl">
-          <p className="text-xs uppercase tracking-[0.2em] text-neutral-500">
+          <p className="eyebrow">
             {t("eyebrow")}
           </p>
-          <h2 className="mt-4 text-2xl lg:text-4xl font-semibold tracking-tight text-neutral-900">
+          <h2 className="section-title text-neutral-900">
             {t("headline")}
           </h2>
-          <p className="mt-4 text-sm lg:text-base text-neutral-600 leading-relaxed">
+          <p className="body-copy mt-5">
             {t("description")}
           </p>
         </div>
 
-        <ol className="mt-10 lg:mt-14 -mx-6 px-6 lg:mx-0 lg:px-0 flex overflow-x-auto snap-x snap-mandatory gap-3 pb-4 lg:pb-0 scrollbar-hide lg:grid lg:grid-cols-4 lg:gap-4 lg:overflow-visible lg:snap-none">
+        <ol className="mt-10 lg:mt-14 -mx-6 px-6 lg:mx-0 lg:px-0 flex overflow-x-auto snap-x snap-mandatory pb-4 lg:pb-0 scrollbar-hide border-y border-neutral-300 lg:grid lg:grid-cols-4 lg:overflow-visible lg:snap-none">
           {steps.map((s) => (
             <li
               key={s.no}
-              className="group w-[65vw] max-w-[260px] flex-shrink-0 snap-start lg:w-auto lg:max-w-none lg:flex-shrink rounded-xl border border-neutral-200 bg-neutral-50/50 p-5 lg:p-6 transition-all duration-300 hover:border-brand-yellow/60 hover:-translate-y-0.5 hover:shadow-md"
+              className="group w-[70vw] max-w-[280px] flex-shrink-0 snap-start border-r border-neutral-300 p-5 last:border-r-0 lg:w-auto lg:max-w-none lg:flex-shrink lg:p-7"
             >
-              <span className="flex h-9 w-9 items-center justify-center rounded-full bg-brand-yellow text-xs font-semibold text-neutral-900 transition-transform duration-300 group-hover:scale-110">
+              <span className="font-display text-3xl text-brand-yellow">
                 {s.no}
               </span>
-              <h3 className="mt-3 lg:mt-4 text-base font-semibold tracking-tight text-neutral-900">
+              <h3 className="mt-5 text-base font-semibold tracking-tight text-neutral-900">
                 {s.title}
               </h3>
               <p className="mt-2 text-sm text-neutral-600 leading-relaxed">
@@ -65,7 +65,7 @@ export default function OrderProcess({ id, showCta = true }: Props) {
             </p>
             <Link
               href="/contact"
-              className="rounded-full bg-neutral-900 text-white font-medium text-sm px-7 py-2.5 shadow-sm transition-all duration-300 ease-out hover:bg-neutral-800 hover:-translate-y-0.5"
+              className="btn-primary"
             >
               {t("ctaButton")} &rarr;
             </Link>

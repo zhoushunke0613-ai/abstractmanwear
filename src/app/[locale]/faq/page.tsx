@@ -61,13 +61,13 @@ export default function FAQPage() {
   return (
     <>
       {/* Compact header */}
-      <section className="border-b border-neutral-200 bg-neutral-50">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-16 pb-10 lg:pt-24 lg:pb-12">
+      <section className="page-hero">
+        <div className="page-hero-inner">
           <div className="max-w-2xl">
-            <p className="text-xs uppercase tracking-[0.2em] text-neutral-500">
+            <p className="eyebrow">
               {t("eyebrow")}
             </p>
-            <h1 className="mt-3 text-3xl lg:text-5xl font-semibold tracking-tight text-neutral-900 leading-[1.1]">
+            <h1 className="page-title text-neutral-900">
               {t("headline")}
             </h1>
           </div>
@@ -102,7 +102,7 @@ export default function FAQPage() {
                       <li key={g.id}>
                         <a
                           href={`#${g.id}`}
-                          className="block py-2 px-3 text-sm text-neutral-500 rounded-lg transition-colors hover:bg-neutral-50 hover:text-neutral-900"
+                      className="block border-b border-neutral-200 py-2 text-sm text-neutral-500 transition-colors hover:text-brand-yellow"
                         >
                           {g.heading}
                         </a>
@@ -119,7 +119,7 @@ export default function FAQPage() {
                 <a
                   key={g.id}
                   href={`#${g.id}`}
-                  className="rounded-full border border-neutral-200 bg-neutral-50 px-4 py-1.5 text-xs font-medium text-neutral-600 transition-all hover:border-brand-yellow hover:text-neutral-900"
+                    className="border-b border-neutral-300 py-1 text-xs font-medium text-neutral-600 transition-colors hover:border-brand-yellow hover:text-neutral-900"
                 >
                   {g.heading}
                 </a>
@@ -141,7 +141,7 @@ export default function FAQPage() {
                           key={item.q}
                           className="group [&_summary::-webkit-details-marker]:hidden"
                         >
-                          <summary className="flex items-center justify-between gap-6 py-4 cursor-pointer list-none rounded focus-visible:outline-2 focus-visible:outline-brand-yellow focus-visible:outline-offset-2">
+                    <summary className="flex items-center justify-between gap-6 py-5 cursor-pointer list-none focus-visible:outline-1 focus-visible:outline-brand-yellow focus-visible:outline-offset-2">
                             <span className="text-[15px] font-medium text-neutral-900 leading-snug">
                               {item.q}
                             </span>
@@ -167,22 +167,22 @@ export default function FAQPage() {
       </section>
 
       {/* Compact CTA */}
-      <section className="border-b border-neutral-200 bg-brand-yellow">
+      <section className="border-b border-neutral-800 bg-neutral-900 text-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12 lg:py-14">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-5">
-            <h2 className="text-2xl lg:text-3xl font-semibold tracking-tight text-neutral-900">
+            <h2 className="text-3xl text-white lg:text-4xl">
               {t("ctaHeadline")}
             </h2>
             <div className="flex flex-wrap gap-3">
               <Link
                 href="/contact"
-                className="rounded-full bg-neutral-900 text-white font-medium text-sm px-7 py-2.5 shadow-sm transition-all duration-300 ease-out hover:bg-neutral-800 hover:-translate-y-0.5"
+                className="btn-primary btn-primary-inverse"
               >
                 {t("ctaContact")}
               </Link>
               <Link
                 href="/catalog"
-                className="rounded-full bg-white/70 backdrop-blur-md border border-white/80 text-neutral-900 text-sm px-7 py-2.5 shadow-sm transition-all duration-300 ease-out hover:bg-white hover:-translate-y-0.5"
+                className="btn-secondary btn-secondary-inverse"
               >
                 {t("ctaCatalog")}
               </Link>

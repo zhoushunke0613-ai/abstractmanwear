@@ -179,7 +179,9 @@
     "case3P1Title": "Modal men’s boxer briefs, 4-pack",
     "case3P1Spec": "50S 92% TENCEL™ modal / 8% spandex, 185 g; one-piece cut with no side seams, seamless waistband, tagless print",
     "case3P2Title": "Silk modal women’s boyshorts, 4-pack",
-    "case3P2Spec": "84.5% modal / 8.6% spandex / 6% silk, 165 g; AAA-grade antibacterial, cut-out gusset, tagless print"
+    "case3P2Spec": "84.5% modal / 8.6% spandex / 6% silk, 165 g; AAA-grade antibacterial, cut-out gusset, tagless print",
+    "displayAlt": "Underwear styles and boxed products on the black and yellow Abstract Man retail display",
+    "displayCaption": "Abstract Man product display — solid colors, prints, and retail packaging."
   },
   "OrderProcess": {
     "eyebrow": "How We Work",
@@ -240,7 +242,8 @@
     "higgDesc": "Completed the Higg Facility Social & Labor Module self-assessment on Cascale's Higg Index platform. Valid through April 2027.",
     "higgView": "View certificate (PDF)",
     "aqlTitle": "AQL 2.5 Inspection + Full Export Docs",
-    "aqlDesc": "Every shipment inspected before dispatch. Commercial invoice, packing list, certificate of origin, and BL / AWB ready for customs."
+    "aqlDesc": "Every shipment inspected before dispatch. Commercial invoice, packing list, certificate of origin, and BL / AWB ready for customs.",
+    "aqlImageAlt": "QC staff inspecting finished underwear at the final inspection station"
   },
   "WhoWeServe": {
     "eyebrow": "Who We Serve",
@@ -345,7 +348,7 @@
     "s5D3": "Hang tags, poly bags, gift boxes",
     "s5D4": "Inner-waistband branding and heat transfers",
     "s5ImgLabel": "Private Label Packaging",
-    "s5ImgDesc": "Underwear colorway boards on screen beside fabric swatch books",
+    "s5ImgDesc": "Staff folding underwear and putting garments into individual packaging",
     "ctaHeadline": "Ready to start your project?",
     "ctaDesc": "Share your concept, tech pack, or reference images. We\u2019ll scope your project and reply with pricing within 24 hours.",
     "ctaQuote": "Get a quote",
@@ -448,11 +451,11 @@
     "dept4Title": "Quality Control",
     "dept4Desc": "In-line inspection at every workstation. Final AQL 2.5 pre-shipment check with measurement audits, appearance grading, and metal detection on 100% of pieces.",
     "dept4ImgLabel": "QC Department",
-    "dept4ImgDesc": "Reviewing fabric and sample garments with the development team",
+    "dept4ImgDesc": "Two QC staff inspecting and sorting finished underwear at the final inspection station",
     "dept5Title": "Packaging & Warehouse",
     "dept5Desc": "OPP bags, printed boxes, gift packaging, and carton packing. Bar code labeling, assortment packing, and container loading supervised on-site.",
     "dept5ImgLabel": "Packaging Area",
-    "dept5ImgDesc": "Finished goods sorted by color and packed in the packing area",
+    "dept5ImgDesc": "Staff folding and packing underwear at the packaging workstations",
     "dept6Title": "Sampling Room",
     "dept6Desc": "Dedicated sample line separate from bulk production. Proto, fit, and PP samples with full measurement reports and photo packs.",
     "dept6ImgLabel": "Sampling Room",
@@ -506,14 +509,21 @@
     "qualityD3": "BSCI audit + SLCP verified assessment",
     "qualityD4": "Photo pack and inspection report per shipment",
     "qualityImgLabel": "QC Inspection",
-    "qualityImgDesc": "Founder checking a finished garment on the production floor",
+    "qualityImgDesc": "QC staff checking finished underwear at the final inspection station",
     "line1FlowEyebrow": "Seamless process",
     "line1Flow1": "Circular knitting",
     "line1Flow2": "Full-body or partial seamless construction",
     "line1Flow3": "Bonded and ultrasonic-cut finishing",
     "line1Flow4": "In-line QC",
     "dept2Tags": "Screen print · Sublimation · Heat transfer · Embroidery",
-    "dept3Tags": "Automated spreading · Cutting tables · Marker optimization"
+    "dept3Tags": "Automated spreading · Cutting tables · Marker optimization",
+    "storageEyebrow": "Packing & storage",
+    "storageHeadline": "From stored materials to packed garments.",
+    "storageDesc": "Fabric rolls and packaging materials on the shelves; finished garments packed into cartons in the warehouse. These photographs show the storage areas alongside our inspection and packing workstations.",
+    "storageShelvesAlt": "Storage racks holding wrapped fabric rolls, flattened cartons, and packaging supplies",
+    "storageShelvesCaption": "Fabric rolls and packaging materials on the storage racks.",
+    "warehouseAlt": "Finished-goods warehouse with stacked cartons on either side of a marked aisle",
+    "warehouseCaption": "Packed cartons along the marked finished-goods warehouse aisle."
   },
   "AboutPage": {
     "eyebrow": "About Us",
@@ -590,7 +600,14 @@
     "ctaHeadline": "Let\u2019s build something together.",
     "ctaDesc": "Whether you\u2019re launching your first line or scaling an existing bestseller \u2014 we\u2019re ready to be your production partner.",
     "ctaStart": "Start your project",
-    "ctaCatalog": "Download catalog"
+    "ctaCatalog": "Download catalog",
+    "exhibitionsEyebrow": "At the exhibition",
+    "exhibitionsHeadline": "Products and people, face to face.",
+    "exhibitionsDesc": "A look at the exhibition booth and the team presenting our underwear range and packaging.",
+    "boothAlt": "Exhibition booth with SUPA and Abstract Man signage, underwear displays, and packaged products",
+    "boothCaption": "The exhibition booth, with underwear and packaged products on display.",
+    "exhibitionTeamAlt": "Five team members posing with packaged products at the exhibition booth",
+    "exhibitionTeamCaption": "The team at the exhibition, with products in hand."
   },
   "ContactPage": {
     "eyebrow": "Contact",

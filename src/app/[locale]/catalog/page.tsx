@@ -41,17 +41,17 @@ export default function CatalogPage() {
   return (
     <>
       {/* Hero */}
-      <section className="border-b border-neutral-200 bg-neutral-50">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12 lg:py-24">
+      <section className="page-hero">
+        <div className="page-hero-inner">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
             <div className="lg:col-span-6">
-              <p className="text-xs uppercase tracking-[0.2em] text-neutral-500">
+              <p className="eyebrow">
                 {t("eyebrow")}
               </p>
-              <h1 className="mt-3 text-2xl lg:text-5xl font-semibold tracking-tight text-neutral-900 leading-[1.1]">
+              <h1 className="page-title text-neutral-900">
                 {t("headline")}
               </h1>
-              <p className="mt-4 text-sm lg:text-base text-neutral-600 leading-relaxed">
+              <p className="body-copy mt-6">
                 {t("description")}
               </p>
 
@@ -77,13 +77,13 @@ export default function CatalogPage() {
               <div className="mt-10 flex flex-wrap gap-3">
                 <Link
                   href="#download"
-                  className="rounded-full bg-neutral-900 text-white font-medium text-sm px-8 py-3 shadow-sm transition-all duration-300 ease-out hover:bg-neutral-800 hover:-translate-y-0.5"
+                  className="btn-primary"
                 >
                   {t("requestPdf")}
                 </Link>
                 <Link
                   href="/contact"
-                  className="rounded-full bg-white/70 backdrop-blur-md border border-neutral-300 text-neutral-900 text-sm px-8 py-3 shadow-sm transition-all duration-300 ease-out hover:bg-white hover:-translate-y-0.5"
+                  className="btn-secondary"
                 >
                   {t("talkToTeam")}
                 </Link>
@@ -92,11 +92,12 @@ export default function CatalogPage() {
 
             {/* Catalog cover */}
             <div className="lg:col-span-5 lg:col-start-8">
-              <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-xl">
+            <div className="relative aspect-[3/4] overflow-hidden border-y border-neutral-300">
                 <Image
                   src="/images/catalog-cover.png"
                   alt="Abstract Man product catalog cover — underwear samples with fabric rolls and tools"
                   fill
+                  priority
                   sizes="(max-width: 1024px) 100vw, 40vw"
                   className="object-cover"
                 />
@@ -110,20 +111,20 @@ export default function CatalogPage() {
       <section className="border-b border-neutral-200 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12 lg:py-24">
           <div className="max-w-2xl">
-            <p className="text-xs uppercase tracking-[0.2em] text-neutral-500">
+            <p className="eyebrow">
               {t("insideEyebrow")}
             </p>
-            <h2 className="mt-3 text-2xl lg:text-4xl font-semibold tracking-tight text-neutral-900">
+            <h2 className="section-title text-neutral-900">
               {t("insideHeadline")}
             </h2>
           </div>
 
           {/* Horizontal scroll on mobile, grid on desktop */}
-          <div className="mt-10 lg:mt-12 -mx-6 px-6 lg:mx-0 lg:px-0 flex overflow-x-auto snap-x snap-mandatory gap-3 pb-4 lg:pb-0 scrollbar-hide lg:grid lg:grid-cols-3 lg:gap-4 lg:overflow-visible lg:snap-none">
+          <div className="mt-10 lg:mt-12 -mx-6 px-6 lg:mx-0 lg:px-0 flex overflow-x-auto snap-x snap-mandatory pb-4 lg:pb-0 scrollbar-hide border-y border-neutral-300 lg:grid lg:grid-cols-3 lg:overflow-visible lg:snap-none">
             {sections.map((s) => (
               <div
                 key={s.no}
-                className="w-[70vw] max-w-[260px] flex-shrink-0 snap-start lg:w-auto lg:max-w-none lg:flex-shrink rounded-xl border border-neutral-200 bg-neutral-50/50 p-5 lg:p-6 transition-colors hover:border-brand-yellow/60"
+                className="w-[72vw] max-w-[280px] flex-shrink-0 snap-start border-r border-neutral-300 p-5 last:border-r-0 lg:w-auto lg:max-w-none lg:flex-shrink lg:p-7"
               >
                 <p className="text-[11px] uppercase tracking-[0.15em] text-brand-yellow font-semibold">
                   {s.no}
@@ -143,7 +144,7 @@ export default function CatalogPage() {
       {/* Email gate / download */}
       <section
         id="download"
-        className="border-b border-neutral-200 bg-brand-yellow scroll-mt-24"
+        className="border-b border-neutral-200 bg-neutral-50 scroll-mt-24"
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12 lg:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
@@ -160,7 +161,7 @@ export default function CatalogPage() {
             </div>
 
             <form
-              className="lg:col-span-6 lg:col-start-7 bg-white rounded-2xl p-8 lg:p-10 shadow-lg"
+              className="lg:col-span-6 lg:col-start-7 border-t border-neutral-300 py-8 lg:p-10 lg:pt-8"
               method="post"
               action="/api/catalog"
             >
@@ -177,7 +178,7 @@ export default function CatalogPage() {
                     name="name"
                     type="text"
                     required
-                    className="mt-2 block w-full rounded-lg border border-neutral-200 bg-white px-4 py-2.5 text-sm text-neutral-900 placeholder-neutral-400 focus:border-neutral-900 focus:outline-none focus:ring-2 focus:ring-brand-yellow/40 transition-colors"
+                    className="field-control"
                     placeholder={t("placeholderName")}
                   />
                 </div>
@@ -192,7 +193,7 @@ export default function CatalogPage() {
                     id="catalog-company"
                     name="company"
                     type="text"
-                    className="mt-2 block w-full rounded-lg border border-neutral-200 bg-white px-4 py-2.5 text-sm text-neutral-900 placeholder-neutral-400 focus:border-neutral-900 focus:outline-none focus:ring-2 focus:ring-brand-yellow/40 transition-colors"
+                    className="field-control"
                     placeholder={t("placeholderCompany")}
                   />
                 </div>
@@ -209,7 +210,7 @@ export default function CatalogPage() {
                     name="email"
                     type="email"
                     required
-                    className="mt-2 block w-full rounded-lg border border-neutral-200 bg-white px-4 py-2.5 text-sm text-neutral-900 placeholder-neutral-400 focus:border-neutral-900 focus:outline-none focus:ring-2 focus:ring-brand-yellow/40 transition-colors"
+                    className="field-control"
                     placeholder={t("placeholderEmail")}
                   />
                 </div>
@@ -225,7 +226,7 @@ export default function CatalogPage() {
                     id="catalog-interest"
                     name="interest"
                     defaultValue=""
-                    className="mt-2 block w-full rounded-lg border border-neutral-200 bg-white px-4 py-2.5 text-sm text-neutral-900 focus:border-neutral-900 focus:outline-none focus:ring-2 focus:ring-brand-yellow/40 transition-colors"
+                    className="field-control"
                   >
                     <option value="" disabled>
                       {t("selectOne")}
@@ -241,7 +242,7 @@ export default function CatalogPage() {
 
               <button
                 type="submit"
-                className="mt-7 w-full rounded-full bg-neutral-900 text-white font-medium text-sm px-8 py-3 shadow-sm transition-all duration-300 ease-out hover:bg-neutral-800 hover:-translate-y-0.5"
+                className="btn-primary mt-8 w-full"
               >
                 {t("submitButton")}
               </button>

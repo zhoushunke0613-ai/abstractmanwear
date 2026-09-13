@@ -96,29 +96,29 @@ export default function AboutPage() {
   return (
     <>
       {/* Header */}
-      <section className="border-b border-neutral-200 bg-neutral-50">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12 lg:py-24">
+      <section className="page-hero">
+        <div className="page-hero-inner">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
             <div className="lg:col-span-6">
-              <p className="text-xs uppercase tracking-[0.2em] text-neutral-500">
+              <p className="eyebrow">
                 {t("eyebrow")}
               </p>
-              <h1 className="mt-3 text-2xl lg:text-5xl font-semibold tracking-tight text-neutral-900 leading-[1.1]">
+              <h1 className="page-title text-neutral-900">
                 {t("headline")}
               </h1>
-              <p className="mt-4 text-sm lg:text-base text-neutral-600 leading-relaxed">
+              <p className="body-copy mt-6">
                 {t("description")}
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
                   href="/contact"
-                  className="rounded-full bg-neutral-900 text-white font-medium text-sm px-8 py-3 shadow-sm transition-all duration-300 ease-out hover:bg-neutral-800 hover:-translate-y-0.5"
+                  className="btn-primary"
                 >
                   {t("workWithUs")}
                 </Link>
                 <Link
                   href="/capability"
-                  className="rounded-full bg-white/70 backdrop-blur-md border border-neutral-300 text-neutral-900 text-sm px-8 py-3 shadow-sm transition-all duration-300 ease-out hover:bg-white hover:-translate-y-0.5"
+                  className="btn-secondary"
                 >
                   {t("tourFacility")}
                 </Link>
@@ -132,6 +132,7 @@ export default function AboutPage() {
                 alt={t("teamImgDesc")}
                 className="aspect-[4/3]"
                 sizes="(max-width: 1024px) 100vw, 40vw"
+                priority
               />
             </div>
           </div>
@@ -143,10 +144,10 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14 lg:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
             <div className="lg:col-span-5">
-              <p className="text-xs uppercase tracking-[0.2em] text-neutral-500">
+              <p className="eyebrow">
                 {t("storyEyebrow")}
               </p>
-              <h2 className="mt-3 text-2xl lg:text-4xl font-semibold tracking-tight text-neutral-900">
+              <h2 className="section-title text-neutral-900">
                 {t("storyHeadline")}
               </h2>
               <p className="mt-4 text-sm lg:text-base text-neutral-600 leading-relaxed">
@@ -182,22 +183,22 @@ export default function AboutPage() {
       <section className="border-b border-neutral-200 bg-neutral-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14 lg:py-24">
           <div className="max-w-2xl">
-            <p className="text-xs uppercase tracking-[0.2em] text-neutral-500">
+            <p className="eyebrow">
               {t("valuesEyebrow")}
             </p>
-            <h2 className="mt-3 text-2xl lg:text-4xl font-semibold tracking-tight text-neutral-900">
+            <h2 className="section-title text-neutral-900">
               {t("valuesHeadline")}
             </h2>
           </div>
 
           {/* Horizontal scroll on mobile, grid on desktop */}
-          <div className="mt-10 lg:mt-14 -mx-6 px-6 lg:mx-0 lg:px-0 flex overflow-x-auto snap-x snap-mandatory gap-3 pb-4 lg:pb-0 scrollbar-hide lg:grid lg:grid-cols-3 lg:gap-4 lg:overflow-visible lg:snap-none">
+          <div className="mt-10 lg:mt-14 -mx-6 px-6 lg:mx-0 lg:px-0 flex overflow-x-auto snap-x snap-mandatory pb-4 lg:pb-0 scrollbar-hide border-y border-neutral-300 lg:grid lg:grid-cols-3 lg:overflow-visible lg:snap-none">
             {values.map((v, i) => (
               <div
                 key={v.title}
-                className="w-[72vw] max-w-[280px] flex-shrink-0 snap-start lg:w-auto lg:max-w-none lg:flex-shrink rounded-xl border border-neutral-200 bg-white p-6 lg:p-8 transition-all duration-300 hover:border-brand-yellow/60 hover:-translate-y-0.5 hover:shadow-md"
+                className="w-[75vw] max-w-[300px] flex-shrink-0 snap-start border-r border-neutral-300 p-6 last:border-r-0 lg:w-auto lg:max-w-none lg:flex-shrink lg:p-8"
               >
-                <div className="flex h-9 w-9 items-center justify-center rounded-full bg-brand-yellow text-xs font-semibold text-neutral-900">
+                <div className="font-display text-3xl text-brand-yellow">
                   {String(i + 1).padStart(2, "0")}
                 </div>
                 <h3 className="mt-5 text-base lg:text-lg font-semibold tracking-tight text-neutral-900">
@@ -216,10 +217,10 @@ export default function AboutPage() {
       <section className="border-b border-neutral-200 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14 lg:py-24">
           <div className="max-w-2xl">
-            <p className="text-xs uppercase tracking-[0.2em] text-neutral-500">
+            <p className="eyebrow">
               {t("teamEyebrow")}
             </p>
-            <h2 className="mt-3 text-2xl lg:text-4xl font-semibold tracking-tight text-neutral-900">
+            <h2 className="section-title text-neutral-900">
               {t("teamHeadline")}
             </h2>
             <p className="mt-4 text-sm lg:text-base text-neutral-600 leading-relaxed">
@@ -231,7 +232,7 @@ export default function AboutPage() {
             {teamRoles.map((t_role, idx) => (
               <div
                 key={t_role.role}
-                className="border border-neutral-200 rounded-2xl overflow-hidden"
+                className="border-y border-neutral-300 overflow-hidden"
               >
                 <Photo
                   src={TEAM_PHOTOS[idx]}
@@ -254,14 +255,49 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Exhibition photographs supplied by the team */}
+      <section id="exhibitions" className="scroll-mt-20 border-b border-neutral-200 bg-white">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14 lg:py-24">
+          <div className="max-w-2xl">
+            <p className="eyebrow">
+              {t("exhibitionsEyebrow")}
+            </p>
+            <h2 className="section-title text-neutral-900">
+              {t("exhibitionsHeadline")}
+            </h2>
+            <p className="mt-4 text-sm lg:text-base text-neutral-600 leading-relaxed">
+              {t("exhibitionsDesc")}
+            </p>
+          </div>
+          <div className="mt-10 lg:mt-14 grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+            {[
+              { src: "/images/brand/exhibition-booth.webp", key: "booth" },
+              { src: "/images/brand/exhibition-team.webp", key: "exhibitionTeam" },
+            ].map((photo) => (
+              <figure key={photo.key}>
+                <Photo
+                  src={photo.src}
+                  alt={t(`${photo.key}Alt`)}
+                  className="aspect-[4/3]"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+                <figcaption className="mt-3 border-t border-neutral-200 pt-3 text-sm text-neutral-600">
+                  {t(`${photo.key}Caption`)}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Markets we serve */}
       <section className="border-b border-neutral-200 bg-neutral-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14 lg:py-24">
           <div className="max-w-2xl">
-            <p className="text-xs uppercase tracking-[0.2em] text-neutral-500">
+            <p className="eyebrow">
               {t("marketsEyebrow")}
             </p>
-            <h2 className="mt-3 text-2xl lg:text-4xl font-semibold tracking-tight text-neutral-900">
+            <h2 className="section-title text-neutral-900">
               {t("marketsHeadline")}
             </h2>
           </div>
@@ -271,7 +307,7 @@ export default function AboutPage() {
             {markets.map((m) => (
               <div
                 key={m.region}
-                className="w-[60vw] max-w-[220px] flex-shrink-0 snap-start lg:w-auto lg:max-w-none lg:flex-shrink bg-white border border-neutral-200 rounded-2xl p-5 lg:p-6 transition-all duration-300 hover:border-brand-yellow hover:-translate-y-0.5 hover:shadow-md"
+                className="w-[68vw] max-w-[250px] flex-shrink-0 snap-start lg:w-auto lg:max-w-none lg:flex-shrink border-t border-neutral-300 py-6 lg:pr-5"
               >
                 <div className="h-1 w-8 bg-brand-yellow" />
                 <h3 className="mt-4 text-base font-semibold tracking-tight text-neutral-900">
@@ -288,25 +324,25 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-brand-yellow">
+      <section className="bg-neutral-900 text-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14 lg:py-24">
-          <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-2xl lg:text-4xl font-semibold tracking-tight text-neutral-900">
+          <div className="max-w-3xl">
+            <h2 className="text-4xl leading-tight text-white lg:text-6xl">
               {t("ctaHeadline")}
             </h2>
-            <p className="mt-4 text-sm lg:text-base text-neutral-900/70 leading-relaxed">
+            <p className="mt-5 max-w-2xl text-sm lg:text-base text-neutral-400 leading-relaxed">
               {t("ctaDesc")}
             </p>
-            <div className="mt-8 flex flex-wrap justify-center gap-3">
+            <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 href="/contact"
-                className="rounded-full bg-neutral-900 text-white font-medium text-sm px-8 py-3 shadow-sm transition-all duration-300 ease-out hover:bg-neutral-800 hover:-translate-y-0.5"
+                className="btn-primary btn-primary-inverse"
               >
                 {t("ctaStart")}
               </Link>
               <Link
                 href="/catalog"
-                className="rounded-full bg-white/70 backdrop-blur-md border border-white/60 text-neutral-900 text-sm px-8 py-3 shadow-sm transition-all duration-300 ease-out hover:bg-white hover:-translate-y-0.5"
+                className="btn-secondary btn-secondary-inverse"
               >
                 {t("ctaCatalog")}
               </Link>

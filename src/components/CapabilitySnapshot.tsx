@@ -14,10 +14,10 @@ export default function CapabilitySnapshot() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14 lg:py-28">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           <div>
-            <p className="text-xs uppercase tracking-[0.2em] text-brand-yellow">
+            <p className="eyebrow">
               {t("eyebrow")}
             </p>
-            <h2 className="mt-4 text-2xl lg:text-4xl font-semibold tracking-tight text-white">
+            <h2 className="section-title text-white">
               {t("headline")}
             </h2>
             <p className="mt-4 text-sm lg:text-base text-neutral-400 leading-relaxed">
@@ -26,14 +26,8 @@ export default function CapabilitySnapshot() {
 
             <ul className="mt-6 lg:mt-8 grid grid-cols-2 gap-2 lg:grid-cols-1 lg:space-y-3 lg:gap-0">
               {highlights.map((h) => (
-                <li
-                  key={h}
-                  className="flex items-center gap-2 lg:gap-3 text-sm text-neutral-300"
-                >
-                  <span
-                    className="h-1.5 w-1.5 rounded-full bg-brand-yellow flex-none"
-                    aria-hidden
-                  />
+                <li key={h} className="flex items-start gap-3 border-t border-neutral-700 py-3 text-sm text-neutral-300">
+                  <span className="mt-2 h-px w-5 bg-brand-yellow flex-none" aria-hidden />
                   {h}
                 </li>
               ))}
@@ -41,14 +35,14 @@ export default function CapabilitySnapshot() {
 
             <Link
               href="/capability"
-              className="mt-8 lg:mt-10 inline-flex items-center gap-2 text-sm text-brand-yellow hover:text-brand-yellow-light transition-colors"
+              className="mt-8 lg:mt-10 text-link text-link-inverse"
             >
               {t("tourCta")}
               <span aria-hidden>&rarr;</span>
             </Link>
           </div>
 
-          <div className="group relative aspect-[4/3] lg:aspect-auto lg:h-full lg:min-h-[360px] rounded-xl overflow-hidden">
+          <div className="group relative aspect-[4/3] lg:aspect-auto lg:h-full lg:min-h-[420px] overflow-hidden">
             <Image
               src="/images/brand/packing-floor-wide.jpg"
               alt="Abstract Man production floor with garments sorted for packing"

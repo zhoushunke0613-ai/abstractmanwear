@@ -68,35 +68,34 @@ export default function Certifications({ id }: { id?: string }) {
       badge: "AQL",
       title: t("aqlTitle"),
       description: t("aqlDesc"),
-      image: "/images/qc-inspection.png",
-      imageAlt: "QC inspector examining underwear under magnifying lamp",
+      image: "/images/brand/qc-station.webp",
+      imageAlt: t("aqlImageAlt"),
       placeholder: null,
     },
   ];
 
-  const linkClass =
-    "mt-4 inline-block text-sm font-medium text-neutral-900 underline underline-offset-4 decoration-neutral-300 hover:decoration-brand-yellow";
+  const linkClass = "text-link mt-5";
 
   return (
-    <section id={id} className="scroll-mt-20 border-b border-neutral-200 bg-white">
+    <section id={id} className="scroll-mt-20 border-b border-neutral-200 bg-[#fcfaf6]">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14 lg:py-28">
         <div className="max-w-2xl">
-          <p className="text-xs uppercase tracking-[0.2em] text-neutral-500">
+          <p className="eyebrow">
             {t("eyebrow")}
           </p>
-          <h2 className="mt-4 text-2xl lg:text-4xl font-semibold tracking-tight text-neutral-900">
+          <h2 className="section-title text-neutral-900">
             {t("headline")}
           </h2>
-          <p className="mt-4 text-sm lg:text-base text-neutral-600 leading-relaxed">
+          <p className="body-copy mt-5">
             {t("description")}
           </p>
         </div>
 
-        <div className="mt-10 lg:mt-14 -mx-6 px-6 lg:mx-0 lg:px-0 flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 lg:pb-0 scrollbar-hide lg:grid lg:grid-cols-2 xl:grid-cols-4 lg:overflow-visible lg:snap-none">
+        <div className="mt-10 lg:mt-14 -mx-6 px-6 lg:mx-0 lg:px-0 flex overflow-x-auto snap-x snap-mandatory pb-4 lg:pb-0 scrollbar-hide border-y border-neutral-300 lg:grid lg:grid-cols-2 xl:grid-cols-4 lg:overflow-visible lg:snap-none">
           {certs.map((c) => (
             <div
               key={c.badge}
-              className="group w-[75vw] max-w-[300px] flex-shrink-0 snap-start lg:w-auto lg:max-w-none lg:flex-shrink border border-neutral-200 rounded-2xl overflow-hidden transition-all duration-300 hover:border-brand-yellow hover:-translate-y-0.5 hover:shadow-md"
+              className="group w-[78vw] max-w-[320px] flex-shrink-0 snap-start border-r border-neutral-300 last:border-r-0 lg:w-auto lg:max-w-none lg:flex-shrink overflow-hidden"
             >
               {c.image ? (
                 <div
@@ -140,8 +139,8 @@ export default function Certifications({ id }: { id?: string }) {
                   className="aspect-[5/3] rounded-none border-0 border-b-2"
                 />
               ) : null}
-              <div className="p-5 lg:p-8">
-                <div className="flex h-12 w-12 lg:h-14 lg:w-14 items-center justify-center rounded-xl bg-brand-yellow text-sm font-semibold tracking-tight text-neutral-900">
+              <div className="p-5 lg:p-7">
+                <div className="font-display text-3xl tracking-[-0.035em] text-brand-yellow">
                   {c.badge}
                 </div>
                 <p className="mt-4 lg:mt-6 text-base font-semibold tracking-tight text-neutral-900">

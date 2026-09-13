@@ -7,6 +7,7 @@ interface Props {
   /** Tailwind classes for the frame — aspect ratio, rounding, borders */
   className?: string;
   sizes?: string;
+  priority?: boolean;
   /** CSS object-position, for portraits cropped into landscape frames */
   position?: string;
 }
@@ -17,14 +18,16 @@ export default function Photo({
   alt,
   className = "",
   sizes = "(max-width: 1024px) 100vw, 45vw",
+  priority = false,
   position = "center",
 }: Props) {
   return (
-    <div className={`relative overflow-hidden rounded-xl bg-neutral-200 ${className}`}>
+    <div className={`relative overflow-hidden bg-neutral-200 ${className}`}>
       <Image
         src={src}
         alt={alt}
         fill
+        priority={priority}
         sizes={sizes}
         className="object-cover"
         style={{ objectPosition: position }}

@@ -8,8 +8,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return { title: t("title"), description: t("description") };
 }
 
-const inputStyles =
-  "mt-2 block w-full rounded-lg border border-neutral-200 bg-white px-4 py-2.5 text-sm text-neutral-900 placeholder-neutral-400 focus:border-neutral-900 focus:outline-none focus:ring-2 focus:ring-brand-yellow/40 transition-colors";
+const inputStyles = "field-control";
 
 export default function ContactPage() {
   const t = useTranslations("ContactPage");
@@ -79,16 +78,16 @@ export default function ContactPage() {
   return (
     <>
       {/* Header — compact, flows into form section */}
-      <section className="bg-neutral-50">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-16 pb-10 lg:pt-24 lg:pb-12">
+      <section className="page-hero border-b-0">
+        <div className="page-hero-inner pb-10 lg:pb-14">
           <div className="max-w-2xl">
-            <p className="text-xs uppercase tracking-[0.2em] text-neutral-500">
+            <p className="eyebrow">
               {t("eyebrow")}
             </p>
-            <h1 className="mt-3 text-3xl lg:text-5xl font-semibold tracking-tight text-neutral-900 leading-[1.1]">
+            <h1 className="page-title text-neutral-900">
               {t("headline")}
             </h1>
-            <p className="mt-4 text-neutral-600 leading-relaxed">
+            <p className="body-copy mt-6">
               {t("description")}
             </p>
           </div>
@@ -101,7 +100,7 @@ export default function ContactPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12">
             {/* Form card */}
             <form
-              className="lg:col-span-7 bg-white rounded-2xl border border-neutral-200 p-8 lg:p-10 shadow-sm"
+              className="lg:col-span-7 border-t border-neutral-300 py-8 lg:p-10 lg:pt-8"
               method="post"
               action="/api/contact"
             >
@@ -314,7 +313,7 @@ export default function ContactPage() {
               <div className="mt-8 flex flex-wrap items-center gap-4">
                 <button
                   type="submit"
-                  className="rounded-full bg-neutral-900 text-white font-medium text-sm px-8 py-3 shadow-sm transition-all duration-300 ease-out hover:bg-neutral-800 hover:-translate-y-0.5"
+                  className="btn-primary"
                 >
                   {t("submitButton")}
                 </button>
@@ -327,7 +326,7 @@ export default function ContactPage() {
             {/* Right sidebar */}
             <aside className="lg:col-span-4 lg:col-start-9 space-y-6">
               {/* Contact methods card */}
-              <div className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm">
+              <div className="border-y border-neutral-300 py-6">
                 <p className="text-xs uppercase tracking-[0.18em] text-neutral-400 font-medium">
                   {t("reachUs")}
                 </p>
@@ -358,18 +357,19 @@ export default function ContactPage() {
               </div>
 
               {/* Reception — what a visiting buyer sees first */}
-              <div className="relative aspect-[3/2] rounded-2xl overflow-hidden">
+              <div className="relative aspect-[3/2] overflow-hidden">
                 <Image
                   src="/images/brand/reception.jpg"
                   alt="Abstract Man reception with the company name wall"
                   fill
+                  priority
                   sizes="(max-width: 1024px) 100vw, 33vw"
                   className="object-cover"
                 />
               </div>
 
               {/* Address card */}
-              <div className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm">
+              <div className="border-y border-neutral-300 py-6">
                 <p className="text-[11px] uppercase tracking-[0.15em] text-neutral-400">
                   {t("factoryAddress")}
                 </p>
