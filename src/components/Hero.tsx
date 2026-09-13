@@ -25,7 +25,7 @@ export default function Hero() {
           />
 
           <div
-            className="absolute inset-0 bg-gradient-to-r from-[#151310] via-[#151310]/72 to-[#151310]/10 sm:via-[#151310]/62 lg:via-[#151310]/28 lg:to-transparent"
+            className="absolute inset-0 bg-gradient-to-r from-[#11100e]/96 via-[#151310]/76 to-[#151310]/8 sm:via-[#151310]/68 lg:from-[#11100e]/92 lg:via-[#151310]/56 lg:to-transparent"
             aria-hidden
           />
           <div
@@ -55,11 +55,11 @@ export default function Hero() {
                   <span className="h-2 w-2 bg-[#efc400]" aria-hidden />
                   {t("eyebrow")}
                 </p>
-                <h1 className="hero-animate hero-delay-2 mt-6 whitespace-pre-line text-[clamp(3.35rem,7vw,7.5rem)] leading-[0.84] tracking-[-0.055em] text-[#f7f3ec]">
+                <h1 className="hero-animate hero-delay-2 mt-6 whitespace-pre-line text-[clamp(3.15rem,5.8vw,6.4rem)] leading-[0.88] tracking-[-0.045em] text-[#f9f6f0] [text-shadow:0_3px_28px_rgba(0,0,0,0.55)]">
                   {t("headline")}
                 </h1>
-                <div className="hero-animate hero-delay-3 mt-7 max-w-xl border-l border-[#efc400] pl-5 sm:mt-8 sm:pl-6">
-                  <p className="max-w-[38rem] text-sm leading-7 text-white/72 sm:text-base sm:leading-8">
+                <div className="hero-animate hero-delay-3 mt-7 max-w-lg border-l border-[#efc400] pl-5 sm:mt-8 sm:pl-6">
+                  <p className="text-sm leading-7 text-white/82 [text-shadow:0_2px_14px_rgba(0,0,0,0.8)] sm:text-base sm:leading-8">
                     {t("lede")}
                   </p>
                 </div>
