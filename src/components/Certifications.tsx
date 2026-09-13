@@ -95,11 +95,11 @@ export default function Certifications({ id }: { id?: string }) {
           {certs.map((c) => (
             <div
               key={c.badge}
-              className="group w-[78vw] max-w-[320px] flex-shrink-0 snap-start border-r border-neutral-300 last:border-r-0 lg:w-auto lg:max-w-none lg:flex-shrink overflow-hidden"
+              className="group flex w-[78vw] max-w-[320px] flex-shrink-0 snap-start flex-col overflow-hidden border-r border-neutral-300 last:border-r-0 lg:w-auto lg:max-w-none lg:flex-shrink"
             >
               {c.image ? (
                 <div
-                  className={`relative aspect-[5/3] ${
+                  className={`relative h-64 shrink-0 lg:h-72 ${
                     c.imageFit === "contain" ? "bg-neutral-50 border-b border-neutral-200" : ""
                   }`}
                 >
@@ -108,24 +108,24 @@ export default function Certifications({ id }: { id?: string }) {
                     alt={c.imageAlt}
                     fill
                     sizes="(max-width: 768px) 75vw, (max-width: 1280px) 50vw, 25vw"
-                    className={c.imageFit === "contain" ? "object-contain p-3" : "object-cover"}
+                    className={c.imageFit === "contain" ? "object-contain p-5" : "object-cover"}
                   />
                 </div>
               ) : c.facts ? (
-                <div className="aspect-[5/3] flex flex-col justify-center bg-neutral-50 border-b border-neutral-200 px-5 lg:px-6">
+                <div className="h-64 shrink-0 border-b border-neutral-200 bg-neutral-50 px-5 py-6 lg:h-72 lg:px-6 lg:py-7">
                   <p className="text-[10px] uppercase tracking-[0.2em] text-neutral-500">
                     {c.facts.eyebrow}
                   </p>
-                  <dl className="mt-2.5">
+                  <dl className="mt-4">
                     {c.facts.rows.map((row) => (
                       <div
                         key={row.label}
-                        className="flex items-baseline justify-between gap-4 border-t border-neutral-200 py-1 first:border-t-0"
+                        className="grid grid-cols-[auto_1fr] items-baseline gap-4 border-t border-neutral-200 py-2 first:border-t-neutral-300"
                       >
                         <dt className="text-[11px] text-neutral-500 whitespace-nowrap">
                           {row.label}
                         </dt>
-                        <dd className="text-xs font-medium text-neutral-900 text-right tabular-nums">
+                        <dd className="min-w-0 text-right text-xs font-medium leading-snug text-neutral-900 tabular-nums">
                           {row.value}
                         </dd>
                       </div>
@@ -136,7 +136,7 @@ export default function Certifications({ id }: { id?: string }) {
                 <ImagePlaceholder
                   label={c.placeholder.label}
                   description={c.placeholder.description}
-                  className="aspect-[5/3] rounded-none border-0 border-b-2"
+                  className="h-64 shrink-0 rounded-none border-0 border-b-2 lg:h-72"
                 />
               ) : null}
               <div className="p-5 lg:p-7">
