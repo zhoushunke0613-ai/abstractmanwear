@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
-import { PRODUCTS, type FabricKey } from "@/lib/products";
+import { FABRIC_GROUPS, PRODUCTS, type FabricKey } from "@/lib/products";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -16,10 +16,13 @@ const MORE_LINES: { id: string; fabric: FabricKey }[] = [
   { id: "kids", fabric: "modal50s" },
 ];
 
+const FUNCTIONAL = ["functional1", "functional2", "functional3", "functional4"];
+
 // Client names are withheld under confidentiality; each case is described
 // by the kind of brand and the programs produced for it.
 const CASES = [
-  { client: "case1Client", programs: ["case1P1", "case1P2", "case1P3"] },
+  { client: "case1Client", programs: ["case1P1", "case1P4", "case1P2", "case1P3"] },
+  { client: "case3Client", programs: ["case3P1", "case3P2"] },
   { client: "case2Client", programs: ["case2P1"] },
 ];
 
@@ -32,6 +35,7 @@ export default function ProductsPage() {
   const index = [
     ...PRODUCTS.map((p) => ({ href: `#${p.slug}`, label: tn(p.key) })),
     { href: "#womens-kids", label: t("moreEyebrow") },
+    { href: "#fabrics", label: t("fabricsEyebrow") },
     { href: "#cases", label: t("casesEyebrow") },
   ];
 
@@ -229,8 +233,91 @@ export default function ProductsPage() {
         </div>
       </section>
 
+      {/* Fabrics */}
+      <section id="fabrics" className="scroll-mt-20 border-b border-neutral-200 bg-white">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14 lg:py-24">
+          <div className="max-w-2xl">
+            <p className="text-xs uppercase tracking-[0.2em] text-neutral-500">
+              {t("fabricsEyebrow")}
+            </p>
+            <h2 className="mt-3 text-2xl lg:text-4xl font-semibold tracking-tight text-neutral-900">
+              {t("fabricsHeadline")}
+            </h2>
+            <p className="mt-4 text-sm lg:text-base text-neutral-600 leading-relaxed">
+              {t("fabricsDesc")}
+            </p>
+          </div>
+
+          {/* Four everyday fabric families */}
+          <div className="mt-10 lg:mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-10">
+            {FABRIC_GROUPS.map((group, i) => (
+              <div key={group.id} className="border-t-2 border-neutral-900 pt-6">
+                <p className="text-xs uppercase tracking-[0.2em] text-brand-yellow font-semibold">
+                  {String(i + 1).padStart(2, "0")}
+                </p>
+                <h3 className="mt-3 text-xl lg:text-2xl font-semibold tracking-tight text-neutral-900">
+                  {t(`${group.id}Name`)}
+                </h3>
+                <p className="mt-3 text-sm text-neutral-600 leading-relaxed">
+                  {t(`${group.id}Desc`)}
+                </p>
+                {group.specs.length > 0 ? (
+                  <>
+                    <p className="mt-5 text-[11px] uppercase tracking-[0.18em] text-neutral-400">
+                      {t("fabricLabel")}
+                    </p>
+                    <ul className="mt-2 space-y-2">
+                      {group.specs.map((f) => (
+                        <li key={f} className="flex items-start gap-3 text-sm text-neutral-700">
+                          {bullet}
+                          {t(`fabric_${f}`)}
+                        </li>
+                      ))}
+                    </ul>
+                  </>
+                ) : null}
+              </div>
+            ))}
+          </div>
+
+          {/* Functional fabrics and loungewear */}
+          <div className="mt-12 lg:mt-16 grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
+            <div className="rounded-2xl border border-neutral-200 bg-neutral-50 p-6 lg:p-8">
+              <p className="text-xs uppercase tracking-[0.2em] text-neutral-500">
+                {t("functionalLabel")}
+              </p>
+              <ul className="mt-4 flex flex-wrap gap-2">
+                {FUNCTIONAL.map((f) => (
+                  <li
+                    key={f}
+                    className="rounded-full border border-neutral-900 px-4 py-1.5 text-sm font-medium text-neutral-900"
+                  >
+                    {t(f)}
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-5 text-sm text-neutral-600 leading-relaxed">
+                {t("functionalDesc")}
+              </p>
+            </div>
+
+            <div className="rounded-2xl bg-neutral-900 p-6 lg:p-8">
+              <p className="text-xs uppercase tracking-[0.2em] text-brand-yellow">
+                {t("loungeLabel")}
+              </p>
+              <p className="mt-4 text-xl lg:text-2xl font-semibold tracking-tight text-white">
+                {t("loungeTitle")}
+              </p>
+              <p className="mt-3 text-sm text-neutral-400 leading-relaxed">
+                {t("loungeDesc")}
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Anonymized case studies */}
-      <section id="cases" className="scroll-mt-20 border-b border-neutral-200 bg-white">
+      <section id="cases" className="scroll-mt-20 border-b border-neutral-200 bg-neutral-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14 lg:py-24">
           <div className="max-w-2xl">
             <p className="text-xs uppercase tracking-[0.2em] text-neutral-500">
@@ -285,7 +372,7 @@ export default function ProductsPage() {
               {BRAND_ORIGINS.map((o) => (
                 <li
                   key={o}
-                  className="rounded-full border border-neutral-300 px-4 py-1.5 text-sm text-neutral-700"
+                  className="rounded-full border border-neutral-300 bg-white px-4 py-1.5 text-sm text-neutral-700"
                 >
                   {t(o)}
                 </li>
