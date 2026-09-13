@@ -360,7 +360,7 @@ export default function ContactPage() {
               {/* Reception — what a visiting buyer sees first */}
               <div className="relative aspect-[3/2] rounded-2xl overflow-hidden">
                 <Image
-                  src="/images/photos/reception.jpg"
+                  src="/images/brand/reception.jpg"
                   alt="Abstract Man reception with the company name wall"
                   fill
                   sizes="(max-width: 1024px) 100vw, 33vw"

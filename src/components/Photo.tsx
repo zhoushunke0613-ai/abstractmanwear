@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 interface Props {
-  /** Path under /public, e.g. "/images/photos/team.jpg" */
+  /** Path under /public, e.g. "/images/brand/team.jpg" */
   src: string;
   alt: string;
   /** Tailwind classes for the frame — aspect ratio, rounding, borders */

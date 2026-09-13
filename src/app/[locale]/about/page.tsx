@@ -5,9 +5,9 @@ import Photo from "@/components/Photo";
 
 // One photo per team role, in the order of teamRoles below.
 const TEAM_PHOTOS = [
-  "/images/photos/office.jpg",
-  "/images/photos/design-studio.jpg",
-  "/images/photos/founder-sewing-floor.jpg",
+  "/images/brand/office.jpg",
+  "/images/brand/design-studio.jpg",
+  "/images/brand/founder-sewing-floor.jpg",
 ];
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
@@ -128,7 +128,7 @@ export default function AboutPage() {
             {/* Team photo */}
             <div className="lg:col-span-5 lg:col-start-8">
               <Photo
-                src="/images/photos/team.jpg"
+                src="/images/brand/team.jpg"
                 alt={t("teamImgDesc")}
                 className="aspect-[4/3]"
                 sizes="(max-width: 1024px) 100vw, 40vw"

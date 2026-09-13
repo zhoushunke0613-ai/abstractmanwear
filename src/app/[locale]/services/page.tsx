@@ -22,7 +22,7 @@ export default function ServicesPage() {
       title: t("s1Title"),
       description: t("s1Desc"),
       details: [t("s1D1"), t("s1D2"), t("s1D3"), t("s1D4")],
-      photo: "/images/photos/packing-floor.jpg",
+      photo: "/images/brand/packing-floor.jpg",
       alt: t("s1ImgDesc"),
     },
     {
@@ -31,7 +31,7 @@ export default function ServicesPage() {
       title: t("s2Title"),
       description: t("s2Desc"),
       details: [t("s2D1"), t("s2D2"), t("s2D3"), t("s2D4")],
-      photo: "/images/photos/design-studio.jpg",
+      photo: "/images/brand/design-studio.jpg",
       alt: t("s2ImgDesc"),
     },
     {
@@ -40,7 +40,7 @@ export default function ServicesPage() {
       title: t("s3Title"),
       description: t("s3Desc"),
       details: [t("s3D1"), t("s3D2"), t("s3D3"), t("s3D4")],
-      photo: "/images/photos/fabric-review.jpg",
+      photo: "/images/brand/fabric-review.jpg",
       alt: t("s3ImgDesc"),
     },
     {
@@ -49,7 +49,7 @@ export default function ServicesPage() {
       title: t("s4Title"),
       description: t("s4Desc"),
       details: [t("s4D1"), t("s4D2"), t("s4D3"), t("s4D4")],
-      photo: "/images/photos/sample-review-showroom.jpg",
+      photo: "/images/brand/sample-review-showroom.jpg",
       alt: t("s4ImgDesc"),
     },
     {
@@ -58,7 +58,7 @@ export default function ServicesPage() {
       title: t("s5Title"),
       description: t("s5Desc"),
       details: [t("s5D1"), t("s5D2"), t("s5D3"), t("s5D4")],
-      photo: "/images/photos/design-colorways.jpg",
+      photo: "/images/brand/design-colorways.jpg",
       alt: t("s5ImgDesc"),
     },
   ];

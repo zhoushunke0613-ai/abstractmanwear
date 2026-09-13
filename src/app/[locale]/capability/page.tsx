@@ -38,19 +38,19 @@ export default function CapabilityPage() {
       description: t("line2Desc"),
       specs: [t("line2Spec1"), t("line2Spec2"), t("line2Spec3")],
       alt: t("line2ImgDesc"),
-      photo: "/images/photos/founder-sewing-floor.jpg" as string | null,
+      photo: "/images/brand/founder-sewing-floor.jpg" as string | null,
       flowEyebrow: "",
       flow: [] as string[],
     },
   ];
 
   const departments = [
-    { title: t("dept1Title"), description: t("dept1Desc"), alt: t("dept1ImgDesc"), photo: "/images/photos/design-colorways.jpg" as string | null, tags: "" },
+    { title: t("dept1Title"), description: t("dept1Desc"), alt: t("dept1ImgDesc"), photo: "/images/brand/design-colorways.jpg" as string | null, tags: "" },
     { title: t("dept2Title"), description: t("dept2Desc"), alt: "", photo: null as string | null, tags: t("dept2Tags") },
     { title: t("dept3Title"), description: t("dept3Desc"), alt: "", photo: null as string | null, tags: t("dept3Tags") },
-    { title: t("dept4Title"), description: t("dept4Desc"), alt: t("dept4ImgDesc"), photo: "/images/photos/fabric-review.jpg" as string | null, tags: "" },
-    { title: t("dept5Title"), description: t("dept5Desc"), alt: t("dept5ImgDesc"), photo: "/images/photos/packing-floor-wide.jpg" as string | null, tags: "" },
-    { title: t("dept6Title"), description: t("dept6Desc"), alt: t("dept6ImgDesc"), photo: "/images/photos/sample-review-showroom.jpg" as string | null, tags: "" },
+    { title: t("dept4Title"), description: t("dept4Desc"), alt: t("dept4ImgDesc"), photo: "/images/brand/fabric-review.jpg" as string | null, tags: "" },
+    { title: t("dept5Title"), description: t("dept5Desc"), alt: t("dept5ImgDesc"), photo: "/images/brand/packing-floor-wide.jpg" as string | null, tags: "" },
+    { title: t("dept6Title"), description: t("dept6Desc"), alt: t("dept6ImgDesc"), photo: "/images/brand/sample-review-showroom.jpg" as string | null, tags: "" },
   ];
 
   const equipmentList = [
@@ -62,14 +62,14 @@ export default function CapabilityPage() {
 
   // Factory tour — real photographs; gallery labels describe each one.
   const gallery = [
-    { src: "/images/photos/packing-floor.jpg", label: t("gallery1Label") },
-    { src: "/images/photos/packing-floor-wide.jpg", label: t("gallery2Label") },
-    { src: "/images/photos/founder-sewing-floor.jpg", label: t("gallery3Label") },
-    { src: "/images/photos/quality-inspection.jpg", label: t("gallery4Label") },
-    { src: "/images/photos/design-studio.jpg", label: t("gallery5Label") },
-    { src: "/images/photos/office.jpg", label: t("gallery6Label") },
-    { src: "/images/photos/reception.jpg", label: t("gallery7Label") },
-    { src: "/images/photos/team.jpg", label: t("gallery8Label") },
+    { src: "/images/brand/packing-floor.jpg", label: t("gallery1Label") },
+    { src: "/images/brand/packing-floor-wide.jpg", label: t("gallery2Label") },
+    { src: "/images/brand/founder-sewing-floor.jpg", label: t("gallery3Label") },
+    { src: "/images/brand/quality-inspection.jpg", label: t("gallery4Label") },
+    { src: "/images/brand/design-studio.jpg", label: t("gallery5Label") },
+    { src: "/images/brand/office.jpg", label: t("gallery6Label") },
+    { src: "/images/brand/reception.jpg", label: t("gallery7Label") },
+    { src: "/images/brand/team.jpg", label: t("gallery8Label") },
   ];
 
   return (
@@ -107,7 +107,7 @@ export default function CapabilityPage() {
             {/* Company entrance */}
             <div className="lg:col-span-5 lg:col-start-8">
               <Photo
-                src="/images/photos/founder-brand-wall.jpg"
+                src="/images/brand/founder-brand-wall.jpg"
                 alt={t("factoryImgDesc")}
                 className="aspect-[4/3] lg:aspect-[3/4]"
                 position="center 30%"
@@ -316,7 +316,7 @@ export default function CapabilityPage() {
 
             <div className="lg:col-span-5 lg:col-start-8">
               <Photo
-                src="/images/photos/quality-inspection.jpg"
+                src="/images/brand/quality-inspection.jpg"
                 alt={t("qualityImgDesc")}
                 className="aspect-[4/3] lg:aspect-[4/5]"
                 position="center 30%"
