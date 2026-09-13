@@ -27,12 +27,10 @@ export default function Certifications() {
       badge: "BSCI",
       title: t("bsciTitle"),
       description: t("bsciDesc"),
-      image: null,
-      imageAlt: "",
-      placeholder: {
-        label: "BSCI Certificate",
-        description: "BSCI audit certificate scan or official BSCI badge image",
-      },
+      image: "/images/cert-bsci-cover.jpg",
+      imageAlt: "amfori BSCI audit report cover",
+      imageFit: "contain",
+      placeholder: null,
     },
     {
       badge: "SLCP",

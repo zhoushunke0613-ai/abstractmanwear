@@ -316,11 +316,15 @@ export default function AboutPage() {
             </div>
 
             <div className="lg:col-span-5 lg:col-start-8 space-y-4">
-              <ImagePlaceholder
-                label={t("bsciImgLabel")}
-                description={t("bsciImgDesc")}
-                className="aspect-[3/2]"
-              />
+              <div className="relative aspect-[3/2] overflow-hidden rounded-xl border border-neutral-200 bg-white">
+                <Image
+                  src="/images/cert-bsci-cover.jpg"
+                  alt={t("bsciImgAlt")}
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  className="object-contain p-3"
+                />
+              </div>
               <a
                 href="/certificates/higg-fslm-2026.pdf"
                 target="_blank"
