@@ -1,6 +1,6 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { PRODUCTS } from "@/lib/products";
+import { PRODUCTS, PRODUCT_EXTRAS } from "@/lib/products";
 
 export default function Footer() {
   const t = useTranslations("Footer");
@@ -12,6 +12,7 @@ export default function Footer() {
       heading: t("col1Heading"),
       items: [
         ...PRODUCTS.map((p) => ({ href: `/products#${p.slug}`, label: tp(p.key) })),
+        ...PRODUCT_EXTRAS.map((x) => ({ href: `/products#${x.slug}`, label: t(`col1_${x.labelKey}`) })),
         { href: "/services#odm", label: t("col1_custom") },
       ],
     },

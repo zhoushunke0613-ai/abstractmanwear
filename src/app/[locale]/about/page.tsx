@@ -1,7 +1,14 @@
 import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
-import ImagePlaceholder from "@/components/ImagePlaceholder";
+import Photo from "@/components/Photo";
+
+// One photo per team role, in the order of teamRoles below.
+const TEAM_PHOTOS = [
+  "/images/photos/office.jpg",
+  "/images/photos/design-studio.jpg",
+  "/images/photos/founder-sewing-floor.jpg",
+];
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -118,12 +125,13 @@ export default function AboutPage() {
               </div>
             </div>
 
-            {/* Team / factory photo */}
+            {/* Team photo */}
             <div className="lg:col-span-5 lg:col-start-8">
-              <ImagePlaceholder
-                label={t("teamImgLabel")}
-                description={t("teamImgDesc")}
+              <Photo
+                src="/images/photos/team.jpg"
+                alt={t("teamImgDesc")}
                 className="aspect-[4/3]"
+                sizes="(max-width: 1024px) 100vw, 40vw"
               />
             </div>
           </div>
@@ -220,15 +228,17 @@ export default function AboutPage() {
           </div>
 
           <div className="mt-10 lg:mt-14 grid grid-cols-1 lg:grid-cols-3 gap-5">
-            {teamRoles.map((t_role) => (
+            {teamRoles.map((t_role, idx) => (
               <div
                 key={t_role.role}
                 className="border border-neutral-200 rounded-2xl overflow-hidden"
               >
-                <ImagePlaceholder
-                  label={t_role.image.label}
-                  description={t_role.image.description}
-                  className="aspect-[5/3] rounded-none border-0 border-b"
+                <Photo
+                  src={TEAM_PHOTOS[idx]}
+                  alt={t_role.image.description}
+                  className="aspect-[5/3] rounded-none"
+                  sizes="(max-width: 1024px) 100vw, 33vw"
+                  position="center 30%"
                 />
                 <div className="p-6 lg:p-8">
                   <h3 className="text-base font-semibold tracking-tight text-neutral-900">

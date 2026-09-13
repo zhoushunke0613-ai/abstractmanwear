@@ -1,7 +1,7 @@
 import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
-import ImagePlaceholder from "@/components/ImagePlaceholder";
+import Photo from "@/components/Photo";
 import OrderProcess from "@/components/OrderProcess";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
@@ -22,10 +22,8 @@ export default function ServicesPage() {
       title: t("s1Title"),
       description: t("s1Desc"),
       details: [t("s1D1"), t("s1D2"), t("s1D3"), t("s1D4")],
-      image: {
-        label: t("s1ImgLabel"),
-        description: t("s1ImgDesc"),
-      },
+      photo: "/images/photos/packing-floor.jpg",
+      alt: t("s1ImgDesc"),
     },
     {
       id: "odm",
@@ -33,10 +31,8 @@ export default function ServicesPage() {
       title: t("s2Title"),
       description: t("s2Desc"),
       details: [t("s2D1"), t("s2D2"), t("s2D3"), t("s2D4")],
-      image: {
-        label: t("s2ImgLabel"),
-        description: t("s2ImgDesc"),
-      },
+      photo: "/images/photos/design-studio.jpg",
+      alt: t("s2ImgDesc"),
     },
     {
       id: "fabric",
@@ -44,10 +40,8 @@ export default function ServicesPage() {
       title: t("s3Title"),
       description: t("s3Desc"),
       details: [t("s3D1"), t("s3D2"), t("s3D3"), t("s3D4")],
-      image: {
-        label: t("s3ImgLabel"),
-        description: t("s3ImgDesc"),
-      },
+      photo: "/images/photos/fabric-review.jpg",
+      alt: t("s3ImgDesc"),
     },
     {
       id: "sampling",
@@ -55,10 +49,8 @@ export default function ServicesPage() {
       title: t("s4Title"),
       description: t("s4Desc"),
       details: [t("s4D1"), t("s4D2"), t("s4D3"), t("s4D4")],
-      image: {
-        label: t("s4ImgLabel"),
-        description: t("s4ImgDesc"),
-      },
+      photo: "/images/photos/sample-review-showroom.jpg",
+      alt: t("s4ImgDesc"),
     },
     {
       id: "private-label",
@@ -66,10 +58,8 @@ export default function ServicesPage() {
       title: t("s5Title"),
       description: t("s5Desc"),
       details: [t("s5D1"), t("s5D2"), t("s5D3"), t("s5D4")],
-      image: {
-        label: t("s5ImgLabel"),
-        description: t("s5ImgDesc"),
-      },
+      photo: "/images/photos/design-colorways.jpg",
+      alt: t("s5ImgDesc"),
     },
   ];
 
@@ -152,17 +142,13 @@ export default function ServicesPage() {
                 </ul>
               </div>
 
-              {/* Image placeholder */}
+              {/* Photo */}
               <div
                 className={`lg:col-span-5 ${
                   i % 2 === 0 ? "lg:col-start-8" : "lg:[direction:ltr]"
                 }`}
               >
-                <ImagePlaceholder
-                  label={s.image.label}
-                  description={s.image.description}
-                  className="aspect-[4/3] lg:aspect-[3/2]"
-                />
+                <Photo src={s.photo} alt={s.alt} className="aspect-[4/3] lg:aspect-[3/2]" />
               </div>
             </div>
           </div>

@@ -2,6 +2,7 @@ import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import ImagePlaceholder from "@/components/ImagePlaceholder";
+import Photo from "@/components/Photo";
 import Certifications from "@/components/Certifications";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
@@ -20,119 +21,50 @@ export default function CapabilityPage() {
     { value: t("stat4"), label: t("stat4Label") },
   ];
 
+  // `photo` is set where a real photograph exists; the rest keep a placeholder.
   const productionLines = [
     {
       title: t("line1Title"),
       description: t("line1Desc"),
-      specs: [
-        t("line1Spec1"),
-        t("line1Spec2"),
-        t("line1Spec3"),
-      ],
-      image: {
-        label: t("line1ImgLabel"),
-        description: t("line1ImgDesc"),
-      },
+      specs: [t("line1Spec1"), t("line1Spec2"), t("line1Spec3")],
+      image: { label: t("line1ImgLabel"), description: t("line1ImgDesc") },
+      photo: null as string | null,
     },
     {
       title: t("line2Title"),
       description: t("line2Desc"),
-      specs: [
-        t("line2Spec1"),
-        t("line2Spec2"),
-        t("line2Spec3"),
-      ],
-      image: {
-        label: t("line2ImgLabel"),
-        description: t("line2ImgDesc"),
-      },
+      specs: [t("line2Spec1"), t("line2Spec2"), t("line2Spec3")],
+      image: { label: t("line2ImgLabel"), description: t("line2ImgDesc") },
+      photo: "/images/photos/founder-sewing-floor.jpg" as string | null,
     },
   ];
 
   const departments = [
-    {
-      title: t("dept1Title"),
-      description: t("dept1Desc"),
-      image: {
-        label: t("dept1ImgLabel"),
-        description: t("dept1ImgDesc"),
-      },
-    },
-    {
-      title: t("dept2Title"),
-      description: t("dept2Desc"),
-      image: {
-        label: t("dept2ImgLabel"),
-        description: t("dept2ImgDesc"),
-      },
-    },
-    {
-      title: t("dept3Title"),
-      description: t("dept3Desc"),
-      image: {
-        label: t("dept3ImgLabel"),
-        description: t("dept3ImgDesc"),
-      },
-    },
-    {
-      title: t("dept4Title"),
-      description: t("dept4Desc"),
-      image: {
-        label: t("dept4ImgLabel"),
-        description: t("dept4ImgDesc"),
-      },
-    },
-    {
-      title: t("dept5Title"),
-      description: t("dept5Desc"),
-      image: {
-        label: t("dept5ImgLabel"),
-        description: t("dept5ImgDesc"),
-      },
-    },
-    {
-      title: t("dept6Title"),
-      description: t("dept6Desc"),
-      image: {
-        label: t("dept6ImgLabel"),
-        description: t("dept6ImgDesc"),
-      },
-    },
+    { title: t("dept1Title"), description: t("dept1Desc"), image: { label: t("dept1ImgLabel"), description: t("dept1ImgDesc") }, photo: "/images/photos/design-colorways.jpg" as string | null },
+    { title: t("dept2Title"), description: t("dept2Desc"), image: { label: t("dept2ImgLabel"), description: t("dept2ImgDesc") }, photo: null as string | null },
+    { title: t("dept3Title"), description: t("dept3Desc"), image: { label: t("dept3ImgLabel"), description: t("dept3ImgDesc") }, photo: null as string | null },
+    { title: t("dept4Title"), description: t("dept4Desc"), image: { label: t("dept4ImgLabel"), description: t("dept4ImgDesc") }, photo: "/images/photos/fabric-review.jpg" as string | null },
+    { title: t("dept5Title"), description: t("dept5Desc"), image: { label: t("dept5ImgLabel"), description: t("dept5ImgDesc") }, photo: "/images/photos/packing-floor-wide.jpg" as string | null },
+    { title: t("dept6Title"), description: t("dept6Desc"), image: { label: t("dept6ImgLabel"), description: t("dept6ImgDesc") }, photo: "/images/photos/sample-review-showroom.jpg" as string | null },
   ];
 
   const equipmentList = [
-    {
-      category: t("equipCat1"),
-      items: [
-        t("equipCat1Item1"),
-        t("equipCat1Item2"),
-      ],
-    },
-    {
-      category: t("equipCat2"),
-      items: [
-        t("equipCat2Item1"),
-        t("equipCat2Item2"),
-        t("equipCat2Item3"),
-        t("equipCat2Item4"),
-      ],
-    },
-    {
-      category: t("equipCat3"),
-      items: [
-        t("equipCat3Item1"),
-        t("equipCat3Item2"),
-        t("equipCat3Item3"),
-      ],
-    },
-    {
-      category: t("equipCat4"),
-      items: [
-        t("equipCat4Item1"),
-        t("equipCat4Item2"),
-        t("equipCat4Item3"),
-      ],
-    },
+    { category: t("equipCat1"), items: [t("equipCat1Item1"), t("equipCat1Item2")] },
+    { category: t("equipCat2"), items: [t("equipCat2Item1"), t("equipCat2Item2"), t("equipCat2Item3"), t("equipCat2Item4")] },
+    { category: t("equipCat3"), items: [t("equipCat3Item1"), t("equipCat3Item2"), t("equipCat3Item3")] },
+    { category: t("equipCat4"), items: [t("equipCat4Item1"), t("equipCat4Item2"), t("equipCat4Item3")] },
+  ];
+
+  // Factory tour — real photographs; gallery labels describe each one.
+  const gallery = [
+    { src: "/images/photos/packing-floor.jpg", label: t("gallery1Label") },
+    { src: "/images/photos/packing-floor-wide.jpg", label: t("gallery2Label") },
+    { src: "/images/photos/founder-sewing-floor.jpg", label: t("gallery3Label") },
+    { src: "/images/photos/quality-inspection.jpg", label: t("gallery4Label") },
+    { src: "/images/photos/design-studio.jpg", label: t("gallery5Label") },
+    { src: "/images/photos/office.jpg", label: t("gallery6Label") },
+    { src: "/images/photos/reception.jpg", label: t("gallery7Label") },
+    { src: "/images/photos/team.jpg", label: t("gallery8Label") },
   ];
 
   return (
@@ -167,12 +99,14 @@ export default function CapabilityPage() {
               </div>
             </div>
 
-            {/* Factory exterior photo */}
+            {/* Company entrance */}
             <div className="lg:col-span-5 lg:col-start-8">
-              <ImagePlaceholder
-                label={t("factoryImgLabel")}
-                description={t("factoryImgDesc")}
+              <Photo
+                src="/images/photos/founder-brand-wall.jpg"
+                alt={t("factoryImgDesc")}
                 className="aspect-[4/3] lg:aspect-[3/4]"
+                position="center 30%"
+                sizes="(max-width: 1024px) 100vw, 40vw"
               />
             </div>
           </div>
@@ -249,11 +183,20 @@ export default function CapabilityPage() {
                   i % 2 === 0 ? "lg:col-start-8" : "lg:[direction:ltr]"
                 }`}
               >
-                <ImagePlaceholder
-                  label={line.image.label}
-                  description={line.image.description}
-                  className="aspect-[4/3]"
-                />
+                {line.photo ? (
+                  <Photo
+                    src={line.photo}
+                    alt={line.image.description}
+                    className="aspect-[4/3]"
+                    position="center 25%"
+                  />
+                ) : (
+                  <ImagePlaceholder
+                    label={line.image.label}
+                    description={line.image.description}
+                    className="aspect-[4/3]"
+                  />
+                )}
               </div>
             </div>
           </div>
@@ -282,11 +225,20 @@ export default function CapabilityPage() {
                 key={dept.title}
                 className="w-[72vw] max-w-[280px] flex-shrink-0 snap-start lg:w-auto lg:max-w-none lg:flex-shrink border border-neutral-200 rounded-2xl overflow-hidden transition-all duration-300 hover:border-brand-yellow/60 hover:-translate-y-0.5 hover:shadow-md"
               >
-                <ImagePlaceholder
-                  label={dept.image.label}
-                  description={dept.image.description}
-                  className="aspect-[5/3] rounded-none border-0 border-b"
-                />
+                {dept.photo ? (
+                  <Photo
+                    src={dept.photo}
+                    alt={dept.image.description}
+                    className="aspect-[5/3] rounded-none"
+                    sizes="(max-width: 1024px) 72vw, 33vw"
+                  />
+                ) : (
+                  <ImagePlaceholder
+                    label={dept.image.label}
+                    description={dept.image.description}
+                    className="aspect-[5/3] rounded-none border-0 border-b"
+                  />
+                )}
                 <div className="p-5 lg:p-6">
                   <h3 className="text-base font-semibold tracking-tight text-neutral-900">
                     {dept.title}
@@ -340,10 +292,11 @@ export default function CapabilityPage() {
             </div>
 
             <div className="lg:col-span-5 lg:col-start-8">
-              <ImagePlaceholder
-                label={t("qualityImgLabel")}
-                description={t("qualityImgDesc")}
-                className="aspect-[4/3]"
+              <Photo
+                src="/images/photos/quality-inspection.jpg"
+                alt={t("qualityImgDesc")}
+                className="aspect-[4/3] lg:aspect-[4/5]"
+                position="center 30%"
               />
             </div>
           </div>
@@ -395,7 +348,7 @@ export default function CapabilityPage() {
         </div>
       </section>
 
-      {/* Factory floor gallery placeholder */}
+      {/* Factory tour gallery */}
       <section className="border-b border-neutral-200 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14 lg:py-24">
           <div className="max-w-2xl">
@@ -410,49 +363,19 @@ export default function CapabilityPage() {
             </p>
           </div>
 
-          <div className="mt-10 lg:mt-14 grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4">
-            {[
-              {
-                label: t("gallery1Label"),
-                desc: t("gallery1Desc"),
-              },
-              {
-                label: t("gallery2Label"),
-                desc: t("gallery2Desc"),
-              },
-              {
-                label: t("gallery3Label"),
-                desc: t("gallery3Desc"),
-              },
-              {
-                label: t("gallery4Label"),
-                desc: t("gallery4Desc"),
-              },
-              {
-                label: t("gallery5Label"),
-                desc: t("gallery5Desc"),
-              },
-              {
-                label: t("gallery6Label"),
-                desc: t("gallery6Desc"),
-              },
-              {
-                label: t("gallery7Label"),
-                desc: t("gallery7Desc"),
-              },
-              {
-                label: t("gallery8Label"),
-                desc: t("gallery8Desc"),
-              },
-            ].map((photo) => (
-              <ImagePlaceholder
-                key={photo.label}
-                label={photo.label}
-                description={photo.desc}
-                className="aspect-square"
-              />
+          <ul className="mt-10 lg:mt-14 grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4">
+            {gallery.map((photo) => (
+              <li key={photo.src}>
+                <Photo
+                  src={photo.src}
+                  alt={photo.label}
+                  className="aspect-square"
+                  sizes="(max-width: 1024px) 50vw, 25vw"
+                />
+                <p className="mt-2 text-xs text-neutral-500">{photo.label}</p>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 

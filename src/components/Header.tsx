@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import { useParams } from "next/navigation";
-import { PRODUCTS } from "@/lib/products";
+import { PRODUCTS, PRODUCT_EXTRAS } from "@/lib/products";
 
 // Frosted glass pill — shared base
 const pillBase =
@@ -38,10 +38,10 @@ export default function Header() {
     {
       href: "/products",
       label: t("products"),
-      items: PRODUCTS.map((p) => ({
-        href: `/products#${p.slug}`,
-        label: tp(p.key),
-      })),
+      items: [
+        ...PRODUCTS.map((p) => ({ href: `/products#${p.slug}`, label: tp(p.key) })),
+        ...PRODUCT_EXTRAS.map((x) => ({ href: `/products#${x.slug}`, label: t(x.labelKey) })),
+      ],
     },
     {
       href: "/services",

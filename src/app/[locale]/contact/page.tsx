@@ -357,11 +357,11 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              {/* Factory photo */}
+              {/* Reception — what a visiting buyer sees first */}
               <div className="relative aspect-[3/2] rounded-2xl overflow-hidden">
                 <Image
-                  src="/images/factory-floor.png"
-                  alt="Abstract Man factory floor — production lines and knitting machines"
+                  src="/images/photos/reception.jpg"
+                  alt="Abstract Man reception with the company name wall"
                   fill
                   sizes="(max-width: 1024px) 100vw, 33vw"
                   className="object-cover"
