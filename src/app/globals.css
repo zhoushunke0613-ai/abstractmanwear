@@ -249,6 +249,40 @@ html[lang="zh"] h2 {
 .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
 .scrollbar-hide::-webkit-scrollbar { display: none; }
 
+/* Homepage concept routes intentionally use independent visual systems. */
+.concept-commercial,
+.concept-commercial h1,
+.concept-commercial h2,
+.concept-commercial h3,
+.concept-commercial p,
+.concept-commercial a,
+.concept-commercial dt,
+.concept-commercial dd {
+  font-family: Arial, "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+.concept-cinematic,
+.concept-cinematic h1,
+.concept-cinematic h2,
+.concept-cinematic h3,
+.concept-cinematic p,
+.concept-cinematic a,
+.concept-cinematic dt,
+.concept-cinematic dd {
+  font-family: "Helvetica Neue", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+}
+
+.concept-material,
+.concept-material h1,
+.concept-material h2,
+.concept-material h3,
+.concept-material p,
+.concept-material a,
+.concept-material dt,
+.concept-material dd {
+  font-family: Arial, "Arial Black", "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
 @media (min-width: 64rem) {
   .page-hero-inner { padding-inline: 2rem; }
 }

@@ -79,6 +79,10 @@ export default function Header() {
     };
   }, [open]);
 
+  if (pathname.startsWith("/concepts/")) {
+    return null;
+  }
+
   return (
     <header className="sticky top-0 z-50 border-b border-neutral-200 bg-[#fcfaf6]/95">
       <div className="mx-auto flex h-[4.5rem] max-w-7xl items-center justify-between gap-8 px-6 lg:h-20 lg:px-8">
