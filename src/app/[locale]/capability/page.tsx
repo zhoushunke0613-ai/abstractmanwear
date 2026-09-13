@@ -1,7 +1,6 @@
 import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
-import ImagePlaceholder from "@/components/ImagePlaceholder";
 import Photo from "@/components/Photo";
 import Certifications from "@/components/Certifications";
 
@@ -21,31 +20,37 @@ export default function CapabilityPage() {
     { value: t("stat4"), label: t("stat4Label") },
   ];
 
-  // `photo` is set where a real photograph exists; the rest keep a placeholder.
+  // Where no real photograph exists, the slot carries information instead of
+  // a stand-in image: the seamless line shows its process, departments their
+  // number and techniques.
   const productionLines = [
     {
       title: t("line1Title"),
       description: t("line1Desc"),
       specs: [t("line1Spec1"), t("line1Spec2"), t("line1Spec3")],
-      image: { label: t("line1ImgLabel"), description: t("line1ImgDesc") },
+      alt: t("line1ImgDesc"),
       photo: null as string | null,
+      flowEyebrow: t("line1FlowEyebrow"),
+      flow: [t("line1Flow1"), t("line1Flow2"), t("line1Flow3"), t("line1Flow4")],
     },
     {
       title: t("line2Title"),
       description: t("line2Desc"),
       specs: [t("line2Spec1"), t("line2Spec2"), t("line2Spec3")],
-      image: { label: t("line2ImgLabel"), description: t("line2ImgDesc") },
+      alt: t("line2ImgDesc"),
       photo: "/images/photos/founder-sewing-floor.jpg" as string | null,
+      flowEyebrow: "",
+      flow: [] as string[],
     },
   ];
 
   const departments = [
-    { title: t("dept1Title"), description: t("dept1Desc"), image: { label: t("dept1ImgLabel"), description: t("dept1ImgDesc") }, photo: "/images/photos/design-colorways.jpg" as string | null },
-    { title: t("dept2Title"), description: t("dept2Desc"), image: { label: t("dept2ImgLabel"), description: t("dept2ImgDesc") }, photo: null as string | null },
-    { title: t("dept3Title"), description: t("dept3Desc"), image: { label: t("dept3ImgLabel"), description: t("dept3ImgDesc") }, photo: null as string | null },
-    { title: t("dept4Title"), description: t("dept4Desc"), image: { label: t("dept4ImgLabel"), description: t("dept4ImgDesc") }, photo: "/images/photos/fabric-review.jpg" as string | null },
-    { title: t("dept5Title"), description: t("dept5Desc"), image: { label: t("dept5ImgLabel"), description: t("dept5ImgDesc") }, photo: "/images/photos/packing-floor-wide.jpg" as string | null },
-    { title: t("dept6Title"), description: t("dept6Desc"), image: { label: t("dept6ImgLabel"), description: t("dept6ImgDesc") }, photo: "/images/photos/sample-review-showroom.jpg" as string | null },
+    { title: t("dept1Title"), description: t("dept1Desc"), alt: t("dept1ImgDesc"), photo: "/images/photos/design-colorways.jpg" as string | null, tags: "" },
+    { title: t("dept2Title"), description: t("dept2Desc"), alt: "", photo: null as string | null, tags: t("dept2Tags") },
+    { title: t("dept3Title"), description: t("dept3Desc"), alt: "", photo: null as string | null, tags: t("dept3Tags") },
+    { title: t("dept4Title"), description: t("dept4Desc"), alt: t("dept4ImgDesc"), photo: "/images/photos/fabric-review.jpg" as string | null, tags: "" },
+    { title: t("dept5Title"), description: t("dept5Desc"), alt: t("dept5ImgDesc"), photo: "/images/photos/packing-floor-wide.jpg" as string | null, tags: "" },
+    { title: t("dept6Title"), description: t("dept6Desc"), alt: t("dept6ImgDesc"), photo: "/images/photos/sample-review-showroom.jpg" as string | null, tags: "" },
   ];
 
   const equipmentList = [
@@ -186,16 +191,30 @@ export default function CapabilityPage() {
                 {line.photo ? (
                   <Photo
                     src={line.photo}
-                    alt={line.image.description}
+                    alt={line.alt}
                     className="aspect-[4/3]"
                     position="center 25%"
                   />
                 ) : (
-                  <ImagePlaceholder
-                    label={line.image.label}
-                    description={line.image.description}
-                    className="aspect-[4/3]"
-                  />
+                  /* Process panel in place of a photo */
+                  <div className="aspect-[4/3] rounded-xl bg-neutral-900 p-6 lg:p-10 flex flex-col justify-center">
+                    <p className="text-xs uppercase tracking-[0.2em] text-brand-yellow">
+                      {line.flowEyebrow}
+                    </p>
+                    <ol className="mt-5 lg:mt-6">
+                      {line.flow.map((step, n) => (
+                        <li
+                          key={step}
+                          className="flex items-baseline gap-4 border-t border-neutral-700 py-3 first:border-t-0"
+                        >
+                          <span className="text-sm font-semibold text-brand-yellow tabular-nums">
+                            {String(n + 1).padStart(2, "0")}
+                          </span>
+                          <span className="text-base lg:text-lg text-white">{step}</span>
+                        </li>
+                      ))}
+                    </ol>
+                  </div>
                 )}
               </div>
             </div>
@@ -220,7 +239,7 @@ export default function CapabilityPage() {
 
           {/* Horizontal scroll on mobile, grid on desktop */}
           <div className="mt-10 lg:mt-14 -mx-6 px-6 lg:mx-0 lg:px-0 flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 lg:pb-0 scrollbar-hide lg:grid lg:grid-cols-3 lg:gap-5 lg:overflow-visible lg:snap-none">
-            {departments.map((dept) => (
+            {departments.map((dept, idx) => (
               <div
                 key={dept.title}
                 className="w-[72vw] max-w-[280px] flex-shrink-0 snap-start lg:w-auto lg:max-w-none lg:flex-shrink border border-neutral-200 rounded-2xl overflow-hidden transition-all duration-300 hover:border-brand-yellow/60 hover:-translate-y-0.5 hover:shadow-md"
@@ -228,16 +247,20 @@ export default function CapabilityPage() {
                 {dept.photo ? (
                   <Photo
                     src={dept.photo}
-                    alt={dept.image.description}
+                    alt={dept.alt}
                     className="aspect-[5/3] rounded-none"
                     sizes="(max-width: 1024px) 72vw, 33vw"
                   />
                 ) : (
-                  <ImagePlaceholder
-                    label={dept.image.label}
-                    description={dept.image.description}
-                    className="aspect-[5/3] rounded-none border-0 border-b"
-                  />
+                  /* Department number and techniques in place of a photo */
+                  <div className="aspect-[5/3] flex flex-col justify-between bg-neutral-900 p-5 lg:p-6">
+                    <span className="text-4xl lg:text-5xl font-semibold tracking-tight text-brand-yellow tabular-nums">
+                      {String(idx + 1).padStart(2, "0")}
+                    </span>
+                    <p className="text-xs uppercase tracking-[0.15em] text-neutral-300 leading-relaxed">
+                      {dept.tags}
+                    </p>
+                  </div>
                 )}
                 <div className="p-5 lg:p-6">
                   <h3 className="text-base font-semibold tracking-tight text-neutral-900">

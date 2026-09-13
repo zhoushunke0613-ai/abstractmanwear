@@ -471,7 +471,14 @@
     "qualityD3": "BSCI audit + SLCP verified assessment",
     "qualityD4": "Photo pack and inspection report per shipment",
     "qualityImgLabel": "QC Inspection",
-    "qualityImgDesc": "Founder checking a finished garment on the production floor"
+    "qualityImgDesc": "Founder checking a finished garment on the production floor",
+    "line1FlowEyebrow": "Seamless process",
+    "line1Flow1": "Circular knitting",
+    "line1Flow2": "Full-body or partial seamless construction",
+    "line1Flow3": "Bonded and ultrasonic-cut finishing",
+    "line1Flow4": "In-line QC",
+    "dept2Tags": "Screen print · Sublimation · Heat transfer · Embroidery",
+    "dept3Tags": "Automated spreading · Cutting tables · Marker optimization"
   },
   "AboutPage": {
     "eyebrow": "About Us",

@@ -471,7 +471,14 @@
     "qualityD3": "BSCI审核 + SLCP验证评估",
     "qualityD4": "每批货提供照片包和验货报告",
     "qualityImgLabel": "质量检验",
-    "qualityImgDesc": "创始人在车间逐件检查成品"
+    "qualityImgDesc": "创始人在车间逐件检查成品",
+    "line1FlowEyebrow": "无缝工艺",
+    "line1Flow1": "圆机针织成型",
+    "line1Flow2": "全身或半身无缝结构",
+    "line1Flow3": "粘合与超声波裁切收口",
+    "line1Flow4": "在线质检",
+    "dept2Tags": "丝网印花 · 热转印 · 数码印花 · 多头刺绣",
+    "dept3Tags": "自动铺布 · 裁床 · 排版优化"
   },
   "AboutPage": {
     "eyebrow": "关于我们",
